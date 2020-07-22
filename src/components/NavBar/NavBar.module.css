@@ -1,0 +1,27 @@
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 4rem;
+}
+
+.menu__wrapper {
+    width: 96rem;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav__item {
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+}

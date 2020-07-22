@@ -1,0 +1,23 @@
+@import "./styles/reset.css";
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+/* stylelint-disable */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* stylelint-enable */
+
+
+body {
+  font-family: "Muli", Helvetica, Arial;
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+
