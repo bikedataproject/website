@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './components/Home/Home';
-import NavBar from './components/NavBar/NavBar';
+import Header from './components/Header/Header';
 
 import { Switch, Route } from 'react-router-dom';
 import { ROUTES } from './const/index';
@@ -21,7 +21,7 @@ function App() {
         </div>
 
         <div className={style.nav}>
-            <NavBar />
+            <Header />
         </div>
       </>
     );
