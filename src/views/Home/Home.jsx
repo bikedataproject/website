@@ -1,11 +1,34 @@
-import React from 'react';
-import i18n from "i18next";
+import React, { useState, useEffect } from 'react';
+import i18n from "../../utils/i18n";
 import style from './Home.module.css';
+import ReactFlagsSelect from 'react-flags-select';
+import 'react-flags-select/css/react-flags-select.css';
 
 const Home = () => {
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const onSelectFlag = async (country) => {
+    const countryMapping = {
+      BE: 'nl',
+      FR: 'fre',
+      US: 'en'
+    }
+
+    await i18n.changeLanguage(countryMapping[country]);
+    setCurrentLanguage(country);
+  } 
+ 
   return (
     <>
       <section className={style.header}>
+          <ReactFlagsSelect
+            className={style.menu_flags}
+            countries={["US", "BE", "FR"]}
+            customLabels={{"US": "English","BE": "Nederlands", "FR": "Français"}}
+            placeholder="Select Language"
+            showSelectedLabel={true}
+            onSelect={(country) => onSelectFlag(country)}
+          />
         <h1 className={style.header__title}>
           {i18n.t("Heading")}
         </h1>

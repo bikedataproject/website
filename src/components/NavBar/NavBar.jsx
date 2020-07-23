@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './NavBar.module.css';
-import i18n from "i18next";
+import i18n from "../../utils/i18n";
 
 const NavBar = () => {
   return (
