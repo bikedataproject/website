@@ -2,7 +2,7 @@
 @value colorBlue, colorOrange, fontSizeMedium from tokens;
 
 .header {
-    background-image: url('/assets/img/header.jpg');
+    background-image: url('/assets/img/header2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
