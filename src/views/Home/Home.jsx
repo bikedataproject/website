@@ -115,7 +115,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={`${style.content} ${style.grid}`}>
+      <section className={`${style.content} ${style.grid} ${style.contribute}`}>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>What will I contribute to?</h2>
           <div className={style.content__text}>
@@ -134,17 +134,17 @@ const Home = () => {
         </div>
         <img
           className={style.content__img}
-          src="./assets/img/mockup-big.png"
+          src="./assets/img/contribute.png"
           alt="Mock up of the app on a phone"
-          width="468"
-          height="593"
+          width="680"
+          height="580"
         />
       </section>
 
-      <section className={`${style.content} ${style.grid}`}>
+      <section className={`${style.content} ${style.grid} ${style.visible}`}>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>
-            Let’s make cyclistsmore visible!
+            Let’s make cyclists more visible!
           </h2>
           <div className={style.content__text}>
             <p>
@@ -162,7 +162,7 @@ const Home = () => {
 
       <section className={`${style.content} ${style.grid}`}>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>Partners</h2>
+          <h2 className={style.content__title}>Project Partners</h2>
           <div className={`${style.partners} ${style.grid}`}>
             <div className={style.partner}>
               <img

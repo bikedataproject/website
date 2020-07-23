@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value colorBlue, colorOrange, fontSizeMedium from tokens;
+@value colorBlue, colorOrange, colorLightBlue, fontSizeMedium from tokens;
 
 .header {
     background-image: url('/assets/img/header.jpg');
@@ -84,8 +84,6 @@
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 4rem;
-
-
 }
 
 .donate__buttons p {
@@ -117,6 +115,35 @@
 .content__img {
     grid-column: 7 / span 6;
 }
+
+.contribute .content__wrapper {
+    background-color: colorLightBlue;
+    color: colorBlue;
+    padding: 10rem;
+    padding-right: 8rem;
+    margin-left: -10rem;
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    z-index: 1;
+}
+
+.contribute .content__title {
+    color: colorBlue;
+}
+
+.contribute .content__img {
+    grid-column: 5 / span 8;
+    grid-row: 1;
+    margin-right: -10rem;
+    position: relative;
+    bottom: -12rem;
+}
+
+.visible .content__wrapper {
+    grid-column: 3 / span 7;
+    margin-top: 20rem;
+}
+
 
 .data__overview {
     grid-column: 1 / span 12;
