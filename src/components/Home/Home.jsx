@@ -124,7 +124,7 @@ const Home = () => {
         </div>
 
         <h3 className={style.subtitle}>Interested in the data by region?</h3>
-        <button>See full map</button>
+        <button className={style.btn}>See full map</button>
       </section>
     </>
   );
