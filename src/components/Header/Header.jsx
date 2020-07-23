@@ -7,7 +7,7 @@ const Header = () => {
     <>
       <div className={style.header}>
         <div className={style.header__wrapper}>
-          <img src="./assets/img/logo.svg" alt="Bike Data Project logo" />
+            <img src="./assets/img/logo.svg" alt="Bike Data Project logo" />
             <NavBar />
         </div>
       </div>
