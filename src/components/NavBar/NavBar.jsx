@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './NavBar.module.css';
+import i18n from "i18next";
 
 const NavBar = () => {
   return (
@@ -12,19 +13,19 @@ const NavBar = () => {
             <ul className={style.list}>
                 <li>
                 <NavLink className={style.nav__item} activeClassName={style.active} to="/">
-                    Data Map
+                    {i18n.t("Data_Map")}
                 </NavLink>
                 </li>
                 <li>
                 <NavLink className={style.nav__item} activeClassName={style.active} to="/">
-                    About
+                  {i18n.t("About")}
                 </NavLink>
                 </li>
                 <li>
-                <NavLink className={style.nav__item} activeClassName={style.active} to="/"> FAQ </NavLink>
+                <NavLink className={style.nav__item} activeClassName={style.active} to="/"> {i18n.t("FAQ")} </NavLink>
                 </li>
                 <li>
-                <NavLink className={style.nav__item} activeClassName={style.active} to="/"> Contact </NavLink>
+                <NavLink className={style.nav__item} activeClassName={style.active} to="/"> {i18n.t("Contact")} </NavLink>
                 </li>
             </ul>
             </nav>
