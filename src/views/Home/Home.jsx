@@ -35,7 +35,7 @@ const Home = () => {
         />
       </section>
 
-      <section className={`${style.content} ${style.grid}`}>
+      <section className={`${style.content} ${style.grid} ${style.donate}`}>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>Donate your bike data</h2>
           <div className={style.content__text}>
@@ -53,14 +53,20 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className={style.content__buttons}>
+        <div className={style.donate__buttons}>
           <div className={style.buttons__other}>
-            <p>Connect your existing app</p>
-            <button>Strava</button>
+            <p>Connect your existing account</p>
+            <div className={style.buttons__wrapper}>
+              <button className={style.btn}>Strava</button>
+              <button className={style.btn}>Other</button>
+            </div>
           </div>
           <div className={style.buttons__our}>
             <p>Download our app</p>
-            <button>Google Store</button>
+            <div className={style.buttons__wrapper}>
+              <button className={style.btn}>Google Store</button>
+              <button className={style.btn}>Apple Store</button>
+            </div>
           </div>
         </div>
       </section>
