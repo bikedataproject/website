@@ -7,12 +7,15 @@ const Home = () => {
   return (
     <>
       <section className={style.header}>
-        <h1 className={style.header__title}>{i18n.t('Heading')}</h1>
+        <div className={style.header__wrapper}>
+          <h1 className={style.header__title}>{i18n.t('Heading')}</h1>
+        </div>
 
         <div className={style.header__intro}>
           <p>{i18n.t('Introduction')}</p>
           <p className={style.intro__counter}>
-            <span>+12.2K</span> {i18n.t('Label_total_km')}
+            <p className={style.counter__total}>+12.2K</p>
+            <p>{i18n.t('Label_total_km')}</p>
           </p>
         </div>
       </section>

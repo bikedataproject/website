@@ -60,6 +60,10 @@
     text-decoration: none;
 }
 
+.footer__navLink:hover {
+    color: colorBlue;
+}
+
 .footer__socials {
     display: flex;
     padding-top: 4.5rem;

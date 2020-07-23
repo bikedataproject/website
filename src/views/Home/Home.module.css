@@ -10,15 +10,19 @@
     height: 90vh;
 }
 
+.header__wrapper {
+    margin: 0 auto;
+    width: 96rem;
+}
+
 .header__title {
     font-size: 8rem;
     color: white;
     font-family: "Muli", sans-serif;
     font-weight: 700;
-    width: 70vw;
-    padding-left: 23rem;
-    padding-top: 25rem;
-    line-height: 1;
+    width: 60vw;
+    padding-top: 30vh;
+    line-height: 1.1;
 }
 
 .header__intro {
@@ -35,14 +39,14 @@
     grid-gap: 2.5rem;
 }
 
-.header__intro span {
-    font-size: 5.6rem;
-    font-weight: bold;
-}
-
 .intro__counter {
     font-size: 1.6rem;
     line-height: 1.5;
+}
+
+.counter__total {
+    font-size: 5.6rem;
+    font-weight: bold;
 }
 
 .content {
