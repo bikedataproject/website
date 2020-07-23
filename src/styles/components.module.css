@@ -1,3 +1,25 @@
 @value tokens: "./tokens.module.css";
-@value xx from tokens;
+@value colorBlue, colorOrange, fontSizeMedium from tokens;
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 5.3rem);
+    grid-gap: 3rem;
+}
+
+.btn {
+    border: .1rem solid colorBlue;
+    border-radius: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 20%;
+    background-color: white;
+    padding: 1.2rem 2.5rem;
+    color: colorBlue;
+    font-weight: bold;
+    transition: ease-in-out .2s;
+}
+
+.btn:hover {
+    background-color: colorBlue;
+    color: white;
+}

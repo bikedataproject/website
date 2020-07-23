@@ -1,0 +1,8 @@
+@value tokens: "../../styles/tokens.module.css";
+@value colorBlue, colorOrange, fontSizeMedium from tokens;
+
+.footer {
+    background-color: colorOrange;
+    margin-top: 14rem;
+    padding: 7rem;
+}
