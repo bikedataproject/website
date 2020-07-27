@@ -3,6 +3,7 @@ import Home from './views/Home/Home';
 import About from './views/About/About';
 import Contact from './views/Contact/Contact';
 import DataMap from './views/DataMap/DataMap';
+import Faq from './views/Faq/Faq';
 import Header from './components/Header/Header';
 
 import { Switch, Route } from 'react-router-dom';
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path={ROUTES.about}>
               <About />
+            </Route>
+            <Route path={ROUTES.faq}>
+              <Faq />
             </Route>
             <Route path={ROUTES.contact}>
               <Contact />

@@ -8421,6 +8421,11 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-accessible-accordion@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-accessible-accordion/-/react-accessible-accordion-3.3.1.tgz#3f50be58ebafaef2d56cc6456efce37fe80ec6d1"
+  integrity sha512-0uqlzNB31AT/kOz+H/gkg+U1dUN2jZZ+CbiczunyYjTW0D5lKLkMdF7G1tjP4Jru3kLkbcgMSa4Va6OqBQT+Jg==
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
@@ -8432,6 +8437,11 @@ react-app-polyfill@^1.0.6:
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
+
+react-collapsible@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/react-collapsible/-/react-collapsible-2.8.0.tgz#dce2ff7703d4456c5bb70cc1b53d3f80acf76526"
+  integrity sha512-QTxGyp4iL8N57FcU1RGt4wD7vqOTRYAHNukxtSeVMkZ+/d1WNWXRIakzhYhC/5TDERihPdp1IvKIJlrLLPyQ/A==
 
 react-dev-utils@^10.2.0:
   version "10.2.0"
