@@ -1,6 +1,12 @@
 @value tokens: "./tokens.module.css";
 @value colorBlue, colorOrange, fontSizeMedium from tokens;
 
+.content {
+    width: 96rem;
+    margin: 0 auto;
+    position: relative;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);

@@ -10,7 +10,7 @@
 .nav__item {
   margin: 1.5rem;
   padding: 1rem .5rem;
-  color: white;
+  color: colorBlue;
   text-decoration: none;
   border-bottom: .2rem solid transparent;
   transition: ease-in .2s;
@@ -21,8 +21,10 @@
 }
 
 .list__scroll .nav__item {
-  color: colorBlue;
+  color: white;
 }
+
+
 
 @media (max-width: 750px) {
     .list {

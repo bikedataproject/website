@@ -13,11 +13,12 @@ const Header = () => {
     setColorNav(colorNav)
   };
 
+  const url = window.location.pathname;
   window.addEventListener('scroll', handleScroll);
 
   return useObserver(() => (
     <>
-      <div className={`${style.header} ${colorNav ? style.header : style.header__scroll}`}>
+      <div className={`${style.header} ${colorNav && url === '/' ? style.header__scroll : style.header}`}>
         <div className={style.header__wrapper}>
           
           <Link to="/">
