@@ -17,6 +17,7 @@ i18n.use(LanguageDetector).init({
         Introduction:
           'With this project we aim to create a open data platform, for and by cyclists, that collects data on where and when people actually cycle. The platform aims at aggregating data from cyclists , to make cyclists more visible and cities better adapted to the cycling community.',
         Label_total_km: 'Total kilometers gathered by the cycling community',
+
         //Help
         Help_title: 'How to help?',
         Ask_for_favor:
@@ -203,7 +204,6 @@ i18n.use(LanguageDetector).init({
         // Contact Page
         Further_questions: 'Voor verdere vragen of informatie kunt u contact met ons opnemen via: ',
         Follow_socials: 'Volg ons project via onze social media kanalen:',
-      
       },
     },
   },
