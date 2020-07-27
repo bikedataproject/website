@@ -8,6 +8,14 @@
     padding: 5.5rem 0;
 }
 
+.menu_flags {
+    background-color: white;
+    padding: 0;
+    margin-top: 10px;
+    z-index: 1000;
+    color: black;
+}
+
 .hidden {
     display: none;
 }
@@ -38,6 +46,7 @@
 
 .footer__right {
     grid-column: 10 / span 3;
+
 }
 
 .footer__img {

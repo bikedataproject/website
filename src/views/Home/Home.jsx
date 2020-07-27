@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import i18n from "../../utils/i18n";
 import style from './Home.module.css';
-import ReactFlagsSelect from 'react-flags-select';
-import 'react-flags-select/css/react-flags-select.css';
 import { useObserver } from 'mobx-react-lite';
 import Footer from '../../components/Footer/Footer';
  
@@ -21,16 +19,8 @@ const Home = () => {
   }
 
   return useObserver(() => (
-    <>
+    <div className={style.global__wrapper}>
       <section className={style.header}>
-       <ReactFlagsSelect
-          className={style.menu_flags}
-          countries={["US", "BE", "FR"]}
-          customLabels={{"US": "English","BE": "Nederlands", "FR": "Français"}}
-          placeholder="Select Language"
-          showSelectedLabel={true}
-          onSelect={(country) => onSelectFlag(country)}
-        />
         <div className={style.header__wrapper}>
           <h1 className={style.header__title}>{i18n.t('Heading')}</h1>
         </div>
@@ -161,7 +151,7 @@ const Home = () => {
       </section>
 
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
-        {/* <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p> */}
+        <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Contribute_title')}</h2>
           <div className={style.content__text}>
@@ -172,7 +162,7 @@ const Home = () => {
         <img
           className={style.content__img}
           src="./assets/img/contribute.png"
-          alt="Mock up of the app on a phone"
+          alt="People cycling"
           width="680"
           height="580"
         />
@@ -234,8 +224,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
+    </div>
   ));
 };
 

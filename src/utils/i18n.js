@@ -13,7 +13,7 @@ i18n.use(LanguageDetector).init({
         Contact: "Contact",
 
         // Header
-        Heading: "An online platform collecting bike data, for and by cyclists",
+        Heading: "We’re collecting cycling data to make cities sustainable and bike-friendly",
         Introduction: "With this project we aim to create a open data platform, for and by cyclists, that collects data on where and when people actually cycle. The platform aims at aggregating data from cyclists , to make cyclists more visible and cities better adapted to the cycling community.",
         Label_total_km: "Total kilometers gathered by the cycling community",
         //Help
@@ -81,6 +81,7 @@ i18n.use(LanguageDetector).init({
     nl: {
       translations: {
         Heading: "Een online platform om fietsdata te verzamelen, voor en door fietsers.",
+        Label_total_km: "Totaal aantal kilometer verzamelt."
       }
     }
   },
