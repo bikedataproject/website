@@ -4,6 +4,8 @@ import style from './DataMap.module.css';
 import Footer from '../../components/Footer/Footer';
 import i18n from 'i18next';
 
+import './data.css';
+
 const DataMap = () => {
 
   const mapContainerRef = useRef(null);
@@ -22,13 +24,13 @@ const DataMap = () => {
     map.addControl(new mapboxgl.NavigationControl());
 
     let overlay = mapOverlayRef.current;
-    const popup = new mapboxgl.Popup({
+    let popup = new mapboxgl.Popup({
       closeButton: false,
     });
 
     map.on('load', function () {
       // get lowest label and road.
-      const style = map.getStyle();
+      let style = map.getStyle();
       let lowestRoad = undefined;
       let lowestLabel = undefined;
       let lowestSymbol = undefined;
@@ -105,25 +107,58 @@ const DataMap = () => {
         var feature = e.features[0];
         //console.log(feature);
 
-        //overlay.innerHTML = '';
         mapOverlayRef.current.innerHTML = '';
 
-        var title = document.createElement('strong');
+        const container = document.createElement('div');
+        container.classList.add("wrapper");
+
+        const title = document.createElement('h4');
+        title.classList.add('data__subtitle');
         title.textContent = feature.properties.name;
 
-        var population = document.createElement('div');
-        population.textContent =
-          'Total KMs: ' +
-          feature.properties.km +
-          ' ' +
-          'Total Time: ' +
-          feature.properties.seconds +
-          ' ' +
-          'Total Trips: ' +
-          feature.properties.count;
+        const dataWrapper = document.createElement('section');
+        dataWrapper.classList.add('data__wrapper');
 
-        overlay.appendChild(title);
-        overlay.appendChild(population);
+
+        const avarageDistance = Math.round((feature.properties.km / feature.properties.count), 2);
+        const avarageSpeed = Math.round((feature.properties.km / (feature.properties.seconds /3600)) ,2);
+        const avarageDuration = Math.round(feature.properties.seconds / 60, 2);
+
+        const co2perkm = 130 / 1000;
+
+        const co2 = Math.round(feature.properties.km * co2perkm) / 1000;
+  
+
+        dataWrapper.innerHTML = `
+            <div class="data__set">
+              <span class="data__number">${feature.properties.count}</span>
+              <p class="data__label">rides collected</p>
+            </div>
+            <div class="data__set">
+              <span class="data__number">${feature.properties.km} km</span>
+              <p class="data__label">disctance collected</p>
+            </div>
+            <div class="data__set">
+              <span class="data__number">${avarageDistance} km</span>
+              <p class="data__label">average disctance</p>
+            </div>
+            <div class="data__set">
+              <span class="data__number">${avarageSpeed} km/h</span>
+              <p class="data__label">average speed</p>
+            </div>
+            <div class="data__set">
+              <span class="data__number">${avarageDuration} min</span>
+              <p class="data__label">average duration</p>
+            </div>
+            <div class="data__set">
+              <span class="data__number">${co2} t</span>
+              <p class="data__label">co2 saved</p>
+            </div>
+        `;
+
+        overlay.appendChild(container);
+        container.appendChild(title);
+        container.appendChild(dataWrapper);
         overlay.style.display = 'block';
 
         map.setFilter('areas-stats-selected', [
@@ -161,7 +196,7 @@ const DataMap = () => {
       </section>
 
       <section>
-        <div className={style.mapContainer} ref={mapContainerRef} />
+        <div className={style.mapContainer} ref={mapContainerRef} /> 
         <div className={style.mapOverlay} ref={mapOverlayRef} />
       </section>
 
