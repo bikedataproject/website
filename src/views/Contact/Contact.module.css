@@ -34,7 +34,12 @@
 }
 
 .socials a {
-    margin-right: 2rem;
+    margin-right: 4rem;
+}
+
+.socials svg {
+    width: 4.5rem;
+    height: 4.5rem;
 }
 
 .socials svg path {
@@ -58,27 +63,27 @@
 
     .header__wrapper {
         grid-column: 1/ span 8;
+        margin-top: 25vh;
     }
 }
 
 @media (max-width: 600px) {
 
+    .header__title {
+        margin-bottom: 1rem;
+    }
+
     .header__wrapper {
         grid-column: 1/ span 12;
+        margin-top: 20vh;
     }
 
     .socials a {
         margin-right: 3rem;
     }
 
-    .socials svg {
-        width: 4.5rem;
-        height: 4.5rem;
-    }
-
     .bigLetter {
-        composes: bigLetter from "../../styles/components.module.css";
-        font-size: 4rem;
-        transform: translate(-80rem, 20rem);
+        font-size: 20rem;
+        transform: translate(-60rem, 15rem);
     }
 }

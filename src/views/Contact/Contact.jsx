@@ -6,31 +6,24 @@ import i18n from 'i18next';
 
 const Contact = () => {
 
-
-  const openLink = () => {
-    window.open(
-      'https://twitter.com/bikedataproject',
-      '_blank',
-      'toolbar=0,location=0,menubar=0'
-    );
-
-  }
   return (
     <>
       <section className={`${style.header} ${style.grid} ${style.content}`}>
-        <p className={style.bigLetter}>{i18n.t('Contact')}</p>
+        <p className={style.bigLetter}>{i18n.t('Contact_us')}</p>
         <div className={style.header__wrapper}>
-          <h1 className={style.header__title}>Contact</h1>
+          <h1 className={style.header__title}>{i18n.t('Contact_title')}</h1>
           <p>
-            For any further questions or information, please contact us via:{' '}
-            <Link to="mailto:bikedataproject@openknowledge.be" className={style.mailLink} target="_blank">
+            {i18n.t('Further_questions')}{' '}
+            <Link
+              to="mailto:bikedataproject@openknowledge.be"
+              className={style.mailLink}
+              target="_blank"
+            >
               bikedataproject@openknowledge.be
             </Link>
           </p>
 
-          <h1 className={style.subtitle}>
-            Follow our project via our social media channels:
-          </h1>
+          <h2 className={style.subtitle}>{i18n.t('Follow_socials')}</h2>
 
           <div className={style.socials}>
             <a href="https://twitter.com/bikedataproject" target="_blank">
@@ -61,7 +54,10 @@ const Contact = () => {
                 />
               </svg>
             </a>
-            <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg" target="_blank">
+            <a
+              href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg"
+              target="_blank"
+            >
               <svg
                 width="33"
                 height="33"
