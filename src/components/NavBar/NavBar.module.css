@@ -16,6 +16,16 @@
   transition: ease-in .2s;
 }
 
+.menu__item {
+  margin: 1.5rem;
+  padding: 1rem .5rem;
+  color: white;
+  text-decoration: none;
+  border-bottom: .2rem solid transparent;
+  transition: ease-in .2s;
+  font-size: 2rem;
+}
+
 .mobile__menu {
   z-index: -4;
   position: absolute;
@@ -51,7 +61,7 @@
   color: white;
 }
 
-.menu__scroll .nav__item {
+.menu__scroll .menu__item {
   color: colorBlue;
 }
 

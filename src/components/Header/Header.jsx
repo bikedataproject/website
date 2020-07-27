@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useObserver } from 'mobx-react-lite';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import style from './Header.module.css';
 import NavBar from '../NavBar/NavBar';
 
@@ -13,12 +13,12 @@ const Header = () => {
     setColorNav(colorNav)
   };
 
-  const url = window.location.pathname;
+  const url = useLocation().pathname;
   window.addEventListener('scroll', handleScroll);
 
   return useObserver(() => (
     <>
-      <div className={`${style.header} ${colorNav && url === '/' ? style.header__scroll : style.header}`}>
+      <div className={`${style.header} ${colorNav && url !== '/datamap' && url !== '/about' ? style.header__scroll : style.header}`}>
         <div className={style.header__wrapper}>
           
           <Link to="/">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../const/index';
 import style from './NavBar.module.css';
 import i18n from "../../utils/i18n";
@@ -10,7 +10,7 @@ const NavBar = () => {
     // COLOR CHANGE NAV
   const [colorNav, setColorNav] = useState(true);
   const [menuColor, setMenuColor] = useState('white');
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [hamburgerVisible, setHamburgerVisible] = useState(false);
 
   useEffect(() => {
@@ -27,6 +27,11 @@ const NavBar = () => {
     return;
   }, [menuOpen])
 
+  useEffect(() => {
+    setMenuOpen(false);
+    return
+  }, [useLocation().pathname])
+
   const handleScroll = () => {
     const colorNav = window.scrollY < 70;
     setColorNav(colorNav)
@@ -34,7 +39,7 @@ const NavBar = () => {
     else setMenuColor('#36469D')
   };
 
-  const url = window.location.pathname;
+  const url = useLocation().pathname;
 
   window.addEventListener('scroll', handleScroll);
 
@@ -50,20 +55,20 @@ const NavBar = () => {
         <div className={`${style.mobile__menu} ${colorNav ? style.mobile__menu : style.menu__scroll}`}>
           <ul>
             <li>
-            <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
+            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
                 {i18n.t("Data_Map")}
             </NavLink>
             </li>
             <li>
-            <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.about}`}>
+            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.about}`}>
               {i18n.t("About")}
             </NavLink>
             </li>
             <li>
-            <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.faq}`}> {i18n.t("FAQ")} </NavLink>
+            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.faq}`}> {i18n.t("FAQ")} </NavLink>
             </li>
             <li>
-            <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.contact}`}> {i18n.t("Contact")} </NavLink>
+            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.contact}`}> {i18n.t("Contact")} </NavLink>
             </li>
           </ul>
         </div>
@@ -74,7 +79,7 @@ const NavBar = () => {
     return (
       <>
         <nav>
-          <ul className={`${style.list} ${colorNav && url === '/' ? style.list__scroll : style.list}`}>
+          <ul className={`${style.list} ${colorNav && url !== '/datamap' && url !== '/about' ? style.list__scroll : style.list}`}>
               <li>
               <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
                   {i18n.t("Data_Map")}
