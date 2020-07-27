@@ -31,5 +31,6 @@
     color: #F2F2F2;
     z-index: 0;
     position: absolute;
+    /* overflow: hidden; */
 }
 

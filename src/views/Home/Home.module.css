@@ -20,10 +20,11 @@
     /* z-index: 2; */
 }
 
+/* PROBLEM!!!! */
 .content__wrapper {
-    grid-column: 1 / span 5;
-    padding-top: 3.5rem;
-    z-index: 2;
+    /* grid-column NEEDS TO GO */
+    grid-column: 1 / span 5; 
+    z-index: 2; 
 }
 
 .content__wrapper p {
@@ -101,6 +102,11 @@
     background-color: pink;
 }
 
+.help .content__wrapper {
+    grid-column: 1 / span 5;
+}
+
+
 .content__textBold:first-child {
     font-weight: bold;
 }
@@ -125,7 +131,7 @@
 }
 
 .donate .content__title, .visible .content__title {
-    width: 70%;
+    width: 80%;
 }
 
 .donate__buttons {
@@ -270,6 +276,7 @@
 
 /* PARTNER SECTION */
 
+
 .partners {
     width: 96rem;
     margin: 0 auto;
@@ -292,6 +299,11 @@
     /* right: -60rem;
     top: 15rem; */
 }
+/* THIS CAN GO WHEN HELP CLASS WORKS */
+.partners_remove .content__wrapper {
+    grid-column: 1 / span 12;
+}
+
 
 
 @media (max-width: 1050px) {
@@ -351,9 +363,45 @@
         font-size: 20rem;
     }
 
+    .donate .content__title, .visible .content__title {
+        width: 100%;
+    }
+
+    /* BIG LETTERS */
+
     .helpLetter {
         transform: translate(-18rem, 3rem);
     }
+
+    .donate__buttons p {
+        width: 100%;
+    }
+
+    .contribute .content__wrapper {
+        grid-column: 1 / span 8;
+    }
+
+    .contribute .content__img {
+        position: relative;
+        bottom: -35rem;
+        height: 60%;
+    }
+
+    /* VISIBLE SECTION */
+
+    .visible {
+        margin-top: 25rem;
+    }
+
+    .visible .content__wrapper {
+        grid-column: 1 / span 7;
+    }
+
+    .route__img {
+        transform: translate(0, -40rem);
+        width: 40%;
+    }
+
 }
 
 @media (max-width: 750px) {
@@ -380,4 +428,92 @@
         font-size: 1.5rem;
     }
 
+    .visible .content__title {
+        width: 75%;
+    }
+
+    .visible .content__wrapper {
+        grid-column: 1 / span 10;
+    }
+
+    .route__img {
+        transform: translate(0, -45rem);
+        width: 30%;
+    }
+
+    .partner {
+        grid-column: span 4;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .content {
+        margin-top: 15rem;
+    }
+
+    .content__wrapper {
+        grid-column: 1 / span 12;
+    }
+
+    .content__img {
+        grid-column: 1 / span 12;
+    }
+
+    .header__title {
+        font-size: 5rem;
+    }
+
+    .header__intro {
+        grid-template-columns: 1fr;
+    }
+
+    .donate {
+        grid-template-areas: 
+            "text"
+            "buttons";
+    }
+
+    .donate .content__wrapper, .donate__buttons {
+        grid-column: 1 / span 12;
+    }
+
+    .donate .content__title {
+        width: 60%;
+    }
+
+    .line__img {
+        transform: translate(0, 0rem);
+        width: 90%;
+    }
+
+    .contribute .content__title, .data .content__title {
+        width: 75%;
+    }
+
+    .contribute .content__wrapper {
+        grid-column: 1 / span 12;
+        padding: 5rem;
+        margin-left: -5rem;
+    }
+
+    .contribute .content__img {
+        grid-column: 1 / span 12;
+        height: 100%;
+        grid-row: 2;
+    }
+
+    .visible .content__wrapper {
+        grid-column: 1 / span 12;
+    }
+
+    .route__img {
+        display: none;
+    }
+
+    .partner {
+        grid-column: span 6;
+    }
 }

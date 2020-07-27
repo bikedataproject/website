@@ -12,11 +12,21 @@ const Footer = () => {
           <div className={style.footer__left}>
             <p>{i18n.t('Footer_intro')}</p>
             <a href="https://be.okfn.org/">
-              <img
-                className={style.footer__img}
-                src="./assets/img/osoc-logo.svg"
-                alt="Open Knowlegde Belgium"
-              />
+              <picture >
+                <source
+                  media="(max-width: 600px)"
+                  srcSet="./assets/img/osoc-logo-icon.svg 113w"
+                />
+                <source
+                  media="(min-width: 600px)"
+                  srcSet="./assets/img/osoc-logo.svg 266w"
+                />
+                <img
+                  className={style.footer__img}
+                  src="./assets/img/osoc-logo.svg"
+                  alt="Open Knowlegde Belgium"
+                />
+              </picture>
             </a>
           </div>
 
@@ -121,7 +131,15 @@ const Footer = () => {
       <section className={style.subfooter}>
         <h2 className={style.hidden}>Subfooter</h2>
         <p>
-          {i18n.t('Footer_copyright_one')} <a className={style.link} href="https://creativecommons.org/licenses/by-sa/4.0"> {i18n.t('Footer_copyright_two')}</a>.
+          {i18n.t('Footer_copyright_one')}{' '}
+          <a
+            className={style.link}
+            href="https://creativecommons.org/licenses/by-sa/4.0"
+          >
+            {' '}
+            {i18n.t('Footer_copyright_two')}
+          </a>
+          .
         </p>
 
         <div className={style.policies}>

@@ -25,7 +25,9 @@ const Home = () => {
 
       {/* Doesn't take 'help' classname?! */}
       <section className={`${style.content} ${style.grid} ${style.help}}`}>
-        <p className={`${style.bigLetter} ${style.helpLetter}`}>{i18n.t('Help')}</p>
+        <p className={`${style.bigLetter} ${style.helpLetter}`}>
+          {i18n.t('Help')}
+        </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Help_title')}</h2>
           <div className={style.content__text}>
@@ -34,13 +36,23 @@ const Home = () => {
             <p>{i18n.t('Every_cyclist_can')}</p>
           </div>
         </div>
-        <img
-          className={style.content__img}
-          src="./assets/img/mockup-big.png"
-          alt="Mock up of the app on a phone"
-          width="468"
-          height="593"
-        />
+        <picture className={style.content__img}>
+          <source
+            media="(max-width: 600px)"
+            srcSet="./assets/img/mockup-hor.png 400w"
+          />
+          <source
+            media="(min-width: 600px)"
+            srcSet="./assets/img/mockup-big.png 468w"
+          />
+          <img
+            className={style.content__img}
+            src="./assets/img/mockup-big.png"
+            alt="Mock up of the app on a phone"
+            width="468"
+            height="593"
+          />
+        </picture>
       </section>
 
       <img
@@ -50,7 +62,9 @@ const Home = () => {
       />
 
       <section className={`${style.content} ${style.grid} ${style.donate}`}>
-        <p className={`${style.bigLetter} ${style.donateLetter}`}>{i18n.t('Donate')}</p>
+        <p className={`${style.bigLetter} ${style.donateLetter}`}>
+          {i18n.t('Donate')}
+        </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
           <div className={style.content__text}>
@@ -78,7 +92,9 @@ const Home = () => {
 
       <section className={`${style.content} ${style.data}`}>
         <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
-        <p className={`${style.bigLetter} ${style.dataLetter}`}>{i18n.t('Data')}</p>
+        <p className={`${style.bigLetter} ${style.dataLetter}`}>
+          {i18n.t('Data')}
+        </p>
         <div className={`${style.data__overview} ${style.grid}`}>
           <div className={style.data__set}>
             <span className={style.data__number}>22.982</span>
@@ -123,9 +139,8 @@ const Home = () => {
         </div>
       </section>
 
-
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
-         <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p>
+        {/* <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p> */}
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Contribute_title')}</h2>
           <div className={style.content__text}>
@@ -142,9 +157,10 @@ const Home = () => {
         />
       </section>
 
-  
       <section className={`${style.content} ${style.grid} ${style.visible}`}>
-        <p className={`${style.bigLetter} ${style.visibleLetter}`}>{i18n.t('Visible')}</p>
+        <p className={`${style.bigLetter} ${style.visibleLetter}`}>
+          {i18n.t('Visible')}
+        </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Visible_title')}</h2>
           <div className={style.content__text}>
@@ -160,8 +176,10 @@ const Home = () => {
         alt="Striped line of a route with places marked on"
       />
 
-      <section className={`${style.content} ${style.grid}`}>
-        <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p>
+      <section
+        className={`${style.content} ${style.grid} ${style.partners_remove}`}
+      >
+        {/* <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p> */}
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
