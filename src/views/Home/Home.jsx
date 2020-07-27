@@ -1,10 +1,13 @@
 import React from 'react';
+import { useObserver } from 'mobx-react-lite';
+
 import i18n from "i18next";
 import style from './Home.module.css';
 import Footer from '../../components/Footer/Footer';
-
+ 
 const Home = () => {
-  return (
+
+  return useObserver(() => (
     <>
       <section className={style.header}>
         <div className={style.header__wrapper}>
@@ -20,9 +23,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={`${style.content} ${style.grid}`}>
+      {/* Doesn't take 'help' classname?! */}
+      <section className={`${style.content} ${style.grid} ${style.help}}`}>
+        <p className={`${style.bigLetter} ${style.helpLetter}`}>{i18n.t('Help')}</p>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>{i18n.t('How_to_help')}</h2>
+          <h2 className={style.content__title}>{i18n.t('Help_title')}</h2>
           <div className={style.content__text}>
             <p className={style.content__textBold}>{i18n.t('Ask_for_favor')}</p>
             <p>{i18n.t('By_sharing_your')}</p>
@@ -38,34 +43,31 @@ const Home = () => {
         />
       </section>
 
+      <img
+        className={style.line__img}
+        src="./assets/img/bike_illustration.svg"
+        alt="Line illustration of a bike and some trees."
+      />
+
       <section className={`${style.content} ${style.grid} ${style.donate}`}>
+        <p className={`${style.bigLetter} ${style.donateLetter}`}>{i18n.t('Donate')}</p>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>Donate your bike data</h2>
+          <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
           <div className={style.content__text}>
-            <p>
-              There are a several ways you can contribute data to the project.
-              If you already use one of the apps listed below you can easily
-              connect them to The Bike Data Project. Once your app is connected
-              you can just carry on as usual and your rides will automatically
-              be uploaded to our service.
-            </p>
-            <p>
-              You’re not using such an application yet? No worries! You can
-              still be part of this project by also downloading and using our
-              app.
-            </p>
+            <p>{i18n.t('Several_ways_to_contribute')}</p>
+            <p>{i18n.t('You_not_using')}</p>
           </div>
         </div>
         <div className={style.donate__buttons}>
           <div className={style.buttons__other}>
-            <p>Connect your existing account</p>
+            <p>{i18n.t('Connect_existing_account')}</p>
             <div className={style.buttons__wrapper}>
               <button className={style.btn}>Strava</button>
               <button className={style.btn}>Other</button>
             </div>
           </div>
           <div className={style.buttons__our}>
-            <p>Download our app</p>
+            <p>{i18n.t('Download_our_app')}</p>
             <div className={style.buttons__wrapper}>
               <button className={style.btn}>Google Store</button>
               <button className={style.btn}>Apple Store</button>
@@ -74,16 +76,19 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={style.content}>
-        <h2 className={style.content__title}>Collected data worldwide</h2>
+      <section className={`${style.content} ${style.data}`}>
+        <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
+        <p className={`${style.bigLetter} ${style.dataLetter}`}>{i18n.t('Data')}</p>
         <div className={`${style.data__overview} ${style.grid}`}>
           <div className={style.data__set}>
             <span className={style.data__number}>22.982</span>
-            <span className={style.data__label}>rides collected</span>
+            <span className={style.data__label}>
+              {i18n.t('Rides_collected')}
+            </span>
           </div>
           <div className={style.data__set}>
             <span className={style.data__number}>
-              205.250 <span className={style.data__small}>km</span>
+              20.250 <span className={style.data__small}>km</span>
             </span>
             <span className={style.data__label}>rides collected</span>
           </div>
@@ -113,26 +118,19 @@ const Home = () => {
           </div>
         </div>
         <div className={style.data__more}>
-          <h3 className={style.subtitle}>Interested in the data by region?</h3>
-          <button className={style.btn}>See full map</button>
+          <h3 className={style.subtitle}>{i18n.t('Data_subtitle')}</h3>
+          <button className={style.btn}>{i18n.t('Data_button')}</button>
         </div>
       </section>
 
+
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
+         <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>What will I contribute to?</h2>
+          <h2 className={style.content__title}>{i18n.t('Contribute_title')}</h2>
           <div className={style.content__text}>
-            <p>
-              People who work in departments of transportation and city planners
-              around the world need data like this to help them develop modern
-              infrastructure and sustainable cities. The data can also be very
-              useful for other bike related products and services.
-            </p>
-            <p>
-              The common goal is to aggregate cycling data in an open data
-              platform, by and for cyclists. The more open data we can provide,
-              the greater impact it can have.
-            </p>
+            <p>{i18n.t('People_who_work')}</p>
+            <p>{i18n.t('Common_goal')}</p>
           </div>
         </div>
         <img
@@ -144,28 +142,28 @@ const Home = () => {
         />
       </section>
 
+  
       <section className={`${style.content} ${style.grid} ${style.visible}`}>
+        <p className={`${style.bigLetter} ${style.visibleLetter}`}>{i18n.t('Visible')}</p>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>
-            Let’s make cyclists more visible!
-          </h2>
+          <h2 className={style.content__title}>{i18n.t('Visible_title')}</h2>
           <div className={style.content__text}>
-            <p>
-              There is lots of open data for cars and car routes, but what about
-              cyclists? This project aims to make the cycling community more
-              visible and to make the world a cycling place!
-            </p>
-            <p>
-              This projects thinks globally but acts locally, as it is
-              applicable anywhere in the world.
-            </p>
+            <p>{i18n.t('Community_more_visible')}</p>
+            <p>{i18n.t('Globally_but_locally')}</p>
           </div>
         </div>
       </section>
 
+      <img
+        className={style.route__img}
+        src="./assets/img/route.svg"
+        alt="Striped line of a route with places marked on"
+      />
+
       <section className={`${style.content} ${style.grid}`}>
+        <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>Project Partners</h2>
+          <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
             <div className={style.partner}>
               <img
@@ -197,10 +195,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <Footer />
     </>
-  );
+  ));
 };
 
 export default Home;

@@ -1,6 +1,50 @@
 @value tokens: "../../styles/tokens.module.css";
 @value colorBlue, colorOrange, colorLightBlue, fontSizeMedium from tokens;
 
+
+/* GENERAL */
+
+.content {
+    width: 96rem;
+    margin: 0 auto;
+    margin-top: 25rem;
+    position: relative;
+}
+
+.grid {
+    composes: grid from "../../styles/components.module.css";
+}
+
+.content__title {
+    composes: title from "../../styles/typo.module.css";
+    /* z-index: 2; */
+}
+
+.content__wrapper {
+    grid-column: 1 / span 5;
+    padding-top: 3.5rem;
+    z-index: 2;
+}
+
+.content__wrapper p {
+    margin-bottom: 1.5rem;
+}
+
+.bigLetter {
+    composes: bigLetter from "../../styles/components.module.css";
+}
+
+.subtitle {
+    composes: subtitle from "../../styles/typo.module.css";
+}
+
+.btn {
+    composes: btn from "../../styles/components.module.css";
+}
+
+
+/* HEADER SECTION */
+
 .header {
     background-image: url('/assets/img/header.jpg');
     background-repeat: no-repeat;
@@ -20,23 +64,23 @@
     color: white;
     font-family: "Muli", sans-serif;
     font-weight: 700;
-    width: 60vw;
+    width: 80%;
     padding-top: 30vh;
     line-height: 1.1;
-}
+} 
 
 .header__intro {
     background-color: colorBlue;
     color: white;
     line-height: 1.8;
     width: 60vw;
-    padding: 4rem 16rem 4rem 5rem;
+    padding: 4rem 8vw 4rem 5rem;
     position: absolute;
     right: 0;
     bottom: 0;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 2.5rem;
+    grid-gap: 3rem;
 }
 
 .intro__counter {
@@ -49,28 +93,27 @@
     font-weight: bold;
 }
 
-.content {
-    width: 96rem;
-    margin: 0 auto;
-    margin-top: 20rem;
+
+/* HELP SECTION */
+/* Doesn't take 'help' classname?! */
+
+.help {
+    background-color: pink;
 }
 
-.grid {
-    composes: grid from "../../styles/components.module.css";
+.content__textBold:first-child {
+    font-weight: bold;
 }
 
-.content__title {
-    composes: title from "../../styles/typo.module.css";
+.content__img {
+    grid-column: 7 / span 6;
 }
 
-.content__wrapper {
-    grid-column: 1 / span 5;
-    padding-top: 3.5rem;
+.helpLetter {
+    transform: translate(-35rem, -2rem);
 }
 
-.content__wrapper p {
-    margin-bottom: 1.5rem;
-}
+/* DONATE SECTION */
 
 .donate {
     grid-template-areas: "buttons buttons buttons buttons buttons buttons blank text text text text text";
@@ -79,6 +122,10 @@
 .donate .content__wrapper {
     grid-column: 9 / span 5;
     grid-area: text;
+}
+
+.donate .content__title, .visible .content__title {
+    width: 70%;
 }
 
 .donate__buttons {
@@ -112,12 +159,20 @@
     margin-bottom: 2rem;
 }
 
-.content__textBold:first-child {
-    font-weight: bold;
+.line__img {
+    position: absolute;
+    transform: translate(0, 15rem);
+    width: 50%;
 }
 
-.content__img {
-    grid-column: 7 / span 6;
+.donateLetter {
+    transform: translate(60rem, 0rem);
+}
+
+/* CONTRIBUTE SECTION */
+
+.contribute {
+    margin-top: 30rem;
 }
 
 .contribute .content__wrapper {
@@ -143,14 +198,19 @@
     bottom: -12rem;
 }
 
-.visible .content__wrapper {
-    grid-column: 3 / span 7;
-    margin-top: 20rem;
+.contributeLetter {
+    transform: translate(50rem, -3rem);
 }
 
 
+/* DATA SECTION */
+
 .data__overview {
     grid-column: 1 / span 12;
+}
+
+.data .content__title {
+    width: 40%;
 }
 
 .data__set {
@@ -162,6 +222,7 @@
 
 .data__number {
     font-size: 5.5rem;
+    line-height: 1;
     color: colorBlue;
     font-weight: bold;
 }
@@ -181,12 +242,37 @@
     margin-top: 5.5rem;
 }
 
-.subtitle {
-    composes: subtitle from "../../styles/typo.module.css";
+.dataLetter {
+    transform: translate(-40rem, -20rem);
 }
 
-.btn {
-    composes: btn from "../../styles/components.module.css";
+
+/* VISIBLE SECTION */
+
+.visible {
+    margin-top: 30rem;
+}
+
+.visible .content__wrapper {
+    grid-column: 3 / span 7;
+}
+
+.route__img {
+    position: absolute;
+    right: 0;
+    transform: translate(0, -45rem);
+    width: 30%;
+}
+
+.visibleLetter {
+    transform: translate(-40rem, 0rem);
+}
+
+/* PARTNER SECTION */
+
+.partners {
+    width: 96rem;
+    margin: 0 auto;
 }
 
 .partner {
@@ -198,4 +284,100 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
+}
+
+.partnersLetter {
+    transform: translate(60rem, 15rem);
+    /* right: -60rem;
+    top: 15rem; */
+}
+
+
+@media (max-width: 1050px) {
+
+    .content__img {
+        width: 100%;
+    }
+
+    .content {
+        width: 85vw;
+        margin-top: 15rem;
+    }
+
+    .header__wrapper {
+        width: 85vw;
+    }
+
+    .header__title {
+        font-size: 7rem;
+        padding-top: 30vh;
+    }
+
+    .header__intro {
+        width: 75vw;
+    }
+
+    .data__number {
+        font-size: 4rem;
+    }
+
+    .data__small {
+        font-size: 2.5rem;
+    }
+
+    .partners {
+        width: 85vw;
+    }
+
+    .partner__img {
+        width: 80%;
+    }
+
+
+}
+
+@media (max-width: 900px) {
+
+    .header__title {
+        padding-top: 25vh;
+    }
+
+    .header__intro {
+        width: 90vw;
+    }
+
+    .bigLetter {
+        font-size: 20rem;
+    }
+
+    .helpLetter {
+        transform: translate(-18rem, 3rem);
+    }
+}
+
+@media (max-width: 750px) {
+
+    .header__title {
+        padding-top: 25vh;
+        font-size: 6.5rem;
+        width: 90%;
+    }
+
+    .header__intro {
+        width: 90vw;
+    }
+
+    .bigLetter {
+        font-size: 20rem;
+    }
+
+    .data__number {
+        font-size: 3.5rem;
+    }
+
+    .data__small, .data__label {
+        font-size: 1.5rem;
+    }
+
 }

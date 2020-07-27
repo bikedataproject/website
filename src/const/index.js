@@ -1,5 +1,9 @@
 const ROUTES = {
-  home: '/'
+  home: '/',
+  datamap: '/datamap',
+  about: '/about',
+  faq: '/faq',
+  contact: '/contact',
 };
 
 export { ROUTES };

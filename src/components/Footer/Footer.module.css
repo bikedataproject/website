@@ -95,3 +95,37 @@
     margin-left: 2rem;
     
 }
+
+@media (max-width: 1050px) {
+
+    .subfooter {
+        line-height: 1;
+        font-size: 1.2rem;
+    }
+
+    .footer__wrapper {
+        width: 85vw;
+    }
+
+
+.footer__middle {
+    grid-column: 6 / span 4;
+}
+
+.footer__right {
+    grid-column: 10 / span 3;
+}
+
+}
+
+@media (max-width: 900px) {
+    .footer__middle {
+        grid-column: 6 / span 3;
+    }
+
+    .footer__right {
+        grid-column: 9 / span 4;
+    }
+
+}
+

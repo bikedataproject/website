@@ -1,3 +1,6 @@
+@value tokens: "../../styles/tokens.module.css";
+@value colorBlue, colorOrange from tokens;
+
 .list {
   display: flex;
   align-items: center;
@@ -5,7 +8,26 @@
 }
 
 .nav__item {
-  padding: 1rem 2rem;
+  margin: 1.5rem;
+  padding: 1rem .5rem;
   color: white;
   text-decoration: none;
+  border-bottom: .2rem solid transparent;
+  transition: ease-in .2s;
 }
+
+.nav__item:hover, .active {
+  border-bottom: .2rem solid colorOrange;
+}
+
+.list__scroll .nav__item {
+  color: colorBlue;
+}
+
+@media (max-width: 750px) {
+    .list {
+      display: none;
+    }
+
+}
+

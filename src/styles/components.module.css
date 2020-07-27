@@ -3,10 +3,10 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(12, 5.3rem);
+    grid-template-columns: repeat(12, 1fr);
     grid-gap: 3rem;
 }
-
+ 
 .btn {
     border: .1rem solid colorBlue;
     border-radius: 3.5rem;
@@ -23,3 +23,13 @@
     background-color: colorBlue;
     color: white;
 }
+
+.bigLetter {
+    font-size: 26rem;
+    line-height: 0;
+    font-weight: 900;
+    color: #F2F2F2;
+    z-index: 0;
+    position: absolute;
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import i18n from 'i18next';
 import style from './Footer.module.css';
 
 const Footer = () => {
@@ -9,9 +10,7 @@ const Footer = () => {
         <h2 className={style.hidden}>Footer</h2>
         <div className={`${style.footer__wrapper} ${style.grid}`}>
           <div className={style.footer__left}>
-            <p>
-              Bike Data Project is a project organised by Open Knowledge Belgium
-            </p>
+            <p>{i18n.t('Footer_intro')}</p>
             <a href="https://be.okfn.org/">
               <img
                 className={style.footer__img}
@@ -22,23 +21,41 @@ const Footer = () => {
           </div>
 
           <div className={style.footer__middle}>
-            <h3 className={style.footer__title}>Information</h3>
+            <h3 className={style.footer__title}>
+              {i18n.t('Footer_nav_title')}
+            </h3>
             <div className={style.footer__nav}>
-              <Link className={style.footer__navLink} to="/">Data Map</Link>
-              <Link className={style.footer__navLink} to="/about">About</Link>
-              <Link className={style.footer__navLink} to="/faq">FAQ</Link>
-              <Link className={style.footer__navLink} to="/contact">Contact</Link>
+              <Link className={style.footer__navLink} to="/" target="_blank">
+                {i18n.t('Data_map')}
+              </Link>
+              <Link
+                className={style.footer__navLink}
+                to="/about"
+                target="_blank"
+              >
+                {i18n.t('About')}
+              </Link>
+              <Link className={style.footer__navLink} to="/faq" target="_blank">
+                {i18n.t('FAQ')}
+              </Link>
+              <Link
+                className={style.footer__navLink}
+                to="/contact"
+                target="_blank"
+              >
+                {i18n.t('Contact')}
+              </Link>
             </div>
           </div>
 
           <div className={style.footer__right}>
-            <h3 className={style.footer__title}>Contact</h3>
-            <p>Cantersteen 12</p>
-            <p>1000 Brussel</p>
+            <h3 className={style.footer__title}>{i18n.t('Footer_contact')}</h3>
+            <p>{i18n.t('Footer_street')}</p>
+            <p>{i18n.t('Footer_city')}</p>
             <p>bikedata@openknowledge.be</p>
 
             <div className={style.footer__socials}>
-              <a href="https://twitter.com/bikedataproject">
+              <Link href="https://twitter.com/bikedataproject" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -51,7 +68,7 @@ const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
               <a href="https://www.facebook.com/BikeDataProject">
                 <svg
                   width="33"
@@ -102,21 +119,15 @@ const Footer = () => {
       </section>
 
       <section className={style.subfooter}>
+        <h2 className={style.hidden}>Subfooter</h2>
         <p>
-          Content on this site is licensed under a{' '}
-          <a
-            className={style.link}
-            href="https://creativecommons.org/licenses/by-sa/4.0"
-          >
-            Creative Commons Attribution 4.0 International License
-          </a>
-          .
+          {i18n.t('Footer_copyright_one')} <a className={style.link} href="https://creativecommons.org/licenses/by-sa/4.0"> {i18n.t('Footer_copyright_two')}</a>.
         </p>
 
         <div className={style.policies}>
-          <p>Terms of use</p>
-          <p>Privacy policy</p>
-          <p>Cookie policy</p>
+          <p>{i18n.t('Terms_of_use')}</p>
+          <p>{i18n.t('Privacy_policy')}</p>
+          <p>{i18n.t('Cookie_policy')}</p>
         </div>
       </section>
     </>
