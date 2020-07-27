@@ -1,11 +1,12 @@
 @value tokens: "../../styles/tokens.module.css";
-@value faded, fontBody from tokens;
+@value colorBlue from tokens;
 
 .mapContainer {
-    position: absolute;
-    top: 60vh;
-    height: 60rem;
+    /* position: absolute; */
+    /* top: 60vh; */
+    height: 65rem;
     width: 100%;
+    margin: 6rem 0;
 }
 
 .map-overlay {
@@ -29,11 +30,56 @@
     composes: grid from "../../styles/components.module.css";
 }
 
+.bigLetter {
+    composes: bigLetter from "../../styles/components.module.css";
+    transform: translate(-40rem, 20rem);
+}
+
+.subtitle {
+    composes: subtitle from "../../styles/typo.module.css";
+}
+
+.btn {
+    composes: btn from "../../styles/components.module.css";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn svg {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.btn svg path {
+    fill: colorBlue;
+}
+
+.btn:hover svg path {
+    fill: white;
+}
+
 .header__wrapper {
-    grid-column: 1/ span 7;
-    margin-top: 25vh;
+    grid-column: 1/ span 6;
+    margin-top: 30vh;
+    z-index: 2;
+}
+
+.header__wrapper p {
+    margin-bottom: 1.5rem;
 }
 
 .header__title {
     composes: title from "../../styles/typo.module.css";
 }
+
+.cta__wrapper {
+    grid-column: 4/ span 6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
