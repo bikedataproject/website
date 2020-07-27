@@ -11,7 +11,7 @@
 
 .bigLetter {
     composes: bigLetter from "../../styles/components.module.css";
-    transform: translate(-80rem, 20rem);
+    transform: translate(-40rem, 20rem);
 }
 
 .subtitle {
@@ -19,41 +19,20 @@
     margin-top: 4rem;
 }
 
-.header__wrapper {
+.header {
     grid-column: 1/ span 6;
     margin-top: 30vh;
     z-index: 2;
-}
-
-.header__wrapper p {
-    margin-bottom: 1.5rem;
 }
 
 .header__title {
     composes: title from "../../styles/typo.module.css";
 }
 
-.socials a {
-    margin-right: 4rem;
+.questions__wrapper {
+    grid-column: 1/ span 12;
+    z-index: 2;
 }
-
-.socials svg {
-    width: 4.5rem;
-    height: 4.5rem;
-}
-
-.socials svg path {
-    fill: colorBlue;
-}
-
-.socials svg:hover path {
-    fill: colorOrange;
-}
-
-.mailLink {
-    color: colorOrange;
-}
-
 
 @media (max-width: 1050px) {
 
@@ -61,11 +40,12 @@
         width: 85vw;
     }
 
-    .header__wrapper {
+    .header {
         grid-column: 1/ span 8;
-        margin-top: 25vh;
+        margin-top: 20vh;
     }
 }
+
 
 @media (max-width: 600px) {
 
@@ -73,17 +53,10 @@
         margin-bottom: 1rem;
     }
 
-    .header__wrapper {
-        grid-column: 1/ span 12;
-        margin-top: 20vh;
-    }
-
-    .socials a {
-        margin-right: 3rem;
-    }
-
     .bigLetter {
         font-size: 20rem;
-        transform: translate(-60rem, 15rem);
+        transform: translate(-20rem, 20rem);
     }
+
 }
+
