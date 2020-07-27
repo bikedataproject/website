@@ -16,6 +16,33 @@
   transition: ease-in .2s;
 }
 
+.mobile__menu {
+  z-index: -4;
+  position: absolute;
+  top:0;
+  left:0;
+  height:100vh;
+  width: 100vw;
+  background-color: colorBlue;
+}
+
+.menu__scroll {
+  background-color: white;
+}
+
+.mobile__menu ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile__menu ul li{
+  margin: 20px;
+}
+
 .nav__item:hover, .active {
   border-bottom: .2rem solid colorOrange;
 }
@@ -24,7 +51,9 @@
   color: white;
 }
 
-
+.menu__scroll .nav__item {
+  color: colorBlue;
+}
 
 @media (max-width: 750px) {
     .list {

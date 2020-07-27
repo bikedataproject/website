@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import i18n from 'i18next';
 import style from './Footer.module.css';
+import i18n from "../../utils/i18n";
+import ReactFlagsSelect from 'react-flags-select';
+import 'react-flags-select/css/react-flags-select.css';
 
-const Footer = () => {
+const Footer = ({onSelectFlag}) => {
+
   return (
     <>
       <section className={style.footer}>
@@ -56,6 +59,14 @@ const Footer = () => {
                 {i18n.t('Contact')}
               </Link>
             </div>
+            <ReactFlagsSelect
+              className={style.menu_flags}
+              countries={["US", "BE", "FR"]}
+              customLabels={{"US": "English","BE": "Nederlands", "FR": "Français"}}
+              placeholder="Select Language"
+              showSelectedLabel={true}
+              onSelect={(country) => onSelectFlag(country)}
+            />
           </div>
 
           <div className={style.footer__right}>
