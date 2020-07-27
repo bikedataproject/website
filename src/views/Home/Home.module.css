@@ -489,6 +489,10 @@
         width: 90%;
     }
 
+    .data__set {
+        grid-column: span 6;
+    }
+
     .contribute .content__title, .data .content__title {
         width: 75%;
     }

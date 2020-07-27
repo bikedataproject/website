@@ -179,7 +179,7 @@ const Home = () => {
       <section
         className={`${style.content} ${style.grid} ${style.partners_remove}`}
       >
-        {/* <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p> */}
+        <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
