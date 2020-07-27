@@ -149,17 +149,15 @@
     grid-area: buttons;
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
-    grid-gap: 3rem;
-    margin: auto;
+    grid-gap: 2rem;
 }
 
 .donate__buttons p {
     font-weight: 900;
     text-transform: uppercase;
-    width: 70%;
     line-height: 1.2;
     margin-bottom: 3rem;
-    margin: auto;
+    margin-bottom: 20px;
 }
 
 .buttons__other, .buttons__our {
@@ -525,6 +523,10 @@
         grid-template-areas: 
             "text"
             "buttons";
+    }
+
+    .donate__buttons {
+        margin: auto;
     }
 
     .donate .content__wrapper, .donate__buttons {
