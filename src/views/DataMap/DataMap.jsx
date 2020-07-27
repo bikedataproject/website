@@ -105,7 +105,6 @@ const DataMap = () => {
         map.getCanvas().style.cursor = 'pointer';
 
         var feature = e.features[0];
-        //console.log(feature);
 
         mapOverlayRef.current.innerHTML = '';
 
@@ -126,7 +125,6 @@ const DataMap = () => {
         const co2perkm = 130 / 1000;
         const co2 = Math.round(feature.properties.km * co2perkm) / 1000;
   
-
         dataWrapper.innerHTML = `
             <div class="data__set">
               <span class="data__number">${feature.properties.count}</span>
@@ -180,27 +178,22 @@ const DataMap = () => {
   return (
     <>
       <section className={`${style.header} ${style.grid} ${style.content}`}>
-        <p className={style.bigLetter}>
-          {i18n.t('Data')}
-        </p>
+        <p className={style.bigLetter}>{i18n.t('Data')}</p>
         <div className={style.header__wrapper}>
           <h1 className={style.header__title}>{i18n.t('Map_title')}</h1>
-          <p>
-            This data has been gathered during the past years, by different
-            types of cyclists. Feel free to explore the map!
-          </p>
-          <p>Below, you can have full access to our open data as well.</p>
+          <p>{i18n.t('Data_been_gathered')}</p>
+          <p>{i18n.t('Below_access')}</p>
         </div>
       </section>
 
       <section>
-        <div className={style.mapContainer} ref={mapContainerRef} /> 
+        <div className={style.mapContainer} ref={mapContainerRef} />
         <div className={style.mapOverlay} ref={mapOverlayRef} />
       </section>
 
       <section className={`${style.cta} ${style.grid} ${style.content}`}>
         <div className={style.cta__wrapper}>
-          <h3 className={style.subtitle}>Have a look at all our open data</h3>
+          <h3 className={style.subtitle}>{i18n.t('Map_subtitle')}</h3>
 
           <a className={style.btn} href="https://github.com/bikedataproject">
             <svg
