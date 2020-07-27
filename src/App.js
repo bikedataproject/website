@@ -19,6 +19,9 @@ function App() {
             <Route path={ROUTES.about}>
               <About />
             </Route>
+            <Route path={ROUTES.about}>
+              <About />
+            </Route>
             <Route path={ROUTES.home}>
               <Home />
             </Route>

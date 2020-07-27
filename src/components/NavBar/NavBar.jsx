@@ -34,6 +34,8 @@ const NavBar = () => {
     else setMenuColor('#36469D')
   };
 
+  const url = window.location.pathname;
+
   window.addEventListener('scroll', handleScroll);
 
   window.addEventListener('resize', () => {
@@ -72,7 +74,7 @@ const NavBar = () => {
     return (
       <>
         <nav>
-          <ul className={`${style.list} ${colorNav ? style.list : style.list__scroll}`}>
+          <ul className={`${style.list} ${colorNav && url === '/' ? style.list__scroll : style.list}`}>
               <li>
               <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
                   {i18n.t("Data_Map")}

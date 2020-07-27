@@ -1,0 +1,34 @@
+
+.wrapper {
+    position: absolute;
+    bottom: 8rem;
+
+    color: white;
+    z-index: 2;
+}
+
+.data__subtitle {
+    font-size: 3.5rem;
+}
+
+.data__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 3rem;
+    width: 96rem;
+}
+
+.data__set {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.data__number {
+    font-size: 2.5rem;
+}
+
+.data__label {
+    font-size: 1.5rem;
+}
