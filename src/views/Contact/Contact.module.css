@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value colorBlue from tokens;
+@value colorBlue, colorOrange from tokens;
 
 .content {
     composes: content from "../../styles/components.module.css";
@@ -11,9 +11,74 @@
 
 .bigLetter {
     composes: bigLetter from "../../styles/components.module.css";
-    transform: translate(-40rem, 20rem);
+    transform: translate(-80rem, 20rem);
 }
 
 .subtitle {
     composes: subtitle from "../../styles/typo.module.css";
+    margin-top: 4rem;
+}
+
+.header__wrapper {
+    grid-column: 1/ span 6;
+    margin-top: 30vh;
+    z-index: 2;
+}
+
+.header__wrapper p {
+    margin-bottom: 1.5rem;
+}
+
+.header__title {
+    composes: title from "../../styles/typo.module.css";
+}
+
+.socials a {
+    margin-right: 2rem;
+}
+
+.socials svg path {
+    fill: colorBlue;
+}
+
+.socials svg:hover path {
+    fill: colorOrange;
+}
+
+.mailLink {
+    color: colorOrange;
+}
+
+
+@media (max-width: 1050px) {
+
+    .content {
+        width: 85vw;
+    }
+
+    .header__wrapper {
+        grid-column: 1/ span 8;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header__wrapper {
+        grid-column: 1/ span 12;
+    }
+
+    .socials a {
+        margin-right: 3rem;
+    }
+
+    .socials svg {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .bigLetter {
+        composes: bigLetter from "../../styles/components.module.css";
+        font-size: 4rem;
+        transform: translate(-80rem, 20rem);
+    }
 }
