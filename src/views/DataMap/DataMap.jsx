@@ -119,13 +119,11 @@ const DataMap = () => {
         const dataWrapper = document.createElement('section');
         dataWrapper.classList.add('data__wrapper');
 
-
-        const avarageDistance = Math.round((feature.properties.km / feature.properties.count), 2);
+        const avarageDistance = Math.round((feature.properties.km / feature.properties.count), 4);
         const avarageSpeed = Math.round((feature.properties.km / (feature.properties.seconds /3600)) ,2);
         const avarageDuration = Math.round(feature.properties.seconds / 60, 2);
 
         const co2perkm = 130 / 1000;
-
         const co2 = Math.round(feature.properties.km * co2perkm) / 1000;
   
 
@@ -182,7 +180,7 @@ const DataMap = () => {
   return (
     <>
       <section className={`${style.header} ${style.grid} ${style.content}`}>
-        <p className={`${style.bigLetter} ${style.donateLetter}`}>
+        <p className={style.bigLetter}>
           {i18n.t('Data')}
         </p>
         <div className={style.header__wrapper}>
