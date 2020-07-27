@@ -1,8 +1,53 @@
 @value tokens: "../../styles/tokens.module.css";
-@value colorBlue, colorOrange, fontSizeMedium from tokens;
+@value colorBlue, colorOrange, colorLightBlue, fontSizeMedium from tokens;
+
+
+/* GENERAL */
+
+.content {
+    width: 96rem;
+    margin: 0 auto;
+    margin-top: 25rem;
+    position: relative;
+}
+
+.grid {
+    composes: grid from "../../styles/components.module.css";
+}
+
+.content__title {
+    composes: title from "../../styles/typo.module.css";
+    /* z-index: 2; */
+}
+
+/* PROBLEM!!!! */
+.content__wrapper {
+    /* grid-column NEEDS TO GO */
+    grid-column: 1 / span 5; 
+    z-index: 2; 
+}
+
+.content__wrapper p {
+    margin-bottom: 1.5rem;
+}
+
+.bigLetter {
+    composes: bigLetter from "../../styles/components.module.css";
+}
+
+.subtitle {
+    composes: subtitle from "../../styles/typo.module.css";
+}
+
+.btn {
+    composes: btn from "../../styles/components.module.css";
+}
+
+
+/* HEADER SECTION */
 
 .header {
-    background-image: url('/assets/img/header2.jpg');
+    background-image: url('/assets/img/header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -10,34 +55,33 @@
     height: 90vh;
 }
 
+.header__wrapper {
+    margin: 0 auto;
+    width: 96rem;
+}
+
 .header__title {
     font-size: 8rem;
     color: white;
     font-family: "Muli", sans-serif;
     font-weight: 700;
-    width: 70vw;
-    padding-left: 23rem;
-    padding-top: 25rem;
-    line-height: 1;
-}
+    width: 80%;
+    padding-top: 30vh;
+    line-height: 1.1;
+} 
 
 .header__intro {
     background-color: colorBlue;
     color: white;
     line-height: 1.8;
     width: 60vw;
-    padding: 4rem 16rem 4rem 5rem;
+    padding: 4rem 8vw 4rem 5rem;
     position: absolute;
     right: 0;
     bottom: 0;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 2.5rem;
-}
-
-.header__intro span {
-    font-size: 5.6rem;
-    font-weight: bold;
+    grid-gap: 3rem;
 }
 
 .intro__counter {
@@ -45,34 +89,23 @@
     line-height: 1.5;
 }
 
-.content {
-    width: 96rem;
-    margin: 0 auto;
-    margin-top: 20rem;
+.counter__total {
+    font-size: 5.6rem;
+    font-weight: bold;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(12, 5.3rem);
-    grid-gap: 3rem;
+
+/* HELP SECTION */
+/* Doesn't take 'help' classname?! */
+
+.help {
+    background-color: pink;
 }
 
-.content__title {
-    color: colorOrange;
-    font-family: "DM Serif Display", serif;
-    font-size: 4.4rem;
-    line-height: 1.2;
-    margin-bottom: 5rem;
-}
-
-.content__wrapper {
+.help .content__wrapper {
     grid-column: 1 / span 5;
-    padding-top: 3.5rem;
 }
 
-.content__wrapper p {
-    margin-bottom: 1.5rem;
-}
 
 .content__textBold:first-child {
     font-weight: bold;
@@ -82,8 +115,108 @@
     grid-column: 7 / span 6;
 }
 
+.helpLetter {
+    transform: translate(-35rem, -2rem);
+}
+
+/* DONATE SECTION */
+
+.donate {
+    grid-template-areas: "buttons buttons buttons buttons buttons buttons blank text text text text text";
+}
+
+.donate .content__wrapper {
+    grid-column: 9 / span 5;
+    grid-area: text;
+}
+
+.donate .content__title, .visible .content__title {
+    width: 80%;
+}
+
+.donate__buttons {
+    grid-column: 1 / span 6;
+    grid-area: buttons;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 4rem;
+}
+
+.donate__buttons p {
+    font-weight: 900;
+    text-transform: uppercase;
+    width: 70%;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+}
+
+.buttons__other, .buttons__our {
+    align-self: flex-end;
+}
+
+.buttons__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.buttons__wrapper button {
+    margin-bottom: 2rem;
+}
+
+.line__img {
+    position: absolute;
+    transform: translate(0, 15rem);
+    width: 50%;
+}
+
+.donateLetter {
+    transform: translate(60rem, 0rem);
+}
+
+/* CONTRIBUTE SECTION */
+
+.contribute {
+    margin-top: 30rem;
+}
+
+.contribute .content__wrapper {
+    background-color: colorLightBlue;
+    color: colorBlue;
+    padding: 10rem;
+    padding-right: 8rem;
+    margin-left: -10rem;
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    z-index: 1;
+}
+
+.contribute .content__title {
+    color: colorBlue;
+}
+
+.contribute .content__img {
+    grid-column: 5 / span 8;
+    grid-row: 1;
+    margin-right: -10rem;
+    position: relative;
+    bottom: -12rem;
+}
+
+.contributeLetter {
+    transform: translate(50rem, -3rem);
+}
+
+
+/* DATA SECTION */
+
 .data__overview {
     grid-column: 1 / span 12;
+}
+
+.data .content__title {
+    width: 40%;
 }
 
 .data__set {
@@ -95,6 +228,7 @@
 
 .data__number {
     font-size: 5.5rem;
+    line-height: 1;
     color: colorBlue;
     font-weight: bold;
 }
@@ -107,12 +241,67 @@
     font-size: 4rem;
 }
 
+.data__more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5.5rem;
+}
 
-.btn {
-    border: .1rem solid colorBlue;
-    border-radius: 50%;
-    text-transform: uppercase;
-    
+.dataLetter {
+    transform: translate(-40rem, -20rem);
+}
+
+
+/* VISIBLE SECTION */
+
+.visible {
+    margin-top: 30rem;
+}
+
+.visible .content__wrapper {
+    grid-column: 3 / span 7;
+}
+
+.route__img {
+    position: absolute;
+    right: 0;
+    transform: translate(0, -45rem);
+    width: 30%;
+}
+
+.visibleLetter {
+    transform: translate(-40rem, 0rem);
+}
+
+/* PARTNER SECTION */
+
+
+.partners {
+    width: 96rem;
+    margin: 0 auto;
+}
+
+.partner {
+    background: white;
+    box-shadow: 0px 2px 10px #E5E5E5;
+    border-radius: 7px;
+    grid-column: span 3;
+    height: 10.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.partnersLetter {
+    transform: translate(60rem, 15rem);
+    /* right: -60rem;
+    top: 15rem; */
+}
+/* THIS CAN GO WHEN HELP CLASS WORKS */
+.partners_remove .content__wrapper {
+    grid-column: 1 / span 12;
 }
 
 .menu_flags {
@@ -120,4 +309,220 @@
     padding: 0;
     margin: 0;
     border-radius: 0 0 10px 0;
+}
+
+@media (max-width: 1050px) {
+
+    .content__img {
+        width: 100%;
+    }
+
+    .content {
+        width: 85vw;
+        margin-top: 15rem;
+    }
+
+    .header__wrapper {
+        width: 85vw;
+    }
+
+    .header__title {
+        font-size: 7rem;
+        padding-top: 30vh;
+    }
+
+    .header__intro {
+        width: 75vw;
+    }
+
+    .data__number {
+        font-size: 4rem;
+    }
+
+    .data__small {
+        font-size: 2.5rem;
+    }
+
+    .partners {
+        width: 85vw;
+    }
+
+    .partner__img {
+        width: 80%;
+    }
+
+
+}
+
+@media (max-width: 900px) {
+
+    .header__title {
+        padding-top: 25vh;
+    }
+
+    .header__intro {
+        width: 90vw;
+    }
+
+    .bigLetter {
+        font-size: 20rem;
+    }
+
+    .donate .content__title, .visible .content__title {
+        width: 100%;
+    }
+
+    /* BIG LETTERS */
+
+    .helpLetter {
+        transform: translate(-18rem, 3rem);
+    }
+
+    .donate__buttons p {
+        width: 100%;
+    }
+
+    .contribute .content__wrapper {
+        grid-column: 1 / span 8;
+    }
+
+    .contribute .content__img {
+        position: relative;
+        bottom: -35rem;
+        height: 60%;
+    }
+
+    /* VISIBLE SECTION */
+
+    .visible {
+        margin-top: 25rem;
+    }
+
+    .visible .content__wrapper {
+        grid-column: 1 / span 7;
+    }
+
+    .route__img {
+        transform: translate(0, -40rem);
+        width: 40%;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .header__title {
+        padding-top: 25vh;
+        font-size: 6.5rem;
+        width: 90%;
+    }
+
+    .header__intro {
+        width: 90vw;
+    }
+
+    .bigLetter {
+        font-size: 20rem;
+    }
+
+    .data__number {
+        font-size: 3.5rem;
+    }
+
+    .data__small, .data__label {
+        font-size: 1.5rem;
+    }
+
+    .visible .content__title {
+        width: 75%;
+    }
+
+    .visible .content__wrapper {
+        grid-column: 1 / span 10;
+    }
+
+    .route__img {
+        transform: translate(0, -45rem);
+        width: 30%;
+    }
+
+    .partner {
+        grid-column: span 4;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .content {
+        margin-top: 15rem;
+    }
+
+    .content__wrapper {
+        grid-column: 1 / span 12;
+    }
+
+    .content__img {
+        grid-column: 1 / span 12;
+    }
+
+    .header__title {
+        font-size: 5rem;
+    }
+
+    .header__intro {
+        grid-template-columns: 1fr;
+    }
+
+    .donate {
+        grid-template-areas: 
+            "text"
+            "buttons";
+    }
+
+    .donate .content__wrapper, .donate__buttons {
+        grid-column: 1 / span 12;
+    }
+
+    .donate .content__title {
+        width: 60%;
+    }
+
+    .line__img {
+        transform: translate(0, 0rem);
+        width: 90%;
+    }
+
+    .data__set {
+        grid-column: span 6;
+    }
+
+    .contribute .content__title, .data .content__title {
+        width: 75%;
+    }
+
+    .contribute .content__wrapper {
+        grid-column: 1 / span 12;
+        padding: 5rem;
+        margin-left: -5rem;
+    }
+
+    .contribute .content__img {
+        grid-column: 1 / span 12;
+        height: 100%;
+        grid-row: 2;
+    }
+
+    .visible .content__wrapper {
+        grid-column: 1 / span 12;
+    }
+
+    .route__img {
+        display: none;
+    }
+
+    .partner {
+        grid-column: span 6;
+    }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import Home from './views/Home/Home';
+import About from './views/About/About';
+import DataMap from './views/DataMap/DataMap';
 import Header from './components/Header/Header';
 
 import { Switch, Route } from 'react-router-dom';
@@ -11,8 +13,14 @@ function App() {
       <>
         <div className={style.content}>
           <Switch>
-            <Route>
-              <Home path={ROUTES.home} />
+            <Route path={ROUTES.datamap}>
+              <DataMap />
+            </Route>
+            <Route path={ROUTES.about}>
+              <About />
+            </Route>
+            <Route path={ROUTES.home}>
+              <Home />
             </Route>
             <Route>
               <p>Not found</p>
@@ -21,7 +29,7 @@ function App() {
         </div>
 
         <div className={style.nav}>
-            <Header />
+          <Header />
         </div>
       </>
     );

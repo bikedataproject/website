@@ -1,8 +1,12 @@
+@value tokens: "../../styles/tokens.module.css";
+@value colorBlue from tokens;
+
 .header{
     position: fixed;
     top: 0;
     width: 100%;
-    padding-top: 3rem;
+    padding-top: 2.5rem;
+    z-index: 999;
 }
 
 .header__wrapper {
@@ -12,4 +16,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header__scroll {
+    background-color: colorBlue;
+    background-color: white;
+    color: colorBlue;
+    padding-bottom: 2rem;
+}
+
+.header__scroll svg path {
+    fill: colorBlue;
+}
+
+@media (max-width: 1050px) {
+
+    .header__wrapper {
+        width: 85vw;
+    }
+
+
 }
