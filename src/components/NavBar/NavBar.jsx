@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../const/index';
 import style from './NavBar.module.css';
-import i18n from "i18next";
+import i18n from "../../utils/i18n";
 
 const NavBar = () => {
 

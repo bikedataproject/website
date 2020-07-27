@@ -75,6 +75,12 @@ i18n.use(LanguageDetector).init({
     },
     fre: {
       translations: {
+        Heading: "Un Platform en ligne",
+      }
+    },
+    nl: {
+      translations: {
+        Heading: "Een online platform om fietsdata te verzamelen, voor en door fietsers.",
       }
     }
   },
