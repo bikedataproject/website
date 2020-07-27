@@ -13,6 +13,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.12.0",
     "react-flags-select": "^1.1.13",
+    "react-hamburger-menu": "^1.2.1",
     "react-i18next": "^11.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0"
