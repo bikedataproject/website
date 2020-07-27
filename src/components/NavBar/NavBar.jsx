@@ -29,13 +29,15 @@ const NavBar = () => {
 
   useEffect(() => {
     setMenuOpen(false);
+    if(colorNav && url === '/') setMenuColor('white')
+    else setMenuColor('#36469D')
     return
   }, [useLocation().pathname])
 
   const handleScroll = () => {
     const colorNav = window.scrollY < 70;
     setColorNav(colorNav)
-    if(colorNav) setMenuColor('white')
+    if(colorNav && url === '/') setMenuColor('white')
     else setMenuColor('#36469D')
   };
 
@@ -52,7 +54,7 @@ const NavBar = () => {
   const renderMobileMenu = () => {
     if(menuOpen)
       return(
-        <div className={`${style.mobile__menu} ${colorNav ? style.mobile__menu : style.menu__scroll}`}>
+        <div className={`${style.mobile__menu} ${colorNav && url === '/' ? style.mobile__menu : style.menu__scroll}`}>
           <ul>
             <li>
             <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
@@ -79,7 +81,7 @@ const NavBar = () => {
     return (
       <>
         <nav>
-          <ul className={`${style.list} ${colorNav && url !== '/datamap' && url !== '/about' ? style.list__scroll : style.list}`}>
+          <ul className={`${style.list} ${colorNav && url === '/' ? style.list__scroll : style.list}`}>
               <li>
               <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
                   {i18n.t("Data_Map")}

@@ -12,7 +12,7 @@ import style from "./App.module.css";
 
 function App() {
     return (
-      <>
+      <div className={style.global__wrapper}>
         <div className={style.content}>
           <Switch>
             <Route path={ROUTES.datamap}>
@@ -39,7 +39,7 @@ function App() {
         <div className={style.nav}>
           <Header />
         </div>
-      </>
+      </div>
     );
 }
 

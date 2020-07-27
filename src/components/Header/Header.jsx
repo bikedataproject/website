@@ -18,7 +18,7 @@ const Header = () => {
 
   return useObserver(() => (
     <>
-      <div className={`${style.header} ${colorNav && url !== '/datamap' && url !== '/about' ? style.header__scroll : style.header}`}>
+      <div className={`${style.header} ${colorNav && url === '/' ? style.header__scroll : style.header}`}>
         <div className={style.header__wrapper}>
           
           <Link to="/">
