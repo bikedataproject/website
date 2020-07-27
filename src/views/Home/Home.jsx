@@ -2,10 +2,26 @@ import React, { useState, useEffect } from 'react';
 import i18n from "../../utils/i18n";
 import style from './Home.module.css';
 import { useObserver } from 'mobx-react-lite';
+import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
+import VisibilitySensor from 'react-visibility-sensor';
  
 const Home = () => {
+  const co2perkm = 130 / 1000;
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [statisticsDuration, setStatisticsDuration] = useState(0);
+  const [statistics, setStatistics] = useState({
+    totalRides: 1,
+    totalDuration: 1,
+    totalDistance: 1,
+  });
+
+  useEffect(() => {
+    fetch("https://api.bikedataproject.info/geo/Track/Publish")
+    .then((response) => response.json())
+    .then((data) => setStatistics(data));
+    return;
+  }, [])
 
   const onSelectFlag = async (country) => {
     const countryMapping = {
@@ -101,54 +117,91 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={`${style.content} ${style.data}`}>
-        <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
-        <p className={`${style.bigLetter} ${style.dataLetter}`}>
-          {i18n.t('Data')}
-        </p>
-        <div className={`${style.data__overview} ${style.grid}`}>
-          <div className={style.data__set}>
-            <span className={style.data__number}>22.982</span>
-            <span className={style.data__label}>
-              {i18n.t('Rides_collected')}
-            </span>
+        <section className={`${style.content} ${style.data}`}>
+          <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
+          <p className={`${style.bigLetter} ${style.dataLetter}`}>
+            {i18n.t('Data')}
+          </p>
+          <div className={`${style.data__overview} ${style.grid}`}>
+            <div className={style.data__set}>
+              <span className={style.data__number}>
+                <VisibilitySensor onChange={(isVisible) => isVisible? setStatisticsDuration(2) : setStatisticsDuration(0)}>
+                  <CountUp
+                    end={statistics.totalRides}
+                    separator="."
+                    redraw={true}
+                    duration={statisticsDuration}
+                  />
+                </VisibilitySensor>
+              </span>
+              <span className={style.data__label}>
+                {i18n.t('Rides_collected')}
+              </span>
+            </div>
+            <div className={style.data__set}>
+              <span className={style.data__number}>
+                <CountUp
+                  end={statistics.totalDuration / 3600 / statistics.totalRides}
+                  redraw={true}
+                  duration={statisticsDuration}
+                />
+              </span>
+              <span className={style.data__label}>average hours ridden</span>
+            </div>
+            <div className={style.data__set}>
+              <span className={style.data__number}>
+                <CountUp
+                  end={Math.round(statistics.totalDuration / 3600 / 1000)}
+                  separator='.'
+                  redraw={true}
+                  duration={statisticsDuration}
+                />K
+              </span>
+              <span className={style.data__label}>hours ridden</span>
+            </div>
+            <div className={style.data__set}>
+              <span className={style.data__number}>
+                <CountUp
+                  end={(statistics.totalDistance / 1000) / (statistics.totalDuration / 3600)}
+                  redraw={true}
+                  duration={statisticsDuration}
+                />
+                <span className={style.data__small}>km/h</span>
+              </span>
+              <span className={style.data__label}>average speed</span>
+            </div>
+            <div className={style.data__set}>
+              <span className={style.data__number}>
+                <CountUp
+                  end={statistics.totalDistance / 1000000}
+                  separator='.'
+                  decimals={0}
+                  redraw={true}
+                  duration={statisticsDuration}
+                />K
+                <span className={style.data__small}> km</span>
+              </span>
+              <span className={style.data__label}>Total distance</span>
+            </div>
+            <div className={style.data__set}>
+              <span className={style.data__number}>
+                <CountUp
+                  end={((statistics.totalDistance / 1000) * co2perkm) / 1000}
+                  separator='.'
+                  decimals={0}
+                  redraw={true}
+                  duration={statisticsDuration}
+                />K
+                <span className={style.data__small}></span>
+              </span>
+              <span className={style.data__label}>kilotonnes Co2 saved</span>
+            </div>
           </div>
-          <div className={style.data__set}>
-            <span className={style.data__number}>
-              20.250 <span className={style.data__small}>km</span>
-            </span>
-            <span className={style.data__label}>rides collected</span>
+          <div className={style.data__more}>
+            <h3 className={style.subtitle}>{i18n.t('Data_subtitle')}</h3>
+            <button className={style.btn}>{i18n.t('Data_button')}</button>
           </div>
-          <div className={style.data__set}>
-            <span className={style.data__number}>
-              25 <span className={style.data__small}>min</span>
-            </span>
-            <span className={style.data__label}>rides collected</span>
-          </div>
-          <div className={style.data__set}>
-            <span className={style.data__number}>
-              13.48 <span className={style.data__small}>km/h</span>
-            </span>
-            <span className={style.data__label}>rides collected</span>
-          </div>
-          <div className={style.data__set}>
-            <span className={style.data__number}>
-              5.72 <span className={style.data__small}>km</span>
-            </span>
-            <span className={style.data__label}>rides collected</span>
-          </div>
-          <div className={style.data__set}>
-            <span className={style.data__number}>
-              26.68 <span className={style.data__small}>km</span>
-            </span>
-            <span className={style.data__label}>rides collected</span>
-          </div>
-        </div>
-        <div className={style.data__more}>
-          <h3 className={style.subtitle}>{i18n.t('Data_subtitle')}</h3>
-          <button className={style.btn}>{i18n.t('Data_button')}</button>
-        </div>
-      </section>
+        </section>
 
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
         <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p>
