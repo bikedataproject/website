@@ -185,6 +185,7 @@ const DataMap = () => {
         map.getCanvas().style.cursor = '';
         map.setFilter('areas-stats-selected', ['in', 'id', '']);
         overlay.style.display = 'none';
+        lastLocation = undefined;
       });
 
       map.on('zoomend', function() {
@@ -195,7 +196,7 @@ const DataMap = () => {
           
           if (statsArea && statsArea.length > 0) {
             updateOverlay(statsArea[0]);
-            
+
             map.setFilter('areas-stats-selected', [
               'in',
               'id',
