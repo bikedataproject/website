@@ -130,11 +130,11 @@ const DataMap = () => {
         const dataWrapper = document.createElement('section');
         dataWrapper.classList.add('data__wrapper');
 
-        const distance = Math.round(feature.properties.meters / 1000)
+        const distance = Math.round(feature.properties.meters / 1000 /1000)
 
-        const avarageDistance = Math.round(((feature.properties.meters /1000) / feature.properties.count), 4);
+        const avarageDistance = Math.round(((feature.properties.meters /1000) / feature.properties.count), 2);
         const avarageSpeed = Math.round(((feature.properties.meters / 1000) / (feature.properties.seconds /3600)) ,2);
-        const avarageDuration = Math.round(feature.properties.seconds / 60, 2);
+        const avarageDuration = Math.round((feature.properties.seconds / 60) /feature.properties.count, 2);
 
         const co2perkm = 130 / 1000;
         const co2 = Math.round((feature.properties.meters / 1000) * co2perkm) / 1000;
@@ -145,7 +145,7 @@ const DataMap = () => {
               <p class="data__label">rides collected</p>
             </div>
             <div class="data__set">
-              <span class="data__number">${distance} km</span>
+              <span class="data__number">${distance}K km</span>
               <p class="data__label">disctance collected</p>
             </div>
             <div class="data__set">
@@ -179,7 +179,7 @@ const DataMap = () => {
 
         popup.setLngLat(e.lngLat).setText(feature.properties.name).addTo(map);
       });
-
+ 
       map.on('mouseleave', 'areas-stats', function () {
         map.getCanvas().style.cursor = '';
         popup.remove();
