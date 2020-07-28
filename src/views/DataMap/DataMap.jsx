@@ -172,62 +172,7 @@ const DataMap = () => {
         lastLocation = e.point;
         var feature = e.features[0];
 
-<<<<<<< HEAD
-        mapOverlayRef.current.innerHTML = '';
-
-        const container = document.createElement('div');
-        container.classList.add("wrapper");
-
-        const title = document.createElement('h4');
-        title.classList.add('data__subtitle');
-        title.textContent = feature.properties.name;
-
-        const dataWrapper = document.createElement('section');
-        dataWrapper.classList.add('data__wrapper');
-
-        const distance = Math.round(feature.properties.meters / 1000 /1000)
-
-        const avarageDistance = Math.round(((feature.properties.meters /1000) / feature.properties.count), 2);
-        const avarageSpeed = Math.round(((feature.properties.meters / 1000) / (feature.properties.seconds /3600)) ,2);
-        const avarageDuration = Math.round((feature.properties.seconds / 60) /feature.properties.count, 2);
-
-        const co2perkm = 130 / 1000;
-        const co2 = Math.round((feature.properties.meters / 1000) * co2perkm) / 1000;
-  
-        dataWrapper.innerHTML = `
-            <div class="data__set">
-              <span class="data__number">${feature.properties.count}</span>
-              <p class="data__label">rides collected</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${distance}K km</span>
-              <p class="data__label">disctance collected</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${avarageDistance} km</span>
-              <p class="data__label">average disctance</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${avarageSpeed} km/h</span>
-              <p class="data__label">average speed</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${avarageDuration} min</span>
-              <p class="data__label">average duration</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${co2} t</span>
-              <p class="data__label">co2 saved</p>
-            </div>
-        `;
-
-        overlay.appendChild(container);
-        container.appendChild(title);
-        container.appendChild(dataWrapper);
-        overlay.style.display = 'block';
-=======
         updateOverlay(feature);
->>>>>>> d8d9d9b9c22aff3b37f7793977590cbf8feb461b
 
         map.setFilter('areas-stats-selected', [
           'in',
