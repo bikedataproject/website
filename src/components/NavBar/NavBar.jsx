@@ -35,7 +35,7 @@ const NavBar = () => {
   }, [useLocation().pathname])
 
   const handleScroll = () => {
-    const colorNav = window.scrollY < 70;
+    const colorNav = window.scrollY < window.innerHeight/2;
     setColorNav(colorNav)
     if(colorNav && url === '/') setMenuColor('white')
     else setMenuColor('#36469D')

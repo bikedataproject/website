@@ -117,7 +117,6 @@ i18n.use(LanguageDetector).init({
         Contact_title: 'Contact',
         Further_questions: 'For any further questions or information, please contact us via:',
         Follow_socials: 'Follow our project via our social media channels:',
-      
       },
 
     },
@@ -158,6 +157,10 @@ i18n.use(LanguageDetector).init({
         // Partners
         Partners_title: 'Partenaires du projet',
 
+        // Footer
+        Footer_intro: 'Bike Data Project est un projet organisé par Open Knowledge Belgium',
+        Footer_city: '1000 Bruxelles',
+
         // DataMap Page
         Data_been_gathered: 'Ces données ont été recueillies au cours des dernières années, par différents types de cyclistes de partout dans le monde. ',
         Below_access: 'Vous pouvez également avoir accès à nos données ouvertes ci-dessous.',
@@ -165,7 +168,7 @@ i18n.use(LanguageDetector).init({
 
         // About Page
         About_title: 'About Project',
-        Okb_is: "Open Knowledge Belgium est l'organisation à l'origine du Bike Data Project. ",
+        Okb_is: "Open Knowledge Belgium est l'organisation à l'origine du Bike Data Project.",
         Okb_umbrella: 'est une organisation faîtière (sans but lucratif / vzw / asbl) pour les initiatives Open Knowledge.',
         There_are_numerous: "Il existe de nombreuses initiatives Open Knowledge en Belgique. Afin de permettre à ces communautés d'accéder plus rapidement aux ressources, il était nécessaire de créer une organisation faîtière. C'est là qu'intervient Open Knowledge Belgium. Nous rendons possible le partage des connaissances et permettons aux différentes organisations et cultures de se croiser. Nous voulons ouvrir le savoir en Belgique et le voir utilisé et utile. Nous nous efforçons d'atteindre cet objectif par une approche ascendante et communautaire, ainsi que par une collaboration étroite avec les gouvernements et les organisations. ",
         Bike_data_project: 'Le projet Bike Data existait déjà il y a quelque temps. Le projet a ensuite été mis en place par ',
