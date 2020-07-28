@@ -1,6 +1,10 @@
 FROM mhart/alpine-node:11 AS build
 WORKDIR /app
 COPY . .
+
+# To handle 'not get uid/gid'
+RUN npm config set unsafe-perm true
+
 RUN npm install
 RUN npm install react-scripts@3.4.1 -g
 RUN yarn run build
