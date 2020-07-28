@@ -34,6 +34,10 @@
   height:100vh;
   width: 100vw;
   background-color: colorBlue;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
 .menu__scroll {
