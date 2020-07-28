@@ -7,9 +7,14 @@ import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
  
 const Home = () => {
-  const co2perkm = 130 / 1000;
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [statisticsDuration, setStatisticsDuration] = useState(0);
+  const [totalRides, setTotalRides] = useState(0);
+  const [totalDuration, setTotalDuration] = useState(0);
+  const [totalDistance, setTotalDistance] = useState(0);
+  const [averageDuration, setAverageDuration] = useState(0);
+  const [averageSpeed, setAverageSpeed] = useState(0);
+  const [co2Saved, setCo2Saved] = useState(0);
   const [statistics, setStatistics] = useState({
     totalRides: 1,
     totalDuration: 1,
@@ -23,6 +28,19 @@ const Home = () => {
     return;
   }, [])
 
+  useEffect(() => {
+    const co2perkm = 130 / 1000;
+
+    setTotalRides(statistics.totalRides);
+    setTotalDuration(statistics.totalDuration / 3600 / 1000);
+    setTotalDistance(statistics.totalDistance / 1000000);
+    setAverageDuration(statistics.totalDuration / 3600 / statistics.totalRides);
+    setAverageSpeed((statistics.totalDistance / 1000) / (statistics.totalDuration / 3600));
+    setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
+    
+    return;
+  }, [statistics])
+
   const onSelectFlag = async (country) => {
     const countryMapping = {
       BE: 'nl',
@@ -32,6 +50,10 @@ const Home = () => {
 
     await i18n.changeLanguage(countryMapping[country]);
     setCurrentLanguage(country);
+  }
+
+  const stravaLogin = () => {
+    window.location.assign(`https://www.strava.com/oauth/authorize?client_id=${process.env.REACT_APP_STRAVA_URL_KEY}&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all`);
   }
 
   return useObserver(() => (
@@ -103,7 +125,7 @@ const Home = () => {
           <div className={style.buttons__other}>
             <p>{i18n.t('Connect_existing_account')}</p>
             <div className={style.buttons__wrapper}>
-              <button className={style.btn}>Strava</button>
+              <button className={style.btn} onClick={() => stravaLogin()}>Strava</button>
               <button className={style.btn}>Other</button>
             </div>
           </div>
@@ -127,7 +149,7 @@ const Home = () => {
               <span className={style.data__number}>
                 <VisibilitySensor onChange={(isVisible) => isVisible? setStatisticsDuration(2) : setStatisticsDuration(0)}>
                   <CountUp
-                    end={statistics.totalRides}
+                    end={totalRides}
                     separator="."
                     redraw={true}
                     duration={statisticsDuration}
@@ -141,7 +163,7 @@ const Home = () => {
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={statistics.totalDuration / 3600 / statistics.totalRides}
+                  end={averageDuration}
                   redraw={true}
                   duration={statisticsDuration}
                 />
@@ -151,9 +173,10 @@ const Home = () => {
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={Math.round(statistics.totalDuration / 3600 / 1000)}
+                  end={totalDuration}
                   separator='.'
                   redraw={true}
+                  decimals={0}
                   duration={statisticsDuration}
                 />K
               </span>
@@ -162,7 +185,7 @@ const Home = () => {
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={(statistics.totalDistance / 1000) / (statistics.totalDuration / 3600)}
+                  end={averageSpeed}
                   redraw={true}
                   duration={statisticsDuration}
                 />
@@ -173,7 +196,7 @@ const Home = () => {
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={statistics.totalDistance / 1000000}
+                  end={totalDistance}
                   separator='.'
                   decimals={0}
                   redraw={true}
@@ -186,7 +209,7 @@ const Home = () => {
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={((statistics.totalDistance / 1000) * co2perkm) / 1000}
+                  end={co2Saved}
                   separator='.'
                   decimals={0}
                   redraw={true}
