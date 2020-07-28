@@ -16,9 +16,67 @@
 }
 
 .upload__modal {
-    position: static;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    position: fixed; /* Stay in place */
     top: 0;
     left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 100001;
+}
+
+.upload__modal div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    justify-content: flex-start;
+    align-self: center;
+    overflow: scroll;
+}
+
+.upload__modal div button {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    align-self: flex-end;
+    border: none;
+    position: fixed;
+}
+
+.upload__modal div input {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+.upload__modal div label {
+    align-self: center;
+    background: colorBlue;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+      font-family: 'Rubik', sans-serif;
+      font-size: inherit;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+
+.modal__Visible {
+    display: flex;
 }
 
 .grid {

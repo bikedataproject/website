@@ -5,9 +5,13 @@ import { useObserver } from 'mobx-react-lite';
 import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
+import { IoMdClose } from "react-icons/io";
  
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [garminModalVisible, setGarminModalVisible] = useState(false);
+  const [garminFiles, setGarminFiles] = useState([]);
+
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
@@ -25,6 +29,18 @@ const Home = () => {
     fetch("https://api.bikedataproject.info/geo/Track/Publish")
     .then((response) => response.json())
     .then((data) => setStatistics(data));
+
+    let fileInput = document.getElementById('file-input');
+
+    fileInput.addEventListener('change', () => {
+      let filesList = [];
+      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
+        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
+        if(i === Object.keys(fileInput.files).length - 1)
+          setGarminFiles(filesList);
+      }
+    });
+
     return;
   }, [])
 
@@ -126,9 +142,30 @@ const Home = () => {
             <p>{i18n.t('Connect_existing_account')}</p>
             <div className={style.buttons__wrapper}>
               <button className={style.btn} onClick={() => stravaLogin()}>Strava</button>
-              <button className={style.btn}>Garmin</button>
-              <div className={style.upload__modal}>
-                <input type='file' multiple />
+              <button onClick={() => setGarminModalVisible(true)} className={style.btn}>Garmin</button>
+              <div className={`${garminModalVisible ? style.modal__Visible : ''} ${style.upload__modal}`}>
+                <div>
+                  <button onClick={() => setGarminModalVisible(false)}>
+                    <IoMdClose style={{ width: '100%', height: '100%' }} />
+                  </button>
+                  {garminFiles.map((file, i) => {
+                    return (
+                      <div key={i}>
+                        <p>{file.name}</p>
+                        <button onClick={() => {
+                          let fileList = [...garminFiles];
+                          fileList.splice(i, 1)
+                          setGarminFiles(fileList);
+                        }}>
+                          <IoMdClose style={{ width: '100%', height: '100%' }} />
+                        </button>
+                      </div>
+                    )
+                  })
+                  }
+                  <input id='file-input' type='file' accept=".fit,.gpx" multiple />
+                  <label for="file-input">Choose your Garmin files</label>
+                </div>
               </div>
             </div>
           </div>
