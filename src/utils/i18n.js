@@ -127,26 +127,36 @@ i18n.use(LanguageDetector).init({
         About: 'Projet',
 
         // Header
-        Heading: 'We’re collecting cycling data to make cities sustainable and bike-friendly ',
-        Introduction: 'With this project we aim to create a open data platform, for and by cyclists, that collects data on where and when people actually cycle. The platform aims at aggregating data from cyclists , to make cyclists more visible and cities better adapted to the cycling community.',
-        Label_total_km: 'Total kilometers gathered by the cycling community',
+        Heading: 'Nous recueillons des données sur les vélos à rendre les villes durables et respectueuses du vélo ',
+        Introduction: 'Ce projet vise à créer une plateforme de données ouverte à tous, faite pour et par les cyclistes, recueillant des données sur les endroits et moments où les gens font réellement du vélo. La plate-forme vise à rassembler les données des cyclistes afin de les rendre plus accessibles et ainsi mieux adapter les villes à la communauté cycliste.',
+        Label_total_km: 'Nombre total de kilomètres parcourus par la communauté cycliste',
 
         //Help
-        Help_title: 'How to help?',
-        Ask_for_favor: 'To make this work we need to ask you for a simple favor.',
-        By_sharing_your: 'By sharing your own cycling data to our platform, all the collected data gives us patterns that can be used to make cyclists more visible and their cities adapted to them.',
-        Every_cyclist_can: 'Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes, but we also really want to take into account the short routes. Commuting to work or when you just take a quick ride to the grocery store.',
+        Help_title: 'Comment aider?',
+        Ask_for_favor: 'Pour que cela fonctionne, nous vous demandons une simple faveur. ',
+        By_sharing_your: 'En partageant vos données avec notre plateforme, l’ensemble des données collectées nous donnent des modèles qui peuvent être utilisés afin de rendre les cyclistes plus visibles et ainsi mieux adapter les villes dans lesquelles ceux-ci circulent.',
+        Every_cyclist_can: 'Chaque type de cycliste a quelque chose à apporter à ce projet. Certaines personnes suivent déjà leur activité pour leur entraînement personnel mais nous voulons aussi vraiment prendre en compte les trajets courts, afin de se rendre au travail ou alors pour se rendre dans une épicerie par exemple.',
         // Donate
-        Donate_title: 'Donate your bike data',
-        Several_ways_to_contribute: 'There are a several ways you can contribute data to the project. If you already use one of the apps listed below you can easily connect them to The Bike Data Project. Once your app is connected you can just carry on as usual and your rides will automatically be uploaded to our service.',
-        You_not_using: 'You’re not using such an application yet? No worries! You can still be part of this project by also downloading and using our app.',
-        Connect_existing_account: 'Connect your existing account',
-        Download_our_app: 'Download our app',
+        Donate_title: 'Faites don de vos données',
+        Several_ways_to_contribute: "Vous pouvez contribuer au projet de plusieurs manières. Si vous utilisez déjà l'une des applications énumérées ci- dessous, vous pouvez facilement les connecter au projet Bike Data.Une fois que votre application est connectée, vous pouvez continuer à l’utiliser normalement et vos trajets seront automatiquement téléchargés vers notre service.",
+        You_not_using: "Vous n'utilisez pas encore une telle application? Pas de soucis ! Vous pouvez toujours faire partie de ce projet en téléchargeant et en utilisant notre application.",
+        Connect_existing_account: 'Connectez votre compte existant',
+        Download_our_app: 'Téléchargez notre application',
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
         Data_subtitle: 'Interested in the data by region?',
         Data_button: 'See full map',
+        // Contribute
+        Contribute_title: 'À quoi vais-je contribuer ?',
+        People_who_work: "Les personnes travaillant dans le milieu des transports ainsi que les urbanistes du monde entier ont besoin de données comme celles-ci afin d’aider au développement des infrastructures modernes et des villes de demain. Ces données peuvent également être très utiles pour d'autres produits et services liés au vélo.",
+        Common_goal: "Notre objectif est d'agréger les données liés aux cyclistes sur une plate- forme de données ouverte, faite par et pour les cyclistes.Plus le nombre de données que nous pouvons fournir est important, plus celles- ci peuvent avoir un impact important sur notre futur.",
+        // Visible
+        Visible_title: 'Rendons les cyclistes plus visibles !',
+        Community_more_visible: "Les voitures et itinéraires routiers profitent déjà d’une quantité considérable de données, mais qu'en est- il des cyclistes? Ce projet vise à rendre cette communauté plus visible et à faire du monde un lieu adapté pour les cyclistes !",
+        Globally_but_locally: 'Ce projet pense globalement mais agit localement, applicable partout dans le monde c’est votre participation qui fera changer les choses.',
+        // Partners
+        Partners_title: 'Partenaires du projet',
 
         // DataMap Page
         Data_been_gathered: 'Ces données ont été recueillies au cours des dernières années, par différents types de cyclistes de partout dans le monde. ',
