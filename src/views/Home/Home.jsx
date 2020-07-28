@@ -142,12 +142,15 @@ const Home = () => {
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={statistics.totalDuration / 3600 / statistics.totalRides}
+                  end={statistics.totalDistance / 1000000}
+                  separator='.'
+                  decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
                 />
+                <span className={style.data__small}> km</span>
               </span>
-              <span className={style.data__label}>average hours ridden</span>
+              <span className={style.data__label}>{i18n.t('Distance_collected')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -156,9 +159,10 @@ const Home = () => {
                   separator='.'
                   redraw={true}
                   duration={statisticsDuration}
-                />K
+                />
+              <span className={style.data__small}> min</span>
               </span>
-              <span className={style.data__label}>hours ridden</span>
+            <span className={style.data__label}>{i18n.t('Average_duration')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -167,22 +171,20 @@ const Home = () => {
                   redraw={true}
                   duration={statisticsDuration}
                 />
-                <span className={style.data__small}>km/h</span>
+                <span className={style.data__small}> km/h</span>
               </span>
-              <span className={style.data__label}>average speed</span>
+            <span className={style.data__label}>{i18n.t('Average_speed')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
                 <CountUp
-                  end={statistics.totalDistance / 1000000}
-                  separator='.'
-                  decimals={0}
+                  end={statistics.totalDuration / 3600 / statistics.totalRides}
                   redraw={true}
                   duration={statisticsDuration}
-                />K
+                />
                 <span className={style.data__small}> km</span>
               </span>
-              <span className={style.data__label}>Total distance</span>
+              <span className={style.data__label}>{i18n.t('Average_distance')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -192,10 +194,10 @@ const Home = () => {
                   decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
-                />K
-                <span className={style.data__small}></span>
-              </span>
-              <span className={style.data__label}>kilotonnes Co2 saved</span>
+                />
+                <span className={style.data__small}> t</span>
+              </span> 
+            <span className={style.data__label}>{i18n.t('co2_saved')}</span>
             </div>
           </div>
           <div className={style.data__more}>

@@ -37,6 +37,11 @@ i18n.use(LanguageDetector).init({
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
+        Distance_collected: 'distance collected',
+        Average_duration: 'average duration',
+        Average_speed: 'average speed',
+        Average_distance: 'average distance',
+        co2_saved: 'CO2 saved',
         Data_subtitle: 'Interested in the data by region?',
         Data_button: 'See full map',
         // Contribute
@@ -142,10 +147,15 @@ i18n.use(LanguageDetector).init({
         Connect_existing_account: 'Connectez votre compte existant',
         Download_our_app: 'Téléchargez notre application',
         // Data
-        Data_title: 'Collected data worldwide',
-        Rides_collected: 'rides collected',
-        Data_subtitle: 'Interested in the data by region?',
-        Data_button: 'See full map',
+        Data_title: 'Les données collectées dans le monde entier',
+        Rides_collected: 'tours collectés',
+        Distance_collected: 'distance collectée',
+        Average_duration: 'durée moyenne',
+        Average_speed: 'vitesse moyenne',
+        Average_distance: ' distance moyenne ',
+        co2_saved: 'co2 économisé',
+        Data_subtitle: 'Vous êtes intéressé par les données par région ?',
+        Data_button: 'Voir la carte entière',
         // Contribute
         Contribute_title: 'À quoi vais-je contribuer ?',
         People_who_work: "Les personnes travaillant dans le milieu des transports ainsi que les urbanistes du monde entier ont besoin de données comme celles-ci afin d’aider au développement des infrastructures modernes et des villes de demain. Ces données peuvent également être très utiles pour d'autres produits et services liés au vélo.",
@@ -201,8 +211,45 @@ i18n.use(LanguageDetector).init({
         About: 'Over',
 
         // Header
-        Heading:
-          'Een online platform om fietsdata te verzamelen, voor en door fietsers.',
+        Heading: 'Wij verzamelen fietsdata om steden duurzaam en fietsvriendelijk te maken',
+        Introduction: 'Met dit project willen we een open data platform creëren, voor en door fietsers, dat gegevens verzamelt over waar en wanneer er gefietst wordt. Het doel van het platform is om gegevens van fietsers te aggregeren, om fietsers zichtbaarder te maken en steden beter af te stemmen op de fiets gemeenschap.',
+        Label_total_km: 'Totaal aantal kilometers verzameld door de fiets community',
+
+        //Help
+        Help_title: 'Hoe kan je helpen?',
+        Ask_for_favor: 'Om dit te doen werken moeten we u om een eenvoudige gunst vragen.',
+        By_sharing_your: 'Door je eigen fietsgegevens te delen met ons platform, geven alle verzamelde gegevens ons patronen die gebruikt kunnen worden om fietsers zichtbaarder te maken en hun steden aan te passen.',
+        Every_cyclist_can: 'Elke soort fietser heeft iets bij te dragen aan dit project. Sommige mensen volgen hun activiteit al voor trainingsdoeleinden, maar we willen ook echt rekening houden met de kortere routes. Pendelen naar het werk of wanneer je gewoon een snelle rit naar de supermarkt maakt.',
+        // Donate
+        Donate_title: 'Doneer je fietsgegevens',
+        Several_ways_to_contribute: "Er zijn verschillende manieren waarop jouw gegevens kunnen bijdragen worden aan het project. Als je al gebruik maakt van een van de onderstaande apps kun je deze eenvoudig koppelen aan The Bike Data Project. Zodra de app aangesloten is, kunt u gewoon verder gaan met uw ritten en worden uw ritten automatisch geüpload naar onze service.",
+        You_not_using: "Gebruik je zo'n app nog niet? Geen nood! Je kunt nog steeds deel uitmaken van dit project door ook onze app te downloaden en te gebruiken. ",
+        Connect_existing_account: 'Verbind uw bestaande account',
+        Download_our_app: 'Download onze app',
+        // Data
+        Data_title: 'Verzamelde data wereldwijd',
+        Rides_collected: 'verzamelde ritten',
+        Distance_collected: 'verzamelde afstand',
+        Average_duration: 'gemiddelde duur',
+        Average_speed: 'gemiddelde snelheid',
+        Average_distance: 'gemiddelde afstand',
+        co2_saved: 'co2 bespaard',
+        Data_subtitle: 'Interesse in de gegevens per regio?',
+        Data_button: 'Zie volledige kaart',
+        // Contribute
+        Contribute_title: 'Waaraan zal ik bijdragen?',
+        People_who_work: "Mensen die werken op afdelingen van transport en stedenbouwkundigen over de hele wereld, hebben dit soort gegevens nodig om moderne infrastructuur en duurzame steden te kunnen ontwikkelen. De gegevens kunnen ook zeer nuttig zijn voor andere fietsgerelateerde producten en diensten.",
+        Common_goal: "Het gemeenschappelijke doel is om fietsgegevens te aggregeren in een open dataplatform, door en voor fietsers. Hoe meer open data we kunnen leveren, hoe groter de impact kan zijn.",
+        // Visible
+        Visible_title: 'Laten we de fietsers zichtbaarder maken!',
+        Community_more_visible: "Er zijn veel open data voor auto's en autoroutes, maar hoe zit het met fietsers? Dit project heeft als doel de fiets gemeenschap zichtbaarder te maken en de wereld een fietsplaats te maken!",
+        Globally_but_locally: 'Dit project denkt globaal, maar handelt lokaal, zodat het overal ter wereld van toepassing kan zijn.',
+        // Partners
+        Partners_title: 'Project Partners',
+
+        // Footer
+        Footer_intro: 'Bike Data Project is een project georganiseerd door Open Knowledge Belgium',
+        Footer_city: '1000 Brussel',
 
         // DataMap Page
         Data_been_gathered: 'Deze gegevens zijn de afgelopen jaren verzameld door verschillende soorten fietsers van over de hele wereld.',
