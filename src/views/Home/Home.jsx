@@ -147,7 +147,7 @@ const Home = () => {
                   decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
-                />
+                />K
                 <span className={style.data__small}> km</span>
               </span>
               <span className={style.data__label}>{i18n.t('Distance_collected')}</span>
@@ -194,7 +194,7 @@ const Home = () => {
                   decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
-                />
+                />K
                 <span className={style.data__small}> t</span>
               </span> 
             <span className={style.data__label}>{i18n.t('co2_saved')}</span>
