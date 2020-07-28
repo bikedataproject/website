@@ -126,7 +126,10 @@ const Home = () => {
             <p>{i18n.t('Connect_existing_account')}</p>
             <div className={style.buttons__wrapper}>
               <button className={style.btn} onClick={() => stravaLogin()}>Strava</button>
-              <button className={style.btn}>Other</button>
+              <button className={style.btn}>Garmin</button>
+              <div className={style.upload__modal}>
+                <input type='file' multiple />
+              </div>
             </div>
           </div>
           <div className={style.buttons__our}>

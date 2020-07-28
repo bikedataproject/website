@@ -15,6 +15,12 @@
     position: relative;
 }
 
+.upload__modal {
+    position: static;
+    top: 0;
+    left: 0;
+}
+
 .grid {
     composes: grid from "../../styles/components.module.css";
 }
