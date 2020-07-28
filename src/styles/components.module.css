@@ -23,6 +23,7 @@
     color: colorBlue;
     font-weight: bold;
     transition: ease-in-out .2s;
+    text-decoration: none;
 }
 
 .btn:hover {

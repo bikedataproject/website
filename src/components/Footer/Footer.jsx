@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.css';
 import i18n from "../../utils/i18n";
@@ -39,7 +39,7 @@ const Footer = ({onSelectFlag}) => {
             </h3>
             <div className={style.footer__nav}>
               <Link className={style.footer__navLink} to="/" target="_blank">
-                {i18n.t('Data_map')}
+                {i18n.t('Data_Map')}
               </Link>
               <Link
                 className={style.footer__navLink}

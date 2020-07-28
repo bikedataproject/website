@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import i18n from "../../utils/i18n";
 import style from './Home.module.css';
 import { useObserver } from 'mobx-react-lite';
 import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
+import { useHistory } from 'react-router-dom';
  
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
@@ -21,6 +23,8 @@ const Home = () => {
     totalDistance: 1,
   });
 
+  let history = useHistory();
+
   useEffect(() => {
     fetch("https://api.bikedataproject.info/geo/Track/Publish")
     .then((response) => response.json())
@@ -33,7 +37,7 @@ const Home = () => {
 
     setTotalRides(statistics.totalRides);
     setTotalDistance(statistics.totalDistance / 1000000);
-    setAverageDuration(statistics.totalDuration / 3600 / statistics.totalRides);
+    setAverageDuration(statistics.totalDuration / 60 / statistics.totalRides);
     setAverageSpeed((statistics.totalDistance / 1000) / (statistics.totalDuration / 3600));
     setAverageDistance(statistics.totalDistance / 1000 / statistics.totalRides);
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
@@ -220,7 +224,7 @@ const Home = () => {
                 redraw={true}
                 duration={statisticsDuration}
               />
-              <span className={style.data__small}> h</span>
+              <span className={style.data__small}> min</span>
             </span>
             <span className={style.data__label}>
               {i18n.t('Average_duration')}
@@ -242,7 +246,9 @@ const Home = () => {
         </div>
         <div className={style.data__more}>
           <h3 className={style.subtitle}>{i18n.t('Data_subtitle')}</h3>
-          <button className={style.btn}>{i18n.t('Data_button')}</button>
+          <Link to={'/datamap'} className={style.btn}>
+            {i18n.t('Data_button')}
+          </Link>
         </div>
       </section>
 
@@ -284,6 +290,50 @@ const Home = () => {
         src="./assets/img/route.svg"
         alt="Striped line of a route with places marked on"
       />
+
+      <section className={`${style.content} ${style.grid} ${style.informed}`}>
+        <div className={style.content__wrapper}>
+          <h2 className={style.content__title}>Stay informed</h2>
+          <form
+            action="https://bikedataproject.us10.list-manage.com/subscribe/post?u=0c7a4077dc373a78e97129b40&amp;id=48e38aad42"
+            method="post"
+            className={style.form}
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            target="_blank"
+            novalidate
+          >
+            <div className={style.inputHidden} aria-hidden="true">
+              <input
+                type="text"
+                name="b_4e280417525a8a98031f1ce33_9af7c29f8d"
+                tabindex="-1"
+                value=""
+              />
+            </div>
+            <label>E-mail</label>
+            <div>
+              <input
+                className={style.form__input}
+                type="email"
+                placeholder="Your email adress"
+                name="EMAIL"
+                id="mce-EMAIL"
+                required
+              />
+              <button className={style.form__button}>
+                <img
+                  className={style.arrow}
+                  src="./assets/img/arrow-orange.svg"
+                  alt="Logo of brussels mobility"
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
 
       <section
         className={`${style.content} ${style.grid} ${style.partners_remove}`}
