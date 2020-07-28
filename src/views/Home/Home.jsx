@@ -327,7 +327,7 @@ const Home = () => {
                   src="./assets/img/arrow-orange.svg"
                   alt="Logo of brussels mobility"
                   width="20"
-                  height="20"
+                  height="20" 
                 />
               </button>
             </div>
