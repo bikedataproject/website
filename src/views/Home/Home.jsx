@@ -146,7 +146,7 @@ const Home = () => {
   }
 
   return useObserver(() => (
-    <div className={style.global__wrapper}>
+    <>
       <section className={style.header}>
         <div className={style.header__wrapper}>
           <h1 className={style.header__title}>{i18n.t('Heading')}</h1>
@@ -365,12 +365,11 @@ const Home = () => {
             <p>{i18n.t('Common_goal')}</p>
           </div>
         </div>
+        
         <img
           className={style.content__img}
           src="./assets/img/contribute.png"
           alt="People cycling"
-          width="680"
-          height="580"
         />
       </section>
 
@@ -477,7 +476,7 @@ const Home = () => {
         </div>
       </section>
       <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
-    </div>
+    </>
   ));
 };
 

@@ -9,7 +9,7 @@ const Header = () => {
   const [colorNav, setColorNav] = useState(true);
 
   const handleScroll = () => {
-    const colorNav = window.scrollY < window.innerHeight / 2;
+    const colorNav = window.scrollY < window.innerHeight * 0.2;
     setColorNav(colorNav)
   };
  
