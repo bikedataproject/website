@@ -142,7 +142,7 @@ const Home = () => {
   }
 
   const stravaLogin = () => {
-    window.location.assign(`https://www.strava.com/oauth/authorize?client_id=${process.env.REACT_APP_STRAVA_URL_KEY}&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all`);
+    window.location.assign(`https://www.strava.com/oauth/authorize?client_id=51269&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all`);
   }
 
   return useObserver(() => (
