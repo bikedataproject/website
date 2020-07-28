@@ -8,7 +8,7 @@ import {
 } from 'react-accessible-accordion';
 
 //import './accordion.css';
-import './accordion2.css';
+import './accordion.css';
 
 import style from './Faq.module.css';
 import Footer from '../../components/Footer/Footer';

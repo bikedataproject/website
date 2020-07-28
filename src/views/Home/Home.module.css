@@ -15,6 +15,12 @@
     position: relative;
 }
 
+.upload__modal {
+    position: static;
+    top: 0;
+    left: 0;
+}
+
 .grid {
     composes: grid from "../../styles/components.module.css";
 }
@@ -24,9 +30,7 @@
     z-index: 1001;
 }
 
-/* PROBLEM!!!! */
 .content__wrapper {
-    /* grid-column NEEDS TO GO */
     grid-column: 1 / span 5; 
     z-index: 2; 
 }
@@ -70,12 +74,12 @@
 }
 
 .header__title {
-    font-size: 8rem;
+    font-size: 7rem;
     color: white;
     font-family: "Muli", sans-serif;
     font-weight: 700;
     width: 88%;
-    padding-top: 20vh;
+    padding-top: 25vh;
     line-height: 1.1;
 } 
 
@@ -103,13 +107,7 @@
     font-weight: bold;
 }
 
-
 /* HELP SECTION */
-/* Doesn't take 'help' classname?! */
-
-.help {
-    background-color: pink;
-}
 
 .help .content__wrapper {
     grid-column: 1 / span 5;
@@ -307,10 +305,9 @@
 
 .partnersLetter {
     transform: translate(60rem, 15rem);
-    /* right: -60rem;
-    top: 15rem; */
+
 }
-/* THIS CAN GO WHEN HELP CLASS WORKS */
+
 .partners_remove .content__wrapper {
     grid-column: 1 / span 12;
 }
@@ -359,8 +356,6 @@
         width: 100%;
         object-fit: contain;
     }
-
-
 }
 
 @media (max-width: 900px) {
@@ -523,10 +518,15 @@
         grid-template-areas: 
             "text"
             "buttons";
+        margin-top: 20rem;
     }
 
     .donate__buttons {
         margin: auto;
+    }
+
+    .donate .content__title, .data .content__title {
+        width: 90%;
     }
 
     .donate .content__wrapper, .donate__buttons {
@@ -556,6 +556,10 @@
         margin-left: -5rem;
     }
 
+    .contribute .content__title, .visible .content__title {
+        width: 80%;
+    }
+
     .contribute .content__img {
         grid-column: 1 / span 12;
         height: 300%;
@@ -575,4 +579,66 @@
     .partner {
         grid-column: span 12;
     }
+
+    .partner__okbLogo {
+        height: 90%;
+    }
+
+    .helpLetter {
+        transform: translate(-18rem, -2rem);
+    }
+
+    .donateLetter {
+        transform: translate(20rem, 4rem);
+    }
+
+    .dataLetter {
+        transform: translate(-25rem, -15rem);
+    }
+
+    .contributeLetter {
+        transform: translate(5rem, -3rem);
+    }
+
+    .partnersLetter {
+        transform: translate(5rem, 2rem);
+    }
 }
+
+@media (max-width: 450px) {
+
+    .header__title {
+        font-size: 3.5rem;
+        padding-top: 20vh;
+    }
+
+    .donate {
+        margin-top: 15rem;
+    }
+
+    .donate .content__title, .data .content__title, .contribute .content__title, .visible .content__title  {
+        width: 90%;
+    }
+
+    .partners_remove .content__title {
+        width: 70%;
+    }
+
+    .contribute .content__wrapper {
+        margin-left: -3rem;
+        padding: 4rem 2rem;
+    }
+
+    .helpLetter {
+        transform: translate(-18rem, -2rem);
+    }
+
+    .donateLetter {
+        transform: translate(0rem, 4rem);
+    }
+
+    .dataLetter {
+        transform: translate(-25rem, -15rem);
+    }
+}
+
