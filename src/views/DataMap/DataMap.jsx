@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import style from './DataMap.module.css';
 import Footer from '../../components/Footer/Footer';
-import i18n from 'i18next';
+import i18n from "../../utils/i18n";
 
 import './data.css';
 
@@ -10,6 +10,19 @@ const DataMap = () => {
 
   const mapContainerRef = useRef(null);
   const mapOverlayRef = useRef(null);
+
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const onSelectFlag = async (country) => {
+    const countryMapping = {
+      BE: 'nl',
+      FR: 'fre',
+      US: 'en'
+    }
+
+    await i18n.changeLanguage(countryMapping[country]);
+    setCurrentLanguage(country);
+  }
 
   useEffect(() => {
 
@@ -213,7 +226,7 @@ const DataMap = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
     </>
   );
 };

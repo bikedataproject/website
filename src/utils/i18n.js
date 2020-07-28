@@ -124,7 +124,7 @@ i18n.use(LanguageDetector).init({
     fre: {
       translations: {
         // Navbar
-        About: 'About',
+        About: 'Projet',
 
         // Header
         Heading: 'Un Platform en ligne',

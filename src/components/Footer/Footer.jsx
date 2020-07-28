@@ -73,7 +73,7 @@ const Footer = ({onSelectFlag}) => {
             <h3 className={style.footer__title}>{i18n.t('Footer_contact')}</h3>
             <p>{i18n.t('Footer_street')}</p>
             <p>{i18n.t('Footer_city')}</p>
-            <p>bikedata@openknowledge.be</p>
+            <p>bikedataproject@openknowledge.be</p>
 
             <div className={style.footer__socials}>
               <Link href="https://twitter.com/bikedataproject" target="_blank">

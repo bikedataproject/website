@@ -8,6 +8,7 @@ import VisibilitySensor from 'react-visibility-sensor';
  
 const Home = () => {
   const co2perkm = 130 / 1000;
+
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [statistics, setStatistics] = useState({
