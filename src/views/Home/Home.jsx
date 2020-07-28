@@ -10,7 +10,6 @@ const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
-  const [totalDuration, setTotalDuration] = useState(0);
   const [totalDistance, setTotalDistance] = useState(0);
   const [averageDuration, setAverageDuration] = useState(0);
   const [averageSpeed, setAverageSpeed] = useState(0);
@@ -33,7 +32,6 @@ const Home = () => {
     const co2perkm = 130 / 1000;
 
     setTotalRides(statistics.totalRides);
-    //setTotalDuration(statistics.totalDuration / 3600 / 1000);
     setTotalDistance(statistics.totalDistance / 1000000);
     setAverageDuration(statistics.totalDuration / 3600 / statistics.totalRides);
     setAverageSpeed((statistics.totalDistance / 1000) / (statistics.totalDuration / 3600));
@@ -74,7 +72,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Doesn't take 'help' classname?! */}
       <section className={`${style.content} ${style.grid} ${style.help}}`}>
         <p className={`${style.bigLetter} ${style.helpLetter}`}>
           {i18n.t('Help')}
