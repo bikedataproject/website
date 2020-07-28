@@ -6,10 +6,17 @@ import { useObserver } from 'mobx-react-lite';
 import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
+import { IoMdClose } from "react-icons/io";
 import { useHistory } from 'react-router-dom';
  
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [garminModalVisible, setGarminModalVisible] = useState(false);
+  const [garminFiles, setGarminFiles] = useState([]);
+  const [garminFilesError, setGarminFilesError] = useState(<></>);
+  const [modalContent, setModalContent] = useState(<></>);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
   const [totalDistance, setTotalDistance] = useState(0);
@@ -29,8 +36,55 @@ const Home = () => {
     fetch("https://api.bikedataproject.info/geo/Track/Publish")
     .then((response) => response.json())
     .then((data) => setStatistics(data));
+
+    let fileInput = document.getElementById('file-input');
+
+    fileInput.addEventListener('change', () => {
+      let filesList = new Array();
+      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
+        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
+        if(i === Object.keys(fileInput.files).length - 1)
+          setGarminFiles(filesList);
+      }
+    });
+
     return;
   }, [])
+
+  useEffect(() => {
+    if(submitSuccess) {
+      setTimeout(() => {
+        setSubmitSuccess(false)
+      }, 3000);
+    }
+    return;
+  }, [submitSuccess])
+
+  useEffect(() => {
+    setGarminFilesError()
+
+    if(garminFiles.length < 1)
+      setModalContent(<p style={{ textAlign: 'center', marginTop: '40px' }}>Choose the .gpx or .fit files you want to upload.</p>)
+    else
+      setModalContent(
+        garminFiles.map((file, i) => {
+          return (
+            <div className={style.file__item} key={i}>
+              <p className={style.button__label}>{file.name}</p>
+              <button className={style.deleteFile__button} onClick={() => {
+                let fileList = [...garminFiles];
+                fileList.splice(i, 1)
+                setGarminFiles(fileList);
+              }}>
+                <IoMdClose style={{ width: '100%', height: '100%' }} />
+              </button>
+            </div>
+          )
+        })
+      )
+
+    return;
+  }, [garminFiles.length])
 
   useEffect(() => {
     const co2perkm = 130 / 1000;
@@ -54,6 +108,37 @@ const Home = () => {
 
     await i18n.changeLanguage(countryMapping[country]);
     setCurrentLanguage(country);
+  }
+
+  const submitGarminFiles = () => {
+    var data= new FormData();
+    console.log("submitting")
+
+    garminFiles.forEach((file, index) => {
+      data.append(index, file)
+      if(index === garminFiles.length - 1) {
+        console.log("data")
+        fetch('https://api.bikedataproject.info/file/upload', {
+          method: 'POST',
+          body: data
+        })
+        .then(response => response.json())
+        .then(result => {
+          if(result.status === 'OK')  
+          {
+            setGarminFiles([])
+            setGarminModalVisible(false)
+            setSubmitSuccess(true)
+          } else {
+            setGarminFilesError(<p>Something went wrong, please try again.</p>)
+          }
+          
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+    })
   }
 
   const stravaLogin = () => {
@@ -128,13 +213,8 @@ const Home = () => {
           <div className={style.buttons__other}>
             <p>{i18n.t('Connect_existing_account')}</p>
             <div className={style.buttons__wrapper}>
-              <button className={style.btn} onClick={() => stravaLogin()}>
-                Strava
-              </button>
-              <button className={style.btn}>Garmin</button>
-              <div className={style.upload__modal}>
-                <input type="file" multiple />
-              </div>
+              <button className={style.btn} onClick={() => stravaLogin()}>Strava</button>
+              <button onClick={() => setGarminModalVisible(true)} className={style.btn}>Garmin</button>
             </div>
           </div>
           <div className={style.buttons__our}>
@@ -146,6 +226,28 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
+      {/* Garmin upload modal */}
+      <div className={`${garminModalVisible ? style.modal__Visible : ''} ${style.upload__modal}`}>
+        <div className={style.form__container}>
+          <button className={style.close__button} onClick={() => setGarminModalVisible(false)}>
+            <IoMdClose style={{ width: '100%', height: '100%' }} />
+          </button>
+          <div className={style.files__container}>
+            {modalContent}
+          </div>
+          <div className={style.button__container}>
+            {garminFilesError}
+            <input id='file-input' type='file' accept='.gpx,.fit' multiple />
+            <label for="file-input">Choose your Garmin files</label>
+            <button onClick={() => submitGarminFiles()} className={style.submit__button}>Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div className={`${submitSuccess ? style.notification__Visible : ''} ${style.success__notification}`}>
+        <p>Your files were successfully uploaded.</p>
+      </div>
 
       <section className={`${style.content} ${style.data}`}>
         <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
