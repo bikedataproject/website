@@ -37,9 +37,6 @@ const DataMap = () => {
     map.addControl(new mapboxgl.NavigationControl());
 
     let overlay = mapOverlayRef.current;
-    let popup = new mapboxgl.Popup({
-      closeButton: false,
-    });
 
     map.on('load', function () {
       // get lowest label and road.
@@ -176,13 +173,10 @@ const DataMap = () => {
           'id',
           feature.properties.id,
         ]);
-
-        popup.setLngLat(e.lngLat).setText(feature.properties.name).addTo(map);
       });
 
       map.on('mouseleave', 'areas-stats', function () {
         map.getCanvas().style.cursor = '';
-        popup.remove();
         map.setFilter('areas-stats-selected', ['in', 'id', '']);
         overlay.style.display = 'none';
       });
