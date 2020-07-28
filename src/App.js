@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Home from './views/Home/Home';
 import About from './views/About/About';
 import Contact from './views/Contact/Contact';
@@ -11,6 +12,15 @@ import { ROUTES } from './const/index';
 import style from "./App.module.css";
 
 function App() {
+
+  let history = useHistory();
+
+    useEffect(() => {
+      history.listen((location, action) => {
+        window.scrollTo(0, 0);
+      });
+    })
+
     return (
       <div className={style.global__wrapper}>
         <div className={style.content}>
