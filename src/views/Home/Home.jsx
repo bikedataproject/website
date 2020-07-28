@@ -14,6 +14,7 @@ const Home = () => {
   const [totalDistance, setTotalDistance] = useState(0);
   const [averageDuration, setAverageDuration] = useState(0);
   const [averageSpeed, setAverageSpeed] = useState(0);
+  const [averageDistance, setAverageDistance] = useState(0);
   const [co2Saved, setCo2Saved] = useState(0);
   const [statistics, setStatistics] = useState({
     totalRides: 1,
@@ -32,10 +33,11 @@ const Home = () => {
     const co2perkm = 130 / 1000;
 
     setTotalRides(statistics.totalRides);
-    setTotalDuration(statistics.totalDuration / 3600 / 1000);
+    //setTotalDuration(statistics.totalDuration / 3600 / 1000);
     setTotalDistance(statistics.totalDistance / 1000000);
     setAverageDuration(statistics.totalDuration / 3600 / statistics.totalRides);
     setAverageSpeed((statistics.totalDistance / 1000) / (statistics.totalDuration / 3600));
+    setAverageDistance(statistics.totalDistance / 1000 / statistics.totalRides);
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
     
     return;
@@ -125,10 +127,12 @@ const Home = () => {
           <div className={style.buttons__other}>
             <p>{i18n.t('Connect_existing_account')}</p>
             <div className={style.buttons__wrapper}>
-              <button className={style.btn} onClick={() => stravaLogin()}>Strava</button>
+              <button className={style.btn} onClick={() => stravaLogin()}>
+                Strava
+              </button>
               <button className={style.btn}>Garmin</button>
               <div className={style.upload__modal}>
-                <input type='file' multiple />
+                <input type="file" multiple />
               </div>
             </div>
           </div>
@@ -142,99 +146,113 @@ const Home = () => {
         </div>
       </section>
 
-        <section className={`${style.content} ${style.data}`}>
-          <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
-          <p className={`${style.bigLetter} ${style.dataLetter}`}>
-            {i18n.t('Data')}
-          </p>
-          <div className={`${style.data__overview} ${style.grid}`}>
-            <div className={style.data__set}>
-              <span className={style.data__number}>
-                <VisibilitySensor onChange={(isVisible) => isVisible? setStatisticsDuration(2) : setStatisticsDuration(0)}>
-                  <CountUp
-                    end={totalRides}
-                    separator="."
-                    redraw={true}
-                    duration={statisticsDuration}
-                  />
-                </VisibilitySensor>
-              </span>
-              <span className={style.data__label}>
-                {i18n.t('Rides_collected')}
-              </span>
-            </div>
-            <div className={style.data__set}>
-              <span className={style.data__number}>
+      <section className={`${style.content} ${style.data}`}>
+        <h2 className={style.content__title}>{i18n.t('Data_title')}</h2>
+        <p className={`${style.bigLetter} ${style.dataLetter}`}>
+          {i18n.t('Data')}
+        </p>
+        <div className={`${style.data__overview} ${style.grid}`}>
+          <div className={style.data__set}>
+            <span className={style.data__number}>
+              <VisibilitySensor
+                onChange={(isVisible) =>
+                  isVisible
+                    ? setStatisticsDuration(2)
+                    : setStatisticsDuration(0)
+                }
+              >
                 <CountUp
-                  end={averageDuration}
-                  separator='.'
-                  decimals={0}
-                  redraw={true}
-                  duration={statisticsDuration}
-                />K
-                <span className={style.data__small}> km</span>
-              </span>
-              <span className={style.data__label}>{i18n.t('Distance_collected')}</span>
-            </div>
-            <div className={style.data__set}>
-              <span className={style.data__number}>
-                <CountUp
-                  end={totalDuration}
-                  separator='.'
-                  redraw={true}
-                  decimals={0}
-                  duration={statisticsDuration}
-                />
-              <span className={style.data__small}> min</span>
-              </span>
-            <span className={style.data__label}>{i18n.t('Average_duration')}</span>
-            </div>
-            <div className={style.data__set}>
-              <span className={style.data__number}>
-                <CountUp
-                  end={averageSpeed}
+                  end={totalRides}
+                  separator="."
                   redraw={true}
                   duration={statisticsDuration}
                 />
-                <span className={style.data__small}> km/h</span>
-              </span>
+              </VisibilitySensor>
+            </span>
+            <span className={style.data__label}>
+              {i18n.t('Rides_collected')}
+            </span>
+          </div>
+          <div className={style.data__set}>
+            <span className={style.data__number}>
+              <CountUp
+                end={totalDistance}
+                separator="."
+                decimals={0}
+                redraw={true}
+                duration={statisticsDuration}
+              />
+              K<span className={style.data__small}> km</span>
+            </span>
+            <span className={style.data__label}>
+              {i18n.t('Distance_collected')}
+            </span>
+          </div>
+          <div className={style.data__set}>
+            <span className={style.data__number}>
+              <CountUp
+                end={averageDistance}
+                separator="."
+                redraw={true}
+                decimals={0}
+                duration={statisticsDuration}
+              />
+              <span className={style.data__small}> km</span>
+            </span>
+            <span className={style.data__label}>
+              {i18n.t('Average_distance')}
+            </span>
+          </div>
+          <div className={style.data__set}>
+            <span className={style.data__number}>
+              <CountUp
+                end={averageSpeed}
+                redraw={true}
+                duration={statisticsDuration}
+              />
+              <span className={style.data__small}> km/h</span>
+            </span>
             <span className={style.data__label}>{i18n.t('Average_speed')}</span>
-            </div>
-            <div className={style.data__set}>
-              <span className={style.data__number}>
-                <CountUp
-                  end={totalDistance}
-                  separator='.'
-                  decimals={0}
-                  redraw={true}
-                  duration={statisticsDuration}
-                />
-                <span className={style.data__small}> km</span>
-              </span>
-              <span className={style.data__label}>{i18n.t('Average_distance')}</span>
-            </div>
-            <div className={style.data__set}>
-              <span className={style.data__number}>
-                <CountUp
-                  end={co2Saved}
-                  separator='.'
-                  decimals={0}
-                  redraw={true}
-                  duration={statisticsDuration}
-                />K
-                <span className={style.data__small}> t</span>
-              </span> 
+          </div>
+          <div className={style.data__set}>
+            <span className={style.data__number}>
+              <CountUp
+                end={averageDuration}
+                separator="."
+                decimals={0}
+                redraw={true}
+                duration={statisticsDuration}
+              />
+              <span className={style.data__small}> h</span>
+            </span>
+            <span className={style.data__label}>
+              {i18n.t('Average_duration')}
+            </span>
+          </div>
+          <div className={style.data__set}>
+            <span className={style.data__number}>
+              <CountUp
+                end={co2Saved}
+                separator="."
+                decimals={0}
+                redraw={true}
+                duration={statisticsDuration}
+              />
+              K<span className={style.data__small}> t</span>
+            </span>
             <span className={style.data__label}>{i18n.t('co2_saved')}</span>
-            </div>
           </div>
-          <div className={style.data__more}>
-            <h3 className={style.subtitle}>{i18n.t('Data_subtitle')}</h3>
-            <button className={style.btn}>{i18n.t('Data_button')}</button>
-          </div>
-        </section>
+        </div>
+        <div className={style.data__more}>
+          <h3 className={style.subtitle}>{i18n.t('Data_subtitle')}</h3>
+          <button className={style.btn}>{i18n.t('Data_button')}</button>
+        </div>
+      </section>
 
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
-        <p className={`${style.bigLetter} ${style.contributeLetter}`}>{i18n.t('Contribute')}</p>
+        <p className={`${style.bigLetter} ${style.contributeLetter}`}>
+          {i18n.t('Contribute')}
+        </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Contribute_title')}</h2>
           <div className={style.content__text}>
@@ -270,8 +288,12 @@ const Home = () => {
         alt="Striped line of a route with places marked on"
       />
 
-      <section className={`${style.content} ${style.grid} ${style.partners_remove}`}>
-        <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p>
+      <section
+        className={`${style.content} ${style.grid} ${style.partners_remove}`}
+      >
+        <p className={`${style.bigLetter} ${style.partnersLetter}`}>
+          {i18n.t('Partners')}
+        </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
