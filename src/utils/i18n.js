@@ -13,7 +13,7 @@ i18n.use(LanguageDetector).init({
         Contact: 'Contact',
 
         // Header
-        Heading: 'An online platform collecting bike data, for and by cyclists',
+        Heading: 'We’re collecting cycling data to make cities sustainable and bike-friendly ',
         Introduction:
           'With this project we aim to create a open data platform, for and by cyclists, that collects data on where and when people actually cycle. The platform aims at aggregating data from cyclists , to make cyclists more visible and cities better adapted to the cycling community.',
         Label_total_km: 'Total kilometers gathered by the cycling community',
@@ -37,6 +37,11 @@ i18n.use(LanguageDetector).init({
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
+        Distance_collected: 'distance collected',
+        Average_duration: 'average duration',
+        Average_speed: 'average speed',
+        Average_distance: 'average distance',
+        co2_saved: 'CO2 saved',
         Data_subtitle: 'Interested in the data by region?',
         Data_button: 'See full map',
         // Contribute
@@ -117,17 +122,54 @@ i18n.use(LanguageDetector).init({
         Contact_title: 'Contact',
         Further_questions: 'For any further questions or information, please contact us via:',
         Follow_socials: 'Follow our project via our social media channels:',
-      
       },
 
     },
     fre: {
       translations: {
         // Navbar
-        About: 'About',
+        About: 'Projet',
 
         // Header
-        Heading: 'Un Platform en ligne',
+        Heading: 'Nous recueillons des données sur les vélos à rendre les villes durables et respectueuses du vélo ',
+        Introduction: 'Ce projet vise à créer une plateforme de données ouverte à tous, faite pour et par les cyclistes, recueillant des données sur les endroits et moments où les gens font réellement du vélo. La plate-forme vise à rassembler les données des cyclistes afin de les rendre plus accessibles et ainsi mieux adapter les villes à la communauté cycliste.',
+        Label_total_km: 'Nombre total de kilomètres parcourus par la communauté cycliste',
+
+        //Help
+        Help_title: 'Comment aider?',
+        Ask_for_favor: 'Pour que cela fonctionne, nous vous demandons une simple faveur. ',
+        By_sharing_your: 'En partageant vos données avec notre plateforme, l’ensemble des données collectées nous donnent des modèles qui peuvent être utilisés afin de rendre les cyclistes plus visibles et ainsi mieux adapter les villes dans lesquelles ceux-ci circulent.',
+        Every_cyclist_can: 'Chaque type de cycliste a quelque chose à apporter à ce projet. Certaines personnes suivent déjà leur activité pour leur entraînement personnel mais nous voulons aussi vraiment prendre en compte les trajets courts, afin de se rendre au travail ou alors pour se rendre dans une épicerie par exemple.',
+        // Donate
+        Donate_title: 'Faites don de vos données',
+        Several_ways_to_contribute: "Vous pouvez contribuer au projet de plusieurs manières. Si vous utilisez déjà l'une des applications énumérées ci- dessous, vous pouvez facilement les connecter au projet Bike Data.Une fois que votre application est connectée, vous pouvez continuer à l’utiliser normalement et vos trajets seront automatiquement téléchargés vers notre service.",
+        You_not_using: "Vous n'utilisez pas encore une telle application? Pas de soucis ! Vous pouvez toujours faire partie de ce projet en téléchargeant et en utilisant notre application.",
+        Connect_existing_account: 'Connectez votre compte existant',
+        Download_our_app: 'Téléchargez notre application',
+        // Data
+        Data_title: 'Les données collectées dans le monde entier',
+        Rides_collected: 'tours collectés',
+        Distance_collected: 'distance collectée',
+        Average_duration: 'durée moyenne',
+        Average_speed: 'vitesse moyenne',
+        Average_distance: ' distance moyenne ',
+        co2_saved: 'co2 économisé',
+        Data_subtitle: 'Vous êtes intéressé par les données par région ?',
+        Data_button: 'Voir la carte entière',
+        // Contribute
+        Contribute_title: 'À quoi vais-je contribuer ?',
+        People_who_work: "Les personnes travaillant dans le milieu des transports ainsi que les urbanistes du monde entier ont besoin de données comme celles-ci afin d’aider au développement des infrastructures modernes et des villes de demain. Ces données peuvent également être très utiles pour d'autres produits et services liés au vélo.",
+        Common_goal: "Notre objectif est d'agréger les données liés aux cyclistes sur une plate- forme de données ouverte, faite par et pour les cyclistes.Plus le nombre de données que nous pouvons fournir est important, plus celles- ci peuvent avoir un impact important sur notre futur.",
+        // Visible
+        Visible_title: 'Rendons les cyclistes plus visibles !',
+        Community_more_visible: "Les voitures et itinéraires routiers profitent déjà d’une quantité considérable de données, mais qu'en est- il des cyclistes? Ce projet vise à rendre cette communauté plus visible et à faire du monde un lieu adapté pour les cyclistes !",
+        Globally_but_locally: 'Ce projet pense globalement mais agit localement, applicable partout dans le monde c’est votre participation qui fera changer les choses.',
+        // Partners
+        Partners_title: 'Partenaires du projet',
+
+        // Footer
+        Footer_intro: 'Bike Data Project est un projet organisé par Open Knowledge Belgium',
+        Footer_city: '1000 Bruxelles',
 
         // DataMap Page
         Data_been_gathered: 'Ces données ont été recueillies au cours des dernières années, par différents types de cyclistes de partout dans le monde. ',
@@ -136,7 +178,7 @@ i18n.use(LanguageDetector).init({
 
         // About Page
         About_title: 'About Project',
-        Okb_is: "Open Knowledge Belgium est l'organisation à l'origine du Bike Data Project. ",
+        Okb_is: "Open Knowledge Belgium est l'organisation à l'origine du Bike Data Project.",
         Okb_umbrella: 'est une organisation faîtière (sans but lucratif / vzw / asbl) pour les initiatives Open Knowledge.',
         There_are_numerous: "Il existe de nombreuses initiatives Open Knowledge en Belgique. Afin de permettre à ces communautés d'accéder plus rapidement aux ressources, il était nécessaire de créer une organisation faîtière. C'est là qu'intervient Open Knowledge Belgium. Nous rendons possible le partage des connaissances et permettons aux différentes organisations et cultures de se croiser. Nous voulons ouvrir le savoir en Belgique et le voir utilisé et utile. Nous nous efforçons d'atteindre cet objectif par une approche ascendante et communautaire, ainsi que par une collaboration étroite avec les gouvernements et les organisations. ",
         Bike_data_project: 'Le projet Bike Data existait déjà il y a quelque temps. Le projet a ensuite été mis en place par ',
@@ -169,8 +211,45 @@ i18n.use(LanguageDetector).init({
         About: 'Over',
 
         // Header
-        Heading:
-          'Een online platform om fietsdata te verzamelen, voor en door fietsers.',
+        Heading: 'Wij verzamelen fietsdata om steden duurzaam en fietsvriendelijk te maken',
+        Introduction: 'Met dit project willen we een open data platform creëren, voor en door fietsers, dat gegevens verzamelt over waar en wanneer er gefietst wordt. Het doel van het platform is om gegevens van fietsers te aggregeren, om fietsers zichtbaarder te maken en steden beter af te stemmen op de fiets gemeenschap.',
+        Label_total_km: 'Totaal aantal kilometers verzameld door de fiets community',
+
+        //Help
+        Help_title: 'Hoe kan je helpen?',
+        Ask_for_favor: 'Om dit te doen werken moeten we u om een eenvoudige gunst vragen.',
+        By_sharing_your: 'Door je eigen fietsgegevens te delen met ons platform, geven alle verzamelde gegevens ons patronen die gebruikt kunnen worden om fietsers zichtbaarder te maken en hun steden aan te passen.',
+        Every_cyclist_can: 'Elke soort fietser heeft iets bij te dragen aan dit project. Sommige mensen volgen hun activiteit al voor trainingsdoeleinden, maar we willen ook echt rekening houden met de kortere routes. Pendelen naar het werk of wanneer je gewoon een snelle rit naar de supermarkt maakt.',
+        // Donate
+        Donate_title: 'Doneer je fietsgegevens',
+        Several_ways_to_contribute: "Er zijn verschillende manieren waarop jouw gegevens kunnen bijdragen worden aan het project. Als je al gebruik maakt van een van de onderstaande apps kun je deze eenvoudig koppelen aan The Bike Data Project. Zodra de app aangesloten is, kunt u gewoon verder gaan met uw ritten en worden uw ritten automatisch geüpload naar onze service.",
+        You_not_using: "Gebruik je zo'n app nog niet? Geen nood! Je kunt nog steeds deel uitmaken van dit project door ook onze app te downloaden en te gebruiken. ",
+        Connect_existing_account: 'Verbind uw bestaande account',
+        Download_our_app: 'Download onze app',
+        // Data
+        Data_title: 'Verzamelde data wereldwijd',
+        Rides_collected: 'verzamelde ritten',
+        Distance_collected: 'verzamelde afstand',
+        Average_duration: 'gemiddelde duur',
+        Average_speed: 'gemiddelde snelheid',
+        Average_distance: 'gemiddelde afstand',
+        co2_saved: 'co2 bespaard',
+        Data_subtitle: 'Interesse in de gegevens per regio?',
+        Data_button: 'Zie volledige kaart',
+        // Contribute
+        Contribute_title: 'Waaraan zal ik bijdragen?',
+        People_who_work: "Mensen die werken op afdelingen van transport en stedenbouwkundigen over de hele wereld, hebben dit soort gegevens nodig om moderne infrastructuur en duurzame steden te kunnen ontwikkelen. De gegevens kunnen ook zeer nuttig zijn voor andere fietsgerelateerde producten en diensten.",
+        Common_goal: "Het gemeenschappelijke doel is om fietsgegevens te aggregeren in een open dataplatform, door en voor fietsers. Hoe meer open data we kunnen leveren, hoe groter de impact kan zijn.",
+        // Visible
+        Visible_title: 'Laten we de fietsers zichtbaarder maken!',
+        Community_more_visible: "Er zijn veel open data voor auto's en autoroutes, maar hoe zit het met fietsers? Dit project heeft als doel de fiets gemeenschap zichtbaarder te maken en de wereld een fietsplaats te maken!",
+        Globally_but_locally: 'Dit project denkt globaal, maar handelt lokaal, zodat het overal ter wereld van toepassing kan zijn.',
+        // Partners
+        Partners_title: 'Project Partners',
+
+        // Footer
+        Footer_intro: 'Bike Data Project is een project georganiseerd door Open Knowledge Belgium',
+        Footer_city: '1000 Brussel',
 
         // DataMap Page
         Data_been_gathered: 'Deze gegevens zijn de afgelopen jaren verzameld door verschillende soorten fietsers van over de hele wereld.',
@@ -184,7 +263,7 @@ i18n.use(LanguageDetector).init({
         There_are_numerous: 'Er zijn tal van Open Knowledge initiatieven in België. Om deze gemeenschappen sneller toegang te geven tot middelen was een koepelorganisatie nodig. Daar komt Open Knowledge Belgium in beeld. We maken het delen van kennis mogelijk en laten verschillende organisaties en culturen kruisbestuiving toepassen. We willen de kennis in België ontsluiten en zien dat ze gebruikt wordt en nuttig is. Dit proberen we te bereiken door zowel een bottom-up als een community driven manier, en door nauw samen te werken met overheden en organisaties.',
         Bike_data_project: 'Het Bike Data Project bestond al een tijdje geleden. Het project werd toen opgezet door ',
         Managed_by_frederik: ', beheerd door Frederik Gertten, de producent van de Bike vs Cars documentaire.',
-        This_project_osoc: 'Dit project werd verder uitgewerkt tijdens de Open Zomer van de Code, een initiatief van Open Knowledge Belgium. In juli 2020 werkte een groep van 7 studenten en 3 coaches aan de ontwikkeling van dit project. ',
+        This_project_osoc: 'Dit project werd verder uitgewerkt tijdens de Open Summer of Code, een initiatief van Open Knowledge Belgium. In juli 2020 werkte een groep van 7 studenten en 3 coaches aan de ontwikkeling van dit project. ',
       
         // Faq Page
         Faq_title: 'Veel gestelde vragen',

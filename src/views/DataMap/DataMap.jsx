@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import style from './DataMap.module.css';
 import Footer from '../../components/Footer/Footer';
-import i18n from 'i18next';
+import i18n from "../../utils/i18n";
 
 import './data.css';
 
@@ -10,6 +10,19 @@ const DataMap = () => {
 
   const mapContainerRef = useRef(null);
   const mapOverlayRef = useRef(null);
+
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const onSelectFlag = async (country) => {
+    const countryMapping = {
+      BE: 'nl',
+      FR: 'fre',
+      US: 'en'
+    }
+
+    await i18n.changeLanguage(countryMapping[country]);
+    setCurrentLanguage(country);
+  }
 
   useEffect(() => {
 
@@ -56,8 +69,7 @@ const DataMap = () => {
       map.addSource('areas', {
         type: 'vector',
         url:
-          'https://bikedataproject.github.io/heatmap-experiment/areas/mvt.json',
-        //url: 'http://localhost:8081/areas/mvt-local.json'
+          'https://api.bikedataproject.info/statistics/tiles/mvt-prod.json ',
       });
 
       map.addLayer({
@@ -118,12 +130,14 @@ const DataMap = () => {
         const dataWrapper = document.createElement('section');
         dataWrapper.classList.add('data__wrapper');
 
-        const avarageDistance = Math.round((feature.properties.km / feature.properties.count), 4);
-        const avarageSpeed = Math.round((feature.properties.km / (feature.properties.seconds /3600)) ,2);
+        const distance = Math.round(feature.properties.meters / 1000)
+
+        const avarageDistance = Math.round(((feature.properties.meters /1000) / feature.properties.count), 4);
+        const avarageSpeed = Math.round(((feature.properties.meters / 1000) / (feature.properties.seconds /3600)) ,2);
         const avarageDuration = Math.round(feature.properties.seconds / 60, 2);
 
         const co2perkm = 130 / 1000;
-        const co2 = Math.round(feature.properties.km * co2perkm) / 1000;
+        const co2 = Math.round((feature.properties.meters / 1000) * co2perkm) / 1000;
   
         dataWrapper.innerHTML = `
             <div class="data__set">
@@ -131,7 +145,7 @@ const DataMap = () => {
               <p class="data__label">rides collected</p>
             </div>
             <div class="data__set">
-              <span class="data__number">${feature.properties.km} km</span>
+              <span class="data__number">${distance} km</span>
               <p class="data__label">disctance collected</p>
             </div>
             <div class="data__set">
@@ -213,7 +227,7 @@ const DataMap = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
     </>
   );
 };

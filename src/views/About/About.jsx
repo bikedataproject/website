@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './About.module.css';
 import Footer from '../../components/Footer/Footer';
-import i18n from 'i18next';
+import i18n from "../../utils/i18n";
 
 const About = () => {
+
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const onSelectFlag = async (country) => {
+    const countryMapping = {
+      BE: 'nl',
+      FR: 'fre',
+      US: 'en'
+    }
+
+    await i18n.changeLanguage(countryMapping[country]);
+    setCurrentLanguage(country);
+  }
+
   return (
     <>
       <div className={`${style.about} ${style.grid} ${style.content}`}>
@@ -39,7 +53,7 @@ const About = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
     </>
   );
 };

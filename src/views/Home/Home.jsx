@@ -167,11 +167,14 @@ const Home = () => {
               <span className={style.data__number}>
                 <CountUp
                   end={averageDuration}
+                  separator='.'
+                  decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
                 />
+                <span className={style.data__small}> km</span>
               </span>
-              <span className={style.data__label}>average hours ridden</span>
+              <span className={style.data__label}>{i18n.t('Distance_collected')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -181,9 +184,10 @@ const Home = () => {
                   redraw={true}
                   decimals={0}
                   duration={statisticsDuration}
-                />K
+                />
+              <span className={style.data__small}> min</span>
               </span>
-              <span className={style.data__label}>hours ridden</span>
+            <span className={style.data__label}>{i18n.t('Average_duration')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -192,9 +196,9 @@ const Home = () => {
                   redraw={true}
                   duration={statisticsDuration}
                 />
-                <span className={style.data__small}>km/h</span>
+                <span className={style.data__small}> km/h</span>
               </span>
-              <span className={style.data__label}>average speed</span>
+            <span className={style.data__label}>{i18n.t('Average_speed')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -204,10 +208,10 @@ const Home = () => {
                   decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
-                />K
+                />
                 <span className={style.data__small}> km</span>
               </span>
-              <span className={style.data__label}>Total distance</span>
+              <span className={style.data__label}>{i18n.t('Average_distance')}</span>
             </div>
             <div className={style.data__set}>
               <span className={style.data__number}>
@@ -217,10 +221,10 @@ const Home = () => {
                   decimals={0}
                   redraw={true}
                   duration={statisticsDuration}
-                />K
-                <span className={style.data__small}></span>
-              </span>
-              <span className={style.data__label}>kilotonnes Co2 saved</span>
+                />
+                <span className={style.data__small}> t</span>
+              </span> 
+            <span className={style.data__label}>{i18n.t('co2_saved')}</span>
             </div>
           </div>
           <div className={style.data__more}>
@@ -266,9 +270,7 @@ const Home = () => {
         alt="Striped line of a route with places marked on"
       />
 
-      <section
-        className={`${style.content} ${style.grid} ${style.partners_remove}`}
-      >
+      <section className={`${style.content} ${style.grid} ${style.partners_remove}`}>
         <p className={`${style.bigLetter} ${style.partnersLetter}`}>{i18n.t('Partners')}</p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
@@ -284,20 +286,20 @@ const Home = () => {
             </div>
             <div className={style.partner}>
               <img
-                className={style.partner__img}
-                src="./assets/img/brussels-mobility.png"
+                className={`${style.partner__img} ${style.partner__okbLogo}`}
+                src="./assets/img/osoc-logo-black.svg"
                 alt="Logo of brussels mobility"
-                width="176"
-                height="49"
+                width="170"
+                height="117"
               />
             </div>
             <div className={style.partner}>
               <img
-                className={style.partner__img}
-                src="./assets/img/brussels-mobility.png"
+                className={`${style.partner__img} ${style.partner__wgLogo}`}
+                src="./assets/img/wg-film.png"
                 alt="Logo of brussels mobility"
-                width="176"
-                height="49"
+                width="150"
+                height="150"
               />
             </div>
           </div>
