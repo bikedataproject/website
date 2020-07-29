@@ -76,7 +76,7 @@ const Footer = ({onSelectFlag}) => {
             <p>bikedataproject@openknowledge.be</p>
 
             <div className={style.footer__socials}>
-              <Link href="https://twitter.com/bikedataproject" target="_blank">
+              <a href="https://twitter.com/bikedataproject" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -89,8 +89,8 @@ const Footer = ({onSelectFlag}) => {
                     fill="white"
                   />
                 </svg>
-              </Link>
-              <a href="https://www.facebook.com/BikeDataProject">
+              </a>
+              <a href="https://www.facebook.com/BikeDataProject" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -104,7 +104,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg">
+              <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -120,7 +120,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://github.com/bikedataproject">
+              <a href="https://github.com/bikedataproject" target="_blank">
                 <svg
                   width="32"
                   height="32"

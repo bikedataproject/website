@@ -453,33 +453,33 @@ const Home = () => {
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
-            <div className={style.partner}>
-              <img
-                className={style.partner__img}
-                src="./assets/img/brussels-mobility.png"
-                alt="Logo of brussels mobility"
-                width="176"
-                height="49"
-              />
-            </div>
-            <div className={style.partner}>
-              <img
-                className={`${style.partner__img} ${style.partner__okbLogo}`}
-                src="./assets/img/osoc-logo-black.svg"
-                alt="Logo of brussels mobility"
-                width="170"
-                height="117"
-              />
-            </div>
-            <div className={style.partner}>
+            <a href="https://mobilite-mobiliteit.brussels" className={style.partner} target="_blank">
+                <img
+                  className={style.partner__img}
+                  src="./assets/img/brussels-mobility.png"
+                  alt="Logo of brussels mobility"
+                  width="176"
+                  height="49"
+                />
+            </a>
+            <a href="https://be.okfn.org/" className={style.partner} target="_blank">
+                <img
+                  className={`${style.partner__img} ${style.partner__okbLogo}`}
+                  src="./assets/img/osoc-logo-black.svg"
+                  alt="Logo of Open Knowlegde Belgium"
+                  width="170"
+                  height="117"
+                />
+            </a>
+            <a href="https://www.wgfilm.com/" className={style.partner} target="_blank">
               <img
                 className={`${style.partner__img} ${style.partner__wgLogo}`}
                 src="./assets/img/wg-film.png"
-                alt="Logo of brussels mobility"
+                alt="Logo of WG Film"
                 width="150"
                 height="150"
               />
-            </div>
+            </a>
           </div>
         </div>
       </section>
