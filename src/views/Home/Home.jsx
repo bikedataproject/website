@@ -7,7 +7,6 @@ import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { IoMdClose } from "react-icons/io";
-import { useHistory } from 'react-router-dom';
  
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
@@ -16,6 +15,8 @@ const Home = () => {
   const [garminFilesError, setGarminFilesError] = useState(<></>);
   const [modalContent, setModalContent] = useState(<></>);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [stravaSuccess, setStravaSuccess] = useState(false);
+  const [stravaFailed, setStravaFailed] = useState(false);
 
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
@@ -30,35 +31,24 @@ const Home = () => {
     totalDistance: 1,
   });
 
-  let history = useHistory();
-
   useEffect(() => {
-    fetch("https://api.bikedataproject.info/geo/Track/Publish")
-    .then((response) => response.json())
-    .then((data) => setStatistics(data));
-
-    let fileInput = document.getElementById('file-input');
-
-    fileInput.addEventListener('change', () => {
-      let filesList = new Array();
-      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
-        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
-        if(i === Object.keys(fileInput.files).length - 1)
-          setGarminFiles(filesList);
-      }
-    });
+    checkForStravaStatus();
+    fetchBikeData();
+    listenForGarminFiles();
 
     return;
   }, [])
 
   useEffect(() => {
-    if(submitSuccess) {
+    if(submitSuccess || stravaFailed || stravaSuccess) {
       setTimeout(() => {
         setSubmitSuccess(false)
+        setStravaFailed(false)
+        setStravaSuccess(false)
       }, 3000);
     }
     return;
-  }, [submitSuccess])
+  }, [submitSuccess, stravaFailed, stravaSuccess])
 
   useEffect(() => {
     setGarminFilesError()
@@ -97,6 +87,36 @@ const Home = () => {
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
     return;
   }, [statistics])
+
+  const checkForStravaStatus = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const stravaStatus = urlParams.get('stravaStatus');
+
+    if(stravaStatus === 'success') {
+      setStravaSuccess(true);
+    } else if(stravaStatus === 'failed')
+      setStravaFailed(true);
+  }
+
+  const listenForGarminFiles = () => {
+    let fileInput = document.getElementById('file-input');
+
+    fileInput.addEventListener('change', () => {
+      let filesList = new Array();
+      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
+        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
+        if(i === Object.keys(fileInput.files).length - 1)
+          setGarminFiles(filesList);
+      }
+    });
+  }
+
+  const fetchBikeData = () => {
+    fetch("https://api.bikedataproject.info/geo/Track/Publish")
+    .then((response) => response.json())
+    .then((data) => setStatistics(data));
+  }
 
   const onSelectFlag = async (country) => {
     const countryMapping = {
@@ -251,7 +271,15 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={`${submitSuccess ? style.notification__Visible : ''} ${style.success__notification}`}>
+      <div className={`${stravaFailed ? style.failed__notification__Visible : ''} ${style.notification}`}>
+        <p>There was an issue connecting your strava account.</p>
+      </div>
+
+      <div className={`${stravaSuccess ? style.success__notification__Visible : ''} ${style.notification}`}>
+        <p>Your Strava account was successfully connected.</p>
+      </div>
+
+      <div className={`${submitSuccess ? style.success__notification__Visible : ''} ${style.notification}`}>
         <p>Your files were successfully uploaded.</p>
       </div>
 
