@@ -30,7 +30,7 @@ const DataMap = () => {
       container: mapContainerRef.current,
       style: 'https://api.maptiler.com/maps/7e7e2443-1c41-46d0-813c-f6b11c2c0225/style.json?key=2Piy1GKXoXq0rHzzBVDA',
       center: [4.3525, 50.8454],
-      zoom: 8,
+      zoom: 10,
       hash: true,
     });
 

@@ -98,8 +98,6 @@ const Home = () => {
     return;
   }, [statistics])
 
-  let distanceHeader = Math.round(totalDistance);
-
   const onSelectFlag = async (country) => {
     const countryMapping = {
       BE: 'nl',
@@ -143,7 +141,7 @@ const Home = () => {
   }
 
   const stravaLogin = () => {
-    window.location.assign(`https://www.strava.com/oauth/authorize?client_id=51269&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all`);
+    window.open("https://www.strava.com/oauth/authorize?client_id=51269&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all", "_blank")
   }
 
   return useObserver(() => (
