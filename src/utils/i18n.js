@@ -56,7 +56,11 @@ i18n.use(LanguageDetector).init({
           'There is lots of open data for cars and car routes, but what about cyclists? This project aims to make the cycling community more visible and to make the world a cycling place!',
         Globally_but_locally:
           'This projects thinks globally but acts locally, as it is applicable anywhere in the world.',
-        // Partners
+        // Informed
+        Informed_title: 'Stay informed',
+        Email_label: 'Email',
+        Informed_placeholder: 'Your email adress',
+          // Partners
         Partners_title: 'Project Partners',
 
         // Footer
@@ -131,7 +135,7 @@ i18n.use(LanguageDetector).init({
         About: 'Projet',
 
         // Header
-        Heading: 'Nous recueillons des données sur les vélos à rendre les villes durables et respectueuses du vélo ',
+        Heading: 'Nous recueillons des données sur les vélos pour rendre les villes durables et respectueuses du vélo ',
         Introduction: 'Ce projet vise à créer une plateforme de données ouverte à tous, faite pour et par les cyclistes, recueillant des données sur les endroits et moments où les gens font réellement du vélo. La plate-forme vise à rassembler les données des cyclistes afin de les rendre plus accessibles et ainsi mieux adapter les villes à la communauté cycliste.',
         Label_total_km: 'Nombre total de kilomètres parcourus par la communauté cycliste',
 
@@ -164,6 +168,10 @@ i18n.use(LanguageDetector).init({
         Visible_title: 'Rendons les cyclistes plus visibles !',
         Community_more_visible: "Les voitures et itinéraires routiers profitent déjà d’une quantité considérable de données, mais qu'en est- il des cyclistes? Ce projet vise à rendre cette communauté plus visible et à faire du monde un lieu adapté pour les cyclistes !",
         Globally_but_locally: 'Ce projet pense globalement mais agit localement, applicable partout dans le monde c’est votre participation qui fera changer les choses.',
+        // Informed
+        Informed_title: 'Restez informé',
+        Email_label: 'E-mail',
+        Informed_placeholder: 'Votre adresse email',
         // Partners
         Partners_title: 'Partenaires du projet',
 
@@ -177,16 +185,16 @@ i18n.use(LanguageDetector).init({
         Map_subtitle: 'Consultez toutes nos données ouvertes',
 
         // About Page
-        About_title: 'About Project',
+        About_title: 'À propos du projet',
         Okb_is: "Open Knowledge Belgium est l'organisation à l'origine du Bike Data Project.",
         Okb_umbrella: 'est une organisation faîtière (sans but lucratif / vzw / asbl) pour les initiatives Open Knowledge.',
         There_are_numerous: "Il existe de nombreuses initiatives Open Knowledge en Belgique. Afin de permettre à ces communautés d'accéder plus rapidement aux ressources, il était nécessaire de créer une organisation faîtière. C'est là qu'intervient Open Knowledge Belgium. Nous rendons possible le partage des connaissances et permettons aux différentes organisations et cultures de se croiser. Nous voulons ouvrir le savoir en Belgique et le voir utilisé et utile. Nous nous efforçons d'atteindre cet objectif par une approche ascendante et communautaire, ainsi que par une collaboration étroite avec les gouvernements et les organisations. ",
         Bike_data_project: 'Le projet Bike Data existait déjà il y a quelque temps. Le projet a ensuite été mis en place par ',
-        Managed_by_frederik: 'dirigé par Frederik Gertten, le producteur du documentaire Bike vs Cars.',
+        Managed_by_frederik: ' dirigé par Frederik Gertten, le producteur du documentaire Bike vs Cars.',
         This_project_osoc: "Ce projet a été élaboré au cours de l'Open Summer of Code, une initiative d'Open Knowledge Belgium. En juillet 2020, un groupe de 7 étudiants et 3 coaches ont travaillé au développement de ce projet.",
       
         // Faq Page
-        Faq_title: 'Questions fréquemment posées',
+        Faq_title: 'Foire aux questions',
         Question_one_title: 'Pourquoi devrais-je participer à ce projet ?',
         Question_one_answer: "En partageant vos données sur le cyclisme, vous pouvez contribuer à rendre nos villes mieux adaptées aux cyclistes. Ne nous contentons pas d'avoir des données ouvertes pour les voitures, mais faisons en sorte que la communauté cycliste soit également visible !",
         Question_two_title: 'Que se passe-t-il avec mes données ?',
@@ -202,7 +210,7 @@ i18n.use(LanguageDetector).init({
 
         // Contact Page
         Further_questions: 'Pour toute question ou information complémentaire, veuillez nous contacter via : ',
-        Follow_socials: 'Suivez notre projet via nos canaux de médias sociaux :',
+        Follow_socials: 'Suivez notre projet via nos réseaux sociaux :',
       },
     },
     nl: {
@@ -244,6 +252,10 @@ i18n.use(LanguageDetector).init({
         Visible_title: 'Laten we de fietsers zichtbaarder maken!',
         Community_more_visible: "Er zijn veel open data voor auto's en autoroutes, maar hoe zit het met fietsers? Dit project heeft als doel de fiets gemeenschap zichtbaarder te maken en de wereld een fietsplaats te maken!",
         Globally_but_locally: 'Dit project denkt globaal, maar handelt lokaal, zodat het overal ter wereld van toepassing kan zijn.',
+        // Informed
+        Informed_title: 'Blijf op de hoogte',
+        Email_label: 'Email',
+        Informed_placeholder: 'Jouw e-mailadres',
         // Partners
         Partners_title: 'Project Partners',
 

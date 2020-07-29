@@ -95,9 +95,10 @@ const Home = () => {
     setAverageSpeed((statistics.totalDistance / 1000) / (statistics.totalDuration / 3600));
     setAverageDistance(statistics.totalDistance / 1000 / statistics.totalRides);
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
-    
     return;
   }, [statistics])
+
+  let distanceHeader = Math.round(totalDistance);
 
   const onSelectFlag = async (country) => {
     const countryMapping = {
@@ -155,7 +156,14 @@ const Home = () => {
         <div className={style.header__intro}>
           <p>{i18n.t('Introduction')}</p>
           <p className={style.intro__counter}>
-            <p className={style.counter__total}>+12.2K</p>
+            <p className={style.counter__total}>+
+            <CountUp
+              end={totalDistance}
+              separator="."
+              decimals={0}
+              redraw={true}
+              duration={statisticsDuration}
+            />K</p>
             <p>{i18n.t('Label_total_km')}</p>
           </p>
         </div>
@@ -394,7 +402,7 @@ const Home = () => {
 
       <section className={`${style.content} ${style.grid} ${style.informed}`}>
         <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>Stay informed</h2>
+          <h2 className={style.content__title}>{i18n.t('Informed_title')}</h2>
           <form
             action="https://bikedataproject.us10.list-manage.com/subscribe/post?u=0c7a4077dc373a78e97129b40&amp;id=48e38aad42"
             method="post"
@@ -412,12 +420,12 @@ const Home = () => {
                 value=""
               />
             </div>
-            <label>E-mail</label>
+            <label>{i18n.t('Email_label')}</label>
             <div>
               <input
                 className={style.form__input}
                 type="email"
-                placeholder="Your email adress"
+                placeholder={i18n.t('Informed_placeholder')}
                 name="EMAIL"
                 id="mce-EMAIL"
                 required
@@ -426,7 +434,7 @@ const Home = () => {
                 <img
                   className={style.arrow}
                   src="./assets/img/arrow-orange.svg"
-                  alt="Logo of brussels mobility"
+                  alt="Arrow orange icon"
                   width="20"
                   height="20" 
                 />
