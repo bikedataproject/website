@@ -13,15 +13,10 @@ const NavBar = () => {
   const [menuColor, setMenuColor] = useState('white');
   const [menuOpen, setMenuOpen] = useState(false);
   const [hamburgerVisible, setHamburgerVisible] = useState(false);
-  const [buttonHidden, setButtonHidden] = useState(true);
-
-  const [urll, setUrl] = useState(useLocation().pathname);
 
   useEffect(() => {
     if(window.innerWidth < 750) setHamburgerVisible(true)
     else setHamburgerVisible(false)
-
-    if ( urll === '/') setButtonHidden(false);
     return;
   }, [])
 
@@ -56,26 +51,6 @@ const NavBar = () => {
     if(window.innerWidth < 901) setHamburgerVisible(true)
     else setHamburgerVisible(false)
   });
-
-  const renderDonateButton = () => {
-    if (!buttonHidden)
-      return (
-        <li>
-          <Link
-            to="donate"
-            spy={true}
-            smooth={true}
-            duration={700}
-            offset={-250}
-            className={`${style.menu__item} ${style.nav__button}`}
-            activeClassName={style.active}
-            onClick={() => setMenuOpen(false)}
-          >
-            Donate data
-          </Link>
-        </li>
-    );
-  }
 
   const renderMobileMenu = () => {
     if(menuOpen)
@@ -124,7 +99,22 @@ const NavBar = () => {
                 {i18n.t('Contact')}{' '}
               </NavLink>
             </li>
-              {renderDonateButton()}
+              <Link
+              onClick={() => {
+                setMenuOpen(false)
+                if(url !== '/')
+                  window.location.assign('/#donate')
+              }}
+              to="donate"
+              spy={true}
+              smooth={true}
+              duration={700}
+              offset={-250}
+              className={`${style.menu__item} ${style.nav__button}`}
+              activeClassName={style.active}
+            >
+              Donate data
+            </Link>
           </ul>
         </div>
       );
@@ -179,6 +169,10 @@ const NavBar = () => {
             </li>
             <li>
               <Link
+                onClick={() => {
+                  if(url !== '/')
+                    window.location.assign('/#donate')
+                }}
                 to="donate"
                 spy={true}
                 smooth={true}
