@@ -89,21 +89,12 @@ const Home = () => {
   }, [statistics])
 
   const deleteFile = (key) => {
-    let fileList = garminFiles;
-
-    let objectt = {
-      one: {
-        name: "yeet"
-      },
-      two: {
-        name: "yoot"
-      },
-      three: {
-        name: "yuut"
-      },
-    }
-    console.log(delete objectt.one)
-    console.log(objectt)
+    let fileList = {}
+    let fileInput = document.getElementById('file-input');
+    fileInput.value = ''
+    Object.assign(fileList, {...garminFiles});
+    
+    delete fileList[key]
     setGarminFiles(fileList);
   }
 
@@ -122,7 +113,8 @@ const Home = () => {
     let fileInput = document.getElementById('file-input');
 
     fileInput.addEventListener('change', () => {
-          setGarminFiles(fileInput.files);
+      console.log(fileInput.files)
+      setGarminFiles(fileInput.files);
     });
   }
 
@@ -145,7 +137,7 @@ const Home = () => {
 
   const submitGarminFiles = () => {
     var data= new FormData();
-    console.log("submitting")
+    let fileInput = document.getElementById('file-input');
 
     Object.keys(garminFiles).forEach((key, index) => {
       data.append(index, garminFiles[key])
@@ -160,6 +152,7 @@ const Home = () => {
           setGarminFilesIsUploading(false);
           if(result.fileUploadedCount > 0)  
           {
+            fileInput.value = ''
             setGarminFiles([])
             setGarminModalVisible(false)
             setSubmitSuccess(true)

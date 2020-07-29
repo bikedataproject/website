@@ -57,6 +57,7 @@
     align-self: flex-end;
     border: none;
     position: fixed;
+    cursor: pointer;
 }
 
 .upload__modal .form__container .submit__button {
@@ -76,6 +77,10 @@
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
+}
+
+.upload__modal .form__container .submit__button:hover {
+    background: #f86a4a;
 }
 
 .upload__modal div input {
@@ -142,6 +147,7 @@
     background-color: lightgrey;
     align-self: flex-end;
     border: none;
+    cursor: pointer;
 }
 
 .files__container {
@@ -168,6 +174,10 @@
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
+}
+
+.upload__modal div label:hover {
+    background: #4c5dbd;
 }
 
 .grid {
