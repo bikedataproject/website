@@ -45,6 +45,7 @@ const Home = () => {
 
   useEffect(() => {
     if(submitSuccess || stravaFailed || stravaSuccess) {
+      window.history.replaceState({}, document.title, "/");
       setTimeout(() => {
         setSubmitSuccess(false)
         setStravaFailed(false)
@@ -168,7 +169,7 @@ const Home = () => {
   }
 
   const stravaLogin = () => {
-    window.open("https://www.strava.com/oauth/authorize?client_id=51269&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all", "_blank")
+    window.location.assign("https://www.strava.com/oauth/authorize?client_id=51269&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all")
   }
 
   return useObserver(() => (
