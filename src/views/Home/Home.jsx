@@ -90,8 +90,20 @@ const Home = () => {
 
   const deleteFile = (key) => {
     let fileList = garminFiles;
-    console.log(delete fileList[key])
-    console.log(fileList)
+
+    let objectt = {
+      one: {
+        name: "yeet"
+      },
+      two: {
+        name: "yoot"
+      },
+      three: {
+        name: "yuut"
+      },
+    }
+    console.log(delete objectt.one)
+    console.log(objectt)
     setGarminFiles(fileList);
   }
 
