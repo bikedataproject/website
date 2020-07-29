@@ -69,7 +69,34 @@
   color: colorBlue;
 }
 
-@media (max-width: 750px) {
+.nav__button {
+  background-color: colorOrange;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 3.5rem;
+  border-bottom: 0;
+  transition: ease-in-out .2s;
+  cursor: pointer;
+}
+
+.list__scroll .nav__button {
+  color: white;
+}
+
+
+.nav__button:hover {
+  background-color: colorBlue;
+  color: white;
+  border-bottom: 0;
+}
+
+.list__scroll .nav__button:hover {
+  background-color: white;
+  color: colorOrange;
+  border-bottom: 0;
+}
+
+@media (max-width: 900px) {
     .list {
       display: none;
     }

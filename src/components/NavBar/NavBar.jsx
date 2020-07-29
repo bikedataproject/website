@@ -4,6 +4,7 @@ import { ROUTES } from '../../const/index';
 import style from './NavBar.module.css';
 import i18n from "../../utils/i18n";
 import HamburgerMenu from 'react-hamburger-menu';
+import { Link } from 'react-scroll';
 
 const NavBar = () => {
 
@@ -12,10 +13,15 @@ const NavBar = () => {
   const [menuColor, setMenuColor] = useState('white');
   const [menuOpen, setMenuOpen] = useState(false);
   const [hamburgerVisible, setHamburgerVisible] = useState(false);
+  const [buttonHidden, setButtonHidden] = useState(true);
+
+  const [urll, setUrl] = useState(useLocation().pathname);
 
   useEffect(() => {
     if(window.innerWidth < 750) setHamburgerVisible(true)
     else setHamburgerVisible(false)
+
+    if ( urll === '/') setButtonHidden(false);
     return;
   }, [])
 
@@ -41,63 +47,147 @@ const NavBar = () => {
     else setMenuColor('#36469D')
   };
 
-  const url = useLocation().pathname;
+  let url = useLocation().pathname;
 
   window.addEventListener('scroll', handleScroll);
 
   window.addEventListener('resize', () => {
     console.log(window.innerWidth);
-    if(window.innerWidth < 750) setHamburgerVisible(true)
+    if(window.innerWidth < 901) setHamburgerVisible(true)
     else setHamburgerVisible(false)
   });
 
+  const renderDonateButton = () => {
+    if (!buttonHidden)
+      return (
+        <li>
+          <Link
+            to="donate"
+            spy={true}
+            smooth={true}
+            duration={700}
+            offset={-250}
+            className={`${style.menu__item} ${style.nav__button}`}
+            activeClassName={style.active}
+            onClick={() => setMenuOpen(false)}
+          >
+            Donate data
+          </Link>
+        </li>
+    );
+  }
+
   const renderMobileMenu = () => {
     if(menuOpen)
-      return(
-        <div className={`${style.mobile__menu} ${colorNav && url === '/' ? style.mobile__menu : style.menu__scroll}`}>
+      return (
+        <div
+          className={`${style.mobile__menu} ${
+            colorNav && url === '/' ? style.mobile__menu : style.menu__scroll
+          }`}
+        >
           <ul>
             <li>
-            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
-                {i18n.t("Data_Map")}
-            </NavLink>
+              <NavLink
+                className={style.menu__item}
+                activeClassName={style.active}
+                to={`${ROUTES.datamap}`}
+              >
+                {i18n.t('Data_Map')}
+              </NavLink>
             </li>
             <li>
-            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.about}`}>
-              {i18n.t("About")}
-            </NavLink>
+              <NavLink
+                className={style.menu__item}
+                activeClassName={style.active}
+                to={`${ROUTES.about}`}
+              >
+                {i18n.t('About')}
+              </NavLink>
             </li>
             <li>
-            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.faq}`}> {i18n.t("FAQ")} </NavLink>
+              <NavLink
+                className={style.menu__item}
+                activeClassName={style.active}
+                to={`${ROUTES.faq}`}
+              >
+                {' '}
+                {i18n.t('FAQ')}{' '}
+              </NavLink>
             </li>
             <li>
-            <NavLink className={style.menu__item} activeClassName={style.active} to={`${ROUTES.contact}`}> {i18n.t("Contact")} </NavLink>
+              <NavLink
+                className={style.menu__item}
+                activeClassName={style.active}
+                to={`${ROUTES.contact}`}
+              >
+                {' '}
+                {i18n.t('Contact')}{' '}
+              </NavLink>
             </li>
+              {renderDonateButton()}
           </ul>
         </div>
-      )
+      );
   }
 
   if(!hamburgerVisible) {
     return (
       <>
         <nav>
-          <ul className={`${style.list} ${colorNav && url === '/' ? style.list__scroll : style.list}`}>
-              <li>
-              <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.datamap}`}>
-                  {i18n.t("Data_Map")}
+          <ul
+            className={`${style.list} ${
+              colorNav && url === '/' ? style.list__scroll : style.list
+            }`}
+          >
+            <li>
+              <NavLink
+                className={style.nav__item}
+                activeClassName={style.active}
+                to={`${ROUTES.datamap}`}
+              >
+                {i18n.t('Data_Map')}
               </NavLink>
-              </li>
-              <li>
-              <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.about}`}>
-                {i18n.t("About")}
+            </li>
+            <li>
+              <NavLink
+                className={style.nav__item}
+                activeClassName={style.active}
+                to={`${ROUTES.about}`}
+              >
+                {i18n.t('About')}
               </NavLink>
-              </li>
-              <li>
-              <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.faq}`}> {i18n.t("FAQ")} </NavLink>
-              </li>
-              <li>
-              <NavLink className={style.nav__item} activeClassName={style.active} to={`${ROUTES.contact}`}> {i18n.t("Contact")} </NavLink>
-              </li>
+            </li>
+            <li>
+              <NavLink
+                className={style.nav__item}
+                activeClassName={style.active}
+                to={`${ROUTES.faq}`}
+              >
+                {' '}
+                {i18n.t('FAQ')}{' '}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={style.nav__item}
+                activeClassName={style.active}
+                to={`${ROUTES.contact}`}
+              >
+                {' '}
+                {i18n.t('Contact')}{' '}
+              </NavLink>
+            </li>
+            <li>
+              <Link
+                to="donate"
+                spy={true}
+                smooth={true}
+                duration={700}
+                offset={-250}
+                className={`${style.nav__item} ${style.nav__button}`}
+                activeClassName={style.active}
+              >Donate data</Link>
+            </li>
           </ul>
         </nav>
       </>
