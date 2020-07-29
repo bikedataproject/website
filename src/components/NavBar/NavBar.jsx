@@ -10,6 +10,7 @@ const NavBar = () => {
 
     // COLOR CHANGE NAV
   const [colorNav, setColorNav] = useState(true);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [menuColor, setMenuColor] = useState('white');
   const [menuOpen, setMenuOpen] = useState(false);
   const [hamburgerVisible, setHamburgerVisible] = useState(false);
@@ -41,6 +42,17 @@ const NavBar = () => {
     if(colorNav && url === '/') setMenuColor('white')
     else setMenuColor('#36469D')
   };
+
+  const onSelectFlag = async (country) => {
+    const countryMapping = {
+      BE: 'nl',
+      FR: 'fre',
+      US: 'en'
+    }
+
+    await i18n.changeLanguage(countryMapping[country]);
+    setCurrentLanguage(country);
+  }
 
   let url = useLocation().pathname;
 
@@ -113,7 +125,7 @@ const NavBar = () => {
               className={`${style.menu__item} ${style.nav__button}`}
               activeClassName={style.active}
             >
-              Donate data
+              {i18n.t('Donate_data')}
             </Link>
           </ul>
         </div>
@@ -180,7 +192,7 @@ const NavBar = () => {
                 offset={-250}
                 className={`${style.nav__item} ${style.nav__button}`}
                 activeClassName={style.active}
-              >Donate data</Link>
+              >{i18n.t('Donate_data')}</Link>
             </li>
           </ul>
         </nav>

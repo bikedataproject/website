@@ -12,7 +12,6 @@ import { useHistory } from 'react-router-dom';
 import { Element } from 'react-scroll';
  
 const Home = () => {
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [garminModalVisible, setGarminModalVisible] = useState(false);
   const [garminFiles, setGarminFiles] = useState({});
   const [garminFilesError, setGarminFilesError] = useState(<></>);
@@ -122,17 +121,6 @@ const Home = () => {
     fetch("https://api.bikedataproject.info/geo/Track/Publish")
     .then((response) => response.json())
     .then((data) => setStatistics(data));
-  }
-
-  const onSelectFlag = async (country) => {
-    const countryMapping = {
-      BE: 'nl',
-      FR: 'fre',
-      US: 'en'
-    }
-
-    await i18n.changeLanguage(countryMapping[country]);
-    setCurrentLanguage(country);
   }
 
   const submitGarminFiles = () => {
@@ -554,7 +542,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
     </>
   ));
 };
