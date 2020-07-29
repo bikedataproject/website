@@ -262,6 +262,7 @@ i18n.use(LanguageDetector).init({
         // Footer
         Footer_intro: 'Bike Data Project is een project georganiseerd door Open Knowledge Belgium',
         Footer_city: '1000 Brussel',
+        Footer_nav_title: 'Informatie',
 
         // DataMap Page
         Data_been_gathered: 'Deze gegevens zijn de afgelopen jaren verzameld door verschillende soorten fietsers van over de hele wereld.',
