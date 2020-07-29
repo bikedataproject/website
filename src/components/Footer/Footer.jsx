@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.css';
 import i18n from "../../utils/i18n";
-import ReactFlagsSelect from 'react-flags-select';
-import 'react-flags-select/css/react-flags-select.css';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 const Footer = ({onSelectFlag}) => {
+  const languages = [{label: 'English', value: 'US'}, {label: 'Nederlands', value: 'BE'}, {label: 'Français', value: 'FR'}]
+  const [selectedLanguage, setSelectedLanguage] = useState()
+
+  useEffect(() => {
+    let currentLanguage = i18n.language;
+
+    switch(currentLanguage) {
+      case 'en':
+        setSelectedLanguage('US')
+        break;
+      case 'nl':
+        setSelectedLanguage('BE')
+        break;
+      case 'fre':
+        setSelectedLanguage('FR')
+        break;
+      default:
+        setSelectedLanguage()
+    }
+    return;
+  }, [])
+
+  const languageChanged = (e) => {
+    onSelectFlag(e.value)
+    setSelectedLanguage(e.value)
+  }
 
   return (
     <>
@@ -59,13 +85,14 @@ const Footer = ({onSelectFlag}) => {
                 {i18n.t('Contact')}
               </Link>
             </div>
-            <ReactFlagsSelect
-              className={style.menu_flags}
-              countries={["US", "BE", "FR"]}
-              customLabels={{"US": "English","BE": "Nederlands", "FR": "Français"}}
-              placeholder="Select Language"
-              showSelectedLabel={true}
-              onSelect={(country) => onSelectFlag(country)}
+            <Dropdown
+              className={style.language__dropdown}
+              menuClassName={style.language__menu}
+              arrowClassName={style.language__arrow}
+              options={languages}
+              onChange={(e) => languageChanged(e)}
+              value={selectedLanguage}
+              placeholder="Select language"
             />
           </div>
 
