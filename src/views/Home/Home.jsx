@@ -143,17 +143,19 @@ const Home = () => {
         })
         .then(response => response.json())
         .then(result => {
-          if(result.status === 'OK')  
+          console.log(result)
+          if(result.fileUploadedCount > 0)  
           {
             setGarminFiles([])
             setGarminModalVisible(false)
             setSubmitSuccess(true)
           } else {
-            setGarminFilesError(<p>Something went wrong, please try again.</p>)
+            setGarminFilesError(<p className={style.garmin__error}>Something went wrong, are you uploading the correct files? (.gpx and/or .fit) <br/> please try again.</p>)
           }
           
         })
         .catch(error => {
+          setGarminFilesError(<p className={style.garmin__error}>Something went wrong, are you uploading the correct files? (.gpx and/or .fit) <br/> please try again.</p>)
           console.error('Error:', error);
         });
       }
@@ -264,7 +266,7 @@ const Home = () => {
           </div>
           <div className={style.button__container}>
             {garminFilesError}
-            <input id='file-input' type='file' accept='.gpx,.fit' multiple />
+            <input id='file-input' type='file' multiple />
             <label for="file-input">Choose your Garmin files</label>
             <button onClick={() => submitGarminFiles()} className={style.submit__button}>Submit</button>
           </div>

@@ -115,6 +115,11 @@
     background-color: #eb2323;
 }
 
+.garmin__error {
+    text-align: center;
+    margin: 20px 0px;
+}
+
 .file__item {
     display: flex;
     flex-direction: row;
