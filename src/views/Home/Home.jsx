@@ -8,6 +8,8 @@ import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { IoMdClose } from "react-icons/io";
 import { MoonLoader } from 'react-spinners';
+import { useHistory } from 'react-router-dom';
+import { Element } from 'react-scroll';
  
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
@@ -179,14 +181,17 @@ const Home = () => {
         <div className={style.header__intro}>
           <p>{i18n.t('Introduction')}</p>
           <p className={style.intro__counter}>
-            <p className={style.counter__total}>+
-            <CountUp
-              end={totalDistance}
-              separator="."
-              decimals={0}
-              redraw={true}
-              duration="2"
-            />K</p>
+            <p className={style.counter__total}>
+              +
+              <CountUp
+                end={totalDistance}
+                separator="."
+                decimals={0}
+                redraw={true}
+                duration="2"
+              />
+              K
+            </p>
             <p>{i18n.t('Label_total_km')}</p>
           </p>
         </div>
@@ -229,47 +234,61 @@ const Home = () => {
         alt="Line illustration of a bike and some trees."
       />
 
-      <section className={`${style.content} ${style.grid} ${style.donate}`}>
-        <p className={`${style.bigLetter} ${style.donateLetter}`}>
-          {i18n.t('Donate')}
-        </p>
-        <div className={style.content__wrapper}>
-          <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
-          <div className={style.content__text}>
-            <p>{i18n.t('Several_ways_to_contribute')}</p>
-            <p>{i18n.t('You_not_using')}</p>
-          </div>
-        </div>
-        <div className={style.donate__buttons}>
-          <div className={style.buttons__other}>
-            <p>{i18n.t('Connect_existing_account')}</p>
-            <div className={style.buttons__wrapper}>
-              <button className={style.btn} onClick={() => stravaLogin()}>Strava</button>
-              <button onClick={() => setGarminModalVisible(true)} className={style.btn}>Garmin</button>
+      <Element id="donate" name="donate">
+        <section className={`${style.content} ${style.grid} ${style.donate}`}>
+          <p className={`${style.bigLetter} ${style.donateLetter}`}>
+            {i18n.t('Donate')}
+          </p>
+          <div className={style.content__wrapper}>
+            <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
+            <div className={style.content__text}>
+              <p>{i18n.t('Several_ways_to_contribute')}</p>
+              <p>{i18n.t('You_not_using')}</p>
             </div>
           </div>
-          <div className={style.buttons__our}>
-            <p>{i18n.t('Download_our_app')}</p>
-            <div className={style.buttons__wrapper}>
-              <button className={style.btn}>Google Store</button>
-              <button className={style.btn}>Apple Store</button>
+          <div className={style.donate__buttons}>
+            <div className={style.buttons__other}>
+              <p>{i18n.t('Connect_existing_account')}</p>
+              <div className={style.buttons__wrapper}>
+                <button className={style.btn} onClick={() => stravaLogin()}>
+                  Strava
+                </button>
+                <button
+                  onClick={() => setGarminModalVisible(true)}
+                  className={style.btn}
+                >
+                  Garmin
+                </button>
+              </div>
+            </div>
+            <div className={style.buttons__our}>
+              <p>{i18n.t('Download_our_app')}</p>
+              <div className={style.buttons__wrapper}>
+                <button className={style.btn}>Google Store</button>
+                <button className={style.btn}>Apple Store</button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      
+        </section>
+      </Element>
+
       {/* Garmin upload modal */}
-      <div className={`${garminModalVisible ? style.modal__Visible : ''} ${style.upload__modal}`}>
+      <div
+        className={`${garminModalVisible ? style.modal__Visible : ''} ${
+          style.upload__modal
+        }`}
+      >
         <div className={style.form__container}>
-          <button className={style.close__button} onClick={() => setGarminModalVisible(false)}>
+          <button
+            className={style.close__button}
+            onClick={() => setGarminModalVisible(false)}
+          >
             <IoMdClose style={{ width: '100%', height: '100%' }} />
           </button>
-          <div className={style.files__container}>
-            {modalContent}
-          </div>
+          <div className={style.files__container}>{modalContent}</div>
           <div className={style.button__container}>
             {garminFilesError}
-            <input id='file-input' type='file' multiple />
+            <input id='file-input' type='file' accept=".gpx,.fit" multiple />
             <label for="file-input">Choose your Garmin files</label>
             <button onClick={() => submitGarminFiles()} className={style.submit__button}> 
             {garminFilesIsUploading? '' : 'Submit'}
@@ -281,7 +300,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-
+      
       <div className={`${stravaFailed ? style.failed__notification__Visible : ''} ${style.notification}`}>
         <p>There was an issue connecting your strava account.</p>
       </div>
@@ -410,7 +429,7 @@ const Home = () => {
             <p>{i18n.t('Common_goal')}</p>
           </div>
         </div>
-        
+
         <img
           className={style.content__img}
           src="./assets/img/contribute.png"
@@ -473,7 +492,7 @@ const Home = () => {
                   src="./assets/img/arrow-orange.svg"
                   alt="Arrow orange icon"
                   width="20"
-                  height="20" 
+                  height="20"
                 />
               </button>
             </div>
@@ -490,25 +509,37 @@ const Home = () => {
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
-            <a href="https://mobilite-mobiliteit.brussels" className={style.partner} target="_blank">
-                <img
-                  className={style.partner__img}
-                  src="./assets/img/brussels-mobility.png"
-                  alt="Logo of brussels mobility"
-                  width="176"
-                  height="49"
-                />
+            <a
+              href="https://mobilite-mobiliteit.brussels"
+              className={style.partner}
+              target="_blank"
+            >
+              <img
+                className={style.partner__img}
+                src="./assets/img/brussels-mobility.png"
+                alt="Logo of brussels mobility"
+                width="176"
+                height="49"
+              />
             </a>
-            <a href="https://be.okfn.org/" className={style.partner} target="_blank">
-                <img
-                  className={`${style.partner__img} ${style.partner__okbLogo}`}
-                  src="./assets/img/osoc-logo-black.svg"
-                  alt="Logo of Open Knowlegde Belgium"
-                  width="170"
-                  height="117"
-                />
+            <a
+              href="https://be.okfn.org/"
+              className={style.partner}
+              target="_blank"
+            >
+              <img
+                className={`${style.partner__img} ${style.partner__okbLogo}`}
+                src="./assets/img/osoc-logo-black.svg"
+                alt="Logo of Open Knowlegde Belgium"
+                width="170"
+                height="117"
+              />
             </a>
-            <a href="https://www.wgfilm.com/" className={style.partner} target="_blank">
+            <a
+              href="https://www.wgfilm.com/"
+              className={style.partner}
+              target="_blank"
+            >
               <img
                 className={`${style.partner__img} ${style.partner__wgLogo}`}
                 src="./assets/img/wg-film.png"
