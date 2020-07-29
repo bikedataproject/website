@@ -14,7 +14,7 @@ import { Element } from 'react-scroll';
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const [garminModalVisible, setGarminModalVisible] = useState(false);
-  const [garminFiles, setGarminFiles] = useState([]);
+  const [garminFiles, setGarminFiles] = useState({});
   const [garminFilesError, setGarminFilesError] = useState(<></>);
   const [modalContent, setModalContent] = useState(<></>);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -57,19 +57,15 @@ const Home = () => {
   useEffect(() => {
     setGarminFilesError()
 
-    if(garminFiles.length < 1)
+    if(Object.keys(garminFiles).length < 1)
       setModalContent(<p style={{ textAlign: 'center', marginTop: '40px' }}>Choose the .gpx or .fit files you want to upload.</p>)
     else
       setModalContent(
-        garminFiles.map((file, i) => {
+        Object.keys(garminFiles).map((key, i) => {
           return (
             <div className={style.file__item} key={i}>
-              <p className={style.button__label}>{file.name}</p>
-              <button className={style.deleteFile__button} onClick={() => {
-                let fileList = [...garminFiles];
-                fileList.splice(i, 1)
-                setGarminFiles(fileList);
-              }}>
+              <p className={style.button__label}>{garminFiles[key].name}</p>
+              <button className={style.deleteFile__button} onClick={() => deleteFile(key)}>
                 <IoMdClose style={{ width: '100%', height: '100%' }} />
               </button>
             </div>
@@ -78,7 +74,7 @@ const Home = () => {
       )
 
     return;
-  }, [garminFiles.length])
+  }, [garminFiles])
 
   useEffect(() => {
     const co2perkm = 130 / 1000;
@@ -91,6 +87,13 @@ const Home = () => {
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
     return;
   }, [statistics])
+
+  const deleteFile = (key) => {
+    let fileList = garminFiles;
+    console.log(delete fileList[key])
+    console.log(fileList)
+    setGarminFiles(fileList);
+  }
 
   const checkForStravaStatus = () => {
     const queryString = window.location.search;
@@ -107,12 +110,7 @@ const Home = () => {
     let fileInput = document.getElementById('file-input');
 
     fileInput.addEventListener('change', () => {
-      let filesList = new Array();
-      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
-        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
-        if(i === Object.keys(fileInput.files).length - 1)
-          setGarminFiles(filesList);
-      }
+          setGarminFiles(fileInput.files);
     });
   }
 
@@ -137,9 +135,9 @@ const Home = () => {
     var data= new FormData();
     console.log("submitting")
 
-    garminFiles.forEach((file, index) => {
-      data.append(index, file)
-      if(index === garminFiles.length - 1) {
+    Object.keys(garminFiles).forEach((key, index) => {
+      data.append(index, garminFiles[key])
+      if(index === Object.keys(garminFiles).length - 1) {
         setGarminFilesIsUploading(true);
         fetch('https://api.bikedataproject.info/file/upload', {
           method: 'POST',
