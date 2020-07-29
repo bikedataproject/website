@@ -7,6 +7,7 @@ import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { IoMdClose } from "react-icons/io";
+import { MoonLoader } from 'react-spinners';
 import { useHistory } from 'react-router-dom';
 import { Element } from 'react-scroll';
  
@@ -17,6 +18,9 @@ const Home = () => {
   const [garminFilesError, setGarminFilesError] = useState(<></>);
   const [modalContent, setModalContent] = useState(<></>);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [stravaSuccess, setStravaSuccess] = useState(false);
+  const [stravaFailed, setStravaFailed] = useState(false);
+  const [garminFilesIsUploading, setGarminFilesIsUploading] = useState(false)
 
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
@@ -31,35 +35,24 @@ const Home = () => {
     totalDistance: 1,
   });
 
-  let history = useHistory();
-
   useEffect(() => {
-    fetch("https://api.bikedataproject.info/geo/Track/Publish")
-    .then((response) => response.json())
-    .then((data) => setStatistics(data));
-
-    let fileInput = document.getElementById('file-input');
-
-    fileInput.addEventListener('change', () => {
-      let filesList = new Array();
-      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
-        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
-        if(i === Object.keys(fileInput.files).length - 1)
-          setGarminFiles(filesList);
-      }
-    });
+    checkForStravaStatus();
+    fetchBikeData();
+    listenForGarminFiles();
 
     return;
   }, [])
 
   useEffect(() => {
-    if(submitSuccess) {
+    if(submitSuccess || stravaFailed || stravaSuccess) {
       setTimeout(() => {
         setSubmitSuccess(false)
+        setStravaFailed(false)
+        setStravaSuccess(false)
       }, 3000);
     }
     return;
-  }, [submitSuccess])
+  }, [submitSuccess, stravaFailed, stravaSuccess])
 
   useEffect(() => {
     setGarminFilesError()
@@ -99,6 +92,36 @@ const Home = () => {
     return;
   }, [statistics])
 
+  const checkForStravaStatus = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const stravaStatus = urlParams.get('stravaStatus');
+
+    if(stravaStatus === 'success') {
+      setStravaSuccess(true);
+    } else if(stravaStatus === 'failed')
+      setStravaFailed(true);
+  }
+
+  const listenForGarminFiles = () => {
+    let fileInput = document.getElementById('file-input');
+
+    fileInput.addEventListener('change', () => {
+      let filesList = new Array();
+      for(let i = 0; i < Object.keys(fileInput.files).length; i++) {
+        filesList.push(fileInput.files[Object.keys(fileInput.files)[i]])
+        if(i === Object.keys(fileInput.files).length - 1)
+          setGarminFiles(filesList);
+      }
+    });
+  }
+
+  const fetchBikeData = () => {
+    fetch("https://api.bikedataproject.info/geo/Track/Publish")
+    .then((response) => response.json())
+    .then((data) => setStatistics(data));
+  }
+
   const onSelectFlag = async (country) => {
     const countryMapping = {
       BE: 'nl',
@@ -117,24 +140,27 @@ const Home = () => {
     garminFiles.forEach((file, index) => {
       data.append(index, file)
       if(index === garminFiles.length - 1) {
-        console.log("data")
+        setGarminFilesIsUploading(true);
         fetch('https://api.bikedataproject.info/file/upload', {
           method: 'POST',
           body: data
         })
         .then(response => response.json())
         .then(result => {
-          if(result.status === 'OK')  
+          setGarminFilesIsUploading(false);
+          if(result.fileUploadedCount > 0)  
           {
             setGarminFiles([])
             setGarminModalVisible(false)
             setSubmitSuccess(true)
           } else {
-            setGarminFilesError(<p>Something went wrong, please try again.</p>)
+            setGarminFilesError(<p className={style.garmin__error}>Something went wrong, are you uploading the correct files? (.gpx and/or .fit) <br/> please try again.</p>)
           }
           
         })
         .catch(error => {
+          setGarminFilesIsUploading(false);
+          setGarminFilesError(<p className={style.garmin__error}>Something went wrong, are you uploading the correct files? (.gpx and/or .fit) <br/> please try again.</p>)
           console.error('Error:', error);
         });
       }
@@ -262,23 +288,28 @@ const Home = () => {
           <div className={style.files__container}>{modalContent}</div>
           <div className={style.button__container}>
             {garminFilesError}
-            <input id="file-input" type="file" accept=".gpx,.fit" multiple />
+            <input id='file-input' type='file' accept=".gpx,.fit" multiple />
             <label for="file-input">Choose your Garmin files</label>
-            <button
-              onClick={() => submitGarminFiles()}
-              className={style.submit__button}
-            >
-              Submit
-            </button>
+            <button onClick={() => submitGarminFiles()} className={style.submit__button}> 
+            {garminFilesIsUploading? '' : 'Submit'}
+            <MoonLoader
+              size={20}
+              color={"white"}
+              loading={garminFilesIsUploading}
+            /></button>
           </div>
         </div>
       </div>
+      
+      <div className={`${stravaFailed ? style.failed__notification__Visible : ''} ${style.notification}`}>
+        <p>There was an issue connecting your strava account.</p>
+      </div>
 
-      <div
-        className={`${submitSuccess ? style.notification__Visible : ''} ${
-          style.success__notification
-        }`}
-      >
+      <div className={`${stravaSuccess ? style.success__notification__Visible : ''} ${style.notification}`}>
+        <p>Your Strava account was successfully connected.</p>
+      </div>
+
+      <div className={`${submitSuccess ? style.success__notification__Visible : ''} ${style.notification}`}>
         <p>Your files were successfully uploaded.</p>
       </div>
 

@@ -84,16 +84,16 @@
     width: 0;
 }
 
-.success__notification {
+.notification {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding: 1vh;
     position: fixed;
-    top: -80px;
+    top: -90px;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 90px;
     z-index: 1000;
     color: white;
     font-size: large;
@@ -105,9 +105,19 @@
     transition-duration: 0.5s;
 }
 
-.notification__Visible {
+.success__notification__Visible {
     top: 0px;
     background-color: #02cc37;
+}
+
+.failed__notification__Visible {
+    top: 0px;
+    background-color: #eb2323;
+}
+
+.garmin__error {
+    text-align: center;
+    margin: 20px 0px;
 }
 
 .file__item {
