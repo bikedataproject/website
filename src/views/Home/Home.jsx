@@ -7,6 +7,7 @@ import CountUp from 'react-countup';
 import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { IoMdClose } from "react-icons/io";
+import { MoonLoader } from 'react-spinners';
  
 const Home = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
@@ -17,6 +18,7 @@ const Home = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [stravaSuccess, setStravaSuccess] = useState(false);
   const [stravaFailed, setStravaFailed] = useState(false);
+  const [garminFilesIsUploading, setGarminFilesIsUploading] = useState(false)
 
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
@@ -136,14 +138,14 @@ const Home = () => {
     garminFiles.forEach((file, index) => {
       data.append(index, file)
       if(index === garminFiles.length - 1) {
-        console.log("data")
+        setGarminFilesIsUploading(true);
         fetch('https://api.bikedataproject.info/file/upload', {
           method: 'POST',
           body: data
         })
         .then(response => response.json())
         .then(result => {
-          console.log(result)
+          setGarminFilesIsUploading(false);
           if(result.fileUploadedCount > 0)  
           {
             setGarminFiles([])
@@ -155,6 +157,7 @@ const Home = () => {
           
         })
         .catch(error => {
+          setGarminFilesIsUploading(false);
           setGarminFilesError(<p className={style.garmin__error}>Something went wrong, are you uploading the correct files? (.gpx and/or .fit) <br/> please try again.</p>)
           console.error('Error:', error);
         });
@@ -268,7 +271,13 @@ const Home = () => {
             {garminFilesError}
             <input id='file-input' type='file' multiple />
             <label for="file-input">Choose your Garmin files</label>
-            <button onClick={() => submitGarminFiles()} className={style.submit__button}>Submit</button>
+            <button onClick={() => submitGarminFiles()} className={style.submit__button}> 
+            {garminFilesIsUploading? '' : 'Submit'}
+            <MoonLoader
+              size={20}
+              color={"white"}
+              loading={garminFilesIsUploading}
+            /></button>
           </div>
         </div>
       </div>
