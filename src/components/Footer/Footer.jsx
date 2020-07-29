@@ -10,21 +10,16 @@ const Footer = ({onSelectFlag}) => {
   const [selectedLanguage, setSelectedLanguage] = useState()
 
   useEffect(() => {
+    console.log(i18n.languages);
     let currentLanguage = i18n.language;
 
-    switch(currentLanguage) {
-      case 'en':
-        setSelectedLanguage('US')
-        break;
-      case 'nl':
-        setSelectedLanguage('BE')
-        break;
-      case 'fre':
-        setSelectedLanguage('FR')
-        break;
-      default:
-        setSelectedLanguage()
-    }
+    if(currentLanguage.includes('en'))
+      setSelectedLanguage('US')
+    else if(currentLanguage.includes('nl'))
+      setSelectedLanguage('BE')
+    else if(currentLanguage.includes('fr'))
+      setSelectedLanguage('FR')
+
     return;
   }, [])
 
