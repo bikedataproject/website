@@ -162,7 +162,7 @@ const Home = () => {
               separator="."
               decimals={0}
               redraw={true}
-              duration={statisticsDuration}
+              duration="2"
             />K</p>
             <p>{i18n.t('Label_total_km')}</p>
           </p>

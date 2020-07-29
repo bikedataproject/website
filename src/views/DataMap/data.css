@@ -26,6 +26,10 @@
     text-align: center;
 }
 
+.data__empty {
+    grid-column: span 12;
+}
+
 .data__number {
     font-size: 2.5rem;
     line-height: 1;

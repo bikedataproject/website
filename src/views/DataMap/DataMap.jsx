@@ -30,7 +30,7 @@ const DataMap = () => {
       container: mapContainerRef.current,
       style: 'https://api.maptiler.com/maps/7e7e2443-1c41-46d0-813c-f6b11c2c0225/style.json?key=2Piy1GKXoXq0rHzzBVDA',
       center: [4.3525, 50.8454],
-      zoom: 14,
+      zoom: 8,
       hash: true,
     });
 
@@ -61,32 +61,40 @@ const DataMap = () => {
       const co2perkm = 130 / 1000;
       const co2 = Math.round((feature.properties.meters / 1000) * co2perkm) / 1000;
 
-      dataWrapper.innerHTML = `
-          <div class="data__set">
-            <span class="data__number">${feature.properties.count}</span>
-            <p class="data__label">rides collected</p>
-          </div>
-          <div class="data__set">
-            <span class="data__number">${distance} km</span>
-            <p class="data__label">disctance collected</p>
-          </div>
-          <div class="data__set">
-            <span class="data__number">${avarageDistance} km</span>
-            <p class="data__label">average disctance</p>
-          </div>
-          <div class="data__set">
-            <span class="data__number">${avarageSpeed} km/h</span>
-            <p class="data__label">average speed</p>
-          </div>
-          <div class="data__set">
-            <span class="data__number">${avarageDuration} min</span>
-            <p class="data__label">average duration</p>
-          </div>
-          <div class="data__set">
-            <span class="data__number">${co2} t</span>
-            <p class="data__label">co2 saved</p>
-          </div>
-      `;
+      if (!feature.properties.count) {
+        dataWrapper.innerHTML = `
+          <div class="data__empty">
+            <p>No data collected yet. Get cycling & share your data 🚴</p>
+          </div>`;
+      } else {
+        dataWrapper.innerHTML = `
+           <div class="data__set">
+             <span class="data__number">${feature.properties.count}</span>
+             <p class="data__label">rides collected</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${distance} km</span>
+             <p class="data__label">disctance collected</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${avarageDistance} km</span>
+             <p class="data__label">average disctance</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${avarageSpeed} km/h</span>
+             <p class="data__label">average speed</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${avarageDuration} min</span>
+             <p class="data__label">average duration</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${co2} t</span>
+             <p class="data__label">co2 saved</p>
+           </div>
+          `;
+      }
+      
 
       overlay.appendChild(container);
       container.appendChild(title);
