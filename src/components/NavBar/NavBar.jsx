@@ -8,7 +8,7 @@ import { Link } from 'react-scroll';
 
 const NavBar = () => {
 
-    // COLOR CHANGE NAV
+  // COLOR CHANGE NAV
   const [colorNav, setColorNav] = useState(true);
   const [menuColor, setMenuColor] = useState('white');
   const [menuOpen, setMenuOpen] = useState(false);
