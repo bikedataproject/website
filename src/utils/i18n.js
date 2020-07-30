@@ -34,7 +34,7 @@ i18n.use(LanguageDetector).init({
         You_not_using:
           'You’re not using such an application yet? No worries! You can still be part of this project by also downloading and using our app.',
         Connect_existing_account: 'Connect your existing account',
-        Download_our_app: 'Download our app',
+        Download_our_app: 'Download our app. (comming soon)',
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
@@ -151,7 +151,7 @@ i18n.use(LanguageDetector).init({
         Several_ways_to_contribute: "Vous pouvez contribuer au projet de plusieurs manières. Si vous utilisez déjà l'une des applications énumérées ci- dessous, vous pouvez facilement les connecter au projet Bike Data.Une fois que votre application est connectée, vous pouvez continuer à l’utiliser normalement et vos trajets seront automatiquement téléchargés vers notre service.",
         You_not_using: "Vous n'utilisez pas encore une telle application? Pas de soucis ! Vous pouvez toujours faire partie de ce projet en téléchargeant et en utilisant notre application.",
         Connect_existing_account: 'Connectez votre compte existant',
-        Download_our_app: 'Téléchargez notre application',
+        Download_our_app: 'Téléchargez notre application. (Bientôt disponible)',
         // Data
         Data_title: 'Les données collectées dans le monde entier',
         Rides_collected: 'tours collectés',
@@ -236,7 +236,7 @@ i18n.use(LanguageDetector).init({
         Several_ways_to_contribute: "Er zijn verschillende manieren waarop jouw gegevens kunnen bijdragen worden aan het project. Als je al gebruik maakt van een van de onderstaande apps kun je deze eenvoudig koppelen aan The Bike Data Project. Zodra de app aangesloten is, kunt u gewoon verder gaan met uw ritten en worden uw ritten automatisch geüpload naar onze service.",
         You_not_using: "Gebruik je zo'n app nog niet? Geen nood! Je kunt nog steeds deel uitmaken van dit project door ook onze app te downloaden en te gebruiken. ",
         Connect_existing_account: 'Verbind uw bestaande account',
-        Download_our_app: 'Download onze app',
+        Download_our_app: 'Download onze app. (Verschijnt binnenkort)',
         // Data
         Data_title: 'Verzamelde data wereldwijd',
         Rides_collected: 'verzamelde ritten',

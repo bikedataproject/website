@@ -333,6 +333,11 @@
     margin-bottom: 2rem;
 }
 
+.buttons__our .buttons__wrapper button:hover {
+    background-color: white;
+    color: colorBlue;
+}
+
 .line__img {
     position: absolute;
     transform: translate(0, 15rem);
