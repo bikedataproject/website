@@ -13,9 +13,9 @@
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
-    /*-webkit-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
     -moz-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
-    box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);*/
+    box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
 }
 
 .header__wrapper {
