@@ -7,6 +7,7 @@ i18n.use(LanguageDetector).init({
     en: {
       translations: {
         // Navbar
+        Donate_data: 'Donate Data',
         Data_Map: 'Data Map',
         About: 'About',
         FAQ: 'FAQ',
@@ -132,6 +133,7 @@ i18n.use(LanguageDetector).init({
     fre: {
       translations: {
         // Navbar
+        Donate_data: 'Donner data',
         About: 'Projet',
 
         // Header
@@ -216,6 +218,7 @@ i18n.use(LanguageDetector).init({
     nl: {
       translations: {
         // Navbar
+        Donate_data: 'Doneer data',
         About: 'Over',
 
         // Header
@@ -262,6 +265,7 @@ i18n.use(LanguageDetector).init({
         // Footer
         Footer_intro: 'Bike Data Project is een project georganiseerd door Open Knowledge Belgium',
         Footer_city: '1000 Brussel',
+        Footer_nav_title: 'Informatie',
 
         // DataMap Page
         Data_been_gathered: 'Deze gegevens zijn de afgelopen jaren verzameld door verschillende soorten fietsers van over de hele wereld.',

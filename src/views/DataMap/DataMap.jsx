@@ -11,19 +11,6 @@ const DataMap = () => {
   const mapContainerRef = useRef(null);
   const mapOverlayRef = useRef(null);
 
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
-
-  const onSelectFlag = async (country) => {
-    const countryMapping = {
-      BE: 'nl',
-      FR: 'fre',
-      US: 'en'
-    }
-
-    await i18n.changeLanguage(countryMapping[country]);
-    setCurrentLanguage(country);
-  }
-
   useEffect(() => {
 
     const map = new mapboxgl.Map({
@@ -271,8 +258,6 @@ const DataMap = () => {
           </a>
         </div>
       </section>
-
-      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
     </>
   );
 };
