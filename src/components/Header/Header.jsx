@@ -9,10 +9,10 @@ const Header = () => {
   const [colorNav, setColorNav] = useState(true);
 
   const handleScroll = () => {
-    const colorNav = window.scrollY < 70;
+    const colorNav = window.scrollY < window.innerHeight * 0.2;
     setColorNav(colorNav)
   };
-
+ 
   const url = useLocation().pathname;
   window.addEventListener('scroll', handleScroll);
 

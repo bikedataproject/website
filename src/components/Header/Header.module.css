@@ -6,15 +6,21 @@
     top: 0;
     width: 100%;
     padding-top: 2.5rem;
-    z-index: 999;
+    z-index: 100;
     background-color: white;
     padding-bottom: 2rem;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
+    -moz-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
+    box-shadow: 9px 10px 39px -12px rgba(0,0,0,0.1);
 }
 
 .header__wrapper {
     width: 96rem;
     margin: 0 auto;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,6 +29,9 @@
 .header__scroll {
     background-color: transparent;
     color: colorBlue;
+    -webkit-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0);
+    -moz-box-shadow: 9px 10px 39px -12px rgba(0,0,0,0);
+    box-shadow: 9px 10px 39px -12px rgba(0,0,0,0);
 }
 
 .header svg path {

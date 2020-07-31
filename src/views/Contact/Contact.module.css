@@ -87,3 +87,15 @@
         transform: translate(-60rem, 15rem);
     }
 }
+
+@media (max-width: 350px) {
+
+    .header__wrapper {
+        grid-column: 1/ span 10;
+        margin-top: 20vh;
+    }
+
+    .socials a {
+        margin-right: 2rem;
+    }
+}

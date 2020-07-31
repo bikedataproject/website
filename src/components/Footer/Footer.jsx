@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.css';
 import i18n from "../../utils/i18n";
-import ReactFlagsSelect from 'react-flags-select';
-import 'react-flags-select/css/react-flags-select.css';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 const Footer = ({onSelectFlag}) => {
+  const languages = [{label: 'English', value: 'US'}, {label: 'Nederlands', value: 'BE'}, {label: 'Français', value: 'FR'}]
+  const [selectedLanguage, setSelectedLanguage] = useState()
+
+  useEffect(() => {
+    console.log(i18n.languages);
+    let currentLanguage = i18n.language;
+
+    if(currentLanguage.includes('en'))
+      setSelectedLanguage('US')
+    else if(currentLanguage.includes('nl'))
+      setSelectedLanguage('BE')
+    else if(currentLanguage.includes('fr'))
+      setSelectedLanguage('FR')
+
+    return;
+  }, [])
+
+  const languageChanged = (e) => {
+    onSelectFlag(e.value)
+    setSelectedLanguage(e.value)
+  }
 
   return (
     <>
@@ -39,7 +60,7 @@ const Footer = ({onSelectFlag}) => {
             </h3>
             <div className={style.footer__nav}>
               <Link className={style.footer__navLink} to="/" target="_blank">
-                {i18n.t('Data_map')}
+                {i18n.t('Data_Map')}
               </Link>
               <Link
                 className={style.footer__navLink}
@@ -59,13 +80,14 @@ const Footer = ({onSelectFlag}) => {
                 {i18n.t('Contact')}
               </Link>
             </div>
-            <ReactFlagsSelect
-              className={style.menu_flags}
-              countries={["US", "BE", "FR"]}
-              customLabels={{"US": "English","BE": "Nederlands", "FR": "Français"}}
-              placeholder="Select Language"
-              showSelectedLabel={true}
-              onSelect={(country) => onSelectFlag(country)}
+            <Dropdown
+              className={style.language__dropdown}
+              menuClassName={style.language__menu}
+              arrowClassName={style.language__arrow}
+              options={languages}
+              onChange={(e) => languageChanged(e)}
+              value={selectedLanguage}
+              placeholder="Select language"
             />
           </div>
 
@@ -76,7 +98,7 @@ const Footer = ({onSelectFlag}) => {
             <p>bikedataproject@openknowledge.be</p>
 
             <div className={style.footer__socials}>
-              <Link href="https://twitter.com/bikedataproject" target="_blank">
+              <a href="https://twitter.com/bikedataproject" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -89,8 +111,8 @@ const Footer = ({onSelectFlag}) => {
                     fill="white"
                   />
                 </svg>
-              </Link>
-              <a href="https://www.facebook.com/BikeDataProject">
+              </a>
+              <a href="https://www.facebook.com/BikeDataProject" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -104,7 +126,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg">
+              <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg" target="_blank">
                 <svg
                   width="33"
                   height="33"
@@ -120,7 +142,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://github.com/bikedataproject">
+              <a href="https://github.com/bikedataproject" target="_blank">
                 <svg
                   width="32"
                   height="32"
