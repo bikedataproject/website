@@ -57,27 +57,27 @@ const DataMap = () => {
         dataWrapper.innerHTML = `
            <div class="data__set">
              <span class="data__number">${feature.properties.count}</span>
-             <p class="data__label">rides collected</p>
+             <p class="data__label">${i18n.t('Rides_collected')}</p>
            </div>
            <div class="data__set">
              <span class="data__number">${distance} km</span>
-             <p class="data__label">disctance collected</p>
+             <p class="data__label">${i18n.t('Distance_collected')}</p>
            </div>
            <div class="data__set">
              <span class="data__number">${avarageDistance} km</span>
-             <p class="data__label">average disctance</p>
+             <p class="data__label">${i18n.t('Average_distance')}</p>
            </div>
            <div class="data__set">
              <span class="data__number">${avarageSpeed} km/h</span>
-             <p class="data__label">average speed</p>
+             <p class="data__label">${i18n.t('Average_speed')}</p>
            </div>
            <div class="data__set">
              <span class="data__number">${avarageDuration} min</span>
-             <p class="data__label">average duration</p>
+             <p class="data__label">${i18n.t('Average_duration')}</p>
            </div>
            <div class="data__set">
              <span class="data__number">${co2} t</span>
-             <p class="data__label">co2 saved</p>
+             <p class="data__label">${i18n.t('co2_saved')}</p>
            </div>
           `;
       }
