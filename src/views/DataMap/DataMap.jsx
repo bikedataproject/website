@@ -144,7 +144,7 @@ const DataMap = () => {
           'line-color': '#EF4823',
           'line-width': 1,
         },
-      });
+      }, lowestLabel);
       map.addLayer(
         {
           id: 'areas-stats-selected',
