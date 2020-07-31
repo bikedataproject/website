@@ -154,7 +154,7 @@ i18n.use(LanguageDetector).init({
         Download_our_app: 'Téléchargez notre application. (Bientôt disponible)',
         // Data
         Data_title: 'Les données collectées dans le monde entier',
-        Rides_collected: 'tours collectés',
+        Rides_collected: 'trajets collectés',
         Distance_collected: 'distance collectée',
         Average_duration: 'durée moyenne',
         Average_speed: 'vitesse moyenne',
