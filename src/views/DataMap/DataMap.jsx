@@ -11,35 +11,83 @@ const DataMap = () => {
   const mapContainerRef = useRef(null);
   const mapOverlayRef = useRef(null);
 
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
-
-  const onSelectFlag = async (country) => {
-    const countryMapping = {
-      BE: 'nl',
-      FR: 'fre',
-      US: 'en'
-    }
-
-    await i18n.changeLanguage(countryMapping[country]);
-    setCurrentLanguage(country);
-  }
-
   useEffect(() => {
 
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'https://api.maptiler.com/maps/7e7e2443-1c41-46d0-813c-f6b11c2c0225/style.json?key=2Piy1GKXoXq0rHzzBVDA',
       center: [4.3525, 50.8454],
-      zoom: 14,
+      zoom: 10,
       hash: true,
     });
 
     map.addControl(new mapboxgl.NavigationControl());
 
     let overlay = mapOverlayRef.current;
-    let popup = new mapboxgl.Popup({
-      closeButton: false,
-    });
+    let lastLocation = undefined;    
+
+    function updateOverlay(feature) {
+      mapOverlayRef.current.innerHTML = '';
+
+      const container = document.createElement('div');
+      container.classList.add("wrapper");
+
+      const title = document.createElement('h4');
+      title.classList.add('data__subtitle');
+      title.textContent = feature.properties.name;
+
+      const dataWrapper = document.createElement('section');
+      dataWrapper.classList.add('data__wrapper');
+
+      const distance = Math.round(feature.properties.meters / 1000)
+
+      const avarageDistance = Math.round(((feature.properties.meters /1000) / feature.properties.count), 4);
+      const avarageSpeed = Math.round(((feature.properties.meters / 1000) / (feature.properties.seconds /3600)) ,2);
+      const avarageDuration = Math.round((feature.properties.seconds / 60) / feature.properties.count, 2);
+
+      const co2perkm = 130 / 1000;
+      const co2 = Math.round((feature.properties.meters / 1000) * co2perkm) / 1000;
+
+      if (!feature.properties.count) {
+        dataWrapper.innerHTML = `
+          <div class="data__empty">
+            <p>No data collected yet. Get cycling & share your data 🚴</p>
+          </div>`;
+      } else {
+        dataWrapper.innerHTML = `
+           <div class="data__set">
+             <span class="data__number">${feature.properties.count}</span>
+             <p class="data__label">${i18n.t('Rides_collected')}</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${distance} km</span>
+             <p class="data__label">${i18n.t('Distance_collected')}</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${avarageDistance} km</span>
+             <p class="data__label">${i18n.t('Average_distance')}</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${avarageSpeed} km/h</span>
+             <p class="data__label">${i18n.t('Average_speed')}</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${avarageDuration} min</span>
+             <p class="data__label">${i18n.t('Average_duration')}</p>
+           </div>
+           <div class="data__set">
+             <span class="data__number">${co2} t</span>
+             <p class="data__label">${i18n.t('co2_saved')}</p>
+           </div>
+          `;
+      }
+      
+
+      overlay.appendChild(container);
+      container.appendChild(title);
+      container.appendChild(dataWrapper);
+      overlay.style.display = 'block';
+    }
 
     map.on('load', function () {
       // get lowest label and road.
@@ -96,7 +144,7 @@ const DataMap = () => {
           'line-color': '#EF4823',
           'line-width': 1,
         },
-      });
+      }, lowestLabel);
       map.addLayer(
         {
           id: 'areas-stats-selected',
@@ -116,75 +164,59 @@ const DataMap = () => {
       map.on('mousemove', 'areas-stats', function (e) {
         map.getCanvas().style.cursor = 'pointer';
 
+        lastLocation = e.point;
         var feature = e.features[0];
 
-        mapOverlayRef.current.innerHTML = '';
-
-        const container = document.createElement('div');
-        container.classList.add("wrapper");
-
-        const title = document.createElement('h4');
-        title.classList.add('data__subtitle');
-        title.textContent = feature.properties.name;
-
-        const dataWrapper = document.createElement('section');
-        dataWrapper.classList.add('data__wrapper');
-
-        const distance = Math.round(feature.properties.meters / 1000)
-
-        const avarageDistance = Math.round(((feature.properties.meters /1000) / feature.properties.count), 4);
-        const avarageSpeed = Math.round(((feature.properties.meters / 1000) / (feature.properties.seconds /3600)) ,2);
-        const avarageDuration = Math.round(feature.properties.seconds / 60, 2);
-
-        const co2perkm = 130 / 1000;
-        const co2 = Math.round((feature.properties.meters / 1000) * co2perkm) / 1000;
-  
-        dataWrapper.innerHTML = `
-            <div class="data__set">
-              <span class="data__number">${feature.properties.count}</span>
-              <p class="data__label">rides collected</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${distance} km</span>
-              <p class="data__label">disctance collected</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${avarageDistance} km</span>
-              <p class="data__label">average disctance</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${avarageSpeed} km/h</span>
-              <p class="data__label">average speed</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${avarageDuration} min</span>
-              <p class="data__label">average duration</p>
-            </div>
-            <div class="data__set">
-              <span class="data__number">${co2} t</span>
-              <p class="data__label">co2 saved</p>
-            </div>
-        `;
-
-        overlay.appendChild(container);
-        container.appendChild(title);
-        container.appendChild(dataWrapper);
-        overlay.style.display = 'block';
+        updateOverlay(feature);
 
         map.setFilter('areas-stats-selected', [
           'in',
           'id',
           feature.properties.id,
         ]);
-
-        popup.setLngLat(e.lngLat).setText(feature.properties.name).addTo(map);
       });
-
+ 
       map.on('mouseleave', 'areas-stats', function () {
         map.getCanvas().style.cursor = '';
-        popup.remove();
         map.setFilter('areas-stats-selected', ['in', 'id', '']);
         overlay.style.display = 'none';
+        lastLocation = undefined;
+      });
+
+      map.on('zoomend', function() {
+        if (lastLocation) {
+          var statsArea = map.queryRenderedFeatures(lastLocation, {
+            layers: [ "areas-stats" ]
+          });
+          
+          if (statsArea && statsArea.length > 0) {
+            updateOverlay(statsArea[0]);
+
+            map.setFilter('areas-stats-selected', [
+              'in',
+              'id',
+              statsArea[0].properties.id,
+            ]);
+          }
+        }
+      });
+
+      map.on('data', function(e) {
+          if (lastLocation) {
+            var statsArea = map.queryRenderedFeatures(lastLocation, {
+              layers: [ "areas-stats" ]
+            });
+            
+            if (statsArea && statsArea.length > 0) {
+              updateOverlay(statsArea[0]);
+
+              map.setFilter('areas-stats-selected', [
+                'in',
+                'id',
+                statsArea[0].properties.id,
+              ]);
+            }
+          }
       });
     });
   }, []);
@@ -226,8 +258,6 @@ const DataMap = () => {
           </a>
         </div>
       </section>
-
-      <Footer onSelectFlag={(selectedFlag) => onSelectFlag(selectedFlag)} />
     </>
   );
 };
