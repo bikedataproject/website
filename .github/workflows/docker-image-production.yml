@@ -1,8 +1,8 @@
-name: Docker Image - Website (Staging)
+name: Docker Image - Website (Production)
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
   pull_request:
     branches: []
 
@@ -15,8 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag bikedataproject/website:staging
+      run: docker build . --file Dockerfile --tag bikedataproject/website:prod
     - name: Login to Dock Hub
       run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u anywaysopen --password-stdin
     - name: Push Docker image.
-      run: docker push bikedataproject/website:staging
+      run: docker push bikedataproject/website:prod
