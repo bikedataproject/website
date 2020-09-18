@@ -34,6 +34,20 @@
     z-index: 2;
 }
 
+.questions__wrapper p { 
+    margin-bottom: 2rem;
+}
+
+.questions__wrapper ul { 
+    list-style-type: circle;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.questions__wrapper li { 
+    margin-bottom: 2rem;
+}
+
 @media (max-width: 1050px) {
 
     .content {

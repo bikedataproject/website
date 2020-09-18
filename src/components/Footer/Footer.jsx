@@ -61,7 +61,7 @@ const Footer = ({onSelectFlag}) => {
             </h3>
             <div className={style.footer__nav}>
               <Link className={style.footer__navLink} to="/" target="_blank">
-                {i18n.t('Data_Map')}
+                {i18n.t('The_data')}
               </Link>
               <Link
                 className={style.footer__navLink}
@@ -72,13 +72,6 @@ const Footer = ({onSelectFlag}) => {
               </Link>
               <Link className={style.footer__navLink} to="/faq" target="_blank">
                 {i18n.t('FAQ')}
-              </Link>
-              <Link
-                className={style.footer__navLink}
-                to="/contact"
-                target="_blank"
-              >
-                {i18n.t('Contact')}
               </Link>
             </div>
             <Dropdown
@@ -94,6 +87,7 @@ const Footer = ({onSelectFlag}) => {
 
           <div className={style.footer__right}>
             <h3 className={style.footer__title}>{i18n.t('Footer_contact')}</h3>
+            <p className={style.footer__contactBold}>Open Knowlegde Belgium</p>
             <p>{i18n.t('Footer_street')}</p>
             <p>{i18n.t('Footer_city')}</p>
             <p>bikedataproject@openknowledge.be</p>
@@ -180,9 +174,9 @@ const Footer = ({onSelectFlag}) => {
           <NavLink
             className={style.menu__item}
             activeClassName={style.active}
-            to={`${ROUTES.termsofuse}`}
+            to={`${ROUTES.cookies}`}
           >
-            {i18n.t('Terms_of_use')}
+            {i18n.t('Cookie_policy')}
           </NavLink>
           <NavLink
             className={style.menu__item}
@@ -194,9 +188,9 @@ const Footer = ({onSelectFlag}) => {
           <NavLink
             className={style.menu__item}
             activeClassName={style.active}
-            to={`${ROUTES.cookies}`}
+            to={`${ROUTES.termsofuse}`}
           >
-            {i18n.t('Cookie_policy')}
+            {i18n.t('Terms_of_use')}
           </NavLink>
         </div>
       </section>

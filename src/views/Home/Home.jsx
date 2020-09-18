@@ -229,7 +229,7 @@ const Home = () => {
       <Element id="donate" name="donate">
         <section className={`${style.content} ${style.grid} ${style.donate}`}>
           <p className={`${style.bigLetter} ${style.donateLetter}`}>
-            {i18n.t('Donate')}
+            {i18n.t('Contribute')}
           </p>
           <div className={style.content__wrapper}>
             <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
@@ -500,6 +500,7 @@ const Home = () => {
         </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
+          <h3 className={style.subtitle}>Want to partner up?</h3>
           <div className={`${style.partners} ${style.grid}`}>
             <a
               href="https://mobilite-mobiliteit.brussels"
@@ -538,6 +539,19 @@ const Home = () => {
                 alt="Logo of WG Film"
                 width="150"
                 height="150"
+              />
+            </a>
+            <a
+              href="https://bike.brussels/nl/"
+              className={style.partner}
+              target="_blank"
+            >
+              <img
+                className={`${style.partner__img} ${style.partner__bikeBrusselLogo}`}
+                src="./assets/img/bike-for-brussels.webp"
+                alt="Logo of Bike Fore Brussels"
+                width="130"
+                height="100"
               />
             </a>
           </div>

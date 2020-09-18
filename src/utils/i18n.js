@@ -7,32 +7,32 @@ i18n.use(LanguageDetector).init({
     en: {
       translations: {
         // Navbar
-        Donate_data: 'Donate Data',
-        Data_Map: 'Data Map',
+        Contribute: 'Contribute',
+        The_data: 'The Data',
         About: 'About',
         FAQ: 'FAQ',
         Contact: 'Contact',
 
         // Header
-        Heading: 'We’re collecting cycling data to make cities sustainable and bike-friendly ',
+        Heading: 'Cycling communities collecting data to make cities more bike-friendly.',
         Introduction:
-          'With this project we aim to create a open data platform, for and by cyclists, that collects data on where and when people actually cycle. The platform aims at aggregating data from cyclists , to make cyclists more visible and cities better adapted to the cycling community.',
-        Label_total_km: 'Total kilometers gathered by the cycling community',
+          'Thanks to the data contributed by different kinds of cyclists, the Bike Data Project wants to show where and when people actually cycle. The collected cycling data create insights which local communities and decision-makers can use to cyclists more visible and cities more liveable.',
+        Label_total_km: 'Total kilometers gathered by cycling communities all over the world',
 
         //Help
-        Help_title: 'How to help?',
+        Help_title: 'We need your help!',
         Ask_for_favor:
-          'To make this work we need to ask you for a simple favor.',
+          'To make this work we want to ask you to contribute your cycling data.',
         By_sharing_your:
-          'By sharing your own cycling data to our platform, all the collected data gives us patterns that can be used to make cyclists more visible and their cities adapted to them.',
+          'We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted for cyclists.',
         Every_cyclist_can:
-          'Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes, but we also really want to take into account the short routes. Commuting to work or when you just take a quick ride to the grocery store.',
+          'Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids at school or for a quick ride to the grocery store.',
         // Donate
-        Donate_title: 'Donate your bike data',
+        Donate_title: 'Contribute your bike data',
         Several_ways_to_contribute:
-          'There are a several ways you can contribute data to the project. If you already use one of the apps listed below you can easily connect them to The Bike Data Project. Once your app is connected you can just carry on as usual and your rides will automatically be uploaded to our service.',
+          'There are a several ways you can contribute data to the project. If you already use one of the apps listed below you can easily connect them to The Bike Data Project. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
         You_not_using:
-          'You’re not using such an application yet? No worries! You can still be part of this project by also downloading and using our app.',
+          'You’re not using such an application yet? No worries! You can still be part of this project by also downloading and using the Bike Data Project app.',
         Connect_existing_account: 'Connect your existing account',
         Download_our_app: 'Download our app. (comming soon)',
         // Data
@@ -44,19 +44,19 @@ i18n.use(LanguageDetector).init({
         Average_distance: 'average distance',
         co2_saved: 'CO2 saved',
         Data_subtitle: 'Interested in the data by region?',
-        Data_button: 'See full map',
+        Data_button: 'Explore the data',
         // Contribute
-        Contribute_title: 'What will I contribute to?',
+        Contribute_title: "Who's the data for?",
         People_who_work:
-          'People who work in departments of transportation and city planners around the world need data like this to help them develop modern infrastructure and sustainable cities. The data can also be very useful for other bike related products and services.',
+          'People who work in departments of transportation and city planners around the world need data like this to help them develop modern infrastructure and sustainable cities. Some of them are aware and others we have to convince. And the more data we can provide, the greater impact we shall have.',
         Common_goal:
-          'The common goal is to aggregate cycling data in an open data platform, by and for cyclists. The more open data we can provide, the greater impact it can have.',
+          'The data can also be very useful for other bike related products and services. The common goal is aggregate cycling data and make them available as open data in order to make cities better adapted for cyclists. For us and the people to come.',
         // Visible
-        Visible_title: 'Let’s make cyclists more visible!',
+        Visible_title: 'More cycling data means more power to and for cyclists',
         Community_more_visible:
-          'There is lots of open data for cars and car routes, but what about cyclists? This project aims to make the cycling community more visible and to make the world a cycling place!',
+          'The Bike Data Project provides the opportunity to collect all cycling data from different applications into one platform, which is - based on the principle of open source and open data - adaptable and accessible by everyone to ensure it benefits society.',
         Globally_but_locally:
-          'This projects thinks globally but acts locally, as it is applicable anywhere in the world.',
+          'Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we do have about car transport.',
         // Informed
         Informed_title: 'Stay informed',
         Email_label: 'Email',
@@ -66,13 +66,13 @@ i18n.use(LanguageDetector).init({
 
         // Footer
         Footer_intro:
-          'Bike Data Project is a project organised by Open Knowledge Belgium',
+          'Bike Data Project is a project managed by Open Knowledge Belgium',
         Footer_nav_title: 'Information',
         Footer_contact: 'Contact',
         Footer_street: 'Cantersteen 12',
         Footer_city: '1000 Brussels',
         // Subfooter
-        Footer_copyright_one: 'Content on this site is licensed under a',
+        Footer_copyright_one: 'Except where otherwise noted, content on this site is licensed under a',
         Footer_copyright_two:
           'Creative Commons Attribution 4.0 International License',
         Terms_of_use: 'Terms of use',
@@ -81,10 +81,10 @@ i18n.use(LanguageDetector).init({
 
         // Big words
         Help: 'Help',
-        Donata: 'Donate',
+        Contribute: 'Contribute',
         Data: 'Data',
         Contribute: 'Contribute',
-        Visible: 'Visible',
+        Visible: 'Power',
         Partners: 'Partners',
         About_us: 'About',
         Faq: 'Faq',
@@ -114,17 +114,43 @@ i18n.use(LanguageDetector).init({
         // Faq Page
         Faq_title: 'Frequently Asked Questions',
         Question_one_title: 'Why should I participate in this project?',
-        Question_one_answer: 'By sharing your cycling data, you can help make our cities better adapted to cyclists. Let’s not only have open data available for cars, but that the cycling community is equally visible as well!',
-        Question_two_title: 'What is happening with my data?',
-        Question_two_answer: 'We are aggregating cycling data of different cyclists, so that it can give us patterns about how and when people cycle. There will be no individual connections to each cyclist. This collected data can help in many different ways: conducting road works when needed, making minority cycling groups more visible, exploring new cycling routes, and so on. ',
-        Question_three_title: 'Can I delete my data?',
-        Question_three_answer: 'Yes! You as a cyclist have full control over your own data, so if you want to extract it from out platform that is certainly possible. ',
-        Question_four_title: 'How do I share my data to this platform?',
-        Question_four_answer: 'You can use a cycling application you already have and link this to the Bike Data Project platform. If you do not use such an application already but still want to contribute, you can use our own app. No need for making an account, you can simply share your data to the platform. ',
-        Question_five_title: 'What data am I sharing from my other app?',
-        Question_five_answer: 'We are retrieving the following data: cycling routes, gender, age and the purpose of the cycling route. (leisure, sports, commute...)',
-        Question_six_title: 'How do I get access to the open data?',
-        Question_six_answer: 'The Bike Data Project is an open-data project, which means that everyone can have access to the aggregated data. Every cyclist also has the opportunity to have control over their own data. Via our Github page, you can access all the open data.( https://github.com/orgs/bikedataproject/dashboard )',
+        Question_one_answerOne: 'By contributing your cycling data, you can help make our cities better adapted to cyclists.',
+        Question_one_answerTwo: 'More cycling data means more power to and for cyclists. Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we do have about car transport.',
+        
+        Question_two_title: 'How does this project work?',
+        Question_two_answerOne: 'To make this work we want to ask you to contribute your cycling data. We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted for cyclists.',
+        Question_two_answerTwo: 'We ask different types of cyclists (e.g., daily commuters, delivery riders, sportsmen and tourists) to track their bicycle rides via their preferred mobile application and contribute their data to our community-driven bike data platform. Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids at school or for a quick ride to the grocery store.',
+        Question_two_answerThree: 'In return, the non-private aggregated cycling data will be opened up to the public and can be freely used by anyone. We aim to create impact by showing where and when people actually cycle. More data means more influence over those in power to make cities more sustainable and bike-friendly.',
+        
+        Question_three_title: 'How do I contribute my data to the platform?',
+        Question_three_answer: "In this section on our website, you can simply connect your cycling app account to the Bike Data Project platform. If you do not use such an application already but still want to contribute, you can use our own app. With our own app there's no need to make an account, you can anonymously share your data to the platform.",
+        
+        Question_four_title: 'What is happening with my data?',
+        Question_four_answerOne: 'The data collected by this project consists of contributions made by all different kinds of cyclists. All individual cycling data are aggregated into collective data. The collective data gives us patterns we can use to demonstrate where and when cyclists ride their bicycles.',
+        Question_four_answerTwo: 'The non-private aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes. Here’s a non-exhaustive list of different use cases of the open data:',
+        Question_four_answerThree: 'Transportation experts, city planners, mobility planners and urban designers around the world need open data like this to help them develop modern infrastructure and sustainable cities.',
+        Question_four_answerFour: 'Citizens can get a high-level overview of the number of cyclists and kilometers cycled in the city and check out a map with the number of cyclists per route.',
+        Question_four_answerFive: 'Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.',
+        Question_four_answerSix: 'Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.',
+        Question_four_answerSeven: 'All aggregated cycling data will be available as open data by the end of October 2021. For now, you can contribute to the project by donating your cycling data.',
+        
+        Question_five_title: 'Is my privacy respected when I contribute my data?',
+        Question_five_answerOne: 'Yes, Open Knowledge Belgium guarantees the openness of the project so that society benefits as a whole and takes all required measures according to the GDPR regulations concerning data privacy and protection.',
+        Question_five_answerTwo: "We are collecting cycling data of many individual cyclists and aim to make the non-private aggregated data available to the public as open data. The aggregated data will be published in a way that it's not possible to retrieve any personal information of an individual cyclist.",
+        Question_five_answerThree: "The data publishing will be done based on the principle of differential privacy, which is a system for publicly sharing information about a dataset by describing the patterns of groups within the dataset while withholding information about individuals in the dataset. This basically means that data will only be published if a particular individual's information cannot be retrieved.In case it's not possible the respect the disclosure of a particular individual's information, the data won't be published.",
+
+        Question_six_title: 'Can I delete my data?',
+        Question_six_answer: "Yes! Although you contribute your data in an anonymous way (we don't ask for your name or any other information that identifies you), you can ask us to extract your data from the Bike Data Project platform.If you'd like to do so, please send us an email to bikedataproject@openknowledge.be with the name of the app you've used to contribute your data and, if possible, also the ID number associated with your account in the app.",
+
+        Question_seven_title: 'Can I delete my data?',
+        Question_seven_answer: "We mainly want to ask you to contribute the data regarding your cycling activities, more specifically where and when you cycle. Besides that, there's the possibility to share information on your gender, age, type of bicycles and the reason of your bicycle ride(leisure, sports, commute, ...).",
+
+        Question_eight_title: 'How do I get access to the open data?',
+        Question_eight_answerOne: 'The non-private aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes.',
+        Question_eight_answerTwo: 'All aggregated cycling data will be available as open data by the end of October 2021. For now, you can contribute to the project by donating your cycling data.',
+
+        Question_nine_title: "I'd love to be more involved in this project - how can I help?",
+        Question_nine_answer: "That's awesome! Feel free to join our Slack group(https://join.slack.com/t/bikedataproject/sharedinvite/zt-g60t5w5c-lT2ucV0HtLEVnE4wG9hTg) and introduce yourself there. We'd love to hear how you'd like to contribute to the project!",
 
         // Contact Page
         Contact_title: 'Contact',
@@ -256,7 +282,7 @@ i18n.use(LanguageDetector).init({
     fre: {
       translations: {
         // Navbar
-        Donate_data: 'Donner data',
+        Contribute: 'Donner data',
         About: 'Projet',
 
         // Header
@@ -341,7 +367,7 @@ i18n.use(LanguageDetector).init({
     nl: {
       translations: {
         // Navbar
-        Donate_data: 'Doneer data',
+        Contribute: 'Doneer data',
         About: 'Over',
 
         // Header

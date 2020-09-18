@@ -79,16 +79,7 @@ const NavBar = () => {
                 activeClassName={style.active}
                 to={`${ROUTES.datamap}`}
               >
-                {i18n.t('Data_Map')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={style.menu__item}
-                activeClassName={style.active}
-                to={`${ROUTES.about}`}
-              >
-                {i18n.t('About')}
+                {i18n.t('The_data')}
               </NavLink>
             </li>
             <li>
@@ -105,10 +96,9 @@ const NavBar = () => {
               <NavLink
                 className={style.menu__item}
                 activeClassName={style.active}
-                to={`${ROUTES.contact}`}
+                to={`${ROUTES.about}`}
               >
-                {' '}
-                {i18n.t('Contact')}{' '}
+                {i18n.t('About')}
               </NavLink>
             </li>
               <Link
@@ -125,7 +115,7 @@ const NavBar = () => {
               className={`${style.menu__item} ${style.nav__button}`}
               activeClassName={style.active}
             >
-              {i18n.t('Donate_data')}
+              {i18n.t('Contribute')}
             </Link>
           </ul>
         </div>
@@ -147,16 +137,7 @@ const NavBar = () => {
                 activeClassName={style.active}
                 to={`${ROUTES.datamap}`}
               >
-                {i18n.t('Data_Map')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={style.nav__item}
-                activeClassName={style.active}
-                to={`${ROUTES.about}`}
-              >
-                {i18n.t('About')}
+                {i18n.t('The_data')}
               </NavLink>
             </li>
             <li>
@@ -173,12 +154,12 @@ const NavBar = () => {
               <NavLink
                 className={style.nav__item}
                 activeClassName={style.active}
-                to={`${ROUTES.contact}`}
+                to={`${ROUTES.about}`}
               >
-                {' '}
-                {i18n.t('Contact')}{' '}
+                {i18n.t('About')}
               </NavLink>
             </li>
+
             <li>
               <Link
                 onClick={() => {
@@ -192,7 +173,7 @@ const NavBar = () => {
                 offset={-250}
                 className={`${style.nav__item} ${style.nav__button}`}
                 activeClassName={style.active}
-              >{i18n.t('Donate_data')}</Link>
+              >{i18n.t('Contribute')}</Link>
             </li>
           </ul>
         </nav>

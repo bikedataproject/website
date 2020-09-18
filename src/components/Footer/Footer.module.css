@@ -10,7 +10,7 @@
 
 .language__dropdown {
     background-color: white;
-    margin-top: 10px;
+    margin-top: 3rem;
     width: 140px;
     border-radius: 5px;
     z-index: 2;
@@ -74,6 +74,10 @@
     padding-bottom: 1.5rem;
 }
 
+.footer__contactBold {
+    font-weight: bold;
+}
+
 .footer__nav {
     display: flex;
     flex-direction: column;
@@ -115,9 +119,10 @@
     display: flex;
 }
 
-.policies p {
+.policies a {
     margin-left: 2rem;
-    
+    text-decoration: none;
+    color: colorOrange;
 }
 
 @media (max-width: 1050px) {
