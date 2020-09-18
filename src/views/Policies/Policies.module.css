@@ -94,6 +94,15 @@
     opacity: .6;
 }
 
+.smallcaps {
+    font-size: 1.2rem;
+    opacity: .5;
+}
+
+.text__bold {
+    font-weight: bold;
+}
+
 
 @media (max-width: 1050px) {
 

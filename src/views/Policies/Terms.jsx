@@ -8,47 +8,52 @@ const Terms = () => {
     return (
         <>
             <section className={`${style.cookies} ${style.grid} ${style.content}`}>
-                <p className={style.bigLetter}>{i18n.t('Cookies')}</p>
+                <p className={style.bigLetter}>{i18n.t('Terms')}</p>
                 <div className={style.header}>
                     <div className={style.header__wrapper}>
-                        <h1 className={style.header__title}>{i18n.t('Cookies_title')}</h1>
-                    </div>
-                </div>
-
-                <div className={style.text__wrapper}>
-                    <section>
-                        <h2 className={style.subtitle}>{i18n.t('What_are_cookies')}</h2>
-                        <p>{i18n.t('Cookies_section_one')} <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">{i18n.t('Cookies_section_oneLink')}</a>
-                        </p>
-                    </section>
-                    <section>
-                        <h2 className={style.subtitle}>{i18n.t('How_we_use_cookies')}</h2>
-                        <p>{i18n.t('Cookies_section_two')}</p>
-                    </section>
-                    <section>
-                        <h2 className={style.subtitle}>{i18n.t('Disabling_cookies')}</h2>
-                        <p>{i18n.t('Cookies_section_three')} <a href="https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/" target="_blank"> Privacy Badger</a> {i18n.t('Cookies_section_threeLink')}</p>
-                    </section>
-                    <section>
-                        <h2 className={style.subtitle}>{i18n.t('Cookies_we_set')}</h2>
-                        <p>{i18n.t('Cookies_section_fourOne')}</p>
-                        <p>{i18n.t('Cookies_section_fourTwo')}</p>
-                    </section>
-                    <section>
-                        <h2 className={style.subtitle}>{i18n.t('Third_party_cookies')}</h2>
-                        <p>{i18n.t('Cookies_section_five')}</p>
-                    </section>
-                    <section>
-                        <h2 className={style.subtitle}>{i18n.t('More_information')}</h2>
-                        <p>{i18n.t('Cookies_section_six')}
+                        <h1 className={style.header__title}>{i18n.t('Terms_title')}</h1>
+                        <p>{i18n.t('Terms_introOne')}</p>
+                        <p>{i18n.t('Terms_introTwo')}</p>
+                        <p>{i18n.t('Terms_introThree')}</p>
+                        <p>{i18n.t('Terms_introFour')} {' '}
                             <Link
                                 to="mailto:bikedataproject@openknowledge.be"
                                 className={style.mailLink}
                                 target="_blank"
                             >
                                 bikedataproject@openknowledge.be
-                            </Link>
-                        </p>
+                            </Link></p>
+                    </div>
+                </div>
+
+                <div className={style.text__wrapper}>
+                    <section>
+                        <h2 className={style.subtitle}>{i18n.t('Who_can_contribute')}</h2>
+                        <p className={style.text__bold}>{i18n.t('Who_can_contribute_contentOne')}</p>
+                        <p>{i18n.t('Who_can_contribute_contentTwo')}</p>
+                    </section>
+                    <section>
+                        <h2 className={style.subtitle}>{i18n.t('Limitation_of_liability')}</h2>
+                        <p>{i18n.t('Limitation_of_liability_contentOne')}</p>
+                        <p className={style.smallcaps}>{i18n.t('Limitation_of_liability_contentTwo')}</p>
+                    </section>
+                    <section>
+                        <h2 className={style.subtitle}>{i18n.t('Spam')}</h2>
+                        <p>{i18n.t('Spam_contentOne')}</p>
+                        <p>{i18n.t('Spam_contentTwo')}</p>
+                    </section>
+                    <section>
+                        <h2 className={style.subtitle}>{i18n.t('Infringement')}</h2>
+                        <p>{i18n.t('Infringement_contentOne')}</p>
+                        <p>{i18n.t('Infringement_contentTwo')}</p>
+                    </section>
+                    <section>
+                        <h2 className={style.subtitle}>{i18n.t('Breaches_aforementioned_rules')}</h2>
+                        <p>{i18n.t('Breaches_aforementioned_rules_content')}</p>
+                    </section>
+                    <section>
+                        <h2 className={style.subtitle}>{i18n.t('Property_rights')}</h2>
+                        <p>{i18n.t('Property_rights_content')}</p>
                     </section>
                 </div>
 
