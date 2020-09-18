@@ -93,14 +93,46 @@ i18n.use(LanguageDetector).init({
         Privacy: 'Privacy',
         Terms: 'Terms',
 
-        // DataMap Page
-        Map_title: 'Data Map',
-        Data_been_gathered: 'This data has been gathered during the past years, by different types of cyclists. Feel free to explore the map!',
-        Below_access: 'Below, you can have full access to our open data as well.',
+        // Data Page
+        Map_title: 'The Data',
+        Data_content_one: 'Scroll down to explore the map with all cycling data collected so far.',
+        Data_content_two: 'The data collected by this project consists of contributions made by all different kinds of cyclists. All individual cycling data are aggregated into collective data. The collective data gives us patterns we can use to demonstrate where and when cyclists ride their bicycles.',
+        Data_content_three: 'The non-private aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes. Here’s a non-exhaustive list of different use cases of the open data:',
+        Data_content_listOne: 'Transportation experts, city planners, mobility planners and urban designers around the world need open data like this to help them develop modern infrastructure and sustainable cities.',
+        Data_content_listTwo: 'Citizens can get a high-level overview of the number of cyclists and kilometers cycled in the city and check out a map with the number of cyclists per route.',
+        Data_content_listThree: 'Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.',
+        Data_content_listFour: 'Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.',
+        Data_content_four: 'All aggregated cycling data will be available as open data by the end of October 2021. For now, you can contribute to the project by donating your cycling data.',
         Map_subtitle: 'Have a look at all our open data',
 
         // About Page
         About_title: 'About Project',
+        About_intro: 'With the Bike Data Project, Open Knowledge Belgium – the umbrella organisation for open knowledge and open data initiatives in Belgium – wants to build a community-driven open bike data platform that collects data on where and when people actually cycle. The project aims at aggregating data from cyclists, coming from different mobile applications and sources, into one open bike data platform. The collective open data will empower local communities in making cycling more visible and decision-makers in making cities more liveable and bike-friendly.',
+        
+        About_titleOne: "Short history: who's behind the project",
+        About_contentOne_oneBefore: 'The Bike Data Project was initially set up by',
+        About_contentOne_oneAfter: 'and launched as part of the release of the Bikes vs Cars documentary, directed by Fredrik Gertten. As the documentary has been screened in over 50 countries, there has already been collected more than 275.000 bicycle rides collected.',
+        About_contentOne_twoBefore: 'At the beginning of 2020, the project was moved under the umbrella of Open Knowledge Belgium. ',
+        About_contentOne_twoAfter: '(non-profit/vzw/asbl), as local chapter of Open Knowledge International, is an umbrella organisation for various open knowledge and open data initiatives in Belgium. We strive for a world in which knowledge creates power for the many, not the few and proactively promote openness through projects and events, to the general public as well as to experts in the field. As grassroots organisation we consist of people, mainly volunteers, passionate about openness, using advocacy, research, technology and projects to unlock information, enabling people to use and share knowledge.',
+        About_contentOne_three: 'Open Knowledge Belgium guarantees the openness of the project for all purposes and takes all required measures according to the GDPR regulations concerning data privacy and protection. With a transparent and clear terms of use for this project, Open Knowledge Belgium wants to set an example on how to deal with privacy-related issues and wants to take the opportunity to inform citizens about their digital rights.',
+        
+        About_titleTwo: "More cycling data means more power to and for cyclists",
+        About_contentTwo_one: "Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we do have about car transport.",
+        About_contentTwo_two: "Open Knowledge Belgium aims to create impact by showing where and when people actually cycle. The Bike Data Project provides the opportunity to collect all cycling data from different applications into one platform, which is - based on the principle of open source and open data - adaptable and accessible by everyone to ensure it benefits society.",
+        
+        About_titleThree: "Public digital infrastructure as common good",
+        About_contentThree_one: "Similar to activities like OpenStreetMap Belgium and Open Planner Team by Open Knowledge Belgium, the Bike Data Project is set up as a collaborative project which is open to all and makes society benefit as a whole. Therefore, the digital infrastructure and aggregated data are - based on the principles of open source and open data - freely adaptable and accessible to anyone.",
+        About_contentThree_two: "Furthermore, Open Knowledge Belgium strives to play with this Bike Data Project an important role in wider societal movements:",
+        About_contentThree_listOneBold: "Citizens can take back control of their data",
+        About_contentThree_listOne: "thanks to strong European GDPR regulations. In the case of the Bike Data Project, we want to encourage citizens to get their data out of third party apps (e.g. popular apps as Strava and even potentially Google Maps) and ask them to contribute them to a good cause.",
+        About_contentThree_listTwoBold: "Promote skill sharing and encourage learning within the community",
+        About_contentThree_listTwo: "throughout the whole process from project proposal to real-world platform. Strongly inspired by the work of the School of Data in Riga, we want to involve the cycling community in the local Bike Data Project campaigns as from the first day. Throughout a series of community events, Open Knowledge Belgium wants to improve data literacy.",
+        About_contentThree_listThreeBold: "Think globally, act locally.",
+        About_contentThree_listThree: "The Bike Data Project platform is global and open by default. Although it is possible for cycling communities all around the world to contribute to the project, Open Knowledge Belgium wants to support local communities with making them act on a local level.",
+        
+        About_titleFour: "Longer-term sustainability of the Bike Data Project",
+        About_contentFour: "The launch of local crowdsourcing campaigns in different cities and the setup of the open data platform are part of a longer-term plan for the Bike Data Project. When a crowdsourcing campaign in a specific city or region comes to an end, the platform will stay online and will be maintained by the open source community of Open Knowledge Belgium. Cycling communities in other cities will be encouraged to launch a campaign in their cities and make use of the platform. Given the interest of different stakeholders in the Bike Data Platform, Open Knowledge Belgium has already received confirmation from different stakeholders that they want to contribute financially to the project so that the server costs can get covered. In that way, the project will be sustained over the longer term.",
+
         Okb: 'Open Knowledge Belgium',
         Okb_is: 'Open Knowledge Belgium is the organisation behind the Bike Data Project.',
         Okb_umbrella: 'is an umbrella organisation (non-profit / vzw / asbl) for Open Knowledge initiatives.',
@@ -142,7 +174,7 @@ i18n.use(LanguageDetector).init({
         Question_six_title: 'Can I delete my data?',
         Question_six_answer: "Yes! Although you contribute your data in an anonymous way (we don't ask for your name or any other information that identifies you), you can ask us to extract your data from the Bike Data Project platform.If you'd like to do so, please send us an email to bikedataproject@openknowledge.be with the name of the app you've used to contribute your data and, if possible, also the ID number associated with your account in the app.",
 
-        Question_seven_title: 'Can I delete my data?',
+        Question_seven_title: 'What data am I sharing from my app?',
         Question_seven_answer: "We mainly want to ask you to contribute the data regarding your cycling activities, more specifically where and when you cycle. Besides that, there's the possibility to share information on your gender, age, type of bicycles and the reason of your bicycle ride(leisure, sports, commute, ...).",
 
         Question_eight_title: 'How do I get access to the open data?',

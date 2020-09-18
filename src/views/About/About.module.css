@@ -20,9 +20,13 @@
 }
 
 .header {
-    grid-column: 1/ span 6;
+    grid-column: 1/ span 9;
     margin-top: 30vh;
     z-index: 2;
+}
+
+.header p {
+    font-weight: bold;
 }
 
 .header__title {
@@ -30,7 +34,7 @@
 } 
 
 .text__wrapper {
-    grid-column: 1/ span 8;
+    grid-column: 1/ span 9;
 }
 
 .text__wrapper p {
@@ -40,6 +44,20 @@
 .text__wrapper a {
     color: colorOrange;
     text-decoration: none;
+}
+
+.about ul {
+    list-style-type: circle;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.about ul span {
+    font-weight: bold;
+}
+
+.about li {
+    margin-bottom: 2rem;
 }
 
 @media (max-width: 1050px) {

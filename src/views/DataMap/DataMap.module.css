@@ -54,7 +54,7 @@
 }
 
 .header__wrapper {
-    grid-column: 1/ span 6;
+    grid-column: 1/ span 8;
     margin-top: 30vh;
     z-index: 2;
 }
@@ -65,6 +65,16 @@
 
 .header__title {
     composes: title from "../../styles/typo.module.css";
+}
+
+.header ul {
+    list-style-type: circle;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.header li {
+    margin-bottom: 2rem;
 }
 
 .cta__wrapper {
