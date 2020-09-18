@@ -27,7 +27,7 @@
 
 .header__title {
     composes: title from "../../styles/typo.module.css";
-}
+} 
 
 .text__wrapper {
     grid-column: 1/ span 8;
@@ -39,6 +39,7 @@
 
 .text__wrapper a {
     color: colorOrange;
+    text-decoration: none;
 }
 
 @media (max-width: 1050px) {

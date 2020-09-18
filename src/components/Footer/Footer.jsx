@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { ROUTES } from '../../const/index';
 import style from './Footer.module.css';
 import i18n from "../../utils/i18n";
 import Dropdown from 'react-dropdown';
@@ -176,9 +177,27 @@ const Footer = ({onSelectFlag}) => {
         </p>
 
         <div className={style.policies}>
-          <p>{i18n.t('Terms_of_use')}</p>
-          <p>{i18n.t('Privacy_policy')}</p>
-          <p>{i18n.t('Cookie_policy')}</p>
+          <NavLink
+            className={style.menu__item}
+            activeClassName={style.active}
+            to={`${ROUTES.termsofuse}`}
+          >
+            {i18n.t('Terms_of_use')}
+          </NavLink>
+          <NavLink
+            className={style.menu__item}
+            activeClassName={style.active}
+            to={`${ROUTES.privacy}`}
+          >
+            {i18n.t('Privacy_policy')}
+          </NavLink>
+          <NavLink
+            className={style.menu__item}
+            activeClassName={style.active}
+            to={`${ROUTES.cookies}`}
+          >
+            {i18n.t('Cookie_policy')}
+          </NavLink>
         </div>
       </section>
     </>

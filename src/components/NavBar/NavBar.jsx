@@ -71,7 +71,7 @@ const NavBar = () => {
           className={`${style.mobile__menu} ${
             colorNav && url === '/' ? style.mobile__menu : style.menu__scroll
           }`}
-        >
+        > 
           <ul>
             <li>
               <NavLink
