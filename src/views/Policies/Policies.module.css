@@ -79,9 +79,10 @@
     margin-top: 6rem;
 }
 
-.section__special div {
+.section__special div, .title__wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 .privacy ul {

@@ -11,7 +11,10 @@ const Privacy = () => {
                 <p className={style.bigLetter}>{i18n.t('Privacy')}</p>
                 <div className={style.header}>
                     <div className={style.header__wrapper}>
-                        <h1 className={style.header__title}>{i18n.t('Privacy_title')}</h1>
+                        <div className={style.title__wrapper}>
+                            <h1 className={style.header__title}>{i18n.t('Privacy_title')}</h1>
+                            <p className={style.smallcaps}>Last updated: 16 September 2020</p>
+                        </div>
                         <p>{i18n.t('Privacy_introOne')}</p>
                         <p>{i18n.t('Privacy_introTwo')}</p>
                         <p>Email support {' '}

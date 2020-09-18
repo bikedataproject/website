@@ -229,7 +229,7 @@ const Home = () => {
       <Element id="donate" name="donate">
         <section className={`${style.content} ${style.grid} ${style.donate}`}>
           <p className={`${style.bigLetter} ${style.donateLetter}`}>
-            {i18n.t('Contribute')}
+            {i18n.t('Contribute_big')}
           </p>
           <div className={style.content__wrapper}>
             <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
@@ -412,7 +412,7 @@ const Home = () => {
 
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
         <p className={`${style.bigLetter} ${style.contributeLetter}`}>
-          {i18n.t('Contribute')}
+          {i18n.t('Contribute_big')}
         </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Contribute_title')}</h2>
