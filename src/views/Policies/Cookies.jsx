@@ -41,13 +41,13 @@ const Cookies = () => {
                     <section>
                         <h2 className={style.subtitle}>{i18n.t('More_information')}</h2>
                         <p>{i18n.t('Cookies_section_six')}
-                            <Link
-                                to="mailto:bikedataproject@openknowledge.be"
+                            <a
+                                href="mailto:bikedataproject@openknowledge.be"
                                 className={style.mailLink}
                                 target="_blank"
                             >
                                 bikedataproject@openknowledge.be
-                            </Link>
+                            </a>
                         </p>
                     </section>
                 </div>

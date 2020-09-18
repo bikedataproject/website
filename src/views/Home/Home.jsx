@@ -500,7 +500,6 @@ const Home = () => {
         </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
-          <h3 className={style.subtitle}>Want to partner up?</h3>
           <div className={`${style.partners} ${style.grid}`}>
             <a
               href="https://be.okfn.org/"
@@ -553,6 +552,13 @@ const Home = () => {
                 width="130"
                 height="100"
               />
+            </a>
+            <a
+              href="mailto:bikedataproject@openknowledge.be"
+              className={`${style.partner} ${style.partner__up}`}
+              target="_blank"
+            >
+              <h3 className={style.subtitle}>Want to partner up?</h3>
             </a>
           </div>
         </div>

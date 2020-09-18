@@ -90,7 +90,14 @@ const Footer = ({onSelectFlag}) => {
             <p className={style.footer__contactBold}>Open Knowledge Belgium</p>
             <p>{i18n.t('Footer_street')}</p>
             <p>{i18n.t('Footer_city')}</p>
-            <p>bikedataproject@openknowledge.be</p>
+            <a
+              href="mailto:bikedataproject@openknowledge.be"
+              className={style.mailLink}
+              target="_blank"
+            >
+              bikedataproject@openknowledge.be
+            </a>
+            
 
             <div className={style.footer__socials}>
               <a href="https://twitter.com/bikedataproject" target="_blank">

@@ -63,6 +63,11 @@
     grid-column: 10 / span 3;
 }
 
+.footer__right a {
+    color: white;
+    text-decoration: none;
+}
+
 .footer__img {
     padding-top: 3rem;
     width: 15vw;
