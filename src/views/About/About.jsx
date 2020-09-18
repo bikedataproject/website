@@ -22,6 +22,10 @@ const About = () => {
             <a href="https://www.wgfilm.com" target="_blank">
               WG film
             </a>{' '}
+            {i18n.t('About_contentOne_oneMiddle')}
+            <a href="http://www.bikes-vs-cars.com/ " target="_blank">
+              Bikes vs Cars documentary
+            </a>
             {i18n.t('About_contentOne_oneAfter')}
           </p>
           <p>{i18n.t('About_contentOne_twoBefore')} {' '}

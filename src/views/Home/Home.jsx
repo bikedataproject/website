@@ -431,7 +431,7 @@ const Home = () => {
 
       <section className={`${style.content} ${style.grid} ${style.visible}`}>
         <p className={`${style.bigLetter} ${style.visibleLetter}`}>
-          {i18n.t('Visible')}
+          {i18n.t('Power')}
         </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Visible_title')}</h2>
@@ -503,19 +503,6 @@ const Home = () => {
           <h3 className={style.subtitle}>Want to partner up?</h3>
           <div className={`${style.partners} ${style.grid}`}>
             <a
-              href="https://mobilite-mobiliteit.brussels"
-              className={style.partner}
-              target="_blank"
-            >
-              <img
-                className={style.partner__img}
-                src="./assets/img/brussels-mobility.png"
-                alt="Logo of brussels mobility"
-                width="176"
-                height="49"
-              />
-            </a>
-            <a
               href="https://be.okfn.org/"
               className={style.partner}
               target="_blank"
@@ -539,6 +526,19 @@ const Home = () => {
                 alt="Logo of WG Film"
                 width="150"
                 height="150"
+              />
+            </a>
+            <a
+              href="https://mobilite-mobiliteit.brussels"
+              className={style.partner}
+              target="_blank"
+            >
+              <img
+                className={style.partner__img}
+                src="./assets/img/brussels-mobility.png"
+                alt="Logo of brussels mobility"
+                width="176"
+                height="49"
               />
             </a>
             <a

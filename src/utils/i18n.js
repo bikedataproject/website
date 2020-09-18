@@ -34,7 +34,7 @@ i18n.use(LanguageDetector).init({
         You_not_using:
           'You’re not using such an application yet? No worries! You can still be part of this project by also downloading and using the Bike Data Project app.',
         Connect_existing_account: 'Connect your existing account',
-        Download_our_app: 'Download our app. (comming soon)',
+        Download_our_app: 'Download our app. (coming soon)',
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
@@ -84,7 +84,7 @@ i18n.use(LanguageDetector).init({
         Contribute_big: 'Contribute',
         Data: 'Data',
         // Contribute: 'Contribute',
-        Visible: 'Power',
+        Power: 'Power',
         Partners: 'Partners',
         About_us: 'About',
         Faq: 'Faq',
@@ -110,7 +110,8 @@ i18n.use(LanguageDetector).init({
         About_intro: 'With the Bike Data Project, Open Knowledge Belgium – the umbrella organisation for open knowledge and open data initiatives in Belgium – wants to build a community-driven open bike data platform that collects data on where and when people actually cycle. The project aims at aggregating data from cyclists, coming from different mobile applications and sources, into one open bike data platform. The collective open data will empower local communities in making cycling more visible and decision-makers in making cities more liveable and bike-friendly.',
         About_titleOne: "Short history: who's behind the project",
         About_contentOne_oneBefore: 'The Bike Data Project was initially set up by',
-        About_contentOne_oneAfter: 'and launched as part of the release of the Bikes vs Cars documentary, directed by Fredrik Gertten. As the documentary has been screened in over 50 countries, there has already been collected more than 275.000 bicycle rides collected.',
+        About_contentOne_oneMiddle: 'and launched as part of the release of the ',
+        About_contentOne_oneAfter: ', directed by Fredrik Gertten. As the documentary has been screened in over 50 countries, there has already been collected more than 275.000 bicycle rides collected.',
         About_contentOne_twoBefore: 'At the beginning of 2020, the project was moved under the umbrella of Open Knowledge Belgium. ',
         About_contentOne_twoAfter: '(non-profit/vzw/asbl), as local chapter of Open Knowledge International, is an umbrella organisation for various open knowledge and open data initiatives in Belgium. We strive for a world in which knowledge creates power for the many, not the few and proactively promote openness through projects and events, to the general public as well as to experts in the field. As grassroots organisation we consist of people, mainly volunteers, passionate about openness, using advocacy, research, technology and projects to unlock information, enabling people to use and share knowledge.',
         About_contentOne_three: 'Open Knowledge Belgium guarantees the openness of the project for all purposes and takes all required measures according to the GDPR regulations concerning data privacy and protection. With a transparent and clear terms of use for this project, Open Knowledge Belgium wants to set an example on how to deal with privacy-related issues and wants to take the opportunity to inform citizens about their digital rights.',
