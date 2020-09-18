@@ -4,6 +4,9 @@ const ROUTES = {
   about: '/about',
   faq: '/faq',
   contact: '/contact',
+  cookies: '/cookies',
+  privacy: '/privacy',
+  termsofuse: '/termsofuse',
 };
 
 export { ROUTES };
