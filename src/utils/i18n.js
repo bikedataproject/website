@@ -166,7 +166,7 @@ i18n.use(LanguageDetector).init({
 
         Question_eight_title: 'How do I get access to the open data?',
         Question_eight_answerOne: 'The non-private aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes.',
-        Question_eight_answerTwo: 'All aggregated cycling data will be available as open data by the end of October 2021. For now, you can contribute to the project by donating your cycling data.',
+        Question_eight_answerTwo: 'All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.',
 
         Question_nine_title: "I'd love to be more involved in this project - how can I help?",
         Question_nine_answer: "That's awesome! Feel free to join our Slack group(https://join.slack.com/t/bikedataproject/sharedinvite/zt-g60t5w5c-lT2ucV0HtLEVnE4wG9hTg) and introduce yourself there. We'd love to hear how you'd like to contribute to the project!",
