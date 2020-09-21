@@ -102,7 +102,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listTwo: 'Citizens can get a high-level overview of the number of cyclists and kilometers cycled in the city and check out a map with the number of cyclists per route.',
         Data_content_listThree: 'Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.',
         Data_content_listFour: 'Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.',
-        Data_content_four: 'All aggregated cycling data will be available as open data by the end of October 2021. For now, you can contribute to the project by donating your cycling data.',
+        Data_content_four: 'All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.',
         Map_subtitle: 'Have a look at all our open data',
 
         // About Page
