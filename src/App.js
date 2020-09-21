@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import Home from './views/Home/Home';
 import About from './views/About/About';
 import Contact from './views/Contact/Contact';
+import Cookies from './views/Policies/Cookies';
+import Privacy from './views/Policies/Privacy';
+import Terms from './views/Policies/Terms';
 import DataMap from './views/DataMap/DataMap';
 import Faq from './views/Faq/Faq';
 import Header from './components/Header/Header';
@@ -50,6 +53,15 @@ function App() {
             </Route>
             <Route path={ROUTES.contact}>
               <Contact />
+            </Route>
+            <Route path={ROUTES.cookies}>
+              <Cookies />
+            </Route>
+            <Route path={ROUTES.privacy}>
+              <Privacy />
+            </Route>
+            <Route path={ROUTES.termsofuse}>
+              <Terms />
             </Route>
             <Route path={ROUTES.home}>
               <Home />

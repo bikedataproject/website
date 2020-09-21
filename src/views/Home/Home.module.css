@@ -470,11 +470,22 @@
 
 .partnersLetter {
     transform: translate(60rem, 15rem);
-
 }
 
 .partners_remove .content__wrapper {
     grid-column: 1 / span 12;
+}
+
+.partners h3 {
+    color: colorBlue;
+    text-decoration: none;
+    width: 60%;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.partner__up {
+    text-decoration: none;
 }
 
 .inputHidden {
@@ -631,6 +642,11 @@
         grid-column: span 4;
     }
 
+    .partners h3 {
+        width: 70%;
+        padding-top: 2rem;
+    }
+
 }
 
 @media (max-width: 750px) {
@@ -682,6 +698,11 @@
 
     .informed .content__wrapper {
         grid-column: 1 / span 10;
+    }
+
+    .partners h3 {
+        width: 100%;
+        padding-top: 2rem;
     }
 
 

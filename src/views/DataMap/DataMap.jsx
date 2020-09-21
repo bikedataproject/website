@@ -227,8 +227,17 @@ const DataMap = () => {
         <p className={style.bigLetter}>{i18n.t('Data')}</p>
         <div className={style.header__wrapper}>
           <h1 className={style.header__title}>{i18n.t('Map_title')}</h1>
-          <p>{i18n.t('Data_been_gathered')}</p>
-          <p>{i18n.t('Below_access')}</p>
+          <p>{i18n.t('Data_content_one')}</p>
+          <p>{i18n.t('Data_content_two')}</p>
+          <p>{i18n.t('Data_content_three')}</p>
+          <ul>
+            <li>{i18n.t('Data_content_listOne')}</li>
+            <li>{i18n.t('Data_content_listTwo')}</li>
+            <li>{i18n.t('Data_content_listThree')}</li>
+            <li>{i18n.t('Data_content_listFour')}</li>
+          </ul>
+          <p>{i18n.t('Data_content_four')}</p>
+          
         </div>
       </section>
 

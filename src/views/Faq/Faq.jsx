@@ -35,7 +35,8 @@ const Contact = () => {
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <p>{i18n.t('Question_one_answer')}</p>
+                <p>{i18n.t('Question_one_answerOne')}</p>
+                <p>{i18n.t('Question_one_answerTwo')}</p>
               </AccordionItemPanel>
             </AccordionItem>
             <AccordionItem>
@@ -45,7 +46,9 @@ const Contact = () => {
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <p>{i18n.t('Question_two_answer')}</p>
+                <p>{i18n.t('Question_two_answerOne')}</p>
+                <p>{i18n.t('Question_two_answerTwo')}</p>
+                <p>{i18n.t('Question_two_answerThree')}</p>
               </AccordionItemPanel>
             </AccordionItem>
             <AccordionItem>
@@ -65,7 +68,15 @@ const Contact = () => {
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <p>{i18n.t('Question_four_answer')}</p>
+                <p>{i18n.t('Question_four_answerOne')}</p>
+                <p>{i18n.t('Question_four_answerTwo')}</p>
+                <ul>
+                  <li>{i18n.t('Question_four_answerThree')}</li>
+                  <li>{i18n.t('Question_four_answerFour')}</li>
+                  <li>{i18n.t('Question_four_answerFive')}</li>
+                  <li>{i18n.t('Question_four_answerSix')}</li>
+                </ul>
+                <p>{i18n.t('Question_four_answerSeven')}</p>
               </AccordionItemPanel>
             </AccordionItem>
             <AccordionItem>
@@ -75,7 +86,9 @@ const Contact = () => {
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <p>{i18n.t('Question_five_answer')}</p>
+                <p>{i18n.t('Question_five_answerOne')}</p>
+                <p>{i18n.t('Question_five_answerTwo')}</p>
+                <p>{i18n.t('Question_five_answerThree')}</p>
               </AccordionItemPanel>
             </AccordionItem>
             <AccordionItem>
@@ -86,6 +99,37 @@ const Contact = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>{i18n.t('Question_six_answer')}</p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  {i18n.t('Question_seven_title')}
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <p>{i18n.t('Question_seven_answer')}</p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  {i18n.t('Question_eight_title')}
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <p>{i18n.t('Question_eight_answerOne')}</p>
+                <p>{i18n.t('Question_eight_answerTwo')}</p>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionItemHeading>
+                <AccordionItemButton>
+                  {i18n.t('Question_nine_title')}
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <p>{i18n.t('Question_nine_answer')}</p>
               </AccordionItemPanel>
             </AccordionItem>
           </Accordion>

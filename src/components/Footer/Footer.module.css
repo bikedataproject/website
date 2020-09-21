@@ -10,7 +10,7 @@
 
 .language__dropdown {
     background-color: white;
-    margin-top: 10px;
+    margin-top: 3rem;
     width: 140px;
     border-radius: 5px;
     z-index: 2;
@@ -63,6 +63,11 @@
     grid-column: 10 / span 3;
 }
 
+.footer__right a {
+    color: white;
+    text-decoration: none;
+}
+
 .footer__img {
     padding-top: 3rem;
     width: 15vw;
@@ -72,6 +77,10 @@
     font-weight: bold;
     text-transform: uppercase;
     padding-bottom: 1.5rem;
+}
+
+.footer__contactBold {
+    font-weight: bold;
 }
 
 .footer__nav {
@@ -115,9 +124,10 @@
     display: flex;
 }
 
-.policies p {
+.policies a {
     margin-left: 2rem;
-    
+    text-decoration: none;
+    color: colorOrange;
 }
 
 @media (max-width: 1050px) {

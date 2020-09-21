@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { ROUTES } from '../../const/index';
 import style from './Footer.module.css';
 import i18n from "../../utils/i18n";
 import Dropdown from 'react-dropdown';
@@ -60,7 +61,7 @@ const Footer = ({onSelectFlag}) => {
             </h3>
             <div className={style.footer__nav}>
               <Link className={style.footer__navLink} to="/" target="_blank">
-                {i18n.t('Data_Map')}
+                {i18n.t('The_data')}
               </Link>
               <Link
                 className={style.footer__navLink}
@@ -71,13 +72,6 @@ const Footer = ({onSelectFlag}) => {
               </Link>
               <Link className={style.footer__navLink} to="/faq" target="_blank">
                 {i18n.t('FAQ')}
-              </Link>
-              <Link
-                className={style.footer__navLink}
-                to="/contact"
-                target="_blank"
-              >
-                {i18n.t('Contact')}
               </Link>
             </div>
             <Dropdown
@@ -93,9 +87,17 @@ const Footer = ({onSelectFlag}) => {
 
           <div className={style.footer__right}>
             <h3 className={style.footer__title}>{i18n.t('Footer_contact')}</h3>
+            <p className={style.footer__contactBold}>Open Knowledge Belgium</p>
             <p>{i18n.t('Footer_street')}</p>
             <p>{i18n.t('Footer_city')}</p>
-            <p>bikedataproject@openknowledge.be</p>
+            <a
+              href="mailto:bikedataproject@openknowledge.be"
+              className={style.mailLink}
+              target="_blank"
+            >
+              bikedataproject@openknowledge.be
+            </a>
+            
 
             <div className={style.footer__socials}>
               <a href="https://twitter.com/bikedataproject" target="_blank">
@@ -176,9 +178,27 @@ const Footer = ({onSelectFlag}) => {
         </p>
 
         <div className={style.policies}>
-          <p>{i18n.t('Terms_of_use')}</p>
-          <p>{i18n.t('Privacy_policy')}</p>
-          <p>{i18n.t('Cookie_policy')}</p>
+          <NavLink
+            className={style.menu__item}
+            activeClassName={style.active}
+            to={`${ROUTES.cookies}`}
+          >
+            {i18n.t('Cookie_policy')}
+          </NavLink>
+          <NavLink
+            className={style.menu__item}
+            activeClassName={style.active}
+            to={`${ROUTES.privacy}`}
+          >
+            {i18n.t('Privacy_policy')}
+          </NavLink>
+          <NavLink
+            className={style.menu__item}
+            activeClassName={style.active}
+            to={`${ROUTES.termsofuse}`}
+          >
+            {i18n.t('Terms_of_use')}
+          </NavLink>
         </div>
       </section>
     </>

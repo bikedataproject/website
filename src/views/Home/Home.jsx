@@ -229,7 +229,7 @@ const Home = () => {
       <Element id="donate" name="donate">
         <section className={`${style.content} ${style.grid} ${style.donate}`}>
           <p className={`${style.bigLetter} ${style.donateLetter}`}>
-            {i18n.t('Donate')}
+            {i18n.t('Contribute_big')}
           </p>
           <div className={style.content__wrapper}>
             <h2 className={style.content__title}>{i18n.t('Donate_title')}</h2>
@@ -412,7 +412,7 @@ const Home = () => {
 
       <section className={`${style.content} ${style.grid} ${style.contribute}`}>
         <p className={`${style.bigLetter} ${style.contributeLetter}`}>
-          {i18n.t('Contribute')}
+          {i18n.t('Contribute_big')}
         </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Contribute_title')}</h2>
@@ -431,7 +431,7 @@ const Home = () => {
 
       <section className={`${style.content} ${style.grid} ${style.visible}`}>
         <p className={`${style.bigLetter} ${style.visibleLetter}`}>
-          {i18n.t('Visible')}
+          {i18n.t('Power')}
         </p>
         <div className={style.content__wrapper}>
           <h2 className={style.content__title}>{i18n.t('Visible_title')}</h2>
@@ -502,19 +502,6 @@ const Home = () => {
           <h2 className={style.content__title}>{i18n.t('Partners_title')}</h2>
           <div className={`${style.partners} ${style.grid}`}>
             <a
-              href="https://mobilite-mobiliteit.brussels"
-              className={style.partner}
-              target="_blank"
-            >
-              <img
-                className={style.partner__img}
-                src="./assets/img/brussels-mobility.png"
-                alt="Logo of brussels mobility"
-                width="176"
-                height="49"
-              />
-            </a>
-            <a
               href="https://be.okfn.org/"
               className={style.partner}
               target="_blank"
@@ -539,6 +526,39 @@ const Home = () => {
                 width="150"
                 height="150"
               />
+            </a>
+            <a
+              href="https://mobilite-mobiliteit.brussels"
+              className={style.partner}
+              target="_blank"
+            >
+              <img
+                className={style.partner__img}
+                src="./assets/img/brussels-mobility.png"
+                alt="Logo of brussels mobility"
+                width="176"
+                height="49"
+              />
+            </a>
+            <a
+              href="https://bike.brussels/nl/"
+              className={style.partner}
+              target="_blank"
+            >
+              <img
+                className={`${style.partner__img} ${style.partner__bikeBrusselLogo}`}
+                src="./assets/img/bike-for-brussels.webp"
+                alt="Logo of Bike Fore Brussels"
+                width="130"
+                height="100"
+              />
+            </a>
+            <a
+              href="mailto:bikedataproject@openknowledge.be"
+              className={`${style.partner} ${style.partner__up}`}
+              target="_blank"
+            >
+              <h3 className={style.subtitle}>Want to partner up?</h3>
             </a>
           </div>
         </div>
