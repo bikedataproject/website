@@ -423,7 +423,7 @@ i18n.use(LanguageDetector).init({
         Average_distance: 'gemiddelde afstand',
         co2_saved: 'CO2 bespaard',
         Data_subtitle: 'Geïnteresseerd in de gegevens per regio?',
-        Data_button: 'Verken the data',
+        Data_button: 'Verken de data',
         // Contribute
         Contribute_title: "Voor wie zijn de data nuttig?",
         People_who_work:
