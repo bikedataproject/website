@@ -328,7 +328,7 @@ i18n.use(LanguageDetector).init({
         You_not_using:
           'Vous n’utilisez pas encore d’application ? Aucun problème ! Vous pouvez contribuer vos données en téléchargeant directement notre application.',
         Connect_existing_account: 'Connectez votre compte',
-        Download_our_app: 'Télécharger notre application (disponible prochainement',
+        Download_our_app: 'Télécharger notre application (disponible prochainement)',
         // Data
         Data_title: 'Données collectées dans le monde',
         Rides_collected: 'Déplacements enregistrés',
