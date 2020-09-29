@@ -308,10 +308,10 @@ i18n.use(LanguageDetector).init({
         Contact: 'Contact',
 
         // Header
-        Heading: 'Les communautés de cyclistes collectent leurs données pour créer des villes cyclables.',
+        Heading: 'Les cyclistes collectent leurs données pour créer des villes cyclables.',
         Introduction:
           'Grâce aux données fournies par différents types de cyclistes, le Bike Data Project montre où et quand les utilisateurs et utilisatrices se déplacent à vélo. Les données cyclables créent des informations pertinentes et contribuent à visibiliser les cyclistes, permettant de cette manière aux communautés et aux pouvoirs publics de mieux être informé et, ainsi, créer une ville plus cyclable et plus vivable.',
-        Label_total_km: 'Nombre de km collecté par des communautés cyclistes dans le monde',
+        Label_total_km: 'Nombre de km collecté par des cyclistes dans le monde',
 
         //Help
         Help_title: 'Nous avons besoin de votre aide !',
