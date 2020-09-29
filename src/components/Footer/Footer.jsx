@@ -169,7 +169,7 @@ const Footer = ({onSelectFlag}) => {
           {i18n.t('Footer_copyright_one')}{' '}
           <a
             className={style.link}
-            href="https://creativecommons.org/licenses/by-sa/4.0"
+            href="https://creativecommons.org/licenses/by/4.0"
           >
             {' '}
             {i18n.t('Footer_copyright_two')}
