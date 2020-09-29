@@ -201,6 +201,8 @@ const Footer = ({onSelectFlag}) => {
           </NavLink>
         </div>
       </section>
+
+      <script src="https://cdn.usefathom.com/script.js" site="LUZBBEDP" defer></script>
     </>
   );
 };
