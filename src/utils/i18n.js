@@ -310,7 +310,7 @@ i18n.use(LanguageDetector).init({
         // Header
         Heading: 'Collecte de données par et pour les cyclistes.',
         Introduction:
-          'Grâce aux données fournies par différents types de cyclistes, le Bike Data Project montre où et quand les utilisateurs et utilisatrices se déplacent à vélo. Les données cyclables créent des informations pertinentes et contribuent à visibiliser les cyclistes, permettant de cette manière aux communautés et aux pouvoirs publics de mieux être informé et, ainsi, créer une ville plus cyclable et plus vivable.',
+          "Grâce aux données fournies par les différents utilisateurs et utilisatrices de vélo, le Bike Data Projet permet de mieux comprendre et visualiser les déplacements des cyclistes en ville. Toutes ces données de trajets regroupées, et donc anonymisées, permettent alors d'accompagner les acteurs locaux de la mobilité dans le but d’améliorer l'accès et la sécurité des cyclistes dans nos villes.",
         Label_total_km: 'Nombre de km collecté par des cyclistes dans le monde',
 
         //Help
