@@ -59,6 +59,11 @@
     z-index: 2;
 }
 
+.header__wrapper_no_top_margin {
+    grid-column: 1/ span 8;
+    z-index: 2;
+}
+
 .header__wrapper p {
     margin-bottom: 1.5rem;
 }
@@ -78,6 +83,7 @@
 }
 
 .cta__wrapper {
+    margin-top: 10vh;
     grid-column: 4/ span 6; 
     text-align: center;
     display: flex;

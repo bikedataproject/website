@@ -227,8 +227,17 @@ const DataMap = () => {
         <p className={style.bigLetter}>{i18n.t('Data')}</p>
         <div className={style.header__wrapper}>
           <h1 className={style.header__title}>{i18n.t('Map_title')}</h1>
-          <p>{i18n.t('Data_content_one')}</p>
-          <p>{i18n.t('Data_content_two')}</p>
+          <p>{i18n.t('Data_content_two')}</p>          
+        </div>
+      </section>
+
+      <section>
+        <div className={style.mapContainer} ref={mapContainerRef} />
+        <div className={style.mapOverlay} ref={mapOverlayRef} />
+      </section>
+
+      <section className={`${style.header} ${style.grid} ${style.content}`}>
+        <div className={style.header__wrapper_no_top_margin}>
           <p>{i18n.t('Data_content_three')}</p>
           <ul>
             <li>{i18n.t('Data_content_listOne')}</li>
@@ -236,14 +245,8 @@ const DataMap = () => {
             <li>{i18n.t('Data_content_listThree')}</li>
             <li>{i18n.t('Data_content_listFour')}</li>
           </ul>
-          <p>{i18n.t('Data_content_four')}</p>
-          
+          <p>{i18n.t('Data_content_four')}</p>          
         </div>
-      </section>
-
-      <section>
-        <div className={style.mapContainer} ref={mapContainerRef} />
-        <div className={style.mapOverlay} ref={mapOverlayRef} />
       </section>
 
       <section className={`${style.cta} ${style.grid} ${style.content}`}>
