@@ -618,11 +618,11 @@ i18n.use(LanguageDetector).init({
         // Donate
         Donate_title: 'Draag uw fietsgegevens bij',
         Several_ways_to_contribute:
-          'Er zijn verschillende manieren waarop je je gegevens aan het project kunt bijdragen. Als je al een van de onderstaande apps gebruikt, kun je deze eenvoudig koppelen aan het Bike Data Project. Zodra je app is verbonden, kun je gewoon doorgaan zoals je gewend bent en worden je ritten automatisch geüpload naar het Bike Data Project platform.',
+          'Er zijn verschillende manieren waarop je je gegevens aan het Bike Data Project kunt bijdragen. Op dit moment kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je gewoon doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.',
         You_not_using:
-          'Gebruik je nog geen applicatie? Geen zorgen! U kunt nog steeds deelnemen aan dit project door ook de Bike Data Project-app te downloaden en te gebruiken.',
+          'Wat als je nog geen van deze apps gebruikt? Binnenkort kun je de Bike Data Project-app downloaden en gebruiken. Bovendien werken we ook aan de integratie van andere fietsapps!',
         Connect_existing_account: 'Koppel je bestaand account',
-        Download_our_app: 'Download onze app. (komt binnenkort)',
+        Download_our_app: 'Download onze app (komt binnenkort)',
         // Data
         Data_title: 'Verzamelde data wereldwijd',
         Rides_collected: 'ritten verzameld',
@@ -730,7 +730,7 @@ i18n.use(LanguageDetector).init({
         Question_two_answerThree: 'In ruil daarvoor worden de anonieme geaggregeerde fietsgegevens opengesteld voor het publiek en kunnen ze door iedereen vrij worden gebruikt. We willen impact creëren door te laten zien waar en wanneer mensen fietsen. Meer gegevens betekent meer invloed op beslissingsnemers om steden duurzamer en fietsvriendelijker te maken.',
         
         Question_three_title: 'Hoe draag ik mijn gegevens bij aan het platform?',
-        Question_three_answer: "In dit gedeelte van onze website kun je eenvoudig het profiel van je fietsapp koppelen aan het Bike Data Project platform. Als je zo'n applicatie nog niet gebruikt maar toch wil bijdragen, kun je onze eigen app gebruiken. Met onze eigen app hoef je geen account aan te maken waardoor je je gegevens anoniem delen met het platform.",
+        Question_three_answer: "Je kan eenvoudigweg je bestaande fietsapp verbinden met het Bike Data Project-platform. Momenteel kan je je Strava-account koppelen of je Garmin-bestanden uploaden, maar we werken ook aan de integratie van andere fietsapps. Zodra jouw app is verbonden, kan je gewoon doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het Bike Data Project-platform. Als je nog geen fietsapp gebruikt, kan je binnenkort onze eigen app gebruiken. Met de Bike Data Project-app hoef je geen account aan te maken, maar kun je je gegevens anoniem delen met het platform.",
         
         Question_four_title: 'Wat gebeurt er met mijn gegevens?',
         Question_four_answerOne: 'Alle individuele fietsgegevens worden samengevoegd tot anonieme collectieve gegevens. De collectieve gegevens geven ons patronen waarmee we kunnen laten zien waar en wanneer fietsers zich verplaatsen.',
