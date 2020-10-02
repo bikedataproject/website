@@ -618,9 +618,9 @@ i18n.use(LanguageDetector).init({
         // Donate
         Donate_title: 'Draag uw fietsgegevens bij',
         Several_ways_to_contribute:
-          'Er zijn verschillende manieren waarop je je gegevens aan het Bike Data Project kunt bijdragen. Op dit moment kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je gewoon doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.',
+          'Er zijn verschillende manieren waarop je je gegevens aan het Bike Data Project kunt bijdragen. Voorlopig kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.',
         You_not_using:
-          'Wat als je nog geen van deze apps gebruikt? Binnenkort kun je de Bike Data Project-app downloaden en gebruiken. Bovendien werken we ook aan de integratie van andere fietsapps!',
+          'Wat als je nog geen van deze apps gebruikt? Binnenkort kan je de Bike Data Project-app downloaden en gebruiken. Bovendien werken we ook aan de integratie van andere fietsapps!',
         Connect_existing_account: 'Koppel je bestaand account',
         Download_our_app: 'Download onze app (komt binnenkort)',
         // Data
