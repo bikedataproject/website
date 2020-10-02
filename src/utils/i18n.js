@@ -103,7 +103,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listThree: 'Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.',
         Data_content_listFour: 'Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.',
         Data_content_four: 'All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.',
-        Map_subtitle: 'Have a look at all our open data',
+        Map_subtitle: 'Have a look at our open source code',
 
         // About Page
         About_title: 'About the Bike Data Project',
@@ -397,7 +397,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listThree: 'La société civile et les journalistes peuvent utiliser ces données pour analyser la situation des cyclistes dans une ville, comme par exemple le temps que les cyclistes attendent à un feu rouge.',
         Data_content_listFour: 'Les entreprises actives dans les données peuvent les utiliser pour développer des outils avancés de navigations et de recommandations d’amélioration de l’infrastructure cycliste. Les données peuvent être utile pour tout service ou produit lié à l’utilisation du vélo.',
         Data_content_four: 'Toutes les données agrégées et anonymisées seront publiées comme données ouvertes fin Octobre 2020. Contribuez déjà vos données cyclables au projet !',
-        Map_subtitle: 'Voir toutes les données ouvertes',
+        Map_subtitle: 'Voir tout le code open source',
 
         // About Page
         About_title: 'À propos du projet',
@@ -691,7 +691,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listThree: 'Het maatschappelijk middenveld en journalisten gebruiken de data om de situatie van fietsers te analyseren, zoals de tijd die fietsers gemiddeld verliezen bij verkeerslichten.',
         Data_content_listFour: 'Data- en softwarebedrijven kunnen in de data duiken om slimme fietsinzichten te verkrijgen en tools te bouwen zoals geavanceerde fietsrouteplanners en aanbevelingsmotoren om de fietsinfrastructuur te verbeteren. De gegevens kunnen ook nuttig zijn voor andere fietsgerelateerde producten en diensten.',
         Data_content_four: 'Alle geaggregeerde fietsgegevens zullen vanaf eind oktober 2020 beschikbaar zijn als open data. Voorlopig kun je bijdragen aan het project door je fietsgegevens te delen.',
-        Map_subtitle: 'Bekijk alle open data',
+        Map_subtitle: 'Bekijk onze open source code',
 
         // About Page
         About_title: 'Over het Bike Data Project',
