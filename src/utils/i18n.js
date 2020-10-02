@@ -30,11 +30,11 @@ i18n.use(LanguageDetector).init({
         // Donate
         Donate_title: 'Contribute your bike data',
         Several_ways_to_contribute:
-          'There are a several ways you can contribute data to the project. If you already use one of the apps listed below you can easily connect them to The Bike Data Project. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
+          'There are a several ways you can contribute data to the Bike Data Project. For now, you can either connect your Strava account or upload your Garmin files. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
         You_not_using:
-          'You’re not using such an application yet? No worries! You will be able to be part of this project by also downloading and using the Bike Data Project app soon.',
+          "What if you aren't using any of the listed apps yet? You will be able to download and use the Bike Data Project app soon. Moreover, we're also working on the integration of other cycling apps!",
         Connect_existing_account: 'Connect your existing account',
-        Download_our_app: 'Download our app. (coming soon)',
+        Download_our_app: 'Download our app (coming soon)',
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
@@ -142,7 +142,7 @@ i18n.use(LanguageDetector).init({
         Question_two_answerThree: 'In return, the anonymous aggregated cycling data will be opened up to the public and can be freely used by anyone. We aim to create impact by showing where and when people actually cycle. More data means more influence over those in power to make cities more sustainable and bike-friendly.',
         
         Question_three_title: 'How do I contribute my data to the platform?',
-        Question_three_answer: "You can simply connect your existing cycling app account to the Bike Data Project platform. If you do not use such an application already but still want to contribute, you will be able to use our own app soon. With our own app there won't need to create an account, you will be able to anonymously share your data to the platform.",
+        Question_three_answer: "You can simply connect your existing cycling app to the Bike Data Project platform. For now, you can either connect your Strava account or upload your Garmin files, but we're also working on the integration of other cycling apps. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform. If you do not use any cycling app yet, you will be able to use our own app soon. With the Bike Data Project app, you won't need to create an account, you will be able to anonymously share your data to the platform.",
         
         Question_four_title: 'What is happening with my data?',
         Question_four_answerOne: 'The data collected by this project consists of contributions made by all different kinds of cyclists. All individual cycling data are aggregated into collective data. The collective data gives us patterns we can use to demonstrate where and when cyclists ride their bicycles.',
