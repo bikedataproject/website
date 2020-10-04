@@ -301,7 +301,7 @@ i18n.use(LanguageDetector).init({
     fre: {
       translations: {
         // Navbar
-        Contribute: 'Contribuer',
+        Contribute: 'Participer',
         The_data: 'Les données',
         About: 'À propos',
         FAQ: 'FAQ',
@@ -310,8 +310,8 @@ i18n.use(LanguageDetector).init({
         // Header
         Heading: 'Collecte de données par et pour les cyclistes.',
         Introduction:
-          "Grâce aux données fournies par les différents utilisateurs et utilisatrices de vélo, le Bike Data Projet permet de mieux comprendre et visualiser les déplacements des cyclistes en ville. Toutes ces données de trajets regroupées, et donc anonymisées, permettent alors d'accompagner les acteurs locaux de la mobilité dans le but d’améliorer l'accès et la sécurité des cyclistes dans nos villes.",
-        Label_total_km: 'Nombre de km collecté par des cyclistes dans le monde',
+          "Grâce aux données partagées par les citoyens et citoyennes du monde entier, le Bike Data Project vise à montrer où et quand le vélo est utilisé. Les données recueillies aideront les communautés locales et les institutions à rendre la pratique du vélo et nos villes plus sûres.",
+        Label_total_km: "Nombre total de kilomètres parcourus et partagés jusqu'à présent par des citoyens et citoyennes du monde entier",
 
         //Help
         Help_title: 'Nous avons besoin de votre aide !',
@@ -322,11 +322,11 @@ i18n.use(LanguageDetector).init({
         Every_cyclist_can:
           'Chaque type de cycliste a quelque chose à contribuer. Par exemple, certaines personnes enregistrent déjà leur entraînement mais ce n’est pas suffisant. Nous voulons prendre en considération les parcours plus courts : sur le chemin du travail, en allant déposer les enfants à l’école ou en allant faire vos courses. Tout fonctionne !',
         // Donate
-        Donate_title: 'Contribuez vos données cyclables',
+        Donate_title: 'Partagez vos données cyclables',
         Several_ways_to_contribute:
-          'Il existe plusieurs manières de contribuer vos données. Si vous avez déjà une des applications listées ci-dessus, vous pouvez facilement la connecter avec le Bike Data Project. Quand votre application est connectée, continuez d’enregistrer vos déplacements comme d’habitude et ceux-ci seront automatiquement téléchargés sur la plateforme du Bike Data Project',
+          "Il existe plusieurs façons de contribuer au Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin. Une fois votre application connectée, vous n'avez plus rien à faire : vos trajets seront automatiquement téléchargés sur la plateforme du Bike Data Project.",
         You_not_using:
-          'Vous n’utilisez pas encore d’application ? Aucun problème ! Vous pouvez contribuer vos données en téléchargeant directement notre application.',
+          "Que faire si vous n'utilisez pas encore l'une des applications répertoriées? Vous pourrez bientôt télécharger et utiliser l'application du Bike Data Project. Nous travaillons aussi sur l'intégration d'autres applications de cyclisme !",
         Connect_existing_account: 'Connectez votre compte',
         Download_our_app: 'Télécharger notre application (disponible prochainement)',
         // Data
@@ -437,7 +437,7 @@ i18n.use(LanguageDetector).init({
         Question_two_answerThree: "En retour, les données cyclistes agrégées et anonymisées seront ouvertes au public et pourront être librement utilisées par n'importe qui. Nous visons à créer un impact en montrant où et quand les gens font du vélo. Plus de données signifie plus d'influence sur les personnes au pouvoir pour rendre les villes plus durables et plus adaptées aux vélos.",
         
         Question_three_title: 'Comment puis-je contribuer mes données à la plateforme ?',
-        Question_three_answer: "Dans cette section de notre site web, vous pouvez simplement connecter votre application de vélo préférée à la plateforme Bike Data Project. Si vous n'utilisez pas encore une telle application mais que vous souhaitez contribuer, vous pouvez utiliser notre propre application. Avec celle-ci, il n'est pas nécessaire de créer un compte, vous pouvez partager vos données de manière anonyme sur la plateforme.",
+        Question_three_answer: "Vous pouvez simplement connecter une application cycliste à la plateforme du Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin, mais nous travaillons également sur l'intégration d'autres applications. Une fois votre application connectée, vous n'avez plus rien à faire et vos trajets seront automatiquement téléchargés sur la plateforme. Si vous n'utilisez pas encore d'application de cyclisme, vous pourrez bientôt utiliser notre propre application. Avec l'application Bike Data Project, vous n'aurez pas besoin de créer de compte : vous pourrez partager anonymement vos données sur la plateforme.",
         
         Question_four_title: 'Que se passe-t-il avec mes données ?',
         Question_four_answerOne: 'Les données collectées dans le cadre de ce projet sont des contributions de tous types de cyclistes. Toutes les données individuelles sont agrégées en données collectives. Les données collectives nous donnent alors des modèles que nous pouvons utiliser pour montrer où et quand les cyclistes font du vélo.',
@@ -604,8 +604,8 @@ i18n.use(LanguageDetector).init({
         // Header
         Heading: 'Burgers verzamelen fietsdata om steden fietsvriendelijker te maken.',
         Introduction:
-          'Dankzij de data van verschillende soorten fietsers wil het Bike Data Project laten zien waar en wanneer mensen fietsen. De verzamelde fietsgegevens creëren inzichten die lokale gemeenschappen en besluitvormers kunnen gebruiken om fietsers beter zichtbaar te maken en steden leefbaarder te maken.',
-        Label_total_km: 'Totaal aantal kilometers verzameld door burgers over de hele wereld',
+          'Dankzij de data gedeeld door burgers overal ter wereld, wil het Bike Data Project laten zien waar en wanneer mensen met de fiets rijden. De verzamelde fietsgegevens geven inzichten die lokale gemeenschappen en besluitvormers gebruiken om fietsen en steden veiliger te maken.',
+        Label_total_km: 'Totaal aantal kilometers gefietst en gedeeld door burgers over de hele wereld',
 
         //Help
         Help_title: 'We hebben je hulp nodig!',
@@ -614,11 +614,11 @@ i18n.use(LanguageDetector).init({
         By_sharing_your:
           'We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden geschikter maken voor fietsers.',
         Every_cyclist_can:
-          'Iedere soort fietser heeft iets bij te dragen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook echt rekening houden met de korte routes: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.',
+          'Alle fieters kunnen deelnemen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook rekening houden met andere activiteiten: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.',
         // Donate
-        Donate_title: 'Draag uw fietsgegevens bij',
+        Donate_title: 'Deel jouw fietsdata',
         Several_ways_to_contribute:
-          'Er zijn verschillende manieren waarop je je gegevens aan het Bike Data Project kunt bijdragen. Voorlopig kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.',
+          'Er zijn verschillende manieren waarop je je gegevens met het Bike Data Project kunt delen. Voorlopig kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.',
         You_not_using:
           'Wat als je nog geen van deze apps gebruikt? Binnenkort kan je de Bike Data Project-app downloaden en gebruiken. Bovendien werken we ook aan de integratie van andere fietsapps!',
         Connect_existing_account: 'Koppel je bestaand account',
