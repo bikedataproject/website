@@ -7,30 +7,30 @@ i18n.use(LanguageDetector).init({
     en: {
       translations: {
         // Navbar
-        Contribute: 'Contribute',
+        Contribute: 'Participate',
         The_data: 'The Data',
         About: 'About',
         FAQ: 'FAQ',
         Contact: 'Contact',
 
         // Header
-        Heading: 'Cyclists collecting data to make cities more bike-friendly.',
+        Heading: 'Citizens collecting cycling data to make cities more bike-friendly.',
         Introduction:
-          'Thanks to the data contributed by different kinds of cyclists, the Bike Data Project wants to show where and when people actually cycle. The collected cycling data creates insights which local communities and decision-makers can use to make cyclists more visible and cities more liveable.',
-        Label_total_km: 'Total kilometers gathered by cyclists all over the world',
+          'Thanks to the data shared by citizens around the world, the Bike Data Project aims at showing where and when people ride their bicycles. The data gathered will help local communities and decision-makers make cycling and cities safer.',
+        Label_total_km: 'Total kilometers cycled and shared so far by citizens all over the world',
 
         //Help
         Help_title: 'We need your help!',
         Ask_for_favor:
-          'To make this work we want to ask you to contribute your cycling data.',
+          'To make this work we want to ask you to share your cycling data.',
         By_sharing_your:
           'We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted to cyclists.',
         Every_cyclist_can:
-          'Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids off at school or a quick ride to the grocery store.',
+          'All cyclists are welcome to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also want to consider other types of activities such as: commuting to work, dropping the kids off at school or a quick ride to the grocery store.',
         // Donate
-        Donate_title: 'Contribute your bike data',
+        Donate_title: 'Share your bike data',
         Several_ways_to_contribute:
-          'There are a several ways you can contribute data to the Bike Data Project. For now, you can either connect your Strava account or upload your Garmin files. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
+          'There are a several ways you can contribute to the Bike Data Project. For now, you can either connect your Strava account or upload your Garmin files. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
         You_not_using:
           "What if you aren't using any of the listed apps yet? You will be able to download and use the Bike Data Project app soon. Moreover, we're also working on the integration of other cycling apps!",
         Connect_existing_account: 'Connect your existing account',
@@ -81,7 +81,7 @@ i18n.use(LanguageDetector).init({
 
         // Big words
         Help: 'Help',
-        Contribute_big: 'Contribute',
+        Contribute_big: 'Share',
         Data: 'Data',
         // Contribute: 'Contribute',
         Power: 'Power',
@@ -595,22 +595,22 @@ i18n.use(LanguageDetector).init({
      nl: {
       translations: {
         // Navbar
-        Contribute: 'Bijdragen',
+        Contribute: 'Deelnemen',
         The_data: 'De Data',
         About: 'Over',
         FAQ: 'FAQ',
         Contact: 'Contact',
 
         // Header
-        Heading: 'Fietsers verzamelen data om steden fietsvriendelijker te maken.',
+        Heading: 'Burgers verzamelen fietsdata om steden fietsvriendelijker te maken.',
         Introduction:
           'Dankzij de data van verschillende soorten fietsers wil het Bike Data Project laten zien waar en wanneer mensen fietsen. De verzamelde fietsgegevens creëren inzichten die lokale gemeenschappen en besluitvormers kunnen gebruiken om fietsers beter zichtbaar te maken en steden leefbaarder te maken.',
-        Label_total_km: 'Totaal aantal kilometers verzameld door fietsers over de hele wereld',
+        Label_total_km: 'Totaal aantal kilometers verzameld door burgers over de hele wereld',
 
         //Help
         Help_title: 'We hebben je hulp nodig!',
         Ask_for_favor:
-          'Voor dit project willen we je vragen om je fietsgegevens bij te dragen.',
+          'Voor dit project willen we je vragen om je fietsgegevens te delen.',
         By_sharing_your:
           'We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden geschikter maken voor fietsers.',
         Every_cyclist_can:
