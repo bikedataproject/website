@@ -604,7 +604,7 @@ i18n.use(LanguageDetector).init({
         // Header
         Heading: 'Burgers verzamelen fietsdata om steden fietsvriendelijker te maken.',
         Introduction:
-          'Dankzij de data gedeeld door burgers overal ter wereld, wil het Bike Data Project laten zien waar en wanneer mensen met de fiets rijden. De verzamelde fietsgegevens bieden inzichten die lokale gemeenschappen en besluitvormers gebruiken om fietsen en steden veiliger te maken.',
+          'Dankzij data gedeeld door burgers overal ter wereld, wil het Bike Data Project laten zien waar en wanneer mensen met de fiets rijden. De verzamelde fietsgegevens bieden inzichten die lokale gemeenschappen en besluitvormers gebruiken om fietsen en steden veiliger te maken.',
         Label_total_km: 'Totaal aantal kilometers gefietst en gedeeld door burgers over de hele wereld',
 
         //Help
