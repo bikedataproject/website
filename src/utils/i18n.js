@@ -7,34 +7,34 @@ i18n.use(LanguageDetector).init({
     en: {
       translations: {
         // Navbar
-        Contribute: 'Contribute',
+        Contribute: 'Participate',
         The_data: 'The Data',
         About: 'About',
         FAQ: 'FAQ',
         Contact: 'Contact',
 
         // Header
-        Heading: 'Cyclists collecting data to make cities more bike-friendly.',
+        Heading: 'Citizens collecting cycling data to make cities more bike-friendly.',
         Introduction:
-          'Thanks to the data contributed by different kinds of cyclists, the Bike Data Project wants to show where and when people actually cycle. The collected cycling data create insights which local communities and decision-makers can use to cyclists more visible and cities more liveable.',
-        Label_total_km: 'Total kilometers gathered by cyclists all over the world',
+          'Thanks to the data shared by citizens around the world, the Bike Data Project aims at showing where and when people ride their bicycles. The data gathered will help local communities and decision-makers make cycling and cities safer.',
+        Label_total_km: 'Total kilometers cycled and shared so far by citizens all over the world',
 
         //Help
         Help_title: 'We need your help!',
         Ask_for_favor:
-          'To make this work we want to ask you to contribute your cycling data.',
+          'To make this work we want to ask you to share your cycling data.',
         By_sharing_your:
-          'We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted for cyclists.',
+          'We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted to cyclists.',
         Every_cyclist_can:
-          'Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids at school or for a quick ride to the grocery store.',
+          'All cyclists are welcome to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also want to consider other types of activities such as: commuting to work, dropping the kids off at school or a quick ride to the grocery store.',
         // Donate
-        Donate_title: 'Contribute your bike data',
+        Donate_title: 'Share your bike data',
         Several_ways_to_contribute:
-          'There are a several ways you can contribute data to the project. If you already use one of the apps listed below you can easily connect them to The Bike Data Project. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
+          'There are a several ways you can contribute to the Bike Data Project. For now, you can either connect your Strava account or upload your Garmin files. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.',
         You_not_using:
-          'You’re not using such an application yet? No worries! You will be able to be part of this project by also downloading and using the Bike Data Project app soon.',
+          "What if you aren't using any of the listed apps yet? You will be able to download and use the Bike Data Project app soon. Moreover, we're also working on the integration of other cycling apps!",
         Connect_existing_account: 'Connect your existing account',
-        Download_our_app: 'Download our app. (coming soon)',
+        Download_our_app: 'Download our app (coming soon)',
         // Data
         Data_title: 'Collected data worldwide',
         Rides_collected: 'rides collected',
@@ -50,13 +50,13 @@ i18n.use(LanguageDetector).init({
         People_who_work:
           'People who work in departments of transportation and city planners around the world need data like this to help them develop modern infrastructure and sustainable cities. Some of them are aware and others we have to convince. And the more data we can provide, the greater impact we shall have.',
         Common_goal:
-          'The data can also be very useful for other bike related products and services. The common goal is aggregate cycling data and make them available as open data in order to make cities better adapted for cyclists. For us and the people to come.',
+          'The data can also be very useful for other bike related products and services. The common goal is aggregating cycling data and make it available as open data in order to make cities better adapted to cyclists. For us and the people to come.',
         // Visible
         Visible_title: 'More cycling data means more power to and for cyclists',
         Community_more_visible:
           'The Bike Data Project provides the opportunity to collect all cycling data from different applications into one platform, which is - based on the principle of open source and open data - adaptable and accessible by everyone to ensure it benefits society.',
         Globally_but_locally:
-          'Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we do have about car transport.',
+          'Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we have about car transport.',
         // Informed
         Informed_title: 'Stay informed',
         Email_label: 'Email',
@@ -81,7 +81,7 @@ i18n.use(LanguageDetector).init({
 
         // Big words
         Help: 'Help',
-        Contribute_big: 'Contribute',
+        Contribute_big: 'Share',
         Data: 'Data',
         // Contribute: 'Contribute',
         Power: 'Power',
@@ -103,7 +103,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listThree: 'Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.',
         Data_content_listFour: 'Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.',
         Data_content_four: 'All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.',
-        Map_subtitle: 'Have a look at all our open data',
+        Map_subtitle: 'Have a look at our open source code',
 
         // About Page
         About_title: 'About the Bike Data Project',
@@ -113,10 +113,10 @@ i18n.use(LanguageDetector).init({
         About_contentOne_oneMiddle: 'and launched as part of the release of the ',
         About_contentOne_oneAfter: ', directed by Fredrik Gertten. As the documentary has been screened in over 50 countries, there has already been collected more than 275.000 bicycle rides collected.',
         About_contentOne_twoBefore: 'At the beginning of 2020, the project was moved under the umbrella of Open Knowledge Belgium. ',
-        About_contentOne_twoAfter: '(non-profit/vzw/asbl), as local chapter of Open Knowledge International, is an umbrella organisation for various open knowledge and open data initiatives in Belgium. We strive for a world in which knowledge creates power for the many, not the few and proactively promote openness through projects and events, to the general public as well as to experts in the field. As grassroots organisation we consist of people, mainly volunteers, passionate about openness, using advocacy, research, technology and projects to unlock information, enabling people to use and share knowledge.',
+        About_contentOne_twoAfter: '(non-profit/vzw/asbl), as local chapter of Open Knowledge International, is an umbrella organisation for various open knowledge and open data initiatives in Belgium. We strive for a world where knowledge creates power for the many, not the few and proactively promote openness through projects and events, to the general public as well as to experts in the field. As grassroots organisation we consist of people, mainly volunteers, passionate about openness, using advocacy, research, technology and projects to unlock information, enabling people to use and share knowledge.',
         About_contentOne_three: 'Open Knowledge Belgium guarantees the openness of the project for all purposes and takes all required measures according to the GDPR regulations concerning data privacy and protection. With a transparent and clear terms of use for this project, Open Knowledge Belgium wants to set an example on how to deal with privacy-related issues and wants to take the opportunity to inform citizens about their digital rights.',
         About_titleTwo: "More cycling data means more power to and for cyclists",
-        About_contentTwo_one: "Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we do have about car transport.",
+        About_contentTwo_one: "Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we have about car transport.",
         About_contentTwo_two: "Open Knowledge Belgium aims to create impact by showing where and when people actually cycle. The Bike Data Project provides the opportunity to collect all cycling data from different applications into one platform, which is - based on the principle of open source and open data - adaptable and accessible by everyone to ensure it benefits society.",
         About_titleThree: "Public digital infrastructure as common good",
         About_contentThree_one: "Similar to activities like OpenStreetMap Belgium and Open Planner Team by Open Knowledge Belgium, the Bike Data Project is set up as a collaborative project which is open to all and makes society benefit as a whole. Therefore, the digital infrastructure and aggregated data are - based on the principles of open source and open data - freely adaptable and accessible to anyone.",
@@ -134,15 +134,15 @@ i18n.use(LanguageDetector).init({
         Faq_title: 'Frequently Asked Questions',
         Question_one_title: 'Why should I participate in this project?',
         Question_one_answerOne: 'By contributing your cycling data, you can help make our cities better adapted to cyclists.',
-        Question_one_answerTwo: 'More cycling data means more power to and for cyclists. Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we do have about car transport.',
+        Question_one_answerTwo: 'More cycling data means more power to and for cyclists. Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we have about car transport.',
         
         Question_two_title: 'How does this project work?',
-        Question_two_answerOne: 'To make this work we want to ask you to contribute your cycling data. We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted for cyclists.',
-        Question_two_answerTwo: 'We ask different types of cyclists (e.g., daily commuters, delivery riders, sportsmen and tourists) to track their bicycle rides via their preferred mobile application and contribute their data to our community-driven bike data platform. Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids at school or for a quick ride to the grocery store.',
+        Question_two_answerOne: 'To make this work we want to ask you to contribute your cycling data. We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted to cyclists.',
+        Question_two_answerTwo: 'We ask different types of cyclists (e.g., daily commuters, delivery riders, sportsmen and tourists) to track their bicycle rides via their preferred mobile application and contribute their data to our community-driven bike data platform. Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids off at school or a quick ride to the grocery store.',
         Question_two_answerThree: 'In return, the anonymous aggregated cycling data will be opened up to the public and can be freely used by anyone. We aim to create impact by showing where and when people actually cycle. More data means more influence over those in power to make cities more sustainable and bike-friendly.',
         
         Question_three_title: 'How do I contribute my data to the platform?',
-        Question_three_answer: "You can simply connect your existing cycling app account to the Bike Data Project platform. If you do not use such an application already but still want to contribute, you will be able to use our own app soon. With our own app there won't need to create an account, you will be able to anonymously share your data to the platform.",
+        Question_three_answer: "You can simply connect your existing cycling app to the Bike Data Project platform. For now, you can either connect your Strava account or upload your Garmin files, but we're also working on the integration of other cycling apps. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform. If you do not use any cycling app yet, you will be able to use our own app soon. With the Bike Data Project app, you won't need to create an account, you will be able to anonymously share your data to the platform.",
         
         Question_four_title: 'What is happening with my data?',
         Question_four_answerOne: 'The data collected by this project consists of contributions made by all different kinds of cyclists. All individual cycling data are aggregated into collective data. The collective data gives us patterns we can use to demonstrate where and when cyclists ride their bicycles.',
@@ -301,7 +301,7 @@ i18n.use(LanguageDetector).init({
     fre: {
       translations: {
         // Navbar
-        Contribute: 'Contribuer',
+        Contribute: 'Participer',
         The_data: 'Les données',
         About: 'À propos',
         FAQ: 'FAQ',
@@ -310,8 +310,8 @@ i18n.use(LanguageDetector).init({
         // Header
         Heading: 'Collecte de données par et pour les cyclistes.',
         Introduction:
-          "Grâce aux données fournies par les différents utilisateurs et utilisatrices de vélo, le Bike Data Projet permet de mieux comprendre et visualiser les déplacements des cyclistes en ville. Toutes ces données de trajets regroupées, et donc anonymisées, permettent alors d'accompagner les acteurs locaux de la mobilité dans le but d’améliorer l'accès et la sécurité des cyclistes dans nos villes.",
-        Label_total_km: 'Nombre de km collecté par des cyclistes dans le monde',
+          "Grâce aux données partagées par les citoyens et citoyennes du monde entier, le Bike Data Project vise à montrer où et quand le vélo est utilisé. Les données recueillies aideront les communautés locales et les institutions à rendre la pratique du vélo et nos villes plus sûres.",
+        Label_total_km: "Nombre total de kilomètres parcourus et partagés jusqu'à présent par des citoyens et citoyennes du monde entier",
 
         //Help
         Help_title: 'Nous avons besoin de votre aide !',
@@ -322,11 +322,11 @@ i18n.use(LanguageDetector).init({
         Every_cyclist_can:
           'Chaque type de cycliste a quelque chose à contribuer. Par exemple, certaines personnes enregistrent déjà leur entraînement mais ce n’est pas suffisant. Nous voulons prendre en considération les parcours plus courts : sur le chemin du travail, en allant déposer les enfants à l’école ou en allant faire vos courses. Tout fonctionne !',
         // Donate
-        Donate_title: 'Contribuez vos données cyclables',
+        Donate_title: 'Partagez vos données cyclables',
         Several_ways_to_contribute:
-          'Il existe plusieurs manières de contribuer vos données. Si vous avez déjà une des applications listées ci-dessus, vous pouvez facilement la connecter avec le Bike Data Project. Quand votre application est connectée, continuez d’enregistrer vos déplacements comme d’habitude et ceux-ci seront automatiquement téléchargés sur la plateforme du Bike Data Project',
+          "Il existe plusieurs façons de contribuer au Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin. Une fois votre application connectée, vous n'avez plus rien à faire : vos trajets seront automatiquement téléchargés sur la plateforme du Bike Data Project.",
         You_not_using:
-          'Vous n’utilisez pas encore d’application ? Aucun problème ! Vous pouvez contribuer vos données en téléchargeant directement notre application.',
+          "Que faire si vous n'utilisez pas encore l'une des applications répertoriées? Vous pourrez bientôt télécharger et utiliser l'application du Bike Data Project. Nous travaillons aussi sur l'intégration d'autres applications de cyclisme !",
         Connect_existing_account: 'Connectez votre compte',
         Download_our_app: 'Télécharger notre application (disponible prochainement)',
         // Data
@@ -397,7 +397,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listThree: 'La société civile et les journalistes peuvent utiliser ces données pour analyser la situation des cyclistes dans une ville, comme par exemple le temps que les cyclistes attendent à un feu rouge.',
         Data_content_listFour: 'Les entreprises actives dans les données peuvent les utiliser pour développer des outils avancés de navigations et de recommandations d’amélioration de l’infrastructure cycliste. Les données peuvent être utile pour tout service ou produit lié à l’utilisation du vélo.',
         Data_content_four: 'Toutes les données agrégées et anonymisées seront publiées comme données ouvertes fin Octobre 2020. Contribuez déjà vos données cyclables au projet !',
-        Map_subtitle: 'Voir toutes les données ouvertes',
+        Map_subtitle: 'Voir tout le code open source',
 
         // About Page
         About_title: 'À propos du projet',
@@ -437,7 +437,7 @@ i18n.use(LanguageDetector).init({
         Question_two_answerThree: "En retour, les données cyclistes agrégées et anonymisées seront ouvertes au public et pourront être librement utilisées par n'importe qui. Nous visons à créer un impact en montrant où et quand les gens font du vélo. Plus de données signifie plus d'influence sur les personnes au pouvoir pour rendre les villes plus durables et plus adaptées aux vélos.",
         
         Question_three_title: 'Comment puis-je contribuer mes données à la plateforme ?',
-        Question_three_answer: "Dans cette section de notre site web, vous pouvez simplement connecter votre application de vélo préférée à la plateforme Bike Data Project. Si vous n'utilisez pas encore une telle application mais que vous souhaitez contribuer, vous pouvez utiliser notre propre application. Avec celle-ci, il n'est pas nécessaire de créer un compte, vous pouvez partager vos données de manière anonyme sur la plateforme.",
+        Question_three_answer: "Vous pouvez simplement connecter une application cycliste à la plateforme du Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin, mais nous travaillons également sur l'intégration d'autres applications. Une fois votre application connectée, vous n'avez plus rien à faire et vos trajets seront automatiquement téléchargés sur la plateforme. Si vous n'utilisez pas encore d'application de cyclisme, vous pourrez bientôt utiliser notre propre application. Avec l'application Bike Data Project, vous n'aurez pas besoin de créer de compte : vous pourrez partager anonymement vos données sur la plateforme.",
         
         Question_four_title: 'Que se passe-t-il avec mes données ?',
         Question_four_answerOne: 'Les données collectées dans le cadre de ce projet sont des contributions de tous types de cyclistes. Toutes les données individuelles sont agrégées en données collectives. Les données collectives nous donnent alors des modèles que nous pouvons utiliser pour montrer où et quand les cyclistes font du vélo.',
@@ -595,34 +595,34 @@ i18n.use(LanguageDetector).init({
      nl: {
       translations: {
         // Navbar
-        Contribute: 'Bijdragen',
+        Contribute: 'Deelnemen',
         The_data: 'De Data',
         About: 'Over',
         FAQ: 'FAQ',
         Contact: 'Contact',
 
         // Header
-        Heading: 'Fietsers verzamelen data om steden fietsvriendelijker te maken.',
+        Heading: 'Burgers verzamelen fietsdata om steden fietsvriendelijker te maken.',
         Introduction:
-          'Dankzij de data van verschillende soorten fietsers wil het Bike Data Project laten zien waar en wanneer mensen fietsen. De verzamelde fietsgegevens creëren inzichten die lokale gemeenschappen en besluitvormers kunnen gebruiken om fietsers beter zichtbaar te maken en steden leefbaarder te maken.',
-        Label_total_km: 'Totaal aantal kilometers verzameld door fietsers over de hele wereld',
+          'Dankzij data gedeeld door burgers overal ter wereld, wil het Bike Data Project laten zien waar en wanneer mensen met de fiets rijden. De verzamelde fietsgegevens bieden inzichten die lokale gemeenschappen en besluitvormers gebruiken om fietsen en steden veiliger te maken.',
+        Label_total_km: 'Totaal aantal kilometers gefietst en gedeeld door burgers over de hele wereld',
 
         //Help
         Help_title: 'We hebben je hulp nodig!',
         Ask_for_favor:
-          'Voor dit project willen we je vragen om je fietsgegevens bij te dragen.',
+          'Voor dit project willen we je vragen om je fietsgegevens te delen.',
         By_sharing_your:
-          'We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden meer geschikt maken voor fietsers.',
+          'We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden geschikter maken voor fietsers.',
         Every_cyclist_can:
-          'Iedere soort fietser heeft iets bij te dragen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook echt rekening houden met de korte routes: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.',
+          'Alle fieters kunnen deelnemen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook rekening houden met andere activiteiten: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.',
         // Donate
-        Donate_title: 'Draag uw fietsgegevens bij',
+        Donate_title: 'Deel jouw fietsdata',
         Several_ways_to_contribute:
-          'Er zijn verschillende manieren waarop je je gegevens aan het project kunt bijdragen. Als je al een van de onderstaande apps gebruikt, kun je deze eenvoudig koppelen aan het Bike Data Project. Zodra je app is verbonden, kun je gewoon doorgaan zoals je gewend bent en worden je ritten automatisch geüpload naar het Bike Data Project platform.',
+          'Er zijn verschillende manieren waarop je je gegevens met het Bike Data Project kunt delen. Voorlopig kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.',
         You_not_using:
-          'Gebruik je nog geen applicatie? Geen zorgen! U kunt nog steeds deelnemen aan dit project door ook de Bike Data Project-app te downloaden en te gebruiken.',
+          'Wat als je nog geen van deze apps gebruikt? Binnenkort kan je de Bike Data Project-app downloaden en gebruiken. Bovendien werken we ook aan de integratie van andere fietsapps!',
         Connect_existing_account: 'Koppel je bestaand account',
-        Download_our_app: 'Download onze app. (komt binnenkort)',
+        Download_our_app: 'Download onze app (komt binnenkort)',
         // Data
         Data_title: 'Verzamelde data wereldwijd',
         Rides_collected: 'ritten verzameld',
@@ -691,7 +691,7 @@ i18n.use(LanguageDetector).init({
         Data_content_listThree: 'Het maatschappelijk middenveld en journalisten gebruiken de data om de situatie van fietsers te analyseren, zoals de tijd die fietsers gemiddeld verliezen bij verkeerslichten.',
         Data_content_listFour: 'Data- en softwarebedrijven kunnen in de data duiken om slimme fietsinzichten te verkrijgen en tools te bouwen zoals geavanceerde fietsrouteplanners en aanbevelingsmotoren om de fietsinfrastructuur te verbeteren. De gegevens kunnen ook nuttig zijn voor andere fietsgerelateerde producten en diensten.',
         Data_content_four: 'Alle geaggregeerde fietsgegevens zullen vanaf eind oktober 2020 beschikbaar zijn als open data. Voorlopig kun je bijdragen aan het project door je fietsgegevens te delen.',
-        Map_subtitle: 'Bekijk alle open data',
+        Map_subtitle: 'Bekijk onze open source code',
 
         // About Page
         About_title: 'Over het Bike Data Project',
@@ -725,12 +725,12 @@ i18n.use(LanguageDetector).init({
         Question_one_answerTwo: 'Meer fietsgegevens betekent meer slagkracht door en voor fietsers. Er is weinig bekend over hoe fietsers zich vandaag in steden verplaatsen. Als er gegevens beschikbaar zijn, gaat het om gesloten en beperkte gegevens die worden verkocht door één app-provider of statische gegevens verzameld via handmatige tellingen. Als we meer mensen op de fiets willen en en de keuze voor de fiets net zo makkelijk en logisch willen maken als de auto, hebben we evenveel informatie nodig over het gedrag van fietsers als over autoverkeer.',
         
         Question_two_title: 'Hoe werkt dit project?',
-        Question_two_answerOne: 'Voor dit project willen we je vragen om je fietsgegevens bij te dragen. We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden meer geschikt maken voor fietsers.',
+        Question_two_answerOne: 'Voor dit project willen we je vragen om je fietsgegevens bij te dragen. We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden geschikter maken voor fietsers.',
         Question_two_answerTwo: 'We vragen verschillende soorten fietsers (bijv. pendelaars, bezorgers, sporters en toeristen) om hun fietsritten te registreren via hun favoriete mobiele applicatie en hun gegevens bij te dragen aan ons community-gedreven fietsdataplatform. Elke soort fietser heeft iets bij te dragen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook echt rekening houden met de korte routes: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.',
         Question_two_answerThree: 'In ruil daarvoor worden de anonieme geaggregeerde fietsgegevens opengesteld voor het publiek en kunnen ze door iedereen vrij worden gebruikt. We willen impact creëren door te laten zien waar en wanneer mensen fietsen. Meer gegevens betekent meer invloed op beslissingsnemers om steden duurzamer en fietsvriendelijker te maken.',
         
         Question_three_title: 'Hoe draag ik mijn gegevens bij aan het platform?',
-        Question_three_answer: "In dit gedeelte van onze website kun je eenvoudig het profiel van je fietsapp koppelen aan het Bike Data Project platform. Als je zo'n applicatie nog niet gebruikt maar toch wil bijdragen, kun je onze eigen app gebruiken. Met onze eigen app hoef je geen account aan te maken waardoor je je gegevens anoniem delen met het platform.",
+        Question_three_answer: "Je kan eenvoudigweg je bestaande fietsapp verbinden met het Bike Data Project-platform. Momenteel kan je je Strava-account koppelen of je Garmin-bestanden uploaden, maar we werken ook aan de integratie van andere fietsapps. Zodra jouw app is verbonden, kan je gewoon doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het Bike Data Project-platform. Als je nog geen fietsapp gebruikt, kan je binnenkort onze eigen app gebruiken. Met de Bike Data Project-app hoef je geen account aan te maken, maar kun je je gegevens anoniem delen met het platform.",
         
         Question_four_title: 'Wat gebeurt er met mijn gegevens?',
         Question_four_answerOne: 'Alle individuele fietsgegevens worden samengevoegd tot anonieme collectieve gegevens. De collectieve gegevens geven ons patronen waarmee we kunnen laten zien waar en wanneer fietsers zich verplaatsen.',
@@ -747,17 +747,17 @@ i18n.use(LanguageDetector).init({
         Question_five_answerThree: "Het publiceren van de gegevens zal gebeuren volgens het concept van differentiële privacy, een methode voor het openbaar delen van informatie over een dataset door de patronen van groepen binnen de dataset te beschrijven, terwijl informatie over individuen in de dataset achterblijft. Dit betekent in feite dat gegevens worden alleen gepubliceerd als de informatie van een bepaald individu niet kan worden achtergehaald.",
 
         Question_six_title: 'Kan ik mijn gegevens verwijderen?',
-        Question_six_answer: "Ja! Hoewel u uw gegevens op een anonieme manier bijdraagt ​​(we vragen niet om uw naam of enige andere informatie die je identificeert), kan je ons vragen om je gegevens uit het Bike Data Project platform te halen. Wil je dit doen, stuur ons dan een e-mail naar bikedataproject@openknowledge.be met de naam van de app waarmee je je gegevens heeft verstrekt en, indien mogelijk, ook het ID-nummer dat aan je profiel in de app is gekoppeld.",
+        Question_six_answer: "Ja! Hoewel je je gegevens op een anonieme manier bijdraagt (we vragen niet om uw naam of enige andere informatie die je identificeert), kan je ons vragen om je gegevens uit het Bike Data Project platform te halen. Wil je dit doen, stuur ons dan een e-mail naar bikedataproject@openknowledge.be met de naam van de app waarmee je je gegevens hebt verstrekt en, indien mogelijk, ook het ID-nummer dat aan je profiel in de app is gekoppeld.",
 
         Question_seven_title: 'Welke gegevens deel ik vanuit mijn app?',
-        Question_seven_answer: "We willen je vooral vragen om de gegevens over uw fietsactiviteiten bij te dragen, meer specifiek waar en wanneer je fietst. Daarnaast is er de mogelijkheid om informatie te delen over uw geslacht, leeftijd, type fiets en de reden van uw fiets. rijden (vrije tijd, sport, woon-werkverkeer, ...).",
+        Question_seven_answer: "We willen je vooral vragen om de gegevens over jouw fietsactiviteiten bij te dragen, meer specifiek waar en wanneer je fietst. Daarnaast is er de mogelijkheid om informatie te delen over jouw geslacht, leeftijd, type fiets en de reden van jouw fietsrit (vrije tijd, sport, woon-werkverkeer, ...).",
 
         Question_eight_title: 'Hoe krijg ik toegang tot de open data?',
         Question_eight_answerOne: 'De anonieme geaggregeerde fietsgegevens worden als open data voor het publiek toegankelijk gemaakt. De open data van het Bike Data Project platform kunnen vrij worden gebruikt door verschillende belanghebbenden en doeleinden.',
         Question_eight_answerTwo: 'Alle geaggregeerde fietsgegevens zijn eind oktober 2020 beschikbaar als open data. Voorlopig kun je bijdragen aan het project door je fietsgegevens te delen.',
 
         Question_nine_title: "Ik zou graag meer betrokken willen zijn bij dit project - hoe kan ik helpen?",
-        Question_nine_answer: "Dat is geweldig! Voel je vrij om lid te worden van onze Slack groep (https://join.slack.com/t/bikedataproject/sharedinvite/zt-g60t5w5c-lT2ucV0HtLEVnE4wG9hTg) en stel jezelf daar voor. We horen graag hoe je wil graag bijdragen aan het project!",
+        Question_nine_answer: "Dat is geweldig! Voel je vrij om lid te worden van onze Slack groep (https://join.slack.com/t/bikedataproject/sharedinvite/zt-g60t5w5c-lT2ucV0HtLEVnE4wG9hTg) en stel jezelf daar voor. We horen graag hoe je wil bijdragen aan het project!",
 
         // Contact Page
         Contact_title: 'Contact',
