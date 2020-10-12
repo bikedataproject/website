@@ -23,7 +23,7 @@ const About = () => {
               WG film
             </a>{' '}
             {i18n.t('About_contentOne_oneMiddle')}
-            <a href="http://www.bikes-vs-cars.com/ " target="_blank">
+            <a href="https://vimeo.com/ondemand/bikesvscars" target="_blank">
               Bikes vs Cars documentary
             </a>
             {i18n.t('About_contentOne_oneAfter')}
