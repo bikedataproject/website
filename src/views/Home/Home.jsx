@@ -251,6 +251,18 @@ const Home = () => {
                 >
                   Garmin
                 </button>
+                <button
+                  onClick={() => setGarminModalVisible(true)}
+                  className={style.btn}
+                >
+                  Bike Citizens
+                </button>
+                <button
+                  onClick={() => setGarminModalVisible(true)}
+                  className={style.btn}
+                >
+                  GPX
+                </button>
               </div>
             </div>
             <div className={style.buttons__our}>

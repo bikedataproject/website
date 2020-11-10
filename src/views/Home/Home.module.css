@@ -308,6 +308,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
     grid-gap: 2rem;
+    padding-top: 100px;
 }
 
 .donate__buttons p {
@@ -319,7 +320,7 @@
 }
 
 .buttons__other, .buttons__our {
-    align-self: flex-end;
+    align-self: flex-start;
     min-width: 170px;
 }
 
@@ -767,6 +768,7 @@
 
     .donate__buttons {
         margin: auto;
+        padding-top: unset;
     }
 
     .donate .content__title, .data .content__title {
