@@ -212,6 +212,16 @@
     composes: btn from "../../styles/components.module.css";
 }
 
+.btnWithLink {
+    composes: btn from "../../styles/components.module.css";
+    margin-bottom: 0;
+}
+
+.smallLink {
+    color: colorBlue;
+    font-size: small;
+    padding-left: 10px;
+}
 
 /* HEADER SECTION */
 
@@ -332,6 +342,14 @@
 
 .buttons__wrapper button {
     margin-bottom: 2rem;
+}
+
+.buttons__wrapper a {
+    margin-bottom: 2rem;
+}
+
+.buttons__wrapper .btnWithLink {
+    margin-bottom: 0;
 }
 
 .buttons__our .buttons__wrapper button:hover {

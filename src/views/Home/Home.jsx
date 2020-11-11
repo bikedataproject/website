@@ -254,10 +254,11 @@ const Home = () => {
                 </button>
                 <button
                   onClick={() => setGarminModalVisible(true)}
-                  className={style.btn}
+                  className={style.btnWithLink}
                 >
                   Bike Citizens
                 </button>
+                <a className={style.smallLink} href="link here">How do I get my data from Bike Citizens?</a>
                 <button
                   onClick={() => setGarminModalVisible(true)}
                   className={style.btn}
