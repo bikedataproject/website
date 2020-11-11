@@ -117,7 +117,7 @@ const DataMap = () => {
       map.addSource('areas', {
         type: 'vector',
         url:
-          'https://api.bikedataproject.info/statistics/tiles/mvt-prod.json ',
+          'https://api.bikedataproject.org/statistics/tiles/mvt-prod.json ',
       });
 
       map.addLayer({

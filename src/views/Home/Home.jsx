@@ -120,7 +120,7 @@ const Home = () => {
   }
 
   const fetchBikeData = () => {
-    fetch("https://api.bikedataproject.info/geo/Track/Publish")
+    fetch("https://api.bikedataproject.org/geo/Track/Publish")
     .then((response) => response.json())
     .then((data) => setStatistics(data));
   }
@@ -133,7 +133,7 @@ const Home = () => {
       data.append(index, garminFiles[key])
       if(index === Object.keys(garminFiles).length - 1) {
         setGarminFilesIsUploading(true);
-        fetch('https://api.bikedataproject.info/file/upload', {
+        fetch('https://api.bikedataproject.org/file/upload', {
           method: 'POST',
           body: data
         })
@@ -161,7 +161,7 @@ const Home = () => {
   }
 
   const stravaLogin = () => {
-    window.location.assign("https://www.strava.com/oauth/authorize?client_id=51269&response_type=code&redirect_uri=https://api.bikedataproject.info/registrations/strava&approval_prompt=force&scope=activity:read_all")
+    window.location.assign("https://www.strava.com/oauth/authorize?client_id=53761&response_type=code&redirect_uri=https://api.bikedataproject.org/registrations/strava&approval_prompt=force&scope=activity:read_all")
   }
 
   return useObserver(() => (
