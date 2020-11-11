@@ -15,11 +15,12 @@ const Home = () => {
   const [garminModalVisible, setGarminModalVisible] = useState(false);
   const [garminFiles, setGarminFiles] = useState({});
   const [garminFilesError, setGarminFilesError] = useState(<></>);
+  const [garminFilesIsUploading, setGarminFilesIsUploading] = useState(false)
+
   const [modalContent, setModalContent] = useState(<></>);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [stravaSuccess, setStravaSuccess] = useState(false);
   const [stravaFailed, setStravaFailed] = useState(false);
-  const [garminFilesIsUploading, setGarminFilesIsUploading] = useState(false)
 
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
@@ -276,7 +277,7 @@ const Home = () => {
         </section>
       </Element>
 
-      {/* Garmin upload modal */}
+      {/* file upload modal */}
       <div
         className={`${garminModalVisible ? style.modal__Visible : ''} ${
           style.upload__modal
@@ -293,7 +294,7 @@ const Home = () => {
           <div className={style.button__container}>
             {garminFilesError}
             <input id='file-input' type='file' accept=".gpx,.fit" multiple />
-            <label for="file-input">Choose your Garmin files</label>
+            <label for="file-input">Choose your files</label>
             <button onClick={() => submitGarminFiles()} className={style.submit__button}> 
             {garminFilesIsUploading? '' : 'Submit'}
             <MoonLoader
