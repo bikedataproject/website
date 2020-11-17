@@ -3,8 +3,6 @@ name: Docker Image - Website (Staging)
 on:
   push:
     branches: [ develop ]
-  pull_request:
-    branches: []
 
 jobs:
 
