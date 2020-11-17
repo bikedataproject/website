@@ -258,7 +258,7 @@ const Home = () => {
                 >
                   Bike Citizens
                 </button>
-                <a className={style.smallLink} href="link here">How do I get my data from Bike Citizens?</a>
+                <a className={style.smallLink} target="_blank" href="https://wiki.bikedataproject.org/connect-your-app/bike-citizens">How do I get my data from Bike Citizens?</a>
                 <button
                   onClick={() => setGarminModalVisible(true)}
                   className={style.btn}
