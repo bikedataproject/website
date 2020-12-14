@@ -213,7 +213,6 @@
 }
 
 .btnDisabled {
-    /* color: red; */
     composes: btnDisabled from "../../styles/components.module.css";
 }
 
