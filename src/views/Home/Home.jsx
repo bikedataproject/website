@@ -250,7 +250,7 @@ const Home = () => {
                   onClick={() => setGarminModalVisible(true)}
                   className={style.btn}
                 >
-                  Garmin
+                  File Upload
                 </button>
                 <button
                   onClick={() => setGarminModalVisible(true)}
