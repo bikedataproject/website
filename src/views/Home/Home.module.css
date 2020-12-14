@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value colorBlue, colorOrange, colorLightBlue, fontSizeMedium from tokens;
+@value colorBlue, colorOrange, colorLightBlue, colorLightGray, fontSizeMedium from tokens;
 
 
 /* GENERAL */
@@ -210,6 +210,10 @@
 
 .btn {
     composes: btn from "../../styles/components.module.css";
+}
+
+.btnDisabled {
+    composes: btnDisabled from "../../styles/components.module.css";
 }
 
 .btnWithLink {

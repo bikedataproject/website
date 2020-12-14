@@ -55,6 +55,16 @@ const Home = () => {
     return;
   }, [submitSuccess, stravaFailed, stravaSuccess])
 
+  const deleteFile = (key) => {
+    let fileList = {}
+    let fileInput = document.getElementById('file-input');
+    fileInput.value = ''
+    Object.assign(fileList, {...garminFiles});
+    
+    delete fileList[key]
+    setGarminFiles(fileList);
+  }
+
   useEffect(() => {
     setGarminFilesError()
 
@@ -75,7 +85,7 @@ const Home = () => {
       )
 
     return;
-  }, [garminFiles])
+  }, [deleteFile, garminFiles])
 
   useEffect(() => {
     const co2perkm = 130 / 1000;
@@ -88,16 +98,6 @@ const Home = () => {
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
     return;
   }, [statistics])
-
-  const deleteFile = (key) => {
-    let fileList = {}
-    let fileInput = document.getElementById('file-input');
-    fileInput.value = ''
-    Object.assign(fileList, {...garminFiles});
-    
-    delete fileList[key]
-    setGarminFiles(fileList);
-  }
 
   const checkForStravaStatus = () => {
     const queryString = window.location.search;
@@ -270,8 +270,8 @@ const Home = () => {
             <div className={style.buttons__our}>
               <p>{i18n.t('Download_our_app')}</p>
               <div className={style.buttons__wrapper}>
-                <button className={style.btn}>Google Store</button>
-                <button className={style.btn}>Apple Store</button>
+                <button disabled className={style.btnDisabled}>Google Store</button>
+                <button disabled className={style.btnDisabled}>Apple Store</button>
               </div>
             </div>
           </div>
