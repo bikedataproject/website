@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Policies.module.css';
 import i18n from "../../utils/i18n";
 
-const Terms = () => {
-
-    return (
+const Terms = () => (
         <>
             <section className={`${style.cookies} ${style.grid} ${style.content}`}>
                 <p className={style.bigLetter}>{i18n.t('Terms')}</p>
@@ -62,6 +60,5 @@ const Terms = () => {
 
         </>
     );
-};
 
 export default Terms;

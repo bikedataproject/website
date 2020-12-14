@@ -4,11 +4,9 @@ import i18n from "../../utils/i18n";
 import style from './Home.module.css';
 import { useObserver } from 'mobx-react-lite';
 import CountUp from 'react-countup';
-import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { IoMdClose } from "react-icons/io";
 import { MoonLoader } from 'react-spinners';
-import { useHistory } from 'react-router-dom';
 import { Element } from 'react-scroll';
  
 const Home = () => {
@@ -86,6 +84,7 @@ const Home = () => {
 
     return;
   }, [deleteFile, garminFiles])
+
 
   useEffect(() => {
     const co2perkm = 130 / 1000;
@@ -258,7 +257,7 @@ const Home = () => {
                 >
                   Bike Citizens
                 </button>
-                <a className={style.smallLink} target="_blank" href="https://wiki.bikedataproject.org/connect-your-app/bike-citizens">How do I get my data from Bike Citizens?</a>
+                <a className={style.smallLink} target="_blank" rel="noopener noreferrer" href="https://wiki.bikedataproject.org/connect-your-app/bike-citizens">How do I get my data from Bike Citizens?</a>
                 <button
                   onClick={() => setGarminModalVisible(true)}
                   className={style.btn}
@@ -519,6 +518,7 @@ const Home = () => {
               href="https://be.okfn.org/"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={`${style.partner__img} ${style.partner__okbLogo}`}
@@ -532,6 +532,7 @@ const Home = () => {
               href="https://www.wgfilm.com/"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={`${style.partner__img} ${style.partner__wgLogo}`}
@@ -545,6 +546,7 @@ const Home = () => {
               href="https://mobilite-mobiliteit.brussels"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={style.partner__img}
@@ -558,6 +560,7 @@ const Home = () => {
               href="https://bike.brussels/nl/"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={`${style.partner__img} ${style.partner__bikeBrusselLogo}`}
@@ -571,6 +574,7 @@ const Home = () => {
               href="mailto:bikedataproject@openknowledge.be"
               className={`${style.partner} ${style.partner__up}`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <h3 className={style.subtitle}>Want to partner up?</h3>
             </a>

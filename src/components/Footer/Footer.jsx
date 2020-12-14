@@ -60,17 +60,18 @@ const Footer = ({onSelectFlag}) => {
               {i18n.t('Footer_nav_title')}
             </h3>
             <div className={style.footer__nav}>
-              <Link className={style.footer__navLink} to="/" target="_blank">
+              <Link className={style.footer__navLink} to="/" target="_blank" rel="noopener noreferrer">
                 {i18n.t('The_data')}
               </Link>
               <Link
                 className={style.footer__navLink}
                 to="/about"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {i18n.t('About')}
               </Link>
-              <Link className={style.footer__navLink} to="/faq" target="_blank">
+              <Link className={style.footer__navLink} to="/faq" target="_blank" rel="noopener noreferrer">
                 {i18n.t('FAQ')}
               </Link>
             </div>
@@ -94,13 +95,14 @@ const Footer = ({onSelectFlag}) => {
               href="mailto:bikedataproject@openknowledge.be"
               className={style.mailLink}
               target="_blank"
+              rel="noopener noreferrer"
             >
               bikedataproject@openknowledge.be
             </a>
             
 
             <div className={style.footer__socials}>
-              <a href="https://twitter.com/bikedataproject" target="_blank">
+              <a href="https://twitter.com/bikedataproject" target="_blank" rel="noopener noreferrer">
                 <svg
                   width="33"
                   height="33"
@@ -114,7 +116,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://www.facebook.com/BikeDataProject" target="_blank">
+              <a href="https://www.facebook.com/BikeDataProject" target="_blank" rel="noopener noreferrer">
                 <svg
                   width="33"
                   height="33"
@@ -128,7 +130,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg" target="_blank">
+              <a href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg" target="_blank" rel="noopener noreferrer">
                 <svg
                   width="33"
                   height="33"
@@ -144,7 +146,7 @@ const Footer = ({onSelectFlag}) => {
                   />
                 </svg>
               </a>
-              <a href="https://github.com/bikedataproject" target="_blank">
+              <a href="https://github.com/bikedataproject" target="_blank" rel="noopener noreferrer">
                 <svg
                   width="32"
                   height="32"
