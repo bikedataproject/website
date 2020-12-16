@@ -29,12 +29,14 @@ const NavBar = () => {
     return;
   }, [menuOpen])
 
+  let url = useLocation().pathname;
+
   useEffect(() => {
     setMenuOpen(false);
     if(colorNav && url === '/') setMenuColor('white')
     else setMenuColor('#36469D')
     return
-  }, [useLocation().pathname])
+  }, [colorNav, url])
 
   const handleScroll = () => {
     const colorNav = window.scrollY < window.innerHeight * 0.2;
@@ -54,7 +56,7 @@ const NavBar = () => {
     setCurrentLanguage(country);
   }
 
-  let url = useLocation().pathname;
+  
 
   window.addEventListener('scroll', handleScroll);
 

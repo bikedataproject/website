@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Policies.module.css';
 import i18n from "../../utils/i18n";

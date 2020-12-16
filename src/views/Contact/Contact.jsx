@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Contact.module.css';
-import Footer from '../../components/Footer/Footer';
 import i18n from "../../utils/i18n";
 
 const Contact = () => {
@@ -18,6 +17,7 @@ const Contact = () => {
               to="mailto:bikedataproject@openknowledge.be"
               className={style.mailLink}
               target="_blank"
+              rel="noopener noreferrer"
             >
               bikedataproject@openknowledge.be
             </Link>
@@ -26,7 +26,7 @@ const Contact = () => {
           <h2 className={style.subtitle}>{i18n.t('Follow_socials')}</h2>
 
           <div className={style.socials}>
-            <a href="https://twitter.com/bikedataproject" target="_blank">
+            <a href="https://twitter.com/bikedataproject" target="_blank" rel="noopener noreferrer">
               <svg
                 width="33"
                 height="33"
@@ -40,7 +40,7 @@ const Contact = () => {
                 />
               </svg>
             </a>
-            <a href="https://www.facebook.com/BikeDataProject" target="_blank">
+            <a href="https://www.facebook.com/BikeDataProject" target="_blank" rel="noopener noreferrer">
               <svg
                 width="33"
                 height="33"
@@ -57,6 +57,7 @@ const Contact = () => {
             <a
               href="https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <svg
                 width="33"
@@ -73,7 +74,7 @@ const Contact = () => {
                 />
               </svg>
             </a>
-            <a href="https://github.com/bikedataproject" target="_blank">
+            <a href="https://github.com/bikedataproject" target="_blank" rel="noopener noreferrer">
               <svg
                 width="32"
                 height="32"

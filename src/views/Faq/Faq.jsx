@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -11,7 +11,6 @@ import {
 import './accordion.css';
 
 import style from './Faq.module.css';
-import Footer from '../../components/Footer/Footer';
 import i18n from "../../utils/i18n";
 
 const Contact = () => {
