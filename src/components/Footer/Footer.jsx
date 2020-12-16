@@ -60,7 +60,7 @@ const Footer = ({onSelectFlag}) => {
               {i18n.t('Footer_nav_title')}
             </h3>
             <div className={style.footer__nav}>
-              <Link className={style.footer__navLink} to="/" target="_blank" rel="noopener noreferrer">
+              <Link className={style.footer__navLink} to={`${ROUTES.datamap}`} target="_blank" rel="noopener noreferrer">
                 {i18n.t('The_data')}
               </Link>
               <Link
