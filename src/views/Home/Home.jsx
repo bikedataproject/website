@@ -55,17 +55,17 @@ const Home = () => {
     return;
   }, [submitSuccess, stravaFailed, stravaSuccess])
 
-  const deleteFile = (key) => {
-    let fileList = {}
-    let fileInput = document.getElementById('file-input');
-    fileInput.value = ''
-    Object.assign(fileList, {...garminFiles});
-    
-    delete fileList[key]
-    setGarminFiles(fileList);
-  }
 
   useEffect(() => {
+    const deleteFile = (key) => {
+      let fileList = {}
+      let fileInput = document.getElementById('file-input');
+      fileInput.value = ''
+      Object.assign(fileList, {...garminFiles});
+      
+      delete fileList[key]
+      setGarminFiles(fileList);
+    }
     setGarminFilesError()
 
     if(Object.keys(garminFiles).length < 1)
@@ -85,7 +85,7 @@ const Home = () => {
       )
 
     return;
-  }, [deleteFile, garminFiles])
+  }, [garminFiles])
 
   useEffect(() => {
     const co2perkm = 130 / 1000;
