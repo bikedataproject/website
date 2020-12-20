@@ -7,7 +7,7 @@ const ROUTES = {
   cookies: '/cookies',
   privacy: '/privacy',
   termsofuse: '/termsofuse',
-};
-
+  thanksfitbit: '/thanksfitbit'
+}
 export { ROUTES };
  
