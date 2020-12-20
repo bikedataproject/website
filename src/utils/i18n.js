@@ -598,7 +598,7 @@ i18n.use(LanguageDetector).init({
 
         // Thanks
         Thanks_Bigletter: 'Thank You',
-        Thanks_Fitbit_title: 'Thank you for linking you Fitbit account!',
+        Thanks_Fitbit_title: 'Thank you for linking your Fitbit account!',
         Thanks_Content1: 'Your Fibit account is now linked to the Bike Data Project.',
         Thanks_Content2: 'Your contributions will show up automatically from now on when you log bicycle rides via FitBit.',
       },
