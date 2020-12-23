@@ -22,6 +22,7 @@ const DataMap = () => {
 
     map.addControl(new mapboxgl.NavigationControl());
     map.addControl(new mapboxgl.FullscreenControl());
+    map.scrollZoom.disable();
 
     let overlay = mapOverlayRef.current;
     let lastLocation = undefined;    
