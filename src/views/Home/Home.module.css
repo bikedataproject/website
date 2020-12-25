@@ -1,5 +1,5 @@
 @value tokens: "../../styles/tokens.module.css";
-@value colorBlue, colorOrange, colorLightBlue, fontSizeMedium from tokens;
+@value colorBlue, colorOrange, colorLightBlue, colorLightGray, fontSizeMedium from tokens;
 
 
 /* GENERAL */
@@ -212,6 +212,20 @@
     composes: btn from "../../styles/components.module.css";
 }
 
+.btnDisabled {
+    composes: btnDisabled from "../../styles/components.module.css";
+}
+
+.btnWithLink {
+    composes: btn from "../../styles/components.module.css";
+    margin-bottom: 0;
+}
+
+.smallLink {
+    color: colorBlue;
+    font-size: small;
+    padding-left: 10px;
+}
 
 /* HEADER SECTION */
 
@@ -308,6 +322,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
     grid-gap: 2rem;
+    padding-top: 100px;
 }
 
 .donate__buttons p {
@@ -319,7 +334,7 @@
 }
 
 .buttons__other, .buttons__our {
-    align-self: flex-end;
+    align-self: flex-start;
     min-width: 170px;
 }
 
@@ -331,6 +346,14 @@
 
 .buttons__wrapper button {
     margin-bottom: 2rem;
+}
+
+.buttons__wrapper a {
+    margin-bottom: 2rem;
+}
+
+.buttons__wrapper .btnWithLink {
+    margin-bottom: 0;
 }
 
 .buttons__our .buttons__wrapper button:hover {
@@ -767,6 +790,7 @@
 
     .donate__buttons {
         margin: auto;
+        padding-top: unset;
     }
 
     .donate .content__title, .data .content__title {

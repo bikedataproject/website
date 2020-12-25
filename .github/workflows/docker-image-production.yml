@@ -3,8 +3,6 @@ name: Docker Image - Website (Production)
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: []
 
 jobs:
 

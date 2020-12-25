@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from './About.module.css';
-import Footer from '../../components/Footer/Footer';
 import i18n from "../../utils/i18n";
 
 const About = () => {
@@ -19,17 +18,17 @@ const About = () => {
         <div className={style.text__wrapper}>
           <h2 className={style.subtitle}>{i18n.t('About_titleOne')}</h2>
           <p>{i18n.t('About_contentOne_oneBefore')} {' '}
-            <a href="https://www.wgfilm.com" target="_blank">
+            <a href="https://www.wgfilm.com" target="_blank" rel="noopener noreferrer">
               WG film
             </a>{' '}
             {i18n.t('About_contentOne_oneMiddle')}
-            <a href="https://vimeo.com/ondemand/bikesvscars" target="_blank">
+            <a href="https://vimeo.com/ondemand/bikesvscars" target="_blank" rel="noopener noreferrer">
               Bikes vs Cars documentary
             </a>
             {i18n.t('About_contentOne_oneAfter')}
           </p>
           <p>{i18n.t('About_contentOne_twoBefore')} {' '}
-            <a href="https://be.okfn.org/" target="_blank">
+            <a href="https://be.okfn.org/" target="_blank" rel="noopener noreferrer">
               Open Knowledge Belgium
             </a>{' '}
             {i18n.t('About_contentOne_twoAfter')}

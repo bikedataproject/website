@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import style from './Policies.module.css';
 import i18n from "../../utils/i18n";
 
-const Cookies = () => {
-
-    return (
+const Cookies = () => (
         <>
             <section className={`${style.cookies} ${style.grid} ${style.content}`}>
                 <p className={style.bigLetter}>{i18n.t('Cookies')}</p>
@@ -18,7 +15,7 @@ const Cookies = () => {
                 <div className={style.text__wrapper}>
                     <section>
                         <h2 className={style.subtitle}>{i18n.t('What_are_cookies')}</h2>
-                        <p>{i18n.t('Cookies_section_one')} <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">{i18n.t('Cookies_section_oneLink')}</a>
+                        <p>{i18n.t('Cookies_section_one')} <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" rel="noopener noreferrer">{i18n.t('Cookies_section_oneLink')}</a>
                         </p>
                     </section>
                     <section>
@@ -27,7 +24,7 @@ const Cookies = () => {
                     </section>
                     <section>
                         <h2 className={style.subtitle}>{i18n.t('Disabling_cookies')}</h2>
-                        <p>{i18n.t('Cookies_section_three')} <a href="https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/" target="_blank"> Privacy Badger</a> {i18n.t('Cookies_section_threeLink')}</p>
+                        <p>{i18n.t('Cookies_section_three')} <a href="https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/" target="_blank" rel="noopener noreferrer"> Privacy Badger</a> {i18n.t('Cookies_section_threeLink')}</p>
                     </section>
                     <section>
                         <h2 className={style.subtitle}>{i18n.t('Cookies_we_set')}</h2>
@@ -45,6 +42,7 @@ const Cookies = () => {
                                 href="mailto:bikedataproject@openknowledge.be"
                                 className={style.mailLink}
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 bikedataproject@openknowledge.be
                             </a>
@@ -57,6 +55,6 @@ const Cookies = () => {
             
         </>
     );
-};
+
 
 export default Cookies;

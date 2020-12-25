@@ -1,5 +1,5 @@
 @value tokens: "./tokens.module.css";
-@value colorBlue, colorOrange, fontSizeMedium from tokens;
+@value colorBlue, colorOrange, colorLightGray, fontSizeMedium from tokens;
 
 .content {
     width: 96rem;
@@ -26,6 +26,14 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.btnDisabled {
+    composes: btn;
+    border: .1rem solid colorLightGray;
+    color: colorLightGray;
+    cursor: not-allowed;
+}
+
 
 .btn:hover {
     background-color: colorBlue;

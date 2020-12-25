@@ -1,7 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import style from './DataMap.module.css';
-import Footer from '../../components/Footer/Footer';
 import i18n from "../../utils/i18n";
 
 import './data.css';
@@ -22,6 +21,8 @@ const DataMap = () => {
     });
 
     map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.FullscreenControl());
+    map.scrollZoom.disable();
 
     let overlay = mapOverlayRef.current;
     let lastLocation = undefined;    
@@ -107,7 +108,7 @@ const DataMap = () => {
             lowestLabel = layer.id;
           }
         }
-        if (layer && layer.type == 'symbol') {
+        if (layer && layer.type === 'symbol') {
           if (!lowestSymbol) {
             lowestSymbol = layer.id;
           }

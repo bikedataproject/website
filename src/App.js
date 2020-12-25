@@ -8,8 +8,9 @@ import Privacy from './views/Policies/Privacy';
 import Terms from './views/Policies/Terms';
 import DataMap from './views/DataMap/DataMap';
 import Faq from './views/Faq/Faq';
+import ThanksFitbit from './views/Thanks/ThanksFitbit';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer';
 
 import i18n from './utils/i18n'
 import { Switch, Route } from 'react-router-dom';
@@ -42,6 +43,9 @@ function App() {
       <div className={style.global__wrapper}>
         <div className={style.content}>
           <Switch>
+            <Route path={ROUTES.thanksfitbit}>
+              <ThanksFitbit />
+            </Route>
             <Route path={ROUTES.datamap}>
               <DataMap />
             </Route>

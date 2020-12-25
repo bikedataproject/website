@@ -295,8 +295,13 @@ i18n.use(LanguageDetector).init({
         Breaches_aforementioned_rules_content: 'It may occur that harmful files can be downloaded via the platform, whether or not due to a user, or that users place harmful hyperlinks. Every download by a user or click on a hyperlink, placed by a user, is done at the user’s own risk. Any damage incurred is completely and solely the responsibility of this user.',
         Property_rights: 'Property rights Bike Data Project',
         Property_rights_content: 'The source code of Bike Data Project is published under an open source MIT license. You agree to be bound by and comply with any license agreement that applies to this open source software. The visual identity, including the logo and colors, is available under CC BY 4.0. The name of the Bike Data Project cannot be used nor replicated.',
+      
+        // Thanks
+        Thanks_Bigletter: 'Thank You',
+        Thanks_Fitbit_title: 'Thank you for linking you Fitbit account!',
+        Thanks_Content1: 'Your Fibit account is now linked to the Bike Data Project.',
+        Thanks_Content2: 'Your contributions will show up automatically from now on when you log bicycle rides via FitBit.',
       },
-
     },
     fre: {
       translations: {
@@ -590,6 +595,12 @@ i18n.use(LanguageDetector).init({
         Breaches_aforementioned_rules_content: "Il peut arriver que des fichiers nuisibles puissent être téléchargés via la plateforme, que ce soit du fait ou non d'un utilisateur, ou que les utilisateurs placent des hyperliens nuisibles. Tout téléchargement par un utilisateur ou clic sur un lien hypertexte, placé par un utilisateur, se fait aux risques et périls de l'utilisateur. Tout dommage encouru est entièrement et uniquement de la responsabilité de cet utilisateur.",
         Property_rights: 'Droits de propriété Bike Data Project',
         Property_rights_content: "Le code source de Bike Data Project est publié sous une licence open source MIT. Vous acceptez d'être lié et de vous conformer à tout accord de licence qui s'applique à ce logiciel open source. L'identité visuelle, y compris le logo et les couleurs, est disponible sous CC BY 4.0. Le nom du Bike Data Project ne peut être ni utilisé ni répliqué.",
+
+        // Thanks
+        Thanks_Bigletter: 'Thank You',
+        Thanks_Fitbit_title: 'Thank you for linking your Fitbit account!',
+        Thanks_Content1: 'Your Fibit account is now linked to the Bike Data Project.',
+        Thanks_Content2: 'Your contributions will show up automatically from now on when you log bicycle rides via FitBit.',
       },
     },
      nl: {
@@ -883,6 +894,12 @@ i18n.use(LanguageDetector).init({
         Breaches_aforementioned_rules_content: 'Het kan voorkomen dat via het platform schadelijke bestanden gedownload kunnen worden, al dan niet door een gebruiker, of dat gebruikers schadelijke hyperlinks plaatsen. Elke download door een gebruiker of het klikken op een hyperlink, geplaatst door een gebruiker, gebeurt op eigen risico van de gebruiker. Eventuele opgelopen schade is volledig en uitsluitend de verantwoordelijkheid van deze gebruiker.',
         Property_rights: 'Eigendomsrechten Bike Data Project',
         Property_rights_content: 'De broncode van het Bike Data Project is gepubliceerd onder een open source MIT-licentie. U gaat ermee akkoord gebonden te zijn aan en te voldoen aan alle licentieovereenkomsten die van toepassing zijn op deze open source software. De visuele identiteit, inclusief het logo en de kleuren, is beschikbaar onder CC BY 4.0. De naam van het Bike Data Project kan niet worden gebruikt of gerepliceerd.',
+
+        // Thanks
+        Thanks_Bigletter: 'Bedankt',
+        Thanks_Fitbit_title: 'Bedankt om je Fitbit account te verbinden!',
+        Thanks_Content1: 'Je Fitbit account is nu verbonden met het Bike Data Project.',
+        Thanks_Content2: 'Je fiets ritten worden nu automatisch gedeeld met een Bike Data Project als je je Fitbit gebruikt tijdens het fietsen.',
       },
     },
   },

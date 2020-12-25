@@ -4,22 +4,21 @@ import i18n from "../../utils/i18n";
 import style from './Home.module.css';
 import { useObserver } from 'mobx-react-lite';
 import CountUp from 'react-countup';
-import Footer from '../../components/Footer/Footer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { IoMdClose } from "react-icons/io";
 import { MoonLoader } from 'react-spinners';
-import { useHistory } from 'react-router-dom';
 import { Element } from 'react-scroll';
  
 const Home = () => {
   const [garminModalVisible, setGarminModalVisible] = useState(false);
   const [garminFiles, setGarminFiles] = useState({});
   const [garminFilesError, setGarminFilesError] = useState(<></>);
+  const [garminFilesIsUploading, setGarminFilesIsUploading] = useState(false)
+
   const [modalContent, setModalContent] = useState(<></>);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [stravaSuccess, setStravaSuccess] = useState(false);
   const [stravaFailed, setStravaFailed] = useState(false);
-  const [garminFilesIsUploading, setGarminFilesIsUploading] = useState(false)
 
   const [statisticsDuration, setStatisticsDuration] = useState(0);
   const [totalRides, setTotalRides] = useState(0);
@@ -54,7 +53,17 @@ const Home = () => {
     return;
   }, [submitSuccess, stravaFailed, stravaSuccess])
 
+
   useEffect(() => {
+    const deleteFile = (key) => {
+      let fileList = {}
+      let fileInput = document.getElementById('file-input');
+      fileInput.value = ''
+      Object.assign(fileList, {...garminFiles});
+      
+      delete fileList[key]
+      setGarminFiles(fileList);
+    }
     setGarminFilesError()
 
     if(Object.keys(garminFiles).length < 1)
@@ -76,6 +85,7 @@ const Home = () => {
     return;
   }, [garminFiles])
 
+
   useEffect(() => {
     const co2perkm = 130 / 1000;
 
@@ -87,16 +97,6 @@ const Home = () => {
     setCo2Saved(((statistics.totalDistance / 1000) * co2perkm) / 1000);
     return;
   }, [statistics])
-
-  const deleteFile = (key) => {
-    let fileList = {}
-    let fileInput = document.getElementById('file-input');
-    fileInput.value = ''
-    Object.assign(fileList, {...garminFiles});
-    
-    delete fileList[key]
-    setGarminFiles(fileList);
-  }
 
   const checkForStravaStatus = () => {
     const queryString = window.location.search;
@@ -249,22 +249,35 @@ const Home = () => {
                   onClick={() => setGarminModalVisible(true)}
                   className={style.btn}
                 >
-                  Garmin
+                  File Upload
+                </button>
+                <button
+                  onClick={() => setGarminModalVisible(true)}
+                  className={style.btnWithLink}
+                >
+                  Bike Citizens
+                </button>
+                <a className={style.smallLink} target="_blank" rel="noopener noreferrer" href="https://wiki.bikedataproject.org/connect-your-app/bike-citizens">How do I get my data from Bike Citizens?</a>
+                <button
+                  onClick={() => setGarminModalVisible(true)}
+                  className={style.btn}
+                >
+                  GPX
                 </button>
               </div>
             </div>
             <div className={style.buttons__our}>
               <p>{i18n.t('Download_our_app')}</p>
               <div className={style.buttons__wrapper}>
-                <button className={style.btn}>Google Store</button>
-                <button className={style.btn}>Apple Store</button>
+                <button disabled className={style.btnDisabled}>Google Store</button>
+                <button disabled className={style.btnDisabled}>Apple Store</button>
               </div>
             </div>
           </div>
         </section>
       </Element>
 
-      {/* Garmin upload modal */}
+      {/* file upload modal */}
       <div
         className={`${garminModalVisible ? style.modal__Visible : ''} ${
           style.upload__modal
@@ -281,7 +294,7 @@ const Home = () => {
           <div className={style.button__container}>
             {garminFilesError}
             <input id='file-input' type='file' accept=".gpx,.fit" multiple />
-            <label for="file-input">Choose your Garmin files</label>
+            <label for="file-input">Choose your files</label>
             <button onClick={() => submitGarminFiles()} className={style.submit__button}> 
             {garminFilesIsUploading? '' : 'Submit'}
             <MoonLoader
@@ -505,6 +518,7 @@ const Home = () => {
               href="https://be.okfn.org/"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={`${style.partner__img} ${style.partner__okbLogo}`}
@@ -518,6 +532,7 @@ const Home = () => {
               href="https://www.wgfilm.com/"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={`${style.partner__img} ${style.partner__wgLogo}`}
@@ -531,6 +546,7 @@ const Home = () => {
               href="https://mobilite-mobiliteit.brussels"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={style.partner__img}
@@ -544,6 +560,7 @@ const Home = () => {
               href="https://bike.brussels/nl/"
               className={style.partner}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 className={`${style.partner__img} ${style.partner__bikeBrusselLogo}`}
@@ -557,6 +574,7 @@ const Home = () => {
               href="mailto:bikedataproject@openknowledge.be"
               className={`${style.partner} ${style.partner__up}`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <h3 className={style.subtitle}>Want to partner up?</h3>
             </a>
