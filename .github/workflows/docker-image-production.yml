@@ -15,6 +15,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag bikedataproject/website:prod
     - name: Login to Dock Hub
-      run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u anywaysopen --password-stdin
+      run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u xivk --password-stdin
     - name: Push Docker image.
       run: docker push bikedataproject/website:prod
