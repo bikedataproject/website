@@ -17,7 +17,7 @@ const DataMap = () => {
       </section>
 
       <section>
-        <iframe style={{ width: '100%', height: '40vh' }} src="https://data.bikedataproject.org/map/#8/50.8454/4.3525" title="iframe" />
+        <iframe style={{ width: '100%', height: '500px', maxHeight: '40vh' }} src="https://data.bikedataproject.org/map/#2.01/45/24.32" title="iframe" />
       </section>
 
       <section className={`${style.header} ${style.grid} ${style.content}`}>
