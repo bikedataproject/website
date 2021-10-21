@@ -2,7 +2,7 @@ name: Docker Image - Website (Production)
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
 
