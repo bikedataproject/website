@@ -1,0 +1,50 @@
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1040px;
+    }
+}
+
+.btn-primary {
+    background-color: #ef4823;
+    color: #fff;
+    border: 0;
+    border-radius: 3.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: #ef4823;
+    border: 0;
+    border-radius: 3.5rem;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: medium;
+}
+
+.nav-link:hover {
+    border-bottom: .2rem solid #ef4823;
+}
+
+.navbar {
+    transition: .2s ease-in;
+}
+
+h2 {
+    color: #ef4823;
+    font-size: 3.4rem;
+    margin-bottom: 5rem;
+    font-family: "DM Serif Display", serif;
+    line-height: 1.2;
+}
+
+.background-big-letter {
+    transform: translate(5rem,2rem);
+    z-index: -1;
+    font-size: 16rem;
+    line-height: 0;
+    font-weight: 900;
+    color: #f2f2f2;
+    position: absolute;
+}
