@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="subtitle">
-        <p class="p-0 m-0"> 
+        <p class="p-0 m-0">
             Thanks to the data shared by citizens around the world, the Bike
             Data Project aims at showing where and when people ride their
             bicycles. The data gathered will help local communities and
@@ -16,10 +16,9 @@
         </p>
         <div class="counter p-0 m-0">
             <p class="counter-number p-0 m-0">
-                +
-                <span>6.220</span>K
+                +<span>6.220</span>K
             </p>
-            <p class="p-0 m-0" > 
+            <p class="p-0 m-0">
                 Total kilometers cycled and shared so far by citizens all over
                 the world
             </p>
@@ -70,5 +69,6 @@
     .counter-number {
         font-size: 3.5rem;
         font-weight: 700;
+        line-height: 4.1rem;
     }
 </style>

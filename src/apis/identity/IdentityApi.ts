@@ -8,7 +8,7 @@ export class IdentityApi {
         this.url = options.url;
     }
 
-    async register(data: RegisterUserData) {
+    async register(data: RegisterUserData): Promise<boolean> {
         const registerUrl = `${this.url}/register`;
         const response = await fetch(registerUrl, {
             body: JSON.stringify(data),
@@ -19,7 +19,8 @@ export class IdentityApi {
         });
 
         if (!response.ok) {
-            throw Error("failed to register");
+            return false;
         }
+        return true;
     }
 }

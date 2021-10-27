@@ -18,6 +18,32 @@
     border-radius: 3.5rem;
 }
 
+.btn-share {
+    border: .1rem solid #36469d;
+    border-radius: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 20%;
+    background-color: #fff;
+    padding: 0.7rem 1.5rem;
+    color: #36469d;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: .2s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-share:hover {
+    background-color: #36469d;
+    color: #fff;
+}
+
+.btn-share:active .btn-share:focus {
+    background-color: #36469d;
+    border-color: #36469d;
+    color: #fff;
+}
+
 .nav-link {
     color: #fff !important;
     font-size: medium;
@@ -40,11 +66,22 @@ h2 {
 }
 
 .background-big-letter {
-    transform: translate(5rem,2rem);
+    transform: translate(5rem, 2rem);
     z-index: -1;
     font-size: 16rem;
     line-height: 0;
     font-weight: 900;
     color: #f2f2f2;
     position: absolute;
+}
+
+.container-section {
+    margin-top: 12rem;
+    margin-bottom: 12rem;
+}
+
+footer {
+    background-color: #ef4823;
+    color: #fff;
+    margin-top: 14rem;
 }

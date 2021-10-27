@@ -1,11 +1,13 @@
+<script>
+    import { Col, Container, Row } from "sveltestrap";
+</script>
+
 <section>
     <p class="background-big-letter">Help</p>
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h2>
-                    We need your help!
-                </h2>
+    <Container class="container container-section">
+        <Row>
+            <Col xs="6">
+                <h2>We need your help!</h2>
                 <div class="content">
                     <p class="fw-bold">
                         To make this work we want to ask you to share your
@@ -25,25 +27,16 @@
                         grocery store.
                     </p>
                 </div>
-            </div>
-            <div class="col-6">
+            </Col>
+            <Col xs="6">
                 <picture class="Home_content__img__225R5"
                     ><img
                         class="Home_content__img__225R5"
                         src="/img/mockup-big.png"
                         alt="Mock up of the app on a phone"
                         width="468"
-                        height="593"
-                    /></picture
-                >
-            </div>
-        </div>
-    </div>
+                        height="593" /></picture>
+            </Col>
+        </Row>
+    </Container>
 </section>
-
-<style>
-    .container {
-        margin-top: 18rem;
-        margin-bottom: 18rem;
-    }
-</style>
