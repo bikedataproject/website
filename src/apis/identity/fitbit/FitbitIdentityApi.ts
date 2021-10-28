@@ -10,21 +10,33 @@ export class FitbitIdentityApi {
 
     async register(data: FitbitRegisterModel): Promise<FitbitRegisterResponseModel> {
         const registerEndPoint = `${this.url}/fitbit/register`;
-        const response = await fetch(registerEndPoint, {
+        fetch(registerEndPoint, {
             body: JSON.stringify(data),
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             }
-        });
-        
-        return await response.json() as FitbitRegisterResponseModel;
+        })
+            .then(async (response) => {
+                return await response.json() as FitbitRegisterResponseModel;
+            })
+            .catch(() => {
+                return undefined;
+            });
+
+        return undefined;
     }
 
     async registerCallback(code: string): Promise<boolean> {
         const registerCallbackEndPoint = `${this.url}/fitbit/register/callback?code=${code}`;
-        const response = await fetch(registerCallbackEndPoint);
+        fetch(registerCallbackEndPoint)
+            .then(async (response) => {
+                return response.ok;
+            })
+            .catch(() => {
+                return false;
+            });
 
-        return response.ok;
+        return false;
     }
 }

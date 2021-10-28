@@ -17,9 +17,10 @@ let identityApi = new IdentityApi({
   url: "http://localhost:5001",
 });
 
-let emailConfirmDialogOpen: boolean = false;
-let emailConfirmDialogClosed = () => {
-  emailConfirmDialogOpen = false;
+let messageOpen: boolean = false;
+let message = "";
+let messageClose = () => {
+  messageOpen = false;
 };
 
 let fitbitSubmit = async (email: string) => {
@@ -29,12 +30,21 @@ let fitbitSubmit = async (email: string) => {
     email: email,
   });
 
+  // check if there is a response.
+  if (typeof registerResponse === "undefined") {
+    message = "Our apologies, linking your fitbit account failed, please try again later.";
+    messageOpen = true;
+    return;
+  }
+
   // 2 responses possible:
   // 1: email sent to authorize.
   // 2: redirect to authorize endpoint received.
   if (registerResponse.emailSent) {
     // if the email is sent, tell the user.
-    emailConfirmDialogOpen = true;
+    message = "Thank you for sharing, we've sent you an email to confirm.";
+    messageOpen = true;
+    return;
   } else {
     navigate(registerResponse.url);
     return;
@@ -42,10 +52,8 @@ let fitbitSubmit = async (email: string) => {
 };
 </script>
 
-{#if emailConfirmDialogOpen}
-  <Message
-    on:close="{emailConfirmDialogClosed}"
-    message="Thank you for sharing, we've sent you an email to confirm." />
+{#if messageOpen}
+  <Message on:close="{messageClose}" message="{message}" />
 {/if}
 
 {#if fitbitCallbackOpen}

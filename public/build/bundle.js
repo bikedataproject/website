@@ -1937,7 +1937,7 @@ var app = (function () {
     const file$z = "node_modules/svelte-navigator/src/Router.svelte";
 
     // (195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}
-    function create_if_block$a(ctx) {
+    function create_if_block$b(ctx) {
     	let div;
     	let t;
 
@@ -1965,7 +1965,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block$b.name,
     		type: "if",
     		source: "(195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}",
     		ctx
@@ -1982,7 +1982,7 @@ var app = (function () {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[20].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[19], null);
-    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$a(ctx);
+    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$b(ctx);
 
     	const block = {
     		c: function create() {
@@ -2650,7 +2650,7 @@ var app = (function () {
     });
 
     // (97:0) {#if isActive}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let router;
     	let current;
 
@@ -2697,7 +2697,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(97:0) {#if isActive}",
     		ctx
@@ -2955,7 +2955,7 @@ var app = (function () {
     	let t1;
     	let div1;
     	let current;
-    	let if_block = /*isActive*/ ctx[2] && create_if_block$9(ctx);
+    	let if_block = /*isActive*/ ctx[2] && create_if_block$a(ctx);
 
     	const block = {
     		c: function create() {
@@ -2993,7 +2993,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$9(ctx);
+    					if_block = create_if_block$a(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(t1.parentNode, t1);
@@ -3855,7 +3855,7 @@ var app = (function () {
     }
 
     // (33:0) {#if href}
-    function create_if_block$8(ctx) {
+    function create_if_block$9(ctx) {
     	let a;
     	let current_block_type_index;
     	let if_block;
@@ -3965,7 +3965,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block: block_1,
-    		id: create_if_block$8.name,
+    		id: create_if_block$9.name,
     		type: "if",
     		source: "(33:0) {#if href}",
     		ctx
@@ -4239,7 +4239,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$8, create_else_block_1$1];
+    	const if_block_creators = [create_if_block$9, create_else_block_1$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -5348,7 +5348,7 @@ var app = (function () {
     }
 
     // (83:2) {#if label}
-    function create_if_block$7(ctx) {
+    function create_if_block$8(ctx) {
     	let label_1;
     	let current;
     	const label_slot_template = /*#slots*/ ctx[19].label;
@@ -5413,7 +5413,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$7.name,
+    		id: create_if_block$8.name,
     		type: "if",
     		source: "(83:2) {#if label}",
     		ctx
@@ -5465,7 +5465,7 @@ var app = (function () {
 
     	let current_block_type = select_block_type(ctx);
     	let if_block0 = current_block_type(ctx);
-    	let if_block1 = /*label*/ ctx[4] && create_if_block$7(ctx);
+    	let if_block1 = /*label*/ ctx[4] && create_if_block$8(ctx);
 
     	const block = {
     		c: function create() {
@@ -5507,7 +5507,7 @@ var app = (function () {
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block$7(ctx);
+    					if_block1 = create_if_block$8(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(div, null);
@@ -6191,7 +6191,7 @@ var app = (function () {
     }
 
     // (20:0) {#if tag === 'fieldset'}
-    function create_if_block$6(ctx) {
+    function create_if_block$7(ctx) {
     	let fieldset;
     	let current;
     	const default_slot_template = /*#slots*/ ctx[9].default;
@@ -6257,7 +6257,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$6.name,
+    		id: create_if_block$7.name,
     		type: "if",
     		source: "(20:0) {#if tag === 'fieldset'}",
     		ctx
@@ -6271,7 +6271,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$6, create_else_block$3];
+    	const if_block_creators = [create_if_block$7, create_else_block$3];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -8627,7 +8627,7 @@ var app = (function () {
     }
 
     // (523:0) {#if feedback}
-    function create_if_block$5(ctx) {
+    function create_if_block$6(ctx) {
     	let show_if;
     	let current_block_type_index;
     	let if_block;
@@ -8699,7 +8699,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$5.name,
+    		id: create_if_block$6.name,
     		type: "if",
     		source: "(523:0) {#if feedback}",
     		ctx
@@ -8999,7 +8999,7 @@ var app = (function () {
     		if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
     	}
 
-    	let if_block1 = /*feedback*/ ctx[9] && create_if_block$5(ctx);
+    	let if_block1 = /*feedback*/ ctx[9] && create_if_block$6(ctx);
 
     	const block = {
     		c: function create() {
@@ -9065,7 +9065,7 @@ var app = (function () {
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block$5(ctx);
+    					if_block1 = create_if_block$6(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -10877,7 +10877,7 @@ var app = (function () {
     const file$n = "node_modules/sveltestrap/src/ModalBackdrop.svelte";
 
     // (12:0) {#if isOpen}
-    function create_if_block$4(ctx) {
+    function create_if_block$5(ctx) {
     	let div;
     	let div_intro;
     	let div_outro;
@@ -10941,7 +10941,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$4.name,
+    		id: create_if_block$5.name,
     		type: "if",
     		source: "(12:0) {#if isOpen}",
     		ctx
@@ -10953,7 +10953,7 @@ var app = (function () {
     function create_fragment$p(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*isOpen*/ ctx[0] && create_if_block$4(ctx);
+    	let if_block = /*isOpen*/ ctx[0] && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -10977,7 +10977,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$4(ctx);
+    					if_block = create_if_block$5(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -11342,7 +11342,7 @@ var app = (function () {
     }
 
     // (22:4) {#if typeof toggle === 'function'}
-    function create_if_block$3(ctx) {
+    function create_if_block$4(ctx) {
     	let button;
     	let mounted;
     	let dispose;
@@ -11389,7 +11389,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block$4.name,
     		type: "if",
     		source: "(22:4) {#if typeof toggle === 'function'}",
     		ctx
@@ -11401,7 +11401,7 @@ var app = (function () {
     // (21:21)      
     function fallback_block(ctx) {
     	let if_block_anchor;
-    	let if_block = typeof /*toggle*/ ctx[0] === 'function' && create_if_block$3(ctx);
+    	let if_block = typeof /*toggle*/ ctx[0] === 'function' && create_if_block$4(ctx);
 
     	const block = {
     		c: function create() {
@@ -11417,7 +11417,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$3(ctx);
+    					if_block = create_if_block$4(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -12485,7 +12485,7 @@ var app = (function () {
     }
 
     // (258:0) {#if backdrop && !staticModal}
-    function create_if_block$2(ctx) {
+    function create_if_block$3(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -12566,7 +12566,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$3.name,
     		type: "if",
     		source: "(258:0) {#if backdrop && !staticModal}",
     		ctx
@@ -12632,7 +12632,7 @@ var app = (function () {
     	let if_block1_anchor;
     	let current;
     	let if_block0 = /*_isMounted*/ ctx[11] && create_if_block_1$1(ctx);
-    	let if_block1 = /*backdrop*/ ctx[6] && !/*staticModal*/ ctx[0] && create_if_block$2(ctx);
+    	let if_block1 = /*backdrop*/ ctx[6] && !/*staticModal*/ ctx[0] && create_if_block$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -12683,7 +12683,7 @@ var app = (function () {
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block$2(ctx);
+    					if_block1 = create_if_block$3(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -15756,19 +15756,31 @@ var app = (function () {
         }
         async register(data) {
             const registerEndPoint = `${this.url}/fitbit/register`;
-            const response = await fetch(registerEndPoint, {
+            fetch(registerEndPoint, {
                 body: JSON.stringify(data),
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 }
+            })
+                .then(async (response) => {
+                return await response.json();
+            })
+                .catch(() => {
+                return undefined;
             });
-            return await response.json();
+            return undefined;
         }
         async registerCallback(code) {
             const registerCallbackEndPoint = `${this.url}/fitbit/register/callback?code=${code}`;
-            const response = await fetch(registerCallbackEndPoint);
-            return response.ok;
+            fetch(registerCallbackEndPoint)
+                .then(async (response) => {
+                return response.ok;
+            })
+                .catch(() => {
+                return false;
+            });
+            return false;
         }
     }
 
@@ -15817,7 +15829,7 @@ var app = (function () {
     const file$d = "src/integrations/register/fitbit/FitbitCallback.svelte";
 
     // (30:0) {#if messageOpen}
-    function create_if_block$1(ctx) {
+    function create_if_block$2(ctx) {
     	let message_1;
     	let current;
 
@@ -15857,7 +15869,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block$2.name,
     		type: "if",
     		source: "(30:0) {#if messageOpen}",
     		ctx
@@ -15928,7 +15940,7 @@ var app = (function () {
     	let t;
     	let await_block_anchor;
     	let current;
-    	let if_block = /*messageOpen*/ ctx[1] && create_if_block$1(ctx);
+    	let if_block = /*messageOpen*/ ctx[1] && create_if_block$2(ctx);
 
     	let info = {
     		ctx,
@@ -15972,7 +15984,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$1(ctx);
+    					if_block = create_if_block$2(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(t.parentNode, t);
@@ -16100,6 +16112,56 @@ var app = (function () {
     const { Error: Error_1 } = globals;
     const file$c = "src/integrations/register/fitbit/FitbitConfirmEmail.svelte";
 
+    // (54:0) {#if messageOpen}
+    function create_if_block$1(ctx) {
+    	let message_1;
+    	let current;
+
+    	message_1 = new Message({
+    			props: { message: /*message*/ ctx[0] },
+    			$$inline: true
+    		});
+
+    	message_1.$on("close", /*close*/ ctx[3]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(message_1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(message_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const message_1_changes = {};
+    			if (dirty & /*message*/ 1) message_1_changes.message = /*message*/ ctx[0];
+    			message_1.$set(message_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(message_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(message_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(message_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(54:0) {#if messageOpen}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     // (1:0) <script lang="ts">import { useNavigate }
     function create_catch_block(ctx) {
     	const block = { c: noop, m: noop, d: noop };
@@ -16130,14 +16192,14 @@ var app = (function () {
     	return block;
     }
 
-    // (44:34)    <div></div> {/await}
+    // (58:34)    <div></div> {/await}
     function create_pending_block(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			add_location(div, file$c, 44, 2, 1478);
+    			add_location(div, file$c, 58, 2, 1882);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -16151,7 +16213,7 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(44:34)    <div></div> {/await}",
+    		source: "(58:34)    <div></div> {/await}",
     		ctx
     	});
 
@@ -16159,7 +16221,10 @@ var app = (function () {
     }
 
     function create_fragment$e(ctx) {
+    	let t;
     	let await_block_anchor;
+    	let current;
+    	let if_block = /*messageOpen*/ ctx[1] && create_if_block$1(ctx);
 
     	let info = {
     		ctx,
@@ -16171,10 +16236,12 @@ var app = (function () {
     		catch: create_catch_block
     	};
 
-    	handle_promise(/*confirmEmailAndRedirect*/ ctx[0](), info);
+    	handle_promise(/*confirmEmailAndRedirect*/ ctx[2](), info);
 
     	const block = {
     		c: function create() {
+    			if (if_block) if_block.c();
+    			t = space();
     			await_block_anchor = empty();
     			info.block.c();
     		},
@@ -16182,17 +16249,52 @@ var app = (function () {
     			throw new Error_1("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, t, anchor);
     			insert_dev(target, await_block_anchor, anchor);
     			info.block.m(target, info.anchor = anchor);
     			info.mount = () => await_block_anchor.parentNode;
     			info.anchor = await_block_anchor;
+    			current = true;
     		},
     		p: function update(new_ctx, [dirty]) {
     			ctx = new_ctx;
+
+    			if (/*messageOpen*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*messageOpen*/ 2) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(t.parentNode, t);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
     		},
-    		i: noop,
-    		o: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(t);
     			if (detaching) detach_dev(await_block_anchor);
     			info.block.d(detaching);
     			info.token = null;
@@ -16216,6 +16318,8 @@ var app = (function () {
     	validate_slots('FitbitConfirmEmail', slots, []);
     	const navigate = useNavigate();
     	let identityApi = new IdentityApi({ url: "http://localhost:5001" });
+    	let message;
+    	let messageOpen = false;
 
     	let confirmEmailAndRedirect = async () => {
     		const parsed = queryString.parse(window.location.search);
@@ -16242,6 +16346,13 @@ var app = (function () {
     			confirmEmailUrl: "http://localhost:5000/fitbit/confirmemail"
     		});
 
+    		// check if there is a response.
+    		if (typeof registerResponse === "undefined") {
+    			$$invalidate(0, message = "Our apologies, linking your fitbit account failed, please try again later.");
+    			$$invalidate(1, messageOpen = true);
+    			return;
+    		}
+
     		// the response should be a url to redirect.
     		if (registerResponse.emailSent) {
     			// oeps, this is wrong!
@@ -16266,23 +16377,28 @@ var app = (function () {
     		useNavigate,
     		queryString,
     		IdentityApi,
+    		Message,
     		navigate,
     		identityApi,
+    		message,
+    		messageOpen,
     		confirmEmailAndRedirect,
     		close
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('identityApi' in $$props) identityApi = $$props.identityApi;
-    		if ('confirmEmailAndRedirect' in $$props) $$invalidate(0, confirmEmailAndRedirect = $$props.confirmEmailAndRedirect);
-    		if ('close' in $$props) close = $$props.close;
+    		if ('message' in $$props) $$invalidate(0, message = $$props.message);
+    		if ('messageOpen' in $$props) $$invalidate(1, messageOpen = $$props.messageOpen);
+    		if ('confirmEmailAndRedirect' in $$props) $$invalidate(2, confirmEmailAndRedirect = $$props.confirmEmailAndRedirect);
+    		if ('close' in $$props) $$invalidate(3, close = $$props.close);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [confirmEmailAndRedirect];
+    	return [message, messageOpen, confirmEmailAndRedirect, close];
     }
 
     class FitbitConfirmEmail extends SvelteComponentDev {
@@ -20342,40 +20458,42 @@ var app = (function () {
     /* src/views/home/Share.svelte generated by Svelte v3.44.0 */
     const file = "src/views/home/Share.svelte";
 
-    // (40:0) {#if emailConfirmDialogOpen}
+    // (49:0) {#if messageOpen}
     function create_if_block_2(ctx) {
-    	let message;
+    	let message_1;
     	let current;
 
-    	message = new Message({
-    			props: {
-    				message: "Thank you for sharing, we've sent you an email to confirm."
-    			},
+    	message_1 = new Message({
+    			props: { message: /*message*/ ctx[3] },
     			$$inline: true
     		});
 
-    	message.$on("close", /*emailConfirmDialogClosed*/ ctx[3]);
+    	message_1.$on("close", /*messageClose*/ ctx[4]);
 
     	const block = {
     		c: function create() {
-    			create_component(message.$$.fragment);
+    			create_component(message_1.$$.fragment);
     		},
     		m: function mount(target, anchor) {
-    			mount_component(message, target, anchor);
+    			mount_component(message_1, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			const message_1_changes = {};
+    			if (dirty & /*message*/ 8) message_1_changes.message = /*message*/ ctx[3];
+    			message_1.$set(message_1_changes);
+    		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(message.$$.fragment, local);
+    			transition_in(message_1.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(message.$$.fragment, local);
+    			transition_out(message_1.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(message, detaching);
+    			destroy_component(message_1, detaching);
     		}
     	};
 
@@ -20383,14 +20501,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(40:0) {#if emailConfirmDialogOpen}",
+    		source: "(49:0) {#if messageOpen}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:0) {#if fitbitCallbackOpen}
+    // (53:0) {#if fitbitCallbackOpen}
     function create_if_block_1(ctx) {
     	let fitbitcallback;
     	let current;
@@ -20422,14 +20540,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(46:0) {#if fitbitCallbackOpen}",
+    		source: "(53:0) {#if fitbitCallbackOpen}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:0) {#if FitbitConfirmEmailOpen}
+    // (57:0) {#if FitbitConfirmEmailOpen}
     function create_if_block(ctx) {
     	let fitbitconfirmemail;
     	let current;
@@ -20461,14 +20579,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(50:0) {#if FitbitConfirmEmailOpen}",
+    		source: "(57:0) {#if FitbitConfirmEmailOpen}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:10) <Col xs="6">
+    // (70:10) <Col xs="6">
     function create_default_slot_6(ctx) {
     	let h4;
     	let t1;
@@ -20482,7 +20600,7 @@ var app = (function () {
     	let p;
     	let current;
     	fitbit = new Fitbit({ $$inline: true });
-    	fitbit.$on("submit", /*submit_handler*/ ctx[5]);
+    	fitbit.$on("submit", /*submit_handler*/ ctx[6]);
     	strava = new Strava({ $$inline: true });
 
     	const block = {
@@ -20500,14 +20618,14 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "After connecting your account your data will be automatically\n              shared with us. You can revoke our access at any time.";
     			attr_dev(h4, "class", "svelte-1lcp26q");
-    			add_location(h4, file, 63, 12, 2023);
+    			add_location(h4, file, 70, 12, 2246);
     			attr_dev(div0, "class", "mb-1");
-    			add_location(div0, file, 65, 14, 2103);
+    			add_location(div0, file, 72, 14, 2326);
     			attr_dev(div1, "class", "mb-1");
-    			add_location(div1, file, 69, 14, 2258);
+    			add_location(div1, file, 76, 14, 2481);
     			attr_dev(div2, "class", "mt-1 mb-3");
-    			add_location(div2, file, 64, 12, 2065);
-    			add_location(p, file, 71, 12, 2324);
+    			add_location(div2, file, 71, 12, 2288);
+    			add_location(p, file, 78, 12, 2547);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h4, anchor);
@@ -20549,14 +20667,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(63:10) <Col xs=\\\"6\\\">",
+    		source: "(70:10) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:10) <Col xs="6">
+    // (84:10) <Col xs="6">
     function create_default_slot_5(ctx) {
     	let h4;
     	let t1;
@@ -20580,12 +20698,12 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Have GPX tracks of your cycling trips, upload them here!";
     			attr_dev(h4, "class", "svelte-1lcp26q");
-    			add_location(h4, file, 77, 12, 2542);
+    			add_location(h4, file, 84, 12, 2765);
     			attr_dev(div0, "class", "mb-1");
-    			add_location(div0, file, 79, 14, 2618);
+    			add_location(div0, file, 86, 14, 2841);
     			attr_dev(div1, "class", "mt-1 mb-3");
-    			add_location(div1, file, 78, 12, 2580);
-    			add_location(p, file, 81, 12, 2681);
+    			add_location(div1, file, 85, 12, 2803);
+    			add_location(p, file, 88, 12, 2904);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h4, anchor);
@@ -20620,14 +20738,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(77:10) <Col xs=\\\"6\\\">",
+    		source: "(84:10) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (62:8) <Row>
+    // (69:8) <Row>
     function create_default_slot_4$1(ctx) {
     	let col0;
     	let t;
@@ -20667,14 +20785,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20702,14 +20820,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(62:8) <Row>",
+    		source: "(69:8) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:6) <Col class="mt-5" xs="6">
+    // (68:6) <Col class="mt-5" xs="6">
     function create_default_slot_3$1(ctx) {
     	let row;
     	let current;
@@ -20733,7 +20851,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20757,14 +20875,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(61:6) <Col class=\\\"mt-5\\\" xs=\\\"6\\\">",
+    		source: "(68:6) <Col class=\\\"mt-5\\\" xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (86:6) <Col xs="6">
+    // (93:6) <Col xs="6">
     function create_default_slot_2$1(ctx) {
     	let p0;
     	let t1;
@@ -20788,10 +20906,10 @@ var app = (function () {
     			p2 = element("p");
     			p2.textContent = "What if you aren't using any of the listed apps yet? You will be able\n          to download and use the Bike Data Project app soon. Moreover, we're\n          also working on the integration of other cycling apps!";
     			attr_dev(p0, "class", "background-big-letter");
-    			add_location(p0, file, 86, 8, 2817);
-    			add_location(h2, file, 87, 8, 2868);
-    			add_location(p1, file, 88, 8, 2906);
-    			add_location(p2, file, 95, 8, 3271);
+    			add_location(p0, file, 93, 8, 3040);
+    			add_location(h2, file, 94, 8, 3091);
+    			add_location(p1, file, 95, 8, 3129);
+    			add_location(p2, file, 102, 8, 3494);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -20817,14 +20935,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(86:6) <Col xs=\\\"6\\\">",
+    		source: "(93:6) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:4) <Row>
+    // (67:4) <Row>
     function create_default_slot_1$1(ctx) {
     	let col0;
     	let t;
@@ -20865,14 +20983,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20900,14 +21018,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(60:4) <Row>",
+    		source: "(67:4) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (59:2) <Container>
+    // (66:2) <Container>
     function create_default_slot$1(ctx) {
     	let row;
     	let current;
@@ -20931,7 +21049,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20955,7 +21073,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(59:2) <Container>",
+    		source: "(66:2) <Container>",
     		ctx
     	});
 
@@ -20972,7 +21090,7 @@ var app = (function () {
     	let t3;
     	let container;
     	let current;
-    	let if_block0 = /*emailConfirmDialogOpen*/ ctx[2] && create_if_block_2(ctx);
+    	let if_block0 = /*messageOpen*/ ctx[2] && create_if_block_2(ctx);
     	let if_block1 = /*fitbitCallbackOpen*/ ctx[0] && create_if_block_1(ctx);
     	let if_block2 = /*FitbitConfirmEmailOpen*/ ctx[1] && create_if_block(ctx);
 
@@ -20999,8 +21117,8 @@ var app = (function () {
     			attr_dev(img, "class", "illustration");
     			if (!src_url_equal(img.src, img_src_value = "/img/bike_illustration.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Line illustration of a bike and some trees.");
-    			add_location(img, file, 54, 2, 1794);
-    			add_location(section, file, 53, 0, 1782);
+    			add_location(img, file, 61, 2, 2017);
+    			add_location(section, file, 60, 0, 2005);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21019,11 +21137,11 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (/*emailConfirmDialogOpen*/ ctx[2]) {
+    			if (/*messageOpen*/ ctx[2]) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
 
-    					if (dirty & /*emailConfirmDialogOpen*/ 4) {
+    					if (dirty & /*messageOpen*/ 4) {
     						transition_in(if_block0, 1);
     					}
     				} else {
@@ -21086,7 +21204,7 @@ var app = (function () {
 
     			const container_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 512) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21137,10 +21255,11 @@ var app = (function () {
     	let { fitbitCallbackOpen = false } = $$props;
     	let { FitbitConfirmEmailOpen = false } = $$props;
     	let identityApi = new IdentityApi({ url: "http://localhost:5001" });
-    	let emailConfirmDialogOpen = false;
+    	let messageOpen = false;
+    	let message = "";
 
-    	let emailConfirmDialogClosed = () => {
-    		$$invalidate(2, emailConfirmDialogOpen = false);
+    	let messageClose = () => {
+    		$$invalidate(2, messageOpen = false);
     	};
 
     	let fitbitSubmit = async email => {
@@ -21150,12 +21269,22 @@ var app = (function () {
     			email
     		});
 
+    		// check if there is a response.
+    		if (typeof registerResponse === "undefined") {
+    			$$invalidate(3, message = "Our apologies, linking your fitbit account failed, please try again later.");
+    			$$invalidate(2, messageOpen = true);
+    			return;
+    		}
+
     		// 2 responses possible:
     		// 1: email sent to authorize.
     		// 2: redirect to authorize endpoint received.
     		if (registerResponse.emailSent) {
     			// if the email is sent, tell the user.
-    			$$invalidate(2, emailConfirmDialogOpen = true);
+    			$$invalidate(3, message = "Thank you for sharing, we've sent you an email to confirm.");
+
+    			$$invalidate(2, messageOpen = true);
+    			return;
     		} else {
     			navigate(registerResponse.url);
     			return;
@@ -21191,8 +21320,9 @@ var app = (function () {
     		fitbitCallbackOpen,
     		FitbitConfirmEmailOpen,
     		identityApi,
-    		emailConfirmDialogOpen,
-    		emailConfirmDialogClosed,
+    		messageOpen,
+    		message,
+    		messageClose,
     		fitbitSubmit
     	});
 
@@ -21200,9 +21330,10 @@ var app = (function () {
     		if ('fitbitCallbackOpen' in $$props) $$invalidate(0, fitbitCallbackOpen = $$props.fitbitCallbackOpen);
     		if ('FitbitConfirmEmailOpen' in $$props) $$invalidate(1, FitbitConfirmEmailOpen = $$props.FitbitConfirmEmailOpen);
     		if ('identityApi' in $$props) identityApi = $$props.identityApi;
-    		if ('emailConfirmDialogOpen' in $$props) $$invalidate(2, emailConfirmDialogOpen = $$props.emailConfirmDialogOpen);
-    		if ('emailConfirmDialogClosed' in $$props) $$invalidate(3, emailConfirmDialogClosed = $$props.emailConfirmDialogClosed);
-    		if ('fitbitSubmit' in $$props) $$invalidate(4, fitbitSubmit = $$props.fitbitSubmit);
+    		if ('messageOpen' in $$props) $$invalidate(2, messageOpen = $$props.messageOpen);
+    		if ('message' in $$props) $$invalidate(3, message = $$props.message);
+    		if ('messageClose' in $$props) $$invalidate(4, messageClose = $$props.messageClose);
+    		if ('fitbitSubmit' in $$props) $$invalidate(5, fitbitSubmit = $$props.fitbitSubmit);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -21212,8 +21343,9 @@ var app = (function () {
     	return [
     		fitbitCallbackOpen,
     		FitbitConfirmEmailOpen,
-    		emailConfirmDialogOpen,
-    		emailConfirmDialogClosed,
+    		messageOpen,
+    		message,
+    		messageClose,
     		fitbitSubmit,
     		submit_handler
     	];

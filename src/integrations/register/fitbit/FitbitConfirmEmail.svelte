@@ -2,11 +2,14 @@
 import { useLocation, useNavigate } from "svelte-navigator";
 import queryString from "query-string";
 import { IdentityApi } from "../../../apis/identity/IdentityApi";
+import Message from "../../Message.svelte";
 const navigate = useNavigate();
 
 let identityApi: IdentityApi = new IdentityApi({
   url: "http://localhost:5001",
 });
+let message: string;
+let messageOpen: boolean = false;
 let confirmEmailAndRedirect = async () => {
   const parsed = queryString.parse(window.location.search);
   if (!parsed.email) {
@@ -33,6 +36,14 @@ let confirmEmailAndRedirect = async () => {
     confirmEmailUrl: "http://localhost:5000/fitbit/confirmemail",
   });
 
+  // check if there is a response.
+  if (typeof registerResponse === "undefined") {
+    message =
+      "Our apologies, linking your fitbit account failed, please try again later.";
+    messageOpen = true;
+    return;
+  }
+
   // the response should be a url to redirect.
   if (registerResponse.emailSent) {
     // oeps, this is wrong!
@@ -48,6 +59,10 @@ let close = async () => {
   navigate("/");
 };
 </script>
+
+{#if messageOpen}
+  <Message on:close={close} message="{message}" />
+{/if}
 
 {#await confirmEmailAndRedirect()}
   <div></div>
