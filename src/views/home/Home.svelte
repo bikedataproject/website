@@ -7,13 +7,16 @@ import OpenData from "./OpenData.svelte";
 import Partners from "./Partners.svelte";
 import Power from "./Power.svelte";
 import Share from "./Share.svelte";
+
+export let fitbitCallbackOpen = false;
+export let FitbitConfirmEmailOpen = false;
 </script>
 
 <Head />
 
 <Help />
 
-<Share />
+<Share {fitbitCallbackOpen} {FitbitConfirmEmailOpen} />
 
 <Data />
 
