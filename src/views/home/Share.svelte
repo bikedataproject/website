@@ -15,7 +15,7 @@ let messageHook: IMessageHook;
 
 <Message bind:hook={messageHook} />
 
-<section>
+<section id="share-section">
   <img
     class="illustration"
     src="/img/bike_illustration.svg"

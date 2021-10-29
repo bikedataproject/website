@@ -14,7 +14,7 @@
             <Link class="nav-link m-2" to="about">About</Link>
         </li>
         <li class="nav-item">
-            <button type="button" class="btn btn-primary m-2" href="#">Participate</button>
+            <a type="button" class="btn btn-primary m-2" href="#share-section">Participate</a>
         </li>
     </ul>
 </div>

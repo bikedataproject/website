@@ -14287,7 +14287,7 @@ var app = (function () {
     	let link2;
     	let t2;
     	let li3;
-    	let button;
+    	let a;
     	let current;
 
     	link0 = new Link$1({
@@ -14334,18 +14334,18 @@ var app = (function () {
     			create_component(link2.$$.fragment);
     			t2 = space();
     			li3 = element("li");
-    			button = element("button");
-    			button.textContent = "Participate";
+    			a = element("a");
+    			a.textContent = "Participate";
     			attr_dev(li0, "class", "nav-item active");
     			add_location(li0, file$d, 6, 8, 163);
     			attr_dev(li1, "class", "nav-item");
     			add_location(li1, file$d, 9, 8, 282);
     			attr_dev(li2, "class", "nav-item");
     			add_location(li2, file$d, 12, 8, 385);
-    			attr_dev(button, "type", "button");
-    			attr_dev(button, "class", "btn btn-primary m-2");
-    			attr_dev(button, "href", "#");
-    			add_location(button, file$d, 16, 12, 526);
+    			attr_dev(a, "type", "button");
+    			attr_dev(a, "class", "btn btn-primary m-2");
+    			attr_dev(a, "href", "#share-section");
+    			add_location(a, file$d, 16, 12, 526);
     			attr_dev(li3, "class", "nav-item");
     			add_location(li3, file$d, 15, 8, 492);
     			attr_dev(ul, "class", "navbar-nav ms-auto");
@@ -14370,7 +14370,7 @@ var app = (function () {
     			mount_component(link2, li2, null);
     			append_dev(ul, t2);
     			append_dev(ul, li3);
-    			append_dev(li3, button);
+    			append_dev(li3, a);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -20047,12 +20047,12 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "After connecting your account your data will be automatically\n              shared with us. You can revoke our access at any time.";
     			attr_dev(h4, "class", "svelte-1lcp26q");
-    			add_location(h4, file, 20, 12, 560);
+    			add_location(h4, file, 20, 12, 579);
     			attr_dev(div0, "class", "mb-1");
-    			add_location(div0, file, 22, 14, 640);
+    			add_location(div0, file, 22, 14, 659);
     			attr_dev(div1, "class", "mt-1 mb-3");
-    			add_location(div1, file, 21, 12, 602);
-    			add_location(p, file, 26, 12, 807);
+    			add_location(div1, file, 21, 12, 621);
+    			add_location(p, file, 26, 12, 826);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h4, anchor);
@@ -20124,12 +20124,12 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Have GPX tracks of your cycling trips, upload them here!";
     			attr_dev(h4, "class", "svelte-1lcp26q");
-    			add_location(h4, file, 32, 12, 1025);
+    			add_location(h4, file, 32, 12, 1044);
     			attr_dev(div0, "class", "mb-1");
-    			add_location(div0, file, 34, 14, 1101);
+    			add_location(div0, file, 34, 14, 1120);
     			attr_dev(div1, "class", "mt-1 mb-3");
-    			add_location(div1, file, 33, 12, 1063);
-    			add_location(p, file, 36, 12, 1164);
+    			add_location(div1, file, 33, 12, 1082);
+    			add_location(p, file, 36, 12, 1183);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h4, anchor);
@@ -20332,10 +20332,10 @@ var app = (function () {
     			p2 = element("p");
     			p2.textContent = "What if you aren't using any of the listed apps yet? You will be able\n          to download and use the Bike Data Project app soon. Moreover, we're\n          also working on the integration of other cycling apps!";
     			attr_dev(p0, "class", "background-big-letter");
-    			add_location(p0, file, 41, 8, 1300);
-    			add_location(h2, file, 42, 8, 1351);
-    			add_location(p1, file, 43, 8, 1389);
-    			add_location(p2, file, 50, 8, 1754);
+    			add_location(p0, file, 41, 8, 1319);
+    			add_location(h2, file, 42, 8, 1370);
+    			add_location(p1, file, 43, 8, 1408);
+    			add_location(p2, file, 50, 8, 1773);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -20549,7 +20549,8 @@ var app = (function () {
     			attr_dev(img, "class", "illustration");
     			if (!src_url_equal(img.src, img_src_value = "/img/bike_illustration.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Line illustration of a bike and some trees.");
-    			add_location(img, file, 11, 2, 331);
+    			add_location(img, file, 11, 2, 350);
+    			attr_dev(section, "id", "share-section");
     			add_location(section, file, 10, 0, 319);
     		},
     		l: function claim(nodes) {
