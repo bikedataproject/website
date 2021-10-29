@@ -1,5 +1,6 @@
 <script>
 import { Col, Container, Row } from "sveltestrap";
+import { locale, locales } from "svelte-i18n";
 </script>
 
 <footer class="pt-5">
@@ -34,29 +35,18 @@ import { Col, Container, Row } from "sveltestrap";
                 >The Data</a>
             </li>
             <li class="mb-3">
-              <a
-                class="Footer_footer__navLink__1PJ9e"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/about">About</a>
+              <a target="_blank" rel="noopener noreferrer" href="/about"
+                >About</a>
             </li>
             <li class="mb-3">
-              <a
-                class="Footer_footer__navLink__1PJ9e"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/faq">FAQ</a>
+              <a target="_blank" rel="noopener noreferrer" href="/faq">FAQ</a>
             </li>
           </ul>
-          <!-- <div class="Footer_footer__nav__AjtsD"></div>
-        <div class="Dropdown-root Footer_language__dropdown__QEQb2">
-          <div class="Dropdown-control" aria-haspopup="listbox">
-            <div class="Dropdown-placeholder is-selected">English</div>
-            <div class="Dropdown-arrow-wrapper">
-              <span class="Dropdown-arrow Footer_language__arrow__1LC57"></span>
-            </div>
-          </div>
-        </div> -->
+          <select bind:value="{$locale}">
+            {#each $locales as locale}
+              <option value="{locale}">{locale}</option>
+            {/each}
+          </select>
         </Col>
         <Col xs="6" md="4" lg="3" class="px-4 mt-2">
           <h3 class="text-uppercase">Contact</h3>

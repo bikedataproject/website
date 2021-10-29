@@ -7,6 +7,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import copy from 'rollup-plugin-copy';
+import json from '@rollup/plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,7 +38,8 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/build/bundle.js',
+		inlineDynamicImports: true // https://github.com/kaisermann/svelte-i18n/issues/48
 	},
 	plugins: [
 		svelte({
@@ -50,13 +52,15 @@ export default {
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
-		
+
+		json(),
+
 		copy({
-            targets: [{ 
-                src: 'node_modules/bootstrap/dist/**/*', 
-                dest: 'public/npm/bootstrap' 
-            }],
-        }),
+			targets: [{
+				src: 'node_modules/bootstrap/dist/**/*',
+				dest: 'public/npm/bootstrap'
+			}],
+		}),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In

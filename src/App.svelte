@@ -6,8 +6,20 @@ import About from "./views/about/About.svelte";
 import Faq from "./views/faq/Faq.svelte";
 import Data from "./views/datamap/Data.svelte";
 import Home from "./views/home/Home.svelte";
-</script>
+import { register, init, getLocaleFromNavigator, isLoading } from "svelte-i18n";
 
+register("en", () => import("./locales/en.json"));
+register("fr", () => import("./locales/fr.json"));
+register("nl", () => import("./locales/nl.json"));
+
+init({
+  fallbackLocale: "en",
+  initialLocale: getLocaleFromNavigator(),
+});
+</script>
+{#if $isLoading}
+  Please wait...
+{:else}
 <Router>
   <Header />
   <Route path="/">
@@ -40,3 +52,4 @@ import Home from "./views/home/Home.svelte";
   </Route>
   <Footer />
 </Router>
+{/if}

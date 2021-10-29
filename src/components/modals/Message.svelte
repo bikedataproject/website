@@ -5,7 +5,7 @@ import { MessageManager } from "./MessageManager";
 
 let manager = new MessageManager();
 let message: string = "";
-export let hook: IMessageHook = manager;
+export const hook: IMessageHook = manager;
 
 let isOpen = false;
 manager.on("hide", () => (isOpen = false));

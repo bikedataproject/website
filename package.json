@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^2.0.0",
@@ -33,6 +34,7 @@
     "mapbox-gl": "^1.13.1",
     "query-string": "^7.0.1",
     "sirv-cli": "^1.0.0",
+    "svelte-i18n": "^3.3.13",
     "svelte-navigator": "^3.1.5",
     "sveltestrap": "^5.6.3"
   }

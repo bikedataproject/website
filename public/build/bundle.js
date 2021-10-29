@@ -917,6 +917,10 @@ var app = (function () {
         else
             dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
     }
+    function prop_dev(node, property, value) {
+        node[property] = value;
+        dispatch_dev('SvelteDOMSetProperty', { node, property, value });
+    }
     function set_data_dev(text, data) {
         data = '' + data;
         if (text.wholeText === data)
@@ -1132,7 +1136,7 @@ var app = (function () {
      * @param {string} search
      * @return {boolean}
      */
-    const startsWith = (string, search) =>
+    const startsWith$1 = (string, search) =>
     	string.substr(0, search.length) === search;
 
     /**
@@ -1465,7 +1469,7 @@ var app = (function () {
      */
     function resolve(to, base) {
     	// /foo/bar, /baz/qux => /foo/bar
-    	if (startsWith(to, "/")) {
+    	if (startsWith$1(to, "/")) {
     		return to;
     	}
 
@@ -1480,7 +1484,7 @@ var app = (function () {
     	}
 
     	// profile, /users/789 => /users/789/profile
-    	if (!startsWith(toSegments[0], ".")) {
+    	if (!startsWith$1(toSegments[0], ".")) {
     		const pathname = baseSegments.concat(toSegments).join("/");
     		return addQuery((basePathname === "/" ? "" : "/") + pathname, toQuery);
     	}
@@ -1546,7 +1550,7 @@ var app = (function () {
      *
      * @returns {{ pathname: string; search: string; hash: string }} The location
      */
-    function createLocation(url) {
+    function createLocation$1(url) {
     	const searchIndex = url.indexOf("?");
     	const hashIndex = url.indexOf("#");
     	const hasSearchIndex = searchIndex !== -1;
@@ -1690,7 +1694,7 @@ var app = (function () {
     }
 
     function createStackFrame(state, uri) {
-    	return { ...createLocation(uri), state };
+    	return { ...createLocation$1(uri), state };
     }
 
     // Stores history entries in memory for testing or other platforms like Native
@@ -1937,7 +1941,7 @@ var app = (function () {
     const file$z = "node_modules/svelte-navigator/src/Router.svelte";
 
     // (195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let div;
     	let t;
 
@@ -1965,7 +1969,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}",
     		ctx
@@ -1982,7 +1986,7 @@ var app = (function () {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[20].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[19], null);
-    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$9(ctx);
+    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$a(ctx);
 
     	const block = {
     		c: function create() {
@@ -2113,7 +2117,7 @@ var app = (function () {
     	const level = isTopLevelRouter ? 0 : routerContext.level + 1;
 
     	// If we're running an SSR we force the location to the `url` prop
-    	const getInitialLocation = () => normalizeLocation(isSSR ? createLocation(url) : history.location, normalizedBasepath);
+    	const getInitialLocation = () => normalizeLocation(isSSR ? createLocation$1(url) : history.location, normalizedBasepath);
 
     	const location = isTopLevelRouter
     	? writable(getInitialLocation())
@@ -2224,7 +2228,7 @@ var app = (function () {
     		pick,
     		match,
     		normalizeLocation,
-    		createLocation,
+    		createLocation: createLocation$1,
     		isSSR,
     		warn,
     		ROUTER_ID,
@@ -2650,7 +2654,7 @@ var app = (function () {
     });
 
     // (97:0) {#if isActive}
-    function create_if_block$8(ctx) {
+    function create_if_block$9(ctx) {
     	let router;
     	let current;
 
@@ -2697,7 +2701,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$8.name,
+    		id: create_if_block$9.name,
     		type: "if",
     		source: "(97:0) {#if isActive}",
     		ctx
@@ -2707,7 +2711,7 @@ var app = (function () {
     }
 
     // (113:2) {:else}
-    function create_else_block$6(ctx) {
+    function create_else_block$7(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[17].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[18], get_default_slot_context);
@@ -2755,7 +2759,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$6.name,
+    		id: create_else_block$7.name,
     		type: "else",
     		source: "(113:2) {:else}",
     		ctx
@@ -2875,7 +2879,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block_1$6, create_else_block$6];
+    	const if_block_creators = [create_if_block_1$6, create_else_block$7];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -2955,7 +2959,7 @@ var app = (function () {
     	let t1;
     	let div1;
     	let current;
-    	let if_block = /*isActive*/ ctx[2] && create_if_block$8(ctx);
+    	let if_block = /*isActive*/ ctx[2] && create_if_block$9(ctx);
 
     	const block = {
     		c: function create() {
@@ -2993,7 +2997,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$8(ctx);
+    					if_block = create_if_block$9(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(t1.parentNode, t1);
@@ -3423,7 +3427,7 @@ var app = (function () {
     		usePreflightCheck,
     		shouldNavigate,
     		isFunction,
-    		startsWith,
+    		startsWith: startsWith$1,
     		LINK_ID,
     		to,
     		replace,
@@ -3468,7 +3472,7 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty & /*$location, href*/ 2049) {
-    			$$invalidate(10, isPartiallyCurrent = startsWith($location.pathname, href));
+    			$$invalidate(10, isPartiallyCurrent = startsWith$1($location.pathname, href));
     		}
 
     		if ($$self.$$.dirty & /*href, $location*/ 2049) {
@@ -3855,7 +3859,7 @@ var app = (function () {
     }
 
     // (33:0) {#if href}
-    function create_if_block$7(ctx) {
+    function create_if_block$8(ctx) {
     	let a;
     	let current_block_type_index;
     	let if_block;
@@ -3863,7 +3867,7 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	const if_block_creators = [create_if_block_1$5, create_else_block$5];
+    	const if_block_creators = [create_if_block_1$5, create_else_block$6];
     	const if_blocks = [];
 
     	function select_block_type_1(ctx, dirty) {
@@ -3965,7 +3969,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block: block_1,
-    		id: create_if_block$7.name,
+    		id: create_if_block$8.name,
     		type: "if",
     		source: "(33:0) {#if href}",
     		ctx
@@ -4145,7 +4149,7 @@ var app = (function () {
     }
 
     // (46:4) {:else}
-    function create_else_block$5(ctx) {
+    function create_else_block$6(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[18].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[17], null);
@@ -4193,7 +4197,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block: block_1,
-    		id: create_else_block$5.name,
+    		id: create_else_block$6.name,
     		type: "else",
     		source: "(46:4) {:else}",
     		ctx
@@ -4239,7 +4243,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$7, create_else_block_1$1];
+    	const if_block_creators = [create_if_block$8, create_else_block_1$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -5106,7 +5110,7 @@ var app = (function () {
     const get_label_slot_context = ctx => ({});
 
     // (66:2) {:else}
-    function create_else_block$4(ctx) {
+    function create_else_block$5(ctx) {
     	let input;
     	let mounted;
     	let dispose;
@@ -5176,7 +5180,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$4.name,
+    		id: create_else_block$5.name,
     		type: "else",
     		source: "(66:2) {:else}",
     		ctx
@@ -5348,7 +5352,7 @@ var app = (function () {
     }
 
     // (83:2) {#if label}
-    function create_if_block$6(ctx) {
+    function create_if_block$7(ctx) {
     	let label_1;
     	let current;
     	const label_slot_template = /*#slots*/ ctx[19].label;
@@ -5413,7 +5417,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$6.name,
+    		id: create_if_block$7.name,
     		type: "if",
     		source: "(83:2) {#if label}",
     		ctx
@@ -5460,12 +5464,12 @@ var app = (function () {
     	function select_block_type(ctx, dirty) {
     		if (/*type*/ ctx[6] === 'radio') return create_if_block_1$4;
     		if (/*type*/ ctx[6] === 'switch') return create_if_block_2$3;
-    		return create_else_block$4;
+    		return create_else_block$5;
     	}
 
     	let current_block_type = select_block_type(ctx);
     	let if_block0 = current_block_type(ctx);
-    	let if_block1 = /*label*/ ctx[4] && create_if_block$6(ctx);
+    	let if_block1 = /*label*/ ctx[4] && create_if_block$7(ctx);
 
     	const block = {
     		c: function create() {
@@ -5507,7 +5511,7 @@ var app = (function () {
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block$6(ctx);
+    					if_block1 = create_if_block$7(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(div, null);
@@ -6115,7 +6119,7 @@ var app = (function () {
     const file$r = "node_modules/sveltestrap/src/FormGroup.svelte";
 
     // (24:0) {:else}
-    function create_else_block$3(ctx) {
+    function create_else_block$4(ctx) {
     	let div;
     	let current;
     	const default_slot_template = /*#slots*/ ctx[9].default;
@@ -6181,7 +6185,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$3.name,
+    		id: create_else_block$4.name,
     		type: "else",
     		source: "(24:0) {:else}",
     		ctx
@@ -6191,7 +6195,7 @@ var app = (function () {
     }
 
     // (20:0) {#if tag === 'fieldset'}
-    function create_if_block$5(ctx) {
+    function create_if_block$6(ctx) {
     	let fieldset;
     	let current;
     	const default_slot_template = /*#slots*/ ctx[9].default;
@@ -6257,7 +6261,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$5.name,
+    		id: create_if_block$6.name,
     		type: "if",
     		source: "(20:0) {#if tag === 'fieldset'}",
     		ctx
@@ -6271,7 +6275,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$5, create_else_block$3];
+    	const if_block_creators = [create_if_block$6, create_else_block$4];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -6607,7 +6611,7 @@ var app = (function () {
     /* node_modules/sveltestrap/src/Input.svelte generated by Svelte v3.44.0 */
     const file$p = "node_modules/sveltestrap/src/Input.svelte";
 
-    function get_each_context(ctx, list, i) {
+    function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[210] = list[i];
     	return child_ctx;
@@ -8627,13 +8631,13 @@ var app = (function () {
     }
 
     // (523:0) {#if feedback}
-    function create_if_block$4(ctx) {
+    function create_if_block$5(ctx) {
     	let show_if;
     	let current_block_type_index;
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block_1$3, create_else_block$2];
+    	const if_block_creators = [create_if_block_1$3, create_else_block$3];
     	const if_blocks = [];
 
     	function select_block_type_2(ctx, dirty) {
@@ -8699,7 +8703,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$4.name,
+    		id: create_if_block$5.name,
     		type: "if",
     		source: "(523:0) {#if feedback}",
     		ctx
@@ -8709,7 +8713,7 @@ var app = (function () {
     }
 
     // (528:2) {:else}
-    function create_else_block$2(ctx) {
+    function create_else_block$3(ctx) {
     	let formfeedback;
     	let current;
 
@@ -8756,7 +8760,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$2.name,
+    		id: create_else_block$3.name,
     		type: "else",
     		source: "(528:2) {:else}",
     		ctx
@@ -8774,7 +8778,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -8804,13 +8808,13 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
@@ -8923,7 +8927,7 @@ var app = (function () {
     }
 
     // (525:4) {#each feedback as msg}
-    function create_each_block(ctx) {
+    function create_each_block$1(ctx) {
     	let formfeedback;
     	let current;
 
@@ -8970,7 +8974,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block.name,
+    		id: create_each_block$1.name,
     		type: "each",
     		source: "(525:4) {#each feedback as msg}",
     		ctx
@@ -8999,7 +9003,7 @@ var app = (function () {
     		if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
     	}
 
-    	let if_block1 = /*feedback*/ ctx[9] && create_if_block$4(ctx);
+    	let if_block1 = /*feedback*/ ctx[9] && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -9065,7 +9069,7 @@ var app = (function () {
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block$4(ctx);
+    					if_block1 = create_if_block$5(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -10877,7 +10881,7 @@ var app = (function () {
     const file$n = "node_modules/sveltestrap/src/ModalBackdrop.svelte";
 
     // (12:0) {#if isOpen}
-    function create_if_block$3(ctx) {
+    function create_if_block$4(ctx) {
     	let div;
     	let div_intro;
     	let div_outro;
@@ -10941,7 +10945,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block$4.name,
     		type: "if",
     		source: "(12:0) {#if isOpen}",
     		ctx
@@ -10953,7 +10957,7 @@ var app = (function () {
     function create_fragment$p(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*isOpen*/ ctx[0] && create_if_block$3(ctx);
+    	let if_block = /*isOpen*/ ctx[0] && create_if_block$4(ctx);
 
     	const block = {
     		c: function create() {
@@ -10977,7 +10981,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$3(ctx);
+    					if_block = create_if_block$4(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -11252,7 +11256,7 @@ var app = (function () {
     const get_close_slot_context = ctx => ({});
 
     // (17:4) {:else}
-    function create_else_block$1(ctx) {
+    function create_else_block$2(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[7].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[6], null);
@@ -11300,7 +11304,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$1.name,
+    		id: create_else_block$2.name,
     		type: "else",
     		source: "(17:4) {:else}",
     		ctx
@@ -11342,7 +11346,7 @@ var app = (function () {
     }
 
     // (22:4) {#if typeof toggle === 'function'}
-    function create_if_block$2(ctx) {
+    function create_if_block$3(ctx) {
     	let button;
     	let mounted;
     	let dispose;
@@ -11389,7 +11393,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$3.name,
     		type: "if",
     		source: "(22:4) {#if typeof toggle === 'function'}",
     		ctx
@@ -11401,7 +11405,7 @@ var app = (function () {
     // (21:21)      
     function fallback_block(ctx) {
     	let if_block_anchor;
-    	let if_block = typeof /*toggle*/ ctx[0] === 'function' && create_if_block$2(ctx);
+    	let if_block = typeof /*toggle*/ ctx[0] === 'function' && create_if_block$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -11417,7 +11421,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$2(ctx);
+    					if_block = create_if_block$3(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -11450,7 +11454,7 @@ var app = (function () {
     	let if_block;
     	let t;
     	let current;
-    	const if_block_creators = [create_if_block_1$2, create_else_block$1];
+    	const if_block_creators = [create_if_block_1$2, create_else_block$2];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -11946,7 +11950,7 @@ var app = (function () {
     	const external_slot_template = /*#slots*/ ctx[30].external;
     	const external_slot = create_slot(external_slot_template, ctx, /*$$scope*/ ctx[34], get_external_slot_context);
     	let if_block0 = /*header*/ ctx[3] && create_if_block_4(ctx);
-    	const if_block_creators = [create_if_block_3, create_else_block];
+    	const if_block_creators = [create_if_block_3, create_else_block$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -12228,7 +12232,7 @@ var app = (function () {
     }
 
     // (248:14) {:else}
-    function create_else_block(ctx) {
+    function create_else_block$1(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[30].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[34], null);
@@ -12276,7 +12280,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block.name,
+    		id: create_else_block$1.name,
     		type: "else",
     		source: "(248:14) {:else}",
     		ctx
@@ -12485,7 +12489,7 @@ var app = (function () {
     }
 
     // (258:0) {#if backdrop && !staticModal}
-    function create_if_block$1(ctx) {
+    function create_if_block$2(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -12566,7 +12570,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block$2.name,
     		type: "if",
     		source: "(258:0) {#if backdrop && !staticModal}",
     		ctx
@@ -12632,7 +12636,7 @@ var app = (function () {
     	let if_block1_anchor;
     	let current;
     	let if_block0 = /*_isMounted*/ ctx[11] && create_if_block_1$1(ctx);
-    	let if_block1 = /*backdrop*/ ctx[6] && !/*staticModal*/ ctx[0] && create_if_block$1(ctx);
+    	let if_block1 = /*backdrop*/ ctx[6] && !/*staticModal*/ ctx[0] && create_if_block$2(ctx);
 
     	const block = {
     		c: function create() {
@@ -12683,7 +12687,7 @@ var app = (function () {
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block$1(ctx);
+    					if_block1 = create_if_block$2(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -13508,10 +13512,2610 @@ var app = (function () {
     	}
     }
 
+    var isMergeableObject = function isMergeableObject(value) {
+    	return isNonNullObject(value)
+    		&& !isSpecial(value)
+    };
+
+    function isNonNullObject(value) {
+    	return !!value && typeof value === 'object'
+    }
+
+    function isSpecial(value) {
+    	var stringValue = Object.prototype.toString.call(value);
+
+    	return stringValue === '[object RegExp]'
+    		|| stringValue === '[object Date]'
+    		|| isReactElement(value)
+    }
+
+    // see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+    var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+    var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+    function isReactElement(value) {
+    	return value.$$typeof === REACT_ELEMENT_TYPE
+    }
+
+    function emptyTarget(val) {
+    	return Array.isArray(val) ? [] : {}
+    }
+
+    function cloneUnlessOtherwiseSpecified(value, options) {
+    	return (options.clone !== false && options.isMergeableObject(value))
+    		? deepmerge(emptyTarget(value), value, options)
+    		: value
+    }
+
+    function defaultArrayMerge(target, source, options) {
+    	return target.concat(source).map(function(element) {
+    		return cloneUnlessOtherwiseSpecified(element, options)
+    	})
+    }
+
+    function getMergeFunction(key, options) {
+    	if (!options.customMerge) {
+    		return deepmerge
+    	}
+    	var customMerge = options.customMerge(key);
+    	return typeof customMerge === 'function' ? customMerge : deepmerge
+    }
+
+    function getEnumerableOwnPropertySymbols(target) {
+    	return Object.getOwnPropertySymbols
+    		? Object.getOwnPropertySymbols(target).filter(function(symbol) {
+    			return target.propertyIsEnumerable(symbol)
+    		})
+    		: []
+    }
+
+    function getKeys(target) {
+    	return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target))
+    }
+
+    function propertyIsOnObject(object, property) {
+    	try {
+    		return property in object
+    	} catch(_) {
+    		return false
+    	}
+    }
+
+    // Protects from prototype poisoning and unexpected merging up the prototype chain.
+    function propertyIsUnsafe(target, key) {
+    	return propertyIsOnObject(target, key) // Properties are safe to merge if they don't exist in the target yet,
+    		&& !(Object.hasOwnProperty.call(target, key) // unsafe if they exist up the prototype chain,
+    			&& Object.propertyIsEnumerable.call(target, key)) // and also unsafe if they're nonenumerable.
+    }
+
+    function mergeObject(target, source, options) {
+    	var destination = {};
+    	if (options.isMergeableObject(target)) {
+    		getKeys(target).forEach(function(key) {
+    			destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+    		});
+    	}
+    	getKeys(source).forEach(function(key) {
+    		if (propertyIsUnsafe(target, key)) {
+    			return
+    		}
+
+    		if (propertyIsOnObject(target, key) && options.isMergeableObject(source[key])) {
+    			destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+    		} else {
+    			destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+    		}
+    	});
+    	return destination
+    }
+
+    function deepmerge(target, source, options) {
+    	options = options || {};
+    	options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+    	options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+    	// cloneUnlessOtherwiseSpecified is added to `options` so that custom arrayMerge()
+    	// implementations can use it. The caller may not replace it.
+    	options.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
+
+    	var sourceIsArray = Array.isArray(source);
+    	var targetIsArray = Array.isArray(target);
+    	var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+    	if (!sourceAndTargetTypesMatch) {
+    		return cloneUnlessOtherwiseSpecified(source, options)
+    	} else if (sourceIsArray) {
+    		return options.arrayMerge(target, source, options)
+    	} else {
+    		return mergeObject(target, source, options)
+    	}
+    }
+
+    deepmerge.all = function deepmergeAll(array, options) {
+    	if (!Array.isArray(array)) {
+    		throw new Error('first argument should be an array')
+    	}
+
+    	return array.reduce(function(prev, next) {
+    		return deepmerge(prev, next, options)
+    	}, {})
+    };
+
+    var deepmerge_1 = deepmerge;
+
+    var cjs = deepmerge_1;
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
+    }
+
+    var ErrorKind;
+    (function (ErrorKind) {
+        /** Argument is unclosed (e.g. `{0`) */
+        ErrorKind[ErrorKind["EXPECT_ARGUMENT_CLOSING_BRACE"] = 1] = "EXPECT_ARGUMENT_CLOSING_BRACE";
+        /** Argument is empty (e.g. `{}`). */
+        ErrorKind[ErrorKind["EMPTY_ARGUMENT"] = 2] = "EMPTY_ARGUMENT";
+        /** Argument is malformed (e.g. `{foo!}``) */
+        ErrorKind[ErrorKind["MALFORMED_ARGUMENT"] = 3] = "MALFORMED_ARGUMENT";
+        /** Expect an argument type (e.g. `{foo,}`) */
+        ErrorKind[ErrorKind["EXPECT_ARGUMENT_TYPE"] = 4] = "EXPECT_ARGUMENT_TYPE";
+        /** Unsupported argument type (e.g. `{foo,foo}`) */
+        ErrorKind[ErrorKind["INVALID_ARGUMENT_TYPE"] = 5] = "INVALID_ARGUMENT_TYPE";
+        /** Expect an argument style (e.g. `{foo, number, }`) */
+        ErrorKind[ErrorKind["EXPECT_ARGUMENT_STYLE"] = 6] = "EXPECT_ARGUMENT_STYLE";
+        /** The number skeleton is invalid. */
+        ErrorKind[ErrorKind["INVALID_NUMBER_SKELETON"] = 7] = "INVALID_NUMBER_SKELETON";
+        /** The date time skeleton is invalid. */
+        ErrorKind[ErrorKind["INVALID_DATE_TIME_SKELETON"] = 8] = "INVALID_DATE_TIME_SKELETON";
+        /** Exepct a number skeleton following the `::` (e.g. `{foo, number, ::}`) */
+        ErrorKind[ErrorKind["EXPECT_NUMBER_SKELETON"] = 9] = "EXPECT_NUMBER_SKELETON";
+        /** Exepct a date time skeleton following the `::` (e.g. `{foo, date, ::}`) */
+        ErrorKind[ErrorKind["EXPECT_DATE_TIME_SKELETON"] = 10] = "EXPECT_DATE_TIME_SKELETON";
+        /** Unmatched apostrophes in the argument style (e.g. `{foo, number, 'test`) */
+        ErrorKind[ErrorKind["UNCLOSED_QUOTE_IN_ARGUMENT_STYLE"] = 11] = "UNCLOSED_QUOTE_IN_ARGUMENT_STYLE";
+        /** Missing select argument options (e.g. `{foo, select}`) */
+        ErrorKind[ErrorKind["EXPECT_SELECT_ARGUMENT_OPTIONS"] = 12] = "EXPECT_SELECT_ARGUMENT_OPTIONS";
+        /** Expecting an offset value in `plural` or `selectordinal` argument (e.g `{foo, plural, offset}`) */
+        ErrorKind[ErrorKind["EXPECT_PLURAL_ARGUMENT_OFFSET_VALUE"] = 13] = "EXPECT_PLURAL_ARGUMENT_OFFSET_VALUE";
+        /** Offset value in `plural` or `selectordinal` is invalid (e.g. `{foo, plural, offset: x}`) */
+        ErrorKind[ErrorKind["INVALID_PLURAL_ARGUMENT_OFFSET_VALUE"] = 14] = "INVALID_PLURAL_ARGUMENT_OFFSET_VALUE";
+        /** Expecting a selector in `select` argument (e.g `{foo, select}`) */
+        ErrorKind[ErrorKind["EXPECT_SELECT_ARGUMENT_SELECTOR"] = 15] = "EXPECT_SELECT_ARGUMENT_SELECTOR";
+        /** Expecting a selector in `plural` or `selectordinal` argument (e.g `{foo, plural}`) */
+        ErrorKind[ErrorKind["EXPECT_PLURAL_ARGUMENT_SELECTOR"] = 16] = "EXPECT_PLURAL_ARGUMENT_SELECTOR";
+        /** Expecting a message fragment after the `select` selector (e.g. `{foo, select, apple}`) */
+        ErrorKind[ErrorKind["EXPECT_SELECT_ARGUMENT_SELECTOR_FRAGMENT"] = 17] = "EXPECT_SELECT_ARGUMENT_SELECTOR_FRAGMENT";
+        /**
+         * Expecting a message fragment after the `plural` or `selectordinal` selector
+         * (e.g. `{foo, plural, one}`)
+         */
+        ErrorKind[ErrorKind["EXPECT_PLURAL_ARGUMENT_SELECTOR_FRAGMENT"] = 18] = "EXPECT_PLURAL_ARGUMENT_SELECTOR_FRAGMENT";
+        /** Selector in `plural` or `selectordinal` is malformed (e.g. `{foo, plural, =x {#}}`) */
+        ErrorKind[ErrorKind["INVALID_PLURAL_ARGUMENT_SELECTOR"] = 19] = "INVALID_PLURAL_ARGUMENT_SELECTOR";
+        /**
+         * Duplicate selectors in `plural` or `selectordinal` argument.
+         * (e.g. {foo, plural, one {#} one {#}})
+         */
+        ErrorKind[ErrorKind["DUPLICATE_PLURAL_ARGUMENT_SELECTOR"] = 20] = "DUPLICATE_PLURAL_ARGUMENT_SELECTOR";
+        /** Duplicate selectors in `select` argument.
+         * (e.g. {foo, select, apple {apple} apple {apple}})
+         */
+        ErrorKind[ErrorKind["DUPLICATE_SELECT_ARGUMENT_SELECTOR"] = 21] = "DUPLICATE_SELECT_ARGUMENT_SELECTOR";
+        /** Plural or select argument option must have `other` clause. */
+        ErrorKind[ErrorKind["MISSING_OTHER_CLAUSE"] = 22] = "MISSING_OTHER_CLAUSE";
+        /** The tag is malformed. (e.g. `<bold!>foo</bold!>) */
+        ErrorKind[ErrorKind["INVALID_TAG"] = 23] = "INVALID_TAG";
+        /** The tag name is invalid. (e.g. `<123>foo</123>`) */
+        ErrorKind[ErrorKind["INVALID_TAG_NAME"] = 25] = "INVALID_TAG_NAME";
+        /** The closing tag does not match the opening tag. (e.g. `<bold>foo</italic>`) */
+        ErrorKind[ErrorKind["UNMATCHED_CLOSING_TAG"] = 26] = "UNMATCHED_CLOSING_TAG";
+        /** The opening tag has unmatched closing tag. (e.g. `<bold>foo`) */
+        ErrorKind[ErrorKind["UNCLOSED_TAG"] = 27] = "UNCLOSED_TAG";
+    })(ErrorKind || (ErrorKind = {}));
+
+    var TYPE;
+    (function (TYPE) {
+        /**
+         * Raw text
+         */
+        TYPE[TYPE["literal"] = 0] = "literal";
+        /**
+         * Variable w/o any format, e.g `var` in `this is a {var}`
+         */
+        TYPE[TYPE["argument"] = 1] = "argument";
+        /**
+         * Variable w/ number format
+         */
+        TYPE[TYPE["number"] = 2] = "number";
+        /**
+         * Variable w/ date format
+         */
+        TYPE[TYPE["date"] = 3] = "date";
+        /**
+         * Variable w/ time format
+         */
+        TYPE[TYPE["time"] = 4] = "time";
+        /**
+         * Variable w/ select format
+         */
+        TYPE[TYPE["select"] = 5] = "select";
+        /**
+         * Variable w/ plural format
+         */
+        TYPE[TYPE["plural"] = 6] = "plural";
+        /**
+         * Only possible within plural argument.
+         * This is the `#` symbol that will be substituted with the count.
+         */
+        TYPE[TYPE["pound"] = 7] = "pound";
+        /**
+         * XML-like tag
+         */
+        TYPE[TYPE["tag"] = 8] = "tag";
+    })(TYPE || (TYPE = {}));
+    var SKELETON_TYPE;
+    (function (SKELETON_TYPE) {
+        SKELETON_TYPE[SKELETON_TYPE["number"] = 0] = "number";
+        SKELETON_TYPE[SKELETON_TYPE["dateTime"] = 1] = "dateTime";
+    })(SKELETON_TYPE || (SKELETON_TYPE = {}));
+    /**
+     * Type Guards
+     */
+    function isLiteralElement(el) {
+        return el.type === TYPE.literal;
+    }
+    function isArgumentElement(el) {
+        return el.type === TYPE.argument;
+    }
+    function isNumberElement(el) {
+        return el.type === TYPE.number;
+    }
+    function isDateElement(el) {
+        return el.type === TYPE.date;
+    }
+    function isTimeElement(el) {
+        return el.type === TYPE.time;
+    }
+    function isSelectElement(el) {
+        return el.type === TYPE.select;
+    }
+    function isPluralElement(el) {
+        return el.type === TYPE.plural;
+    }
+    function isPoundElement(el) {
+        return el.type === TYPE.pound;
+    }
+    function isTagElement(el) {
+        return el.type === TYPE.tag;
+    }
+    function isNumberSkeleton(el) {
+        return !!(el && typeof el === 'object' && el.type === SKELETON_TYPE.number);
+    }
+    function isDateTimeSkeleton(el) {
+        return !!(el && typeof el === 'object' && el.type === SKELETON_TYPE.dateTime);
+    }
+
+    // @generated from regex-gen.ts
+    var SPACE_SEPARATOR_REGEX = /[ \xA0\u1680\u2000-\u200A\u202F\u205F\u3000]/;
+
+    /**
+     * https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+     * Credit: https://github.com/caridy/intl-datetimeformat-pattern/blob/master/index.js
+     * with some tweaks
+     */
+    var DATE_TIME_REGEX = /(?:[Eec]{1,6}|G{1,5}|[Qq]{1,5}|(?:[yYur]+|U{1,5})|[ML]{1,5}|d{1,2}|D{1,3}|F{1}|[abB]{1,5}|[hkHK]{1,2}|w{1,2}|W{1}|m{1,2}|s{1,2}|[zZOvVxX]{1,4})(?=([^']*'[^']*')*[^']*$)/g;
+    /**
+     * Parse Date time skeleton into Intl.DateTimeFormatOptions
+     * Ref: https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+     * @public
+     * @param skeleton skeleton string
+     */
+    function parseDateTimeSkeleton(skeleton) {
+        var result = {};
+        skeleton.replace(DATE_TIME_REGEX, function (match) {
+            var len = match.length;
+            switch (match[0]) {
+                // Era
+                case 'G':
+                    result.era = len === 4 ? 'long' : len === 5 ? 'narrow' : 'short';
+                    break;
+                // Year
+                case 'y':
+                    result.year = len === 2 ? '2-digit' : 'numeric';
+                    break;
+                case 'Y':
+                case 'u':
+                case 'U':
+                case 'r':
+                    throw new RangeError('`Y/u/U/r` (year) patterns are not supported, use `y` instead');
+                // Quarter
+                case 'q':
+                case 'Q':
+                    throw new RangeError('`q/Q` (quarter) patterns are not supported');
+                // Month
+                case 'M':
+                case 'L':
+                    result.month = ['numeric', '2-digit', 'short', 'long', 'narrow'][len - 1];
+                    break;
+                // Week
+                case 'w':
+                case 'W':
+                    throw new RangeError('`w/W` (week) patterns are not supported');
+                case 'd':
+                    result.day = ['numeric', '2-digit'][len - 1];
+                    break;
+                case 'D':
+                case 'F':
+                case 'g':
+                    throw new RangeError('`D/F/g` (day) patterns are not supported, use `d` instead');
+                // Weekday
+                case 'E':
+                    result.weekday = len === 4 ? 'short' : len === 5 ? 'narrow' : 'short';
+                    break;
+                case 'e':
+                    if (len < 4) {
+                        throw new RangeError('`e..eee` (weekday) patterns are not supported');
+                    }
+                    result.weekday = ['short', 'long', 'narrow', 'short'][len - 4];
+                    break;
+                case 'c':
+                    if (len < 4) {
+                        throw new RangeError('`c..ccc` (weekday) patterns are not supported');
+                    }
+                    result.weekday = ['short', 'long', 'narrow', 'short'][len - 4];
+                    break;
+                // Period
+                case 'a': // AM, PM
+                    result.hour12 = true;
+                    break;
+                case 'b': // am, pm, noon, midnight
+                case 'B': // flexible day periods
+                    throw new RangeError('`b/B` (period) patterns are not supported, use `a` instead');
+                // Hour
+                case 'h':
+                    result.hourCycle = 'h12';
+                    result.hour = ['numeric', '2-digit'][len - 1];
+                    break;
+                case 'H':
+                    result.hourCycle = 'h23';
+                    result.hour = ['numeric', '2-digit'][len - 1];
+                    break;
+                case 'K':
+                    result.hourCycle = 'h11';
+                    result.hour = ['numeric', '2-digit'][len - 1];
+                    break;
+                case 'k':
+                    result.hourCycle = 'h24';
+                    result.hour = ['numeric', '2-digit'][len - 1];
+                    break;
+                case 'j':
+                case 'J':
+                case 'C':
+                    throw new RangeError('`j/J/C` (hour) patterns are not supported, use `h/H/K/k` instead');
+                // Minute
+                case 'm':
+                    result.minute = ['numeric', '2-digit'][len - 1];
+                    break;
+                // Second
+                case 's':
+                    result.second = ['numeric', '2-digit'][len - 1];
+                    break;
+                case 'S':
+                case 'A':
+                    throw new RangeError('`S/A` (second) patterns are not supported, use `s` instead');
+                // Zone
+                case 'z': // 1..3, 4: specific non-location format
+                    result.timeZoneName = len < 4 ? 'short' : 'long';
+                    break;
+                case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
+                case 'O': // 1, 4: miliseconds in day short, long
+                case 'v': // 1, 4: generic non-location format
+                case 'V': // 1, 2, 3, 4: time zone ID or city
+                case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
+                case 'x': // 1, 2, 3, 4: The ISO8601 varios formats
+                    throw new RangeError('`Z/O/v/V/X/x` (timeZone) patterns are not supported, use `z` instead');
+            }
+            return '';
+        });
+        return result;
+    }
+
+    // @generated from regex-gen.ts
+    var WHITE_SPACE_REGEX = /[\t-\r \x85\u200E\u200F\u2028\u2029]/i;
+
+    function parseNumberSkeletonFromString(skeleton) {
+        if (skeleton.length === 0) {
+            throw new Error('Number skeleton cannot be empty');
+        }
+        // Parse the skeleton
+        var stringTokens = skeleton
+            .split(WHITE_SPACE_REGEX)
+            .filter(function (x) { return x.length > 0; });
+        var tokens = [];
+        for (var _i = 0, stringTokens_1 = stringTokens; _i < stringTokens_1.length; _i++) {
+            var stringToken = stringTokens_1[_i];
+            var stemAndOptions = stringToken.split('/');
+            if (stemAndOptions.length === 0) {
+                throw new Error('Invalid number skeleton');
+            }
+            var stem = stemAndOptions[0], options = stemAndOptions.slice(1);
+            for (var _a = 0, options_1 = options; _a < options_1.length; _a++) {
+                var option = options_1[_a];
+                if (option.length === 0) {
+                    throw new Error('Invalid number skeleton');
+                }
+            }
+            tokens.push({ stem: stem, options: options });
+        }
+        return tokens;
+    }
+    function icuUnitToEcma(unit) {
+        return unit.replace(/^(.*?)-/, '');
+    }
+    var FRACTION_PRECISION_REGEX = /^\.(?:(0+)(\*)?|(#+)|(0+)(#+))$/g;
+    var SIGNIFICANT_PRECISION_REGEX = /^(@+)?(\+|#+)?[rs]?$/g;
+    var INTEGER_WIDTH_REGEX = /(\*)(0+)|(#+)(0+)|(0+)/g;
+    var CONCISE_INTEGER_WIDTH_REGEX = /^(0+)$/;
+    function parseSignificantPrecision(str) {
+        var result = {};
+        if (str[str.length - 1] === 'r') {
+            result.roundingPriority = 'morePrecision';
+        }
+        else if (str[str.length - 1] === 's') {
+            result.roundingPriority = 'lessPrecision';
+        }
+        str.replace(SIGNIFICANT_PRECISION_REGEX, function (_, g1, g2) {
+            // @@@ case
+            if (typeof g2 !== 'string') {
+                result.minimumSignificantDigits = g1.length;
+                result.maximumSignificantDigits = g1.length;
+            }
+            // @@@+ case
+            else if (g2 === '+') {
+                result.minimumSignificantDigits = g1.length;
+            }
+            // .### case
+            else if (g1[0] === '#') {
+                result.maximumSignificantDigits = g1.length;
+            }
+            // .@@## or .@@@ case
+            else {
+                result.minimumSignificantDigits = g1.length;
+                result.maximumSignificantDigits =
+                    g1.length + (typeof g2 === 'string' ? g2.length : 0);
+            }
+            return '';
+        });
+        return result;
+    }
+    function parseSign(str) {
+        switch (str) {
+            case 'sign-auto':
+                return {
+                    signDisplay: 'auto',
+                };
+            case 'sign-accounting':
+            case '()':
+                return {
+                    currencySign: 'accounting',
+                };
+            case 'sign-always':
+            case '+!':
+                return {
+                    signDisplay: 'always',
+                };
+            case 'sign-accounting-always':
+            case '()!':
+                return {
+                    signDisplay: 'always',
+                    currencySign: 'accounting',
+                };
+            case 'sign-except-zero':
+            case '+?':
+                return {
+                    signDisplay: 'exceptZero',
+                };
+            case 'sign-accounting-except-zero':
+            case '()?':
+                return {
+                    signDisplay: 'exceptZero',
+                    currencySign: 'accounting',
+                };
+            case 'sign-never':
+            case '+_':
+                return {
+                    signDisplay: 'never',
+                };
+        }
+    }
+    function parseConciseScientificAndEngineeringStem(stem) {
+        // Engineering
+        var result;
+        if (stem[0] === 'E' && stem[1] === 'E') {
+            result = {
+                notation: 'engineering',
+            };
+            stem = stem.slice(2);
+        }
+        else if (stem[0] === 'E') {
+            result = {
+                notation: 'scientific',
+            };
+            stem = stem.slice(1);
+        }
+        if (result) {
+            var signDisplay = stem.slice(0, 2);
+            if (signDisplay === '+!') {
+                result.signDisplay = 'always';
+                stem = stem.slice(2);
+            }
+            else if (signDisplay === '+?') {
+                result.signDisplay = 'exceptZero';
+                stem = stem.slice(2);
+            }
+            if (!CONCISE_INTEGER_WIDTH_REGEX.test(stem)) {
+                throw new Error('Malformed concise eng/scientific notation');
+            }
+            result.minimumIntegerDigits = stem.length;
+        }
+        return result;
+    }
+    function parseNotationOptions(opt) {
+        var result = {};
+        var signOpts = parseSign(opt);
+        if (signOpts) {
+            return signOpts;
+        }
+        return result;
+    }
+    /**
+     * https://github.com/unicode-org/icu/blob/master/docs/userguide/format_parse/numbers/skeletons.md#skeleton-stems-and-options
+     */
+    function parseNumberSkeleton(tokens) {
+        var result = {};
+        for (var _i = 0, tokens_1 = tokens; _i < tokens_1.length; _i++) {
+            var token = tokens_1[_i];
+            switch (token.stem) {
+                case 'percent':
+                case '%':
+                    result.style = 'percent';
+                    continue;
+                case '%x100':
+                    result.style = 'percent';
+                    result.scale = 100;
+                    continue;
+                case 'currency':
+                    result.style = 'currency';
+                    result.currency = token.options[0];
+                    continue;
+                case 'group-off':
+                case ',_':
+                    result.useGrouping = false;
+                    continue;
+                case 'precision-integer':
+                case '.':
+                    result.maximumFractionDigits = 0;
+                    continue;
+                case 'measure-unit':
+                case 'unit':
+                    result.style = 'unit';
+                    result.unit = icuUnitToEcma(token.options[0]);
+                    continue;
+                case 'compact-short':
+                case 'K':
+                    result.notation = 'compact';
+                    result.compactDisplay = 'short';
+                    continue;
+                case 'compact-long':
+                case 'KK':
+                    result.notation = 'compact';
+                    result.compactDisplay = 'long';
+                    continue;
+                case 'scientific':
+                    result = __assign(__assign(__assign({}, result), { notation: 'scientific' }), token.options.reduce(function (all, opt) { return (__assign(__assign({}, all), parseNotationOptions(opt))); }, {}));
+                    continue;
+                case 'engineering':
+                    result = __assign(__assign(__assign({}, result), { notation: 'engineering' }), token.options.reduce(function (all, opt) { return (__assign(__assign({}, all), parseNotationOptions(opt))); }, {}));
+                    continue;
+                case 'notation-simple':
+                    result.notation = 'standard';
+                    continue;
+                // https://github.com/unicode-org/icu/blob/master/icu4c/source/i18n/unicode/unumberformatter.h
+                case 'unit-width-narrow':
+                    result.currencyDisplay = 'narrowSymbol';
+                    result.unitDisplay = 'narrow';
+                    continue;
+                case 'unit-width-short':
+                    result.currencyDisplay = 'code';
+                    result.unitDisplay = 'short';
+                    continue;
+                case 'unit-width-full-name':
+                    result.currencyDisplay = 'name';
+                    result.unitDisplay = 'long';
+                    continue;
+                case 'unit-width-iso-code':
+                    result.currencyDisplay = 'symbol';
+                    continue;
+                case 'scale':
+                    result.scale = parseFloat(token.options[0]);
+                    continue;
+                // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#integer-width
+                case 'integer-width':
+                    if (token.options.length > 1) {
+                        throw new RangeError('integer-width stems only accept a single optional option');
+                    }
+                    token.options[0].replace(INTEGER_WIDTH_REGEX, function (_, g1, g2, g3, g4, g5) {
+                        if (g1) {
+                            result.minimumIntegerDigits = g2.length;
+                        }
+                        else if (g3 && g4) {
+                            throw new Error('We currently do not support maximum integer digits');
+                        }
+                        else if (g5) {
+                            throw new Error('We currently do not support exact integer digits');
+                        }
+                        return '';
+                    });
+                    continue;
+            }
+            // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#integer-width
+            if (CONCISE_INTEGER_WIDTH_REGEX.test(token.stem)) {
+                result.minimumIntegerDigits = token.stem.length;
+                continue;
+            }
+            if (FRACTION_PRECISION_REGEX.test(token.stem)) {
+                // Precision
+                // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#fraction-precision
+                // precision-integer case
+                if (token.options.length > 1) {
+                    throw new RangeError('Fraction-precision stems only accept a single optional option');
+                }
+                token.stem.replace(FRACTION_PRECISION_REGEX, function (_, g1, g2, g3, g4, g5) {
+                    // .000* case (before ICU67 it was .000+)
+                    if (g2 === '*') {
+                        result.minimumFractionDigits = g1.length;
+                    }
+                    // .### case
+                    else if (g3 && g3[0] === '#') {
+                        result.maximumFractionDigits = g3.length;
+                    }
+                    // .00## case
+                    else if (g4 && g5) {
+                        result.minimumFractionDigits = g4.length;
+                        result.maximumFractionDigits = g4.length + g5.length;
+                    }
+                    else {
+                        result.minimumFractionDigits = g1.length;
+                        result.maximumFractionDigits = g1.length;
+                    }
+                    return '';
+                });
+                var opt = token.options[0];
+                // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#trailing-zero-display
+                if (opt === 'w') {
+                    result = __assign(__assign({}, result), { trailingZeroDisplay: 'stripIfInteger' });
+                }
+                else if (opt) {
+                    result = __assign(__assign({}, result), parseSignificantPrecision(opt));
+                }
+                continue;
+            }
+            // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#significant-digits-precision
+            if (SIGNIFICANT_PRECISION_REGEX.test(token.stem)) {
+                result = __assign(__assign({}, result), parseSignificantPrecision(token.stem));
+                continue;
+            }
+            var signOpts = parseSign(token.stem);
+            if (signOpts) {
+                result = __assign(__assign({}, result), signOpts);
+            }
+            var conciseScientificAndEngineeringOpts = parseConciseScientificAndEngineeringStem(token.stem);
+            if (conciseScientificAndEngineeringOpts) {
+                result = __assign(__assign({}, result), conciseScientificAndEngineeringOpts);
+            }
+        }
+        return result;
+    }
+
+    var _a;
+    var SPACE_SEPARATOR_START_REGEX = new RegExp("^" + SPACE_SEPARATOR_REGEX.source + "*");
+    var SPACE_SEPARATOR_END_REGEX = new RegExp(SPACE_SEPARATOR_REGEX.source + "*$");
+    function createLocation(start, end) {
+        return { start: start, end: end };
+    }
+    // #region Ponyfills
+    // Consolidate these variables up top for easier toggling during debugging
+    var hasNativeStartsWith = !!String.prototype.startsWith;
+    var hasNativeFromCodePoint = !!String.fromCodePoint;
+    var hasNativeFromEntries = !!Object.fromEntries;
+    var hasNativeCodePointAt = !!String.prototype.codePointAt;
+    var hasTrimStart = !!String.prototype.trimStart;
+    var hasTrimEnd = !!String.prototype.trimEnd;
+    var hasNativeIsSafeInteger = !!Number.isSafeInteger;
+    var isSafeInteger = hasNativeIsSafeInteger
+        ? Number.isSafeInteger
+        : function (n) {
+            return (typeof n === 'number' &&
+                isFinite(n) &&
+                Math.floor(n) === n &&
+                Math.abs(n) <= 0x1fffffffffffff);
+        };
+    // IE11 does not support y and u.
+    var REGEX_SUPPORTS_U_AND_Y = true;
+    try {
+        var re = RE('([^\\p{White_Space}\\p{Pattern_Syntax}]*)', 'yu');
+        /**
+         * legacy Edge or Xbox One browser
+         * Unicode flag support: supported
+         * Pattern_Syntax support: not supported
+         * See https://github.com/formatjs/formatjs/issues/2822
+         */
+        REGEX_SUPPORTS_U_AND_Y = ((_a = re.exec('a')) === null || _a === void 0 ? void 0 : _a[0]) === 'a';
+    }
+    catch (_) {
+        REGEX_SUPPORTS_U_AND_Y = false;
+    }
+    var startsWith = hasNativeStartsWith
+        ? // Native
+            function startsWith(s, search, position) {
+                return s.startsWith(search, position);
+            }
+        : // For IE11
+            function startsWith(s, search, position) {
+                return s.slice(position, position + search.length) === search;
+            };
+    var fromCodePoint = hasNativeFromCodePoint
+        ? String.fromCodePoint
+        : // IE11
+            function fromCodePoint() {
+                var codePoints = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    codePoints[_i] = arguments[_i];
+                }
+                var elements = '';
+                var length = codePoints.length;
+                var i = 0;
+                var code;
+                while (length > i) {
+                    code = codePoints[i++];
+                    if (code > 0x10ffff)
+                        throw RangeError(code + ' is not a valid code point');
+                    elements +=
+                        code < 0x10000
+                            ? String.fromCharCode(code)
+                            : String.fromCharCode(((code -= 0x10000) >> 10) + 0xd800, (code % 0x400) + 0xdc00);
+                }
+                return elements;
+            };
+    var fromEntries = 
+    // native
+    hasNativeFromEntries
+        ? Object.fromEntries
+        : // Ponyfill
+            function fromEntries(entries) {
+                var obj = {};
+                for (var _i = 0, entries_1 = entries; _i < entries_1.length; _i++) {
+                    var _a = entries_1[_i], k = _a[0], v = _a[1];
+                    obj[k] = v;
+                }
+                return obj;
+            };
+    var codePointAt = hasNativeCodePointAt
+        ? // Native
+            function codePointAt(s, index) {
+                return s.codePointAt(index);
+            }
+        : // IE 11
+            function codePointAt(s, index) {
+                var size = s.length;
+                if (index < 0 || index >= size) {
+                    return undefined;
+                }
+                var first = s.charCodeAt(index);
+                var second;
+                return first < 0xd800 ||
+                    first > 0xdbff ||
+                    index + 1 === size ||
+                    (second = s.charCodeAt(index + 1)) < 0xdc00 ||
+                    second > 0xdfff
+                    ? first
+                    : ((first - 0xd800) << 10) + (second - 0xdc00) + 0x10000;
+            };
+    var trimStart = hasTrimStart
+        ? // Native
+            function trimStart(s) {
+                return s.trimStart();
+            }
+        : // Ponyfill
+            function trimStart(s) {
+                return s.replace(SPACE_SEPARATOR_START_REGEX, '');
+            };
+    var trimEnd = hasTrimEnd
+        ? // Native
+            function trimEnd(s) {
+                return s.trimEnd();
+            }
+        : // Ponyfill
+            function trimEnd(s) {
+                return s.replace(SPACE_SEPARATOR_END_REGEX, '');
+            };
+    // Prevent minifier to translate new RegExp to literal form that might cause syntax error on IE11.
+    function RE(s, flag) {
+        return new RegExp(s, flag);
+    }
+    // #endregion
+    var matchIdentifierAtIndex;
+    if (REGEX_SUPPORTS_U_AND_Y) {
+        // Native
+        var IDENTIFIER_PREFIX_RE_1 = RE('([^\\p{White_Space}\\p{Pattern_Syntax}]*)', 'yu');
+        matchIdentifierAtIndex = function matchIdentifierAtIndex(s, index) {
+            var _a;
+            IDENTIFIER_PREFIX_RE_1.lastIndex = index;
+            var match = IDENTIFIER_PREFIX_RE_1.exec(s);
+            return (_a = match[1]) !== null && _a !== void 0 ? _a : '';
+        };
+    }
+    else {
+        // IE11
+        matchIdentifierAtIndex = function matchIdentifierAtIndex(s, index) {
+            var match = [];
+            while (true) {
+                var c = codePointAt(s, index);
+                if (c === undefined || _isWhiteSpace(c) || _isPatternSyntax(c)) {
+                    break;
+                }
+                match.push(c);
+                index += c >= 0x10000 ? 2 : 1;
+            }
+            return fromCodePoint.apply(void 0, match);
+        };
+    }
+    var Parser = /** @class */ (function () {
+        function Parser(message, options) {
+            if (options === void 0) { options = {}; }
+            this.message = message;
+            this.position = { offset: 0, line: 1, column: 1 };
+            this.ignoreTag = !!options.ignoreTag;
+            this.requiresOtherClause = !!options.requiresOtherClause;
+            this.shouldParseSkeletons = !!options.shouldParseSkeletons;
+        }
+        Parser.prototype.parse = function () {
+            if (this.offset() !== 0) {
+                throw Error('parser can only be used once');
+            }
+            return this.parseMessage(0, '', false);
+        };
+        Parser.prototype.parseMessage = function (nestingLevel, parentArgType, expectingCloseTag) {
+            var elements = [];
+            while (!this.isEOF()) {
+                var char = this.char();
+                if (char === 123 /* `{` */) {
+                    var result = this.parseArgument(nestingLevel, expectingCloseTag);
+                    if (result.err) {
+                        return result;
+                    }
+                    elements.push(result.val);
+                }
+                else if (char === 125 /* `}` */ && nestingLevel > 0) {
+                    break;
+                }
+                else if (char === 35 /* `#` */ &&
+                    (parentArgType === 'plural' || parentArgType === 'selectordinal')) {
+                    var position = this.clonePosition();
+                    this.bump();
+                    elements.push({
+                        type: TYPE.pound,
+                        location: createLocation(position, this.clonePosition()),
+                    });
+                }
+                else if (char === 60 /* `<` */ &&
+                    !this.ignoreTag &&
+                    this.peek() === 47 // char code for '/'
+                ) {
+                    if (expectingCloseTag) {
+                        break;
+                    }
+                    else {
+                        return this.error(ErrorKind.UNMATCHED_CLOSING_TAG, createLocation(this.clonePosition(), this.clonePosition()));
+                    }
+                }
+                else if (char === 60 /* `<` */ &&
+                    !this.ignoreTag &&
+                    _isAlpha(this.peek() || 0)) {
+                    var result = this.parseTag(nestingLevel, parentArgType);
+                    if (result.err) {
+                        return result;
+                    }
+                    elements.push(result.val);
+                }
+                else {
+                    var result = this.parseLiteral(nestingLevel, parentArgType);
+                    if (result.err) {
+                        return result;
+                    }
+                    elements.push(result.val);
+                }
+            }
+            return { val: elements, err: null };
+        };
+        /**
+         * A tag name must start with an ASCII lower/upper case letter. The grammar is based on the
+         * [custom element name][] except that a dash is NOT always mandatory and uppercase letters
+         * are accepted:
+         *
+         * ```
+         * tag ::= "<" tagName (whitespace)* "/>" | "<" tagName (whitespace)* ">" message "</" tagName (whitespace)* ">"
+         * tagName ::= [a-z] (PENChar)*
+         * PENChar ::=
+         *     "-" | "." | [0-9] | "_" | [a-z] | [A-Z] | #xB7 | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x37D] |
+         *     [#x37F-#x1FFF] | [#x200C-#x200D] | [#x203F-#x2040] | [#x2070-#x218F] | [#x2C00-#x2FEF] |
+         *     [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
+         * ```
+         *
+         * [custom element name]: https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name
+         * NOTE: We're a bit more lax here since HTML technically does not allow uppercase HTML element but we do
+         * since other tag-based engines like React allow it
+         */
+        Parser.prototype.parseTag = function (nestingLevel, parentArgType) {
+            var startPosition = this.clonePosition();
+            this.bump(); // `<`
+            var tagName = this.parseTagName();
+            this.bumpSpace();
+            if (this.bumpIf('/>')) {
+                // Self closing tag
+                return {
+                    val: {
+                        type: TYPE.literal,
+                        value: "<" + tagName + "/>",
+                        location: createLocation(startPosition, this.clonePosition()),
+                    },
+                    err: null,
+                };
+            }
+            else if (this.bumpIf('>')) {
+                var childrenResult = this.parseMessage(nestingLevel + 1, parentArgType, true);
+                if (childrenResult.err) {
+                    return childrenResult;
+                }
+                var children = childrenResult.val;
+                // Expecting a close tag
+                var endTagStartPosition = this.clonePosition();
+                if (this.bumpIf('</')) {
+                    if (this.isEOF() || !_isAlpha(this.char())) {
+                        return this.error(ErrorKind.INVALID_TAG, createLocation(endTagStartPosition, this.clonePosition()));
+                    }
+                    var closingTagNameStartPosition = this.clonePosition();
+                    var closingTagName = this.parseTagName();
+                    if (tagName !== closingTagName) {
+                        return this.error(ErrorKind.UNMATCHED_CLOSING_TAG, createLocation(closingTagNameStartPosition, this.clonePosition()));
+                    }
+                    this.bumpSpace();
+                    if (!this.bumpIf('>')) {
+                        return this.error(ErrorKind.INVALID_TAG, createLocation(endTagStartPosition, this.clonePosition()));
+                    }
+                    return {
+                        val: {
+                            type: TYPE.tag,
+                            value: tagName,
+                            children: children,
+                            location: createLocation(startPosition, this.clonePosition()),
+                        },
+                        err: null,
+                    };
+                }
+                else {
+                    return this.error(ErrorKind.UNCLOSED_TAG, createLocation(startPosition, this.clonePosition()));
+                }
+            }
+            else {
+                return this.error(ErrorKind.INVALID_TAG, createLocation(startPosition, this.clonePosition()));
+            }
+        };
+        /**
+         * This method assumes that the caller has peeked ahead for the first tag character.
+         */
+        Parser.prototype.parseTagName = function () {
+            var startOffset = this.offset();
+            this.bump(); // the first tag name character
+            while (!this.isEOF() && _isPotentialElementNameChar(this.char())) {
+                this.bump();
+            }
+            return this.message.slice(startOffset, this.offset());
+        };
+        Parser.prototype.parseLiteral = function (nestingLevel, parentArgType) {
+            var start = this.clonePosition();
+            var value = '';
+            while (true) {
+                var parseQuoteResult = this.tryParseQuote(parentArgType);
+                if (parseQuoteResult) {
+                    value += parseQuoteResult;
+                    continue;
+                }
+                var parseUnquotedResult = this.tryParseUnquoted(nestingLevel, parentArgType);
+                if (parseUnquotedResult) {
+                    value += parseUnquotedResult;
+                    continue;
+                }
+                var parseLeftAngleResult = this.tryParseLeftAngleBracket();
+                if (parseLeftAngleResult) {
+                    value += parseLeftAngleResult;
+                    continue;
+                }
+                break;
+            }
+            var location = createLocation(start, this.clonePosition());
+            return {
+                val: { type: TYPE.literal, value: value, location: location },
+                err: null,
+            };
+        };
+        Parser.prototype.tryParseLeftAngleBracket = function () {
+            if (!this.isEOF() &&
+                this.char() === 60 /* `<` */ &&
+                (this.ignoreTag ||
+                    // If at the opening tag or closing tag position, bail.
+                    !_isAlphaOrSlash(this.peek() || 0))) {
+                this.bump(); // `<`
+                return '<';
+            }
+            return null;
+        };
+        /**
+         * Starting with ICU 4.8, an ASCII apostrophe only starts quoted text if it immediately precedes
+         * a character that requires quoting (that is, "only where needed"), and works the same in
+         * nested messages as on the top level of the pattern. The new behavior is otherwise compatible.
+         */
+        Parser.prototype.tryParseQuote = function (parentArgType) {
+            if (this.isEOF() || this.char() !== 39 /* `'` */) {
+                return null;
+            }
+            // Parse escaped char following the apostrophe, or early return if there is no escaped char.
+            // Check if is valid escaped character
+            switch (this.peek()) {
+                case 39 /* `'` */:
+                    // double quote, should return as a single quote.
+                    this.bump();
+                    this.bump();
+                    return "'";
+                // '{', '<', '>', '}'
+                case 123:
+                case 60:
+                case 62:
+                case 125:
+                    break;
+                case 35: // '#'
+                    if (parentArgType === 'plural' || parentArgType === 'selectordinal') {
+                        break;
+                    }
+                    return null;
+                default:
+                    return null;
+            }
+            this.bump(); // apostrophe
+            var codePoints = [this.char()]; // escaped char
+            this.bump();
+            // read chars until the optional closing apostrophe is found
+            while (!this.isEOF()) {
+                var ch = this.char();
+                if (ch === 39 /* `'` */) {
+                    if (this.peek() === 39 /* `'` */) {
+                        codePoints.push(39);
+                        // Bump one more time because we need to skip 2 characters.
+                        this.bump();
+                    }
+                    else {
+                        // Optional closing apostrophe.
+                        this.bump();
+                        break;
+                    }
+                }
+                else {
+                    codePoints.push(ch);
+                }
+                this.bump();
+            }
+            return fromCodePoint.apply(void 0, codePoints);
+        };
+        Parser.prototype.tryParseUnquoted = function (nestingLevel, parentArgType) {
+            if (this.isEOF()) {
+                return null;
+            }
+            var ch = this.char();
+            if (ch === 60 /* `<` */ ||
+                ch === 123 /* `{` */ ||
+                (ch === 35 /* `#` */ &&
+                    (parentArgType === 'plural' || parentArgType === 'selectordinal')) ||
+                (ch === 125 /* `}` */ && nestingLevel > 0)) {
+                return null;
+            }
+            else {
+                this.bump();
+                return fromCodePoint(ch);
+            }
+        };
+        Parser.prototype.parseArgument = function (nestingLevel, expectingCloseTag) {
+            var openingBracePosition = this.clonePosition();
+            this.bump(); // `{`
+            this.bumpSpace();
+            if (this.isEOF()) {
+                return this.error(ErrorKind.EXPECT_ARGUMENT_CLOSING_BRACE, createLocation(openingBracePosition, this.clonePosition()));
+            }
+            if (this.char() === 125 /* `}` */) {
+                this.bump();
+                return this.error(ErrorKind.EMPTY_ARGUMENT, createLocation(openingBracePosition, this.clonePosition()));
+            }
+            // argument name
+            var value = this.parseIdentifierIfPossible().value;
+            if (!value) {
+                return this.error(ErrorKind.MALFORMED_ARGUMENT, createLocation(openingBracePosition, this.clonePosition()));
+            }
+            this.bumpSpace();
+            if (this.isEOF()) {
+                return this.error(ErrorKind.EXPECT_ARGUMENT_CLOSING_BRACE, createLocation(openingBracePosition, this.clonePosition()));
+            }
+            switch (this.char()) {
+                // Simple argument: `{name}`
+                case 125 /* `}` */: {
+                    this.bump(); // `}`
+                    return {
+                        val: {
+                            type: TYPE.argument,
+                            // value does not include the opening and closing braces.
+                            value: value,
+                            location: createLocation(openingBracePosition, this.clonePosition()),
+                        },
+                        err: null,
+                    };
+                }
+                // Argument with options: `{name, format, ...}`
+                case 44 /* `,` */: {
+                    this.bump(); // `,`
+                    this.bumpSpace();
+                    if (this.isEOF()) {
+                        return this.error(ErrorKind.EXPECT_ARGUMENT_CLOSING_BRACE, createLocation(openingBracePosition, this.clonePosition()));
+                    }
+                    return this.parseArgumentOptions(nestingLevel, expectingCloseTag, value, openingBracePosition);
+                }
+                default:
+                    return this.error(ErrorKind.MALFORMED_ARGUMENT, createLocation(openingBracePosition, this.clonePosition()));
+            }
+        };
+        /**
+         * Advance the parser until the end of the identifier, if it is currently on
+         * an identifier character. Return an empty string otherwise.
+         */
+        Parser.prototype.parseIdentifierIfPossible = function () {
+            var startingPosition = this.clonePosition();
+            var startOffset = this.offset();
+            var value = matchIdentifierAtIndex(this.message, startOffset);
+            var endOffset = startOffset + value.length;
+            this.bumpTo(endOffset);
+            var endPosition = this.clonePosition();
+            var location = createLocation(startingPosition, endPosition);
+            return { value: value, location: location };
+        };
+        Parser.prototype.parseArgumentOptions = function (nestingLevel, expectingCloseTag, value, openingBracePosition) {
+            var _a;
+            // Parse this range:
+            // {name, type, style}
+            //        ^---^
+            var typeStartPosition = this.clonePosition();
+            var argType = this.parseIdentifierIfPossible().value;
+            var typeEndPosition = this.clonePosition();
+            switch (argType) {
+                case '':
+                    // Expecting a style string number, date, time, plural, selectordinal, or select.
+                    return this.error(ErrorKind.EXPECT_ARGUMENT_TYPE, createLocation(typeStartPosition, typeEndPosition));
+                case 'number':
+                case 'date':
+                case 'time': {
+                    // Parse this range:
+                    // {name, number, style}
+                    //              ^-------^
+                    this.bumpSpace();
+                    var styleAndLocation = null;
+                    if (this.bumpIf(',')) {
+                        this.bumpSpace();
+                        var styleStartPosition = this.clonePosition();
+                        var result = this.parseSimpleArgStyleIfPossible();
+                        if (result.err) {
+                            return result;
+                        }
+                        var style = trimEnd(result.val);
+                        if (style.length === 0) {
+                            return this.error(ErrorKind.EXPECT_ARGUMENT_STYLE, createLocation(this.clonePosition(), this.clonePosition()));
+                        }
+                        var styleLocation = createLocation(styleStartPosition, this.clonePosition());
+                        styleAndLocation = { style: style, styleLocation: styleLocation };
+                    }
+                    var argCloseResult = this.tryParseArgumentClose(openingBracePosition);
+                    if (argCloseResult.err) {
+                        return argCloseResult;
+                    }
+                    var location_1 = createLocation(openingBracePosition, this.clonePosition());
+                    // Extract style or skeleton
+                    if (styleAndLocation && startsWith(styleAndLocation === null || styleAndLocation === void 0 ? void 0 : styleAndLocation.style, '::', 0)) {
+                        // Skeleton starts with `::`.
+                        var skeleton = trimStart(styleAndLocation.style.slice(2));
+                        if (argType === 'number') {
+                            var result = this.parseNumberSkeletonFromString(skeleton, styleAndLocation.styleLocation);
+                            if (result.err) {
+                                return result;
+                            }
+                            return {
+                                val: { type: TYPE.number, value: value, location: location_1, style: result.val },
+                                err: null,
+                            };
+                        }
+                        else {
+                            if (skeleton.length === 0) {
+                                return this.error(ErrorKind.EXPECT_DATE_TIME_SKELETON, location_1);
+                            }
+                            var style = {
+                                type: SKELETON_TYPE.dateTime,
+                                pattern: skeleton,
+                                location: styleAndLocation.styleLocation,
+                                parsedOptions: this.shouldParseSkeletons
+                                    ? parseDateTimeSkeleton(skeleton)
+                                    : {},
+                            };
+                            var type = argType === 'date' ? TYPE.date : TYPE.time;
+                            return {
+                                val: { type: type, value: value, location: location_1, style: style },
+                                err: null,
+                            };
+                        }
+                    }
+                    // Regular style or no style.
+                    return {
+                        val: {
+                            type: argType === 'number'
+                                ? TYPE.number
+                                : argType === 'date'
+                                    ? TYPE.date
+                                    : TYPE.time,
+                            value: value,
+                            location: location_1,
+                            style: (_a = styleAndLocation === null || styleAndLocation === void 0 ? void 0 : styleAndLocation.style) !== null && _a !== void 0 ? _a : null,
+                        },
+                        err: null,
+                    };
+                }
+                case 'plural':
+                case 'selectordinal':
+                case 'select': {
+                    // Parse this range:
+                    // {name, plural, options}
+                    //              ^---------^
+                    var typeEndPosition_1 = this.clonePosition();
+                    this.bumpSpace();
+                    if (!this.bumpIf(',')) {
+                        return this.error(ErrorKind.EXPECT_SELECT_ARGUMENT_OPTIONS, createLocation(typeEndPosition_1, __assign({}, typeEndPosition_1)));
+                    }
+                    this.bumpSpace();
+                    // Parse offset:
+                    // {name, plural, offset:1, options}
+                    //                ^-----^
+                    //
+                    // or the first option:
+                    //
+                    // {name, plural, one {...} other {...}}
+                    //                ^--^
+                    var identifierAndLocation = this.parseIdentifierIfPossible();
+                    var pluralOffset = 0;
+                    if (argType !== 'select' && identifierAndLocation.value === 'offset') {
+                        if (!this.bumpIf(':')) {
+                            return this.error(ErrorKind.EXPECT_PLURAL_ARGUMENT_OFFSET_VALUE, createLocation(this.clonePosition(), this.clonePosition()));
+                        }
+                        this.bumpSpace();
+                        var result = this.tryParseDecimalInteger(ErrorKind.EXPECT_PLURAL_ARGUMENT_OFFSET_VALUE, ErrorKind.INVALID_PLURAL_ARGUMENT_OFFSET_VALUE);
+                        if (result.err) {
+                            return result;
+                        }
+                        // Parse another identifier for option parsing
+                        this.bumpSpace();
+                        identifierAndLocation = this.parseIdentifierIfPossible();
+                        pluralOffset = result.val;
+                    }
+                    var optionsResult = this.tryParsePluralOrSelectOptions(nestingLevel, argType, expectingCloseTag, identifierAndLocation);
+                    if (optionsResult.err) {
+                        return optionsResult;
+                    }
+                    var argCloseResult = this.tryParseArgumentClose(openingBracePosition);
+                    if (argCloseResult.err) {
+                        return argCloseResult;
+                    }
+                    var location_2 = createLocation(openingBracePosition, this.clonePosition());
+                    if (argType === 'select') {
+                        return {
+                            val: {
+                                type: TYPE.select,
+                                value: value,
+                                options: fromEntries(optionsResult.val),
+                                location: location_2,
+                            },
+                            err: null,
+                        };
+                    }
+                    else {
+                        return {
+                            val: {
+                                type: TYPE.plural,
+                                value: value,
+                                options: fromEntries(optionsResult.val),
+                                offset: pluralOffset,
+                                pluralType: argType === 'plural' ? 'cardinal' : 'ordinal',
+                                location: location_2,
+                            },
+                            err: null,
+                        };
+                    }
+                }
+                default:
+                    return this.error(ErrorKind.INVALID_ARGUMENT_TYPE, createLocation(typeStartPosition, typeEndPosition));
+            }
+        };
+        Parser.prototype.tryParseArgumentClose = function (openingBracePosition) {
+            // Parse: {value, number, ::currency/GBP }
+            //
+            if (this.isEOF() || this.char() !== 125 /* `}` */) {
+                return this.error(ErrorKind.EXPECT_ARGUMENT_CLOSING_BRACE, createLocation(openingBracePosition, this.clonePosition()));
+            }
+            this.bump(); // `}`
+            return { val: true, err: null };
+        };
+        /**
+         * See: https://github.com/unicode-org/icu/blob/af7ed1f6d2298013dc303628438ec4abe1f16479/icu4c/source/common/messagepattern.cpp#L659
+         */
+        Parser.prototype.parseSimpleArgStyleIfPossible = function () {
+            var nestedBraces = 0;
+            var startPosition = this.clonePosition();
+            while (!this.isEOF()) {
+                var ch = this.char();
+                switch (ch) {
+                    case 39 /* `'` */: {
+                        // Treat apostrophe as quoting but include it in the style part.
+                        // Find the end of the quoted literal text.
+                        this.bump();
+                        var apostrophePosition = this.clonePosition();
+                        if (!this.bumpUntil("'")) {
+                            return this.error(ErrorKind.UNCLOSED_QUOTE_IN_ARGUMENT_STYLE, createLocation(apostrophePosition, this.clonePosition()));
+                        }
+                        this.bump();
+                        break;
+                    }
+                    case 123 /* `{` */: {
+                        nestedBraces += 1;
+                        this.bump();
+                        break;
+                    }
+                    case 125 /* `}` */: {
+                        if (nestedBraces > 0) {
+                            nestedBraces -= 1;
+                        }
+                        else {
+                            return {
+                                val: this.message.slice(startPosition.offset, this.offset()),
+                                err: null,
+                            };
+                        }
+                        break;
+                    }
+                    default:
+                        this.bump();
+                        break;
+                }
+            }
+            return {
+                val: this.message.slice(startPosition.offset, this.offset()),
+                err: null,
+            };
+        };
+        Parser.prototype.parseNumberSkeletonFromString = function (skeleton, location) {
+            var tokens = [];
+            try {
+                tokens = parseNumberSkeletonFromString(skeleton);
+            }
+            catch (e) {
+                return this.error(ErrorKind.INVALID_NUMBER_SKELETON, location);
+            }
+            return {
+                val: {
+                    type: SKELETON_TYPE.number,
+                    tokens: tokens,
+                    location: location,
+                    parsedOptions: this.shouldParseSkeletons
+                        ? parseNumberSkeleton(tokens)
+                        : {},
+                },
+                err: null,
+            };
+        };
+        /**
+         * @param nesting_level The current nesting level of messages.
+         *     This can be positive when parsing message fragment in select or plural argument options.
+         * @param parent_arg_type The parent argument's type.
+         * @param parsed_first_identifier If provided, this is the first identifier-like selector of
+         *     the argument. It is a by-product of a previous parsing attempt.
+         * @param expecting_close_tag If true, this message is directly or indirectly nested inside
+         *     between a pair of opening and closing tags. The nested message will not parse beyond
+         *     the closing tag boundary.
+         */
+        Parser.prototype.tryParsePluralOrSelectOptions = function (nestingLevel, parentArgType, expectCloseTag, parsedFirstIdentifier) {
+            var _a;
+            var hasOtherClause = false;
+            var options = [];
+            var parsedSelectors = new Set();
+            var selector = parsedFirstIdentifier.value, selectorLocation = parsedFirstIdentifier.location;
+            // Parse:
+            // one {one apple}
+            // ^--^
+            while (true) {
+                if (selector.length === 0) {
+                    var startPosition = this.clonePosition();
+                    if (parentArgType !== 'select' && this.bumpIf('=')) {
+                        // Try parse `={number}` selector
+                        var result = this.tryParseDecimalInteger(ErrorKind.EXPECT_PLURAL_ARGUMENT_SELECTOR, ErrorKind.INVALID_PLURAL_ARGUMENT_SELECTOR);
+                        if (result.err) {
+                            return result;
+                        }
+                        selectorLocation = createLocation(startPosition, this.clonePosition());
+                        selector = this.message.slice(startPosition.offset, this.offset());
+                    }
+                    else {
+                        break;
+                    }
+                }
+                // Duplicate selector clauses
+                if (parsedSelectors.has(selector)) {
+                    return this.error(parentArgType === 'select'
+                        ? ErrorKind.DUPLICATE_SELECT_ARGUMENT_SELECTOR
+                        : ErrorKind.DUPLICATE_PLURAL_ARGUMENT_SELECTOR, selectorLocation);
+                }
+                if (selector === 'other') {
+                    hasOtherClause = true;
+                }
+                // Parse:
+                // one {one apple}
+                //     ^----------^
+                this.bumpSpace();
+                var openingBracePosition = this.clonePosition();
+                if (!this.bumpIf('{')) {
+                    return this.error(parentArgType === 'select'
+                        ? ErrorKind.EXPECT_SELECT_ARGUMENT_SELECTOR_FRAGMENT
+                        : ErrorKind.EXPECT_PLURAL_ARGUMENT_SELECTOR_FRAGMENT, createLocation(this.clonePosition(), this.clonePosition()));
+                }
+                var fragmentResult = this.parseMessage(nestingLevel + 1, parentArgType, expectCloseTag);
+                if (fragmentResult.err) {
+                    return fragmentResult;
+                }
+                var argCloseResult = this.tryParseArgumentClose(openingBracePosition);
+                if (argCloseResult.err) {
+                    return argCloseResult;
+                }
+                options.push([
+                    selector,
+                    {
+                        value: fragmentResult.val,
+                        location: createLocation(openingBracePosition, this.clonePosition()),
+                    },
+                ]);
+                // Keep track of the existing selectors
+                parsedSelectors.add(selector);
+                // Prep next selector clause.
+                this.bumpSpace();
+                (_a = this.parseIdentifierIfPossible(), selector = _a.value, selectorLocation = _a.location);
+            }
+            if (options.length === 0) {
+                return this.error(parentArgType === 'select'
+                    ? ErrorKind.EXPECT_SELECT_ARGUMENT_SELECTOR
+                    : ErrorKind.EXPECT_PLURAL_ARGUMENT_SELECTOR, createLocation(this.clonePosition(), this.clonePosition()));
+            }
+            if (this.requiresOtherClause && !hasOtherClause) {
+                return this.error(ErrorKind.MISSING_OTHER_CLAUSE, createLocation(this.clonePosition(), this.clonePosition()));
+            }
+            return { val: options, err: null };
+        };
+        Parser.prototype.tryParseDecimalInteger = function (expectNumberError, invalidNumberError) {
+            var sign = 1;
+            var startingPosition = this.clonePosition();
+            if (this.bumpIf('+')) ;
+            else if (this.bumpIf('-')) {
+                sign = -1;
+            }
+            var hasDigits = false;
+            var decimal = 0;
+            while (!this.isEOF()) {
+                var ch = this.char();
+                if (ch >= 48 /* `0` */ && ch <= 57 /* `9` */) {
+                    hasDigits = true;
+                    decimal = decimal * 10 + (ch - 48);
+                    this.bump();
+                }
+                else {
+                    break;
+                }
+            }
+            var location = createLocation(startingPosition, this.clonePosition());
+            if (!hasDigits) {
+                return this.error(expectNumberError, location);
+            }
+            decimal *= sign;
+            if (!isSafeInteger(decimal)) {
+                return this.error(invalidNumberError, location);
+            }
+            return { val: decimal, err: null };
+        };
+        Parser.prototype.offset = function () {
+            return this.position.offset;
+        };
+        Parser.prototype.isEOF = function () {
+            return this.offset() === this.message.length;
+        };
+        Parser.prototype.clonePosition = function () {
+            // This is much faster than `Object.assign` or spread.
+            return {
+                offset: this.position.offset,
+                line: this.position.line,
+                column: this.position.column,
+            };
+        };
+        /**
+         * Return the code point at the current position of the parser.
+         * Throws if the index is out of bound.
+         */
+        Parser.prototype.char = function () {
+            var offset = this.position.offset;
+            if (offset >= this.message.length) {
+                throw Error('out of bound');
+            }
+            var code = codePointAt(this.message, offset);
+            if (code === undefined) {
+                throw Error("Offset " + offset + " is at invalid UTF-16 code unit boundary");
+            }
+            return code;
+        };
+        Parser.prototype.error = function (kind, location) {
+            return {
+                val: null,
+                err: {
+                    kind: kind,
+                    message: this.message,
+                    location: location,
+                },
+            };
+        };
+        /** Bump the parser to the next UTF-16 code unit. */
+        Parser.prototype.bump = function () {
+            if (this.isEOF()) {
+                return;
+            }
+            var code = this.char();
+            if (code === 10 /* '\n' */) {
+                this.position.line += 1;
+                this.position.column = 1;
+                this.position.offset += 1;
+            }
+            else {
+                this.position.column += 1;
+                // 0 ~ 0x10000 -> unicode BMP, otherwise skip the surrogate pair.
+                this.position.offset += code < 0x10000 ? 1 : 2;
+            }
+        };
+        /**
+         * If the substring starting at the current position of the parser has
+         * the given prefix, then bump the parser to the character immediately
+         * following the prefix and return true. Otherwise, don't bump the parser
+         * and return false.
+         */
+        Parser.prototype.bumpIf = function (prefix) {
+            if (startsWith(this.message, prefix, this.offset())) {
+                for (var i = 0; i < prefix.length; i++) {
+                    this.bump();
+                }
+                return true;
+            }
+            return false;
+        };
+        /**
+         * Bump the parser until the pattern character is found and return `true`.
+         * Otherwise bump to the end of the file and return `false`.
+         */
+        Parser.prototype.bumpUntil = function (pattern) {
+            var currentOffset = this.offset();
+            var index = this.message.indexOf(pattern, currentOffset);
+            if (index >= 0) {
+                this.bumpTo(index);
+                return true;
+            }
+            else {
+                this.bumpTo(this.message.length);
+                return false;
+            }
+        };
+        /**
+         * Bump the parser to the target offset.
+         * If target offset is beyond the end of the input, bump the parser to the end of the input.
+         */
+        Parser.prototype.bumpTo = function (targetOffset) {
+            if (this.offset() > targetOffset) {
+                throw Error("targetOffset " + targetOffset + " must be greater than or equal to the current offset " + this.offset());
+            }
+            targetOffset = Math.min(targetOffset, this.message.length);
+            while (true) {
+                var offset = this.offset();
+                if (offset === targetOffset) {
+                    break;
+                }
+                if (offset > targetOffset) {
+                    throw Error("targetOffset " + targetOffset + " is at invalid UTF-16 code unit boundary");
+                }
+                this.bump();
+                if (this.isEOF()) {
+                    break;
+                }
+            }
+        };
+        /** advance the parser through all whitespace to the next non-whitespace code unit. */
+        Parser.prototype.bumpSpace = function () {
+            while (!this.isEOF() && _isWhiteSpace(this.char())) {
+                this.bump();
+            }
+        };
+        /**
+         * Peek at the *next* Unicode codepoint in the input without advancing the parser.
+         * If the input has been exhausted, then this returns null.
+         */
+        Parser.prototype.peek = function () {
+            if (this.isEOF()) {
+                return null;
+            }
+            var code = this.char();
+            var offset = this.offset();
+            var nextCode = this.message.charCodeAt(offset + (code >= 0x10000 ? 2 : 1));
+            return nextCode !== null && nextCode !== void 0 ? nextCode : null;
+        };
+        return Parser;
+    }());
+    /**
+     * This check if codepoint is alphabet (lower & uppercase)
+     * @param codepoint
+     * @returns
+     */
+    function _isAlpha(codepoint) {
+        return ((codepoint >= 97 && codepoint <= 122) ||
+            (codepoint >= 65 && codepoint <= 90));
+    }
+    function _isAlphaOrSlash(codepoint) {
+        return _isAlpha(codepoint) || codepoint === 47; /* '/' */
+    }
+    /** See `parseTag` function docs. */
+    function _isPotentialElementNameChar(c) {
+        return (c === 45 /* '-' */ ||
+            c === 46 /* '.' */ ||
+            (c >= 48 && c <= 57) /* 0..9 */ ||
+            c === 95 /* '_' */ ||
+            (c >= 97 && c <= 122) /** a..z */ ||
+            (c >= 65 && c <= 90) /* A..Z */ ||
+            c == 0xb7 ||
+            (c >= 0xc0 && c <= 0xd6) ||
+            (c >= 0xd8 && c <= 0xf6) ||
+            (c >= 0xf8 && c <= 0x37d) ||
+            (c >= 0x37f && c <= 0x1fff) ||
+            (c >= 0x200c && c <= 0x200d) ||
+            (c >= 0x203f && c <= 0x2040) ||
+            (c >= 0x2070 && c <= 0x218f) ||
+            (c >= 0x2c00 && c <= 0x2fef) ||
+            (c >= 0x3001 && c <= 0xd7ff) ||
+            (c >= 0xf900 && c <= 0xfdcf) ||
+            (c >= 0xfdf0 && c <= 0xfffd) ||
+            (c >= 0x10000 && c <= 0xeffff));
+    }
+    /**
+     * Code point equivalent of regex `\p{White_Space}`.
+     * From: https://www.unicode.org/Public/UCD/latest/ucd/PropList.txt
+     */
+    function _isWhiteSpace(c) {
+        return ((c >= 0x0009 && c <= 0x000d) ||
+            c === 0x0020 ||
+            c === 0x0085 ||
+            (c >= 0x200e && c <= 0x200f) ||
+            c === 0x2028 ||
+            c === 0x2029);
+    }
+    /**
+     * Code point equivalent of regex `\p{Pattern_Syntax}`.
+     * See https://www.unicode.org/Public/UCD/latest/ucd/PropList.txt
+     */
+    function _isPatternSyntax(c) {
+        return ((c >= 0x0021 && c <= 0x0023) ||
+            c === 0x0024 ||
+            (c >= 0x0025 && c <= 0x0027) ||
+            c === 0x0028 ||
+            c === 0x0029 ||
+            c === 0x002a ||
+            c === 0x002b ||
+            c === 0x002c ||
+            c === 0x002d ||
+            (c >= 0x002e && c <= 0x002f) ||
+            (c >= 0x003a && c <= 0x003b) ||
+            (c >= 0x003c && c <= 0x003e) ||
+            (c >= 0x003f && c <= 0x0040) ||
+            c === 0x005b ||
+            c === 0x005c ||
+            c === 0x005d ||
+            c === 0x005e ||
+            c === 0x0060 ||
+            c === 0x007b ||
+            c === 0x007c ||
+            c === 0x007d ||
+            c === 0x007e ||
+            c === 0x00a1 ||
+            (c >= 0x00a2 && c <= 0x00a5) ||
+            c === 0x00a6 ||
+            c === 0x00a7 ||
+            c === 0x00a9 ||
+            c === 0x00ab ||
+            c === 0x00ac ||
+            c === 0x00ae ||
+            c === 0x00b0 ||
+            c === 0x00b1 ||
+            c === 0x00b6 ||
+            c === 0x00bb ||
+            c === 0x00bf ||
+            c === 0x00d7 ||
+            c === 0x00f7 ||
+            (c >= 0x2010 && c <= 0x2015) ||
+            (c >= 0x2016 && c <= 0x2017) ||
+            c === 0x2018 ||
+            c === 0x2019 ||
+            c === 0x201a ||
+            (c >= 0x201b && c <= 0x201c) ||
+            c === 0x201d ||
+            c === 0x201e ||
+            c === 0x201f ||
+            (c >= 0x2020 && c <= 0x2027) ||
+            (c >= 0x2030 && c <= 0x2038) ||
+            c === 0x2039 ||
+            c === 0x203a ||
+            (c >= 0x203b && c <= 0x203e) ||
+            (c >= 0x2041 && c <= 0x2043) ||
+            c === 0x2044 ||
+            c === 0x2045 ||
+            c === 0x2046 ||
+            (c >= 0x2047 && c <= 0x2051) ||
+            c === 0x2052 ||
+            c === 0x2053 ||
+            (c >= 0x2055 && c <= 0x205e) ||
+            (c >= 0x2190 && c <= 0x2194) ||
+            (c >= 0x2195 && c <= 0x2199) ||
+            (c >= 0x219a && c <= 0x219b) ||
+            (c >= 0x219c && c <= 0x219f) ||
+            c === 0x21a0 ||
+            (c >= 0x21a1 && c <= 0x21a2) ||
+            c === 0x21a3 ||
+            (c >= 0x21a4 && c <= 0x21a5) ||
+            c === 0x21a6 ||
+            (c >= 0x21a7 && c <= 0x21ad) ||
+            c === 0x21ae ||
+            (c >= 0x21af && c <= 0x21cd) ||
+            (c >= 0x21ce && c <= 0x21cf) ||
+            (c >= 0x21d0 && c <= 0x21d1) ||
+            c === 0x21d2 ||
+            c === 0x21d3 ||
+            c === 0x21d4 ||
+            (c >= 0x21d5 && c <= 0x21f3) ||
+            (c >= 0x21f4 && c <= 0x22ff) ||
+            (c >= 0x2300 && c <= 0x2307) ||
+            c === 0x2308 ||
+            c === 0x2309 ||
+            c === 0x230a ||
+            c === 0x230b ||
+            (c >= 0x230c && c <= 0x231f) ||
+            (c >= 0x2320 && c <= 0x2321) ||
+            (c >= 0x2322 && c <= 0x2328) ||
+            c === 0x2329 ||
+            c === 0x232a ||
+            (c >= 0x232b && c <= 0x237b) ||
+            c === 0x237c ||
+            (c >= 0x237d && c <= 0x239a) ||
+            (c >= 0x239b && c <= 0x23b3) ||
+            (c >= 0x23b4 && c <= 0x23db) ||
+            (c >= 0x23dc && c <= 0x23e1) ||
+            (c >= 0x23e2 && c <= 0x2426) ||
+            (c >= 0x2427 && c <= 0x243f) ||
+            (c >= 0x2440 && c <= 0x244a) ||
+            (c >= 0x244b && c <= 0x245f) ||
+            (c >= 0x2500 && c <= 0x25b6) ||
+            c === 0x25b7 ||
+            (c >= 0x25b8 && c <= 0x25c0) ||
+            c === 0x25c1 ||
+            (c >= 0x25c2 && c <= 0x25f7) ||
+            (c >= 0x25f8 && c <= 0x25ff) ||
+            (c >= 0x2600 && c <= 0x266e) ||
+            c === 0x266f ||
+            (c >= 0x2670 && c <= 0x2767) ||
+            c === 0x2768 ||
+            c === 0x2769 ||
+            c === 0x276a ||
+            c === 0x276b ||
+            c === 0x276c ||
+            c === 0x276d ||
+            c === 0x276e ||
+            c === 0x276f ||
+            c === 0x2770 ||
+            c === 0x2771 ||
+            c === 0x2772 ||
+            c === 0x2773 ||
+            c === 0x2774 ||
+            c === 0x2775 ||
+            (c >= 0x2794 && c <= 0x27bf) ||
+            (c >= 0x27c0 && c <= 0x27c4) ||
+            c === 0x27c5 ||
+            c === 0x27c6 ||
+            (c >= 0x27c7 && c <= 0x27e5) ||
+            c === 0x27e6 ||
+            c === 0x27e7 ||
+            c === 0x27e8 ||
+            c === 0x27e9 ||
+            c === 0x27ea ||
+            c === 0x27eb ||
+            c === 0x27ec ||
+            c === 0x27ed ||
+            c === 0x27ee ||
+            c === 0x27ef ||
+            (c >= 0x27f0 && c <= 0x27ff) ||
+            (c >= 0x2800 && c <= 0x28ff) ||
+            (c >= 0x2900 && c <= 0x2982) ||
+            c === 0x2983 ||
+            c === 0x2984 ||
+            c === 0x2985 ||
+            c === 0x2986 ||
+            c === 0x2987 ||
+            c === 0x2988 ||
+            c === 0x2989 ||
+            c === 0x298a ||
+            c === 0x298b ||
+            c === 0x298c ||
+            c === 0x298d ||
+            c === 0x298e ||
+            c === 0x298f ||
+            c === 0x2990 ||
+            c === 0x2991 ||
+            c === 0x2992 ||
+            c === 0x2993 ||
+            c === 0x2994 ||
+            c === 0x2995 ||
+            c === 0x2996 ||
+            c === 0x2997 ||
+            c === 0x2998 ||
+            (c >= 0x2999 && c <= 0x29d7) ||
+            c === 0x29d8 ||
+            c === 0x29d9 ||
+            c === 0x29da ||
+            c === 0x29db ||
+            (c >= 0x29dc && c <= 0x29fb) ||
+            c === 0x29fc ||
+            c === 0x29fd ||
+            (c >= 0x29fe && c <= 0x2aff) ||
+            (c >= 0x2b00 && c <= 0x2b2f) ||
+            (c >= 0x2b30 && c <= 0x2b44) ||
+            (c >= 0x2b45 && c <= 0x2b46) ||
+            (c >= 0x2b47 && c <= 0x2b4c) ||
+            (c >= 0x2b4d && c <= 0x2b73) ||
+            (c >= 0x2b74 && c <= 0x2b75) ||
+            (c >= 0x2b76 && c <= 0x2b95) ||
+            c === 0x2b96 ||
+            (c >= 0x2b97 && c <= 0x2bff) ||
+            (c >= 0x2e00 && c <= 0x2e01) ||
+            c === 0x2e02 ||
+            c === 0x2e03 ||
+            c === 0x2e04 ||
+            c === 0x2e05 ||
+            (c >= 0x2e06 && c <= 0x2e08) ||
+            c === 0x2e09 ||
+            c === 0x2e0a ||
+            c === 0x2e0b ||
+            c === 0x2e0c ||
+            c === 0x2e0d ||
+            (c >= 0x2e0e && c <= 0x2e16) ||
+            c === 0x2e17 ||
+            (c >= 0x2e18 && c <= 0x2e19) ||
+            c === 0x2e1a ||
+            c === 0x2e1b ||
+            c === 0x2e1c ||
+            c === 0x2e1d ||
+            (c >= 0x2e1e && c <= 0x2e1f) ||
+            c === 0x2e20 ||
+            c === 0x2e21 ||
+            c === 0x2e22 ||
+            c === 0x2e23 ||
+            c === 0x2e24 ||
+            c === 0x2e25 ||
+            c === 0x2e26 ||
+            c === 0x2e27 ||
+            c === 0x2e28 ||
+            c === 0x2e29 ||
+            (c >= 0x2e2a && c <= 0x2e2e) ||
+            c === 0x2e2f ||
+            (c >= 0x2e30 && c <= 0x2e39) ||
+            (c >= 0x2e3a && c <= 0x2e3b) ||
+            (c >= 0x2e3c && c <= 0x2e3f) ||
+            c === 0x2e40 ||
+            c === 0x2e41 ||
+            c === 0x2e42 ||
+            (c >= 0x2e43 && c <= 0x2e4f) ||
+            (c >= 0x2e50 && c <= 0x2e51) ||
+            c === 0x2e52 ||
+            (c >= 0x2e53 && c <= 0x2e7f) ||
+            (c >= 0x3001 && c <= 0x3003) ||
+            c === 0x3008 ||
+            c === 0x3009 ||
+            c === 0x300a ||
+            c === 0x300b ||
+            c === 0x300c ||
+            c === 0x300d ||
+            c === 0x300e ||
+            c === 0x300f ||
+            c === 0x3010 ||
+            c === 0x3011 ||
+            (c >= 0x3012 && c <= 0x3013) ||
+            c === 0x3014 ||
+            c === 0x3015 ||
+            c === 0x3016 ||
+            c === 0x3017 ||
+            c === 0x3018 ||
+            c === 0x3019 ||
+            c === 0x301a ||
+            c === 0x301b ||
+            c === 0x301c ||
+            c === 0x301d ||
+            (c >= 0x301e && c <= 0x301f) ||
+            c === 0x3020 ||
+            c === 0x3030 ||
+            c === 0xfd3e ||
+            c === 0xfd3f ||
+            (c >= 0xfe45 && c <= 0xfe46));
+    }
+
+    function pruneLocation(els) {
+        els.forEach(function (el) {
+            delete el.location;
+            if (isSelectElement(el) || isPluralElement(el)) {
+                for (var k in el.options) {
+                    delete el.options[k].location;
+                    pruneLocation(el.options[k].value);
+                }
+            }
+            else if (isNumberElement(el) && isNumberSkeleton(el.style)) {
+                delete el.style.location;
+            }
+            else if ((isDateElement(el) || isTimeElement(el)) &&
+                isDateTimeSkeleton(el.style)) {
+                delete el.style.location;
+            }
+            else if (isTagElement(el)) {
+                pruneLocation(el.children);
+            }
+        });
+    }
+    function parse(message, opts) {
+        if (opts === void 0) { opts = {}; }
+        opts = __assign({ shouldParseSkeletons: true, requiresOtherClause: true }, opts);
+        var result = new Parser(message, opts).parse();
+        if (result.err) {
+            var error = SyntaxError(ErrorKind[result.err.kind]);
+            // @ts-expect-error Assign to error object
+            error.location = result.err.location;
+            // @ts-expect-error Assign to error object
+            error.originalMessage = result.err.message;
+            throw error;
+        }
+        if (!(opts === null || opts === void 0 ? void 0 : opts.captureLocation)) {
+            pruneLocation(result.val);
+        }
+        return result.val;
+    }
+
+    //
+    // Main
+    //
+    function memoize(fn, options) {
+        var cache = options && options.cache ? options.cache : cacheDefault;
+        var serializer = options && options.serializer ? options.serializer : serializerDefault;
+        var strategy = options && options.strategy ? options.strategy : strategyDefault;
+        return strategy(fn, {
+            cache: cache,
+            serializer: serializer,
+        });
+    }
+    //
+    // Strategy
+    //
+    function isPrimitive(value) {
+        return (value == null || typeof value === 'number' || typeof value === 'boolean'); // || typeof value === "string" 'unsafe' primitive for our needs
+    }
+    function monadic(fn, cache, serializer, arg) {
+        var cacheKey = isPrimitive(arg) ? arg : serializer(arg);
+        var computedValue = cache.get(cacheKey);
+        if (typeof computedValue === 'undefined') {
+            computedValue = fn.call(this, arg);
+            cache.set(cacheKey, computedValue);
+        }
+        return computedValue;
+    }
+    function variadic(fn, cache, serializer) {
+        var args = Array.prototype.slice.call(arguments, 3);
+        var cacheKey = serializer(args);
+        var computedValue = cache.get(cacheKey);
+        if (typeof computedValue === 'undefined') {
+            computedValue = fn.apply(this, args);
+            cache.set(cacheKey, computedValue);
+        }
+        return computedValue;
+    }
+    function assemble(fn, context, strategy, cache, serialize) {
+        return strategy.bind(context, fn, cache, serialize);
+    }
+    function strategyDefault(fn, options) {
+        var strategy = fn.length === 1 ? monadic : variadic;
+        return assemble(fn, this, strategy, options.cache.create(), options.serializer);
+    }
+    function strategyVariadic(fn, options) {
+        return assemble(fn, this, variadic, options.cache.create(), options.serializer);
+    }
+    function strategyMonadic(fn, options) {
+        return assemble(fn, this, monadic, options.cache.create(), options.serializer);
+    }
+    //
+    // Serializer
+    //
+    var serializerDefault = function () {
+        return JSON.stringify(arguments);
+    };
+    //
+    // Cache
+    //
+    function ObjectWithoutPrototypeCache() {
+        this.cache = Object.create(null);
+    }
+    ObjectWithoutPrototypeCache.prototype.get = function (key) {
+        return this.cache[key];
+    };
+    ObjectWithoutPrototypeCache.prototype.set = function (key, value) {
+        this.cache[key] = value;
+    };
+    var cacheDefault = {
+        create: function create() {
+            // @ts-ignore
+            return new ObjectWithoutPrototypeCache();
+        },
+    };
+    var strategies = {
+        variadic: strategyVariadic,
+        monadic: strategyMonadic,
+    };
+
+    var ErrorCode;
+    (function (ErrorCode) {
+        // When we have a placeholder but no value to format
+        ErrorCode["MISSING_VALUE"] = "MISSING_VALUE";
+        // When value supplied is invalid
+        ErrorCode["INVALID_VALUE"] = "INVALID_VALUE";
+        // When we need specific Intl API but it's not available
+        ErrorCode["MISSING_INTL_API"] = "MISSING_INTL_API";
+    })(ErrorCode || (ErrorCode = {}));
+    var FormatError = /** @class */ (function (_super) {
+        __extends(FormatError, _super);
+        function FormatError(msg, code, originalMessage) {
+            var _this = _super.call(this, msg) || this;
+            _this.code = code;
+            _this.originalMessage = originalMessage;
+            return _this;
+        }
+        FormatError.prototype.toString = function () {
+            return "[formatjs Error: " + this.code + "] " + this.message;
+        };
+        return FormatError;
+    }(Error));
+    var InvalidValueError = /** @class */ (function (_super) {
+        __extends(InvalidValueError, _super);
+        function InvalidValueError(variableId, value, options, originalMessage) {
+            return _super.call(this, "Invalid values for \"" + variableId + "\": \"" + value + "\". Options are \"" + Object.keys(options).join('", "') + "\"", ErrorCode.INVALID_VALUE, originalMessage) || this;
+        }
+        return InvalidValueError;
+    }(FormatError));
+    var InvalidValueTypeError = /** @class */ (function (_super) {
+        __extends(InvalidValueTypeError, _super);
+        function InvalidValueTypeError(value, type, originalMessage) {
+            return _super.call(this, "Value for \"" + value + "\" must be of type " + type, ErrorCode.INVALID_VALUE, originalMessage) || this;
+        }
+        return InvalidValueTypeError;
+    }(FormatError));
+    var MissingValueError = /** @class */ (function (_super) {
+        __extends(MissingValueError, _super);
+        function MissingValueError(variableId, originalMessage) {
+            return _super.call(this, "The intl string context variable \"" + variableId + "\" was not provided to the string \"" + originalMessage + "\"", ErrorCode.MISSING_VALUE, originalMessage) || this;
+        }
+        return MissingValueError;
+    }(FormatError));
+
+    var PART_TYPE;
+    (function (PART_TYPE) {
+        PART_TYPE[PART_TYPE["literal"] = 0] = "literal";
+        PART_TYPE[PART_TYPE["object"] = 1] = "object";
+    })(PART_TYPE || (PART_TYPE = {}));
+    function mergeLiteral(parts) {
+        if (parts.length < 2) {
+            return parts;
+        }
+        return parts.reduce(function (all, part) {
+            var lastPart = all[all.length - 1];
+            if (!lastPart ||
+                lastPart.type !== PART_TYPE.literal ||
+                part.type !== PART_TYPE.literal) {
+                all.push(part);
+            }
+            else {
+                lastPart.value += part.value;
+            }
+            return all;
+        }, []);
+    }
+    function isFormatXMLElementFn(el) {
+        return typeof el === 'function';
+    }
+    // TODO(skeleton): add skeleton support
+    function formatToParts(els, locales, formatters, formats, values, currentPluralValue, 
+    // For debugging
+    originalMessage) {
+        // Hot path for straight simple msg translations
+        if (els.length === 1 && isLiteralElement(els[0])) {
+            return [
+                {
+                    type: PART_TYPE.literal,
+                    value: els[0].value,
+                },
+            ];
+        }
+        var result = [];
+        for (var _i = 0, els_1 = els; _i < els_1.length; _i++) {
+            var el = els_1[_i];
+            // Exit early for string parts.
+            if (isLiteralElement(el)) {
+                result.push({
+                    type: PART_TYPE.literal,
+                    value: el.value,
+                });
+                continue;
+            }
+            // TODO: should this part be literal type?
+            // Replace `#` in plural rules with the actual numeric value.
+            if (isPoundElement(el)) {
+                if (typeof currentPluralValue === 'number') {
+                    result.push({
+                        type: PART_TYPE.literal,
+                        value: formatters.getNumberFormat(locales).format(currentPluralValue),
+                    });
+                }
+                continue;
+            }
+            var varName = el.value;
+            // Enforce that all required values are provided by the caller.
+            if (!(values && varName in values)) {
+                throw new MissingValueError(varName, originalMessage);
+            }
+            var value = values[varName];
+            if (isArgumentElement(el)) {
+                if (!value || typeof value === 'string' || typeof value === 'number') {
+                    value =
+                        typeof value === 'string' || typeof value === 'number'
+                            ? String(value)
+                            : '';
+                }
+                result.push({
+                    type: typeof value === 'string' ? PART_TYPE.literal : PART_TYPE.object,
+                    value: value,
+                });
+                continue;
+            }
+            // Recursively format plural and select parts' option — which can be a
+            // nested pattern structure. The choosing of the option to use is
+            // abstracted-by and delegated-to the part helper object.
+            if (isDateElement(el)) {
+                var style = typeof el.style === 'string'
+                    ? formats.date[el.style]
+                    : isDateTimeSkeleton(el.style)
+                        ? el.style.parsedOptions
+                        : undefined;
+                result.push({
+                    type: PART_TYPE.literal,
+                    value: formatters
+                        .getDateTimeFormat(locales, style)
+                        .format(value),
+                });
+                continue;
+            }
+            if (isTimeElement(el)) {
+                var style = typeof el.style === 'string'
+                    ? formats.time[el.style]
+                    : isDateTimeSkeleton(el.style)
+                        ? el.style.parsedOptions
+                        : undefined;
+                result.push({
+                    type: PART_TYPE.literal,
+                    value: formatters
+                        .getDateTimeFormat(locales, style)
+                        .format(value),
+                });
+                continue;
+            }
+            if (isNumberElement(el)) {
+                var style = typeof el.style === 'string'
+                    ? formats.number[el.style]
+                    : isNumberSkeleton(el.style)
+                        ? el.style.parsedOptions
+                        : undefined;
+                if (style && style.scale) {
+                    value =
+                        value *
+                            (style.scale || 1);
+                }
+                result.push({
+                    type: PART_TYPE.literal,
+                    value: formatters
+                        .getNumberFormat(locales, style)
+                        .format(value),
+                });
+                continue;
+            }
+            if (isTagElement(el)) {
+                var children = el.children, value_1 = el.value;
+                var formatFn = values[value_1];
+                if (!isFormatXMLElementFn(formatFn)) {
+                    throw new InvalidValueTypeError(value_1, 'function', originalMessage);
+                }
+                var parts = formatToParts(children, locales, formatters, formats, values, currentPluralValue);
+                var chunks = formatFn(parts.map(function (p) { return p.value; }));
+                if (!Array.isArray(chunks)) {
+                    chunks = [chunks];
+                }
+                result.push.apply(result, chunks.map(function (c) {
+                    return {
+                        type: typeof c === 'string' ? PART_TYPE.literal : PART_TYPE.object,
+                        value: c,
+                    };
+                }));
+            }
+            if (isSelectElement(el)) {
+                var opt = el.options[value] || el.options.other;
+                if (!opt) {
+                    throw new InvalidValueError(el.value, value, Object.keys(el.options), originalMessage);
+                }
+                result.push.apply(result, formatToParts(opt.value, locales, formatters, formats, values));
+                continue;
+            }
+            if (isPluralElement(el)) {
+                var opt = el.options["=" + value];
+                if (!opt) {
+                    if (!Intl.PluralRules) {
+                        throw new FormatError("Intl.PluralRules is not available in this environment.\nTry polyfilling it using \"@formatjs/intl-pluralrules\"\n", ErrorCode.MISSING_INTL_API, originalMessage);
+                    }
+                    var rule = formatters
+                        .getPluralRules(locales, { type: el.pluralType })
+                        .select(value - (el.offset || 0));
+                    opt = el.options[rule] || el.options.other;
+                }
+                if (!opt) {
+                    throw new InvalidValueError(el.value, value, Object.keys(el.options), originalMessage);
+                }
+                result.push.apply(result, formatToParts(opt.value, locales, formatters, formats, values, value - (el.offset || 0)));
+                continue;
+            }
+        }
+        return mergeLiteral(result);
+    }
+
+    /*
+    Copyright (c) 2014, Yahoo! Inc. All rights reserved.
+    Copyrights licensed under the New BSD License.
+    See the accompanying LICENSE file for terms.
+    */
+    // -- MessageFormat --------------------------------------------------------
+    function mergeConfig(c1, c2) {
+        if (!c2) {
+            return c1;
+        }
+        return __assign(__assign(__assign({}, (c1 || {})), (c2 || {})), Object.keys(c1).reduce(function (all, k) {
+            all[k] = __assign(__assign({}, c1[k]), (c2[k] || {}));
+            return all;
+        }, {}));
+    }
+    function mergeConfigs(defaultConfig, configs) {
+        if (!configs) {
+            return defaultConfig;
+        }
+        return Object.keys(defaultConfig).reduce(function (all, k) {
+            all[k] = mergeConfig(defaultConfig[k], configs[k]);
+            return all;
+        }, __assign({}, defaultConfig));
+    }
+    function createFastMemoizeCache(store) {
+        return {
+            create: function () {
+                return {
+                    get: function (key) {
+                        return store[key];
+                    },
+                    set: function (key, value) {
+                        store[key] = value;
+                    },
+                };
+            },
+        };
+    }
+    function createDefaultFormatters(cache) {
+        if (cache === void 0) { cache = {
+            number: {},
+            dateTime: {},
+            pluralRules: {},
+        }; }
+        return {
+            getNumberFormat: memoize(function () {
+                var _a;
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return new ((_a = Intl.NumberFormat).bind.apply(_a, __spreadArray([void 0], args, false)))();
+            }, {
+                cache: createFastMemoizeCache(cache.number),
+                strategy: strategies.variadic,
+            }),
+            getDateTimeFormat: memoize(function () {
+                var _a;
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return new ((_a = Intl.DateTimeFormat).bind.apply(_a, __spreadArray([void 0], args, false)))();
+            }, {
+                cache: createFastMemoizeCache(cache.dateTime),
+                strategy: strategies.variadic,
+            }),
+            getPluralRules: memoize(function () {
+                var _a;
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                return new ((_a = Intl.PluralRules).bind.apply(_a, __spreadArray([void 0], args, false)))();
+            }, {
+                cache: createFastMemoizeCache(cache.pluralRules),
+                strategy: strategies.variadic,
+            }),
+        };
+    }
+    var IntlMessageFormat = /** @class */ (function () {
+        function IntlMessageFormat(message, locales, overrideFormats, opts) {
+            var _this = this;
+            if (locales === void 0) { locales = IntlMessageFormat.defaultLocale; }
+            this.formatterCache = {
+                number: {},
+                dateTime: {},
+                pluralRules: {},
+            };
+            this.format = function (values) {
+                var parts = _this.formatToParts(values);
+                // Hot path for straight simple msg translations
+                if (parts.length === 1) {
+                    return parts[0].value;
+                }
+                var result = parts.reduce(function (all, part) {
+                    if (!all.length ||
+                        part.type !== PART_TYPE.literal ||
+                        typeof all[all.length - 1] !== 'string') {
+                        all.push(part.value);
+                    }
+                    else {
+                        all[all.length - 1] += part.value;
+                    }
+                    return all;
+                }, []);
+                if (result.length <= 1) {
+                    return result[0] || '';
+                }
+                return result;
+            };
+            this.formatToParts = function (values) {
+                return formatToParts(_this.ast, _this.locales, _this.formatters, _this.formats, values, undefined, _this.message);
+            };
+            this.resolvedOptions = function () { return ({
+                locale: Intl.NumberFormat.supportedLocalesOf(_this.locales)[0],
+            }); };
+            this.getAst = function () { return _this.ast; };
+            if (typeof message === 'string') {
+                this.message = message;
+                if (!IntlMessageFormat.__parse) {
+                    throw new TypeError('IntlMessageFormat.__parse must be set to process `message` of type `string`');
+                }
+                // Parse string messages into an AST.
+                this.ast = IntlMessageFormat.__parse(message, {
+                    ignoreTag: opts === null || opts === void 0 ? void 0 : opts.ignoreTag,
+                });
+            }
+            else {
+                this.ast = message;
+            }
+            if (!Array.isArray(this.ast)) {
+                throw new TypeError('A message must be provided as a String or AST.');
+            }
+            // Creates a new object with the specified `formats` merged with the default
+            // formats.
+            this.formats = mergeConfigs(IntlMessageFormat.formats, overrideFormats);
+            // Defined first because it's used to build the format pattern.
+            this.locales = locales;
+            this.formatters =
+                (opts && opts.formatters) || createDefaultFormatters(this.formatterCache);
+        }
+        Object.defineProperty(IntlMessageFormat, "defaultLocale", {
+            get: function () {
+                if (!IntlMessageFormat.memoizedDefaultLocale) {
+                    IntlMessageFormat.memoizedDefaultLocale =
+                        new Intl.NumberFormat().resolvedOptions().locale;
+                }
+                return IntlMessageFormat.memoizedDefaultLocale;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        IntlMessageFormat.memoizedDefaultLocale = null;
+        IntlMessageFormat.__parse = parse;
+        // Default format options used as the prototype of the `formats` provided to the
+        // constructor. These are used when constructing the internal Intl.NumberFormat
+        // and Intl.DateTimeFormat instances.
+        IntlMessageFormat.formats = {
+            number: {
+                integer: {
+                    maximumFractionDigits: 0,
+                },
+                currency: {
+                    style: 'currency',
+                },
+                percent: {
+                    style: 'percent',
+                },
+            },
+            date: {
+                short: {
+                    month: 'numeric',
+                    day: 'numeric',
+                    year: '2-digit',
+                },
+                medium: {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                },
+                long: {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                },
+                full: {
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                },
+            },
+            time: {
+                short: {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                },
+                medium: {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                },
+                long: {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    timeZoneName: 'short',
+                },
+                full: {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    timeZoneName: 'short',
+                },
+            },
+        };
+        return IntlMessageFormat;
+    }());
+
+    /*
+    Copyright (c) 2014, Yahoo! Inc. All rights reserved.
+    Copyrights licensed under the New BSD License.
+    See the accompanying LICENSE file for terms.
+    */
+    var o = IntlMessageFormat;
+
+    const r={},i=(e,n,t)=>t?(n in r||(r[n]={}),e in r[n]||(r[n][e]=t),t):t,l=(e,n)=>{if(null==n)return;if(n in r&&e in r[n])return r[n][e];const t=E(n);for(let o=0;o<t.length;o++){const r=c(t[o],e);if(r)return i(e,n,r)}};let a;const s=writable({});function u(e){return e in a}function c(e,n){if(!u(e))return null;return function(e,n){if(null==n)return;if(n in e)return e[n];const t=n.split(".");let o=e;for(let e=0;e<t.length;e++)if("object"==typeof o){if(e>0){const n=t.slice(e,t.length).join(".");if(n in o){o=o[n];break}}o=o[t[e]];}else o=void 0;return o}(function(e){return a[e]||null}(e),n)}function m(e,...n){delete r[e],s.update((o=>(o[e]=cjs.all([o[e]||{},...n]),o)));}const f=derived([s],(([e])=>Object.keys(e)));s.subscribe((e=>a=e));const d={};function g(e){return d[e]}function w(e){return null!=e&&E(e).some((e=>{var n;return null===(n=g(e))||void 0===n?void 0:n.size}))}function h(e,n){return Promise.all(n.map((n=>(function(e,n){d[e].delete(n),0===d[e].size&&delete d[e];}(e,n),n().then((e=>e.default||e)))))).then((n=>m(e,...n)))}const p={};function b(e){if(!w(e))return e in p?p[e]:Promise.resolve();const n=function(e){return E(e).map((e=>{const n=g(e);return [e,n?[...n]:[]]})).filter((([,e])=>e.length>0))}(e);return p[e]=Promise.all(n.map((([e,n])=>h(e,n)))).then((()=>{if(w(e))return b(e);delete p[e];})),p[e]}function y(e,n){g(e)||function(e){d[e]=new Set;}(e);const t=g(e);g(e).has(n)||(u(e)||s.update((n=>(n[e]={},n))),t.add(n));}
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */function v(e,n){var t={};for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&n.indexOf(o)<0&&(t[o]=e[o]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var r=0;for(o=Object.getOwnPropertySymbols(e);r<o.length;r++)n.indexOf(o[r])<0&&Object.prototype.propertyIsEnumerable.call(e,o[r])&&(t[o[r]]=e[o[r]]);}return t}const O={fallbackLocale:null,loadingDelay:200,formats:{number:{scientific:{notation:"scientific"},engineering:{notation:"engineering"},compactLong:{notation:"compact",compactDisplay:"long"},compactShort:{notation:"compact",compactDisplay:"short"}},date:{short:{month:"numeric",day:"numeric",year:"2-digit"},medium:{month:"short",day:"numeric",year:"numeric"},long:{month:"long",day:"numeric",year:"numeric"},full:{weekday:"long",month:"long",day:"numeric",year:"numeric"}},time:{short:{hour:"numeric",minute:"numeric"},medium:{hour:"numeric",minute:"numeric",second:"numeric"},long:{hour:"numeric",minute:"numeric",second:"numeric",timeZoneName:"short"},full:{hour:"numeric",minute:"numeric",second:"numeric",timeZoneName:"short"}}},warnOnMissingMessages:!0,ignoreTag:!0};function j(){return O}function $(e){const{formats:n}=e,t=v(e,["formats"]),o=e.initialLocale||e.fallbackLocale;return Object.assign(O,t,{initialLocale:o}),n&&("number"in n&&Object.assign(O.formats.number,n.number),"date"in n&&Object.assign(O.formats.date,n.date),"time"in n&&Object.assign(O.formats.time,n.time)),M.set(o)}const k=writable(!1);let L;const T=writable(null);function x(e){return e.split("-").map(((e,n,t)=>t.slice(0,n+1).join("-"))).reverse()}function E(e,n=j().fallbackLocale){const t=x(e);return n?[...new Set([...t,...x(n)])]:t}function D(){return null!=L?L:void 0}T.subscribe((e=>{L=null!=e?e:void 0,"undefined"!=typeof window&&null!=e&&document.documentElement.setAttribute("lang",e);}));const M=Object.assign(Object.assign({},T),{set:e=>{if(e&&function(e){if(null==e)return;const n=E(e);for(let e=0;e<n.length;e++){const t=n[e];if(u(t))return t}}(e)&&w(e)){const{loadingDelay:n}=j();let t;return "undefined"!=typeof window&&null!=D()&&n?t=window.setTimeout((()=>k.set(!0)),n):k.set(!0),b(e).then((()=>{T.set(e);})).finally((()=>{clearTimeout(t),k.set(!1);}))}return T.set(e)}}),I=()=>"undefined"==typeof window?null:window.navigator.language||window.navigator.languages[0],Z=e=>{const n=Object.create(null);return t=>{const o=JSON.stringify(t);return o in n?n[o]:n[o]=e(t)}},C=(e,n)=>{const{formats:t}=j();if(e in t&&n in t[e])return t[e][n];throw new Error(`[svelte-i18n] Unknown "${n}" ${e} format.`)},G=Z((e=>{var{locale:n,format:t}=e,o=v(e,["locale","format"]);if(null==n)throw new Error('[svelte-i18n] A "locale" must be set to format numbers');return t&&(o=C("number",t)),new Intl.NumberFormat(n,o)})),J=Z((e=>{var{locale:n,format:t}=e,o=v(e,["locale","format"]);if(null==n)throw new Error('[svelte-i18n] A "locale" must be set to format dates');return t?o=C("date",t):0===Object.keys(o).length&&(o=C("date","short")),new Intl.DateTimeFormat(n,o)})),U=Z((e=>{var{locale:n,format:t}=e,o=v(e,["locale","format"]);if(null==n)throw new Error('[svelte-i18n] A "locale" must be set to format time values');return t?o=C("time",t):0===Object.keys(o).length&&(o=C("time","short")),new Intl.DateTimeFormat(n,o)})),_=(e={})=>{var{locale:n=D()}=e,t=v(e,["locale"]);return G(Object.assign({locale:n},t))},q=(e={})=>{var{locale:n=D()}=e,t=v(e,["locale"]);return J(Object.assign({locale:n},t))},B=(e={})=>{var{locale:n=D()}=e,t=v(e,["locale"]);return U(Object.assign({locale:n},t))},H=Z(((e,n=D())=>new o(e,n,j().formats,{ignoreTag:j().ignoreTag}))),K=(e,n={})=>{let t=n;"object"==typeof e&&(t=e,e=t.id);const{values:o,locale:r=D(),default:i}=t;if(null==r)throw new Error("[svelte-i18n] Cannot format a message without first setting the initial locale.");let a=l(e,r);if(a){if("string"!=typeof a)return console.warn(`[svelte-i18n] Message with id "${e}" must be of type "string", found: "${typeof a}". Gettin its value through the "$format" method is deprecated; use the "json" method instead.`),a}else j().warnOnMissingMessages&&console.warn(`[svelte-i18n] The message "${e}" was not found in "${E(r).join('", "')}".${w(D())?"\n\nNote: there are at least one loader still registered to this locale that wasn't executed.":""}`),a=null!=i?i:e;if(!o)return a;let s=a;try{s=H(a,r).format(o);}catch(n){console.warn(`[svelte-i18n] Message "${e}" has syntax error:`,n.message);}return s},Q=(e,n)=>B(n).format(e),R=(e,n)=>q(n).format(e),V=(e,n)=>_(n).format(e),W=(e,n=D())=>l(e,n),X=derived([M,s],(()=>K));derived([M],(()=>Q));derived([M],(()=>R));derived([M],(()=>V));derived([M,s],(()=>W));
+
     /* src/components/Footer.svelte generated by Svelte v3.44.0 */
     const file$h = "src/components/Footer.svelte";
 
-    // (9:8) <Col xs="12" md="4" lg="6" class="px-4 mt-2">
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[3] = list[i];
+    	return child_ctx;
+    }
+
+    // (10:8) <Col xs="12" md="4" lg="6" class="px-4 mt-2">
     function create_default_slot_5$7(ctx) {
     	let p;
     	let t1;
@@ -13537,21 +16141,21 @@ var app = (function () {
     			t3 = space();
     			img = element("img");
     			attr_dev(p, "class", "svelte-vxfk2x");
-    			add_location(p, file$h, 9, 10, 206);
+    			add_location(p, file$h, 10, 10, 253);
     			attr_dev(source0, "media", "(max-width: 600px)");
     			attr_dev(source0, "srcset", "/img/open-knowledge-belgium-footer.svg 113w");
-    			add_location(source0, file$h, 14, 14, 380);
+    			add_location(source0, file$h, 15, 14, 427);
     			attr_dev(source1, "media", "(min-width: 600px)");
     			attr_dev(source1, "srcset", "/img/open-knowledge-belgium-footer.svg 266w");
-    			add_location(source1, file$h, 17, 14, 517);
+    			add_location(source1, file$h, 18, 14, 564);
     			attr_dev(img, "class", "Footer_footer__img__4N03j svelte-vxfk2x");
     			if (!src_url_equal(img.src, img_src_value = "/img/open-knowledge-belgium-footer.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Open Knowlegde Belgium");
-    			add_location(img, file$h, 20, 14, 654);
-    			add_location(picture, file$h, 13, 12, 356);
+    			add_location(img, file$h, 21, 14, 701);
+    			add_location(picture, file$h, 14, 12, 403);
     			attr_dev(a, "href", "https://be.okfn.org/");
     			attr_dev(a, "class", "svelte-vxfk2x");
-    			add_location(a, file$h, 12, 10, 312);
+    			add_location(a, file$h, 13, 10, 359);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -13575,14 +16179,57 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$7.name,
     		type: "slot",
-    		source: "(9:8) <Col xs=\\\"12\\\" md=\\\"4\\\" lg=\\\"6\\\" class=\\\"px-4 mt-2\\\">",
+    		source: "(10:8) <Col xs=\\\"12\\\" md=\\\"4\\\" lg=\\\"6\\\" class=\\\"px-4 mt-2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:8) <Col xs="6" md="4" lg="3" class="px-4 mt-2">
+    // (46:12) {#each $locales as locale}
+    function create_each_block(ctx) {
+    	let option;
+    	let t_value = /*locale*/ ctx[3] + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*locale*/ ctx[3];
+    			option.value = option.__value;
+    			add_location(option, file$h, 46, 14, 1634);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$locales*/ 2 && t_value !== (t_value = /*locale*/ ctx[3] + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*$locales*/ 2 && option_value_value !== (option_value_value = /*locale*/ ctx[3])) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(46:12) {#each $locales as locale}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (29:8) <Col xs="6" md="4" lg="3" class="px-4 mt-2">
     function create_default_slot_4$8(ctx) {
     	let h3;
     	let t1;
@@ -13595,6 +16242,17 @@ var app = (function () {
     	let t5;
     	let li2;
     	let a2;
+    	let t7;
+    	let select;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*$locales*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
 
     	const block = {
     		c: function create() {
@@ -13613,31 +16271,40 @@ var app = (function () {
     			li2 = element("li");
     			a2 = element("a");
     			a2.textContent = "FAQ";
+    			t7 = space();
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
     			attr_dev(h3, "class", "text-uppercase");
-    			add_location(h3, file$h, 28, 10, 934);
+    			add_location(h3, file$h, 29, 10, 981);
     			attr_dev(a0, "target", "_blank");
     			attr_dev(a0, "rel", "noopener noreferrer");
     			attr_dev(a0, "href", "/datamap");
     			attr_dev(a0, "class", "svelte-vxfk2x");
-    			add_location(a0, file$h, 32, 14, 1092);
+    			add_location(a0, file$h, 33, 14, 1139);
     			attr_dev(li0, "class", "mb-3");
-    			add_location(li0, file$h, 31, 12, 1060);
-    			attr_dev(a1, "class", "Footer_footer__navLink__1PJ9e svelte-vxfk2x");
+    			add_location(li0, file$h, 32, 12, 1107);
     			attr_dev(a1, "target", "_blank");
     			attr_dev(a1, "rel", "noopener noreferrer");
     			attr_dev(a1, "href", "/about");
-    			add_location(a1, file$h, 36, 14, 1245);
+    			attr_dev(a1, "class", "svelte-vxfk2x");
+    			add_location(a1, file$h, 37, 14, 1292);
     			attr_dev(li1, "class", "mb-3");
-    			add_location(li1, file$h, 35, 12, 1213);
-    			attr_dev(a2, "class", "Footer_footer__navLink__1PJ9e svelte-vxfk2x");
+    			add_location(li1, file$h, 36, 12, 1260);
     			attr_dev(a2, "target", "_blank");
     			attr_dev(a2, "rel", "noopener noreferrer");
     			attr_dev(a2, "href", "/faq");
-    			add_location(a2, file$h, 43, 14, 1478);
+    			attr_dev(a2, "class", "svelte-vxfk2x");
+    			add_location(a2, file$h, 41, 14, 1440);
     			attr_dev(li2, "class", "mb-3");
-    			add_location(li2, file$h, 42, 12, 1446);
+    			add_location(li2, file$h, 40, 12, 1408);
     			attr_dev(ul, "class", "list-unstyled text-muted mb-6 mb-md-8 mb-lg-0");
-    			add_location(ul, file$h, 30, 10, 989);
+    			add_location(ul, file$h, 31, 10, 1036);
+    			if (/*$locale*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[2].call(select));
+    			add_location(select, file$h, 44, 10, 1549);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -13651,11 +16318,58 @@ var app = (function () {
     			append_dev(ul, t5);
     			append_dev(ul, li2);
     			append_dev(li2, a2);
+    			insert_dev(target, t7, anchor);
+    			insert_dev(target, select, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(select, null);
+    			}
+
+    			select_option(select, /*$locale*/ ctx[0]);
+
+    			if (!mounted) {
+    				dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[2]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$locales*/ 2) {
+    				each_value = /*$locales*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*$locale, $locales*/ 3) {
+    				select_option(select, /*$locale*/ ctx[0]);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h3);
     			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(ul);
+    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(select);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -13663,14 +16377,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$8.name,
     		type: "slot",
-    		source: "(28:8) <Col xs=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" class=\\\"px-4 mt-2\\\">",
+    		source: "(29:8) <Col xs=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" class=\\\"px-4 mt-2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:8) <Col xs="6" md="4" lg="3" class="px-4 mt-2">
+    // (51:8) <Col xs="6" md="4" lg="3" class="px-4 mt-2">
     function create_default_slot_3$9(ctx) {
     	let h3;
     	let t1;
@@ -13727,78 +16441,78 @@ var app = (function () {
     			svg3 = svg_element("svg");
     			path3 = svg_element("path");
     			attr_dev(h3, "class", "text-uppercase");
-    			add_location(h3, file$h, 61, 10, 2209);
+    			add_location(h3, file$h, 51, 10, 1795);
     			attr_dev(p0, "class", "Footer_footer__contactBold__3W-zb svelte-vxfk2x");
-    			add_location(p0, file$h, 62, 10, 2259);
+    			add_location(p0, file$h, 52, 10, 1845);
     			attr_dev(p1, "class", "svelte-vxfk2x");
-    			add_location(p1, file$h, 65, 10, 2365);
+    			add_location(p1, file$h, 55, 10, 1951);
     			attr_dev(p2, "class", "svelte-vxfk2x");
-    			add_location(p2, file$h, 66, 10, 2397);
+    			add_location(p2, file$h, 56, 10, 1983);
     			attr_dev(a0, "href", "mailto:bikedataproject@openknowledge.be");
     			attr_dev(a0, "target", "_blank");
     			attr_dev(a0, "rel", "noopener noreferrer");
     			attr_dev(a0, "class", "svelte-vxfk2x");
-    			add_location(a0, file$h, 67, 10, 2428);
+    			add_location(a0, file$h, 57, 10, 2014);
     			attr_dev(path0, "d", "M16.5 0C7.38869 0 0 7.38869 0 16.5C0 25.6113 7.38869 33 16.5 33C25.6113 33 33 25.6113 33 16.5C33 7.38869 25.6113 0 16.5 0ZM24.0337 12.8649C24.041 13.0273 24.0445 13.1905 24.0445 13.3544C24.0445 18.3588 20.2353 24.1296 13.269 24.1299H13.2693H13.269C11.1302 24.1299 9.14001 23.503 7.46397 22.4287C7.76031 22.4637 8.06193 22.481 8.36732 22.481C10.1418 22.481 11.7748 21.8758 13.0711 20.8599C11.4132 20.8292 10.0154 19.7342 9.53302 18.2294C9.76389 18.2737 10.0013 18.2979 10.2448 18.2979C10.5905 18.2979 10.9253 18.2513 11.2435 18.1645C9.51061 17.8175 8.20518 16.286 8.20518 14.4521C8.20518 14.435 8.20518 14.4196 8.20569 14.4038C8.71603 14.6875 9.29963 14.8582 9.921 14.8773C8.9041 14.1988 8.23565 13.0389 8.23565 11.7249C8.23565 11.0311 8.42322 10.381 8.7485 9.8213C10.6161 12.1129 13.4073 13.62 16.5549 13.7784C16.4899 13.5009 16.4564 13.2119 16.4564 12.9148C16.4564 10.8241 18.1526 9.12792 20.2441 9.12792C21.3335 9.12792 22.3174 9.58841 23.0085 10.3246C23.8713 10.1544 24.6815 9.83917 25.4134 9.40537C25.1302 10.2893 24.53 11.0311 23.748 11.5001C24.5141 11.4085 25.2442 11.2053 25.9227 10.9037C25.4159 11.6632 24.7732 12.3304 24.0337 12.8649V12.8649Z");
     			attr_dev(path0, "fill", "white");
-    			add_location(path0, file$h, 82, 17, 2979);
+    			add_location(path0, file$h, 72, 17, 2565);
     			attr_dev(svg0, "width", "33");
     			attr_dev(svg0, "height", "33");
     			attr_dev(svg0, "viewBox", "0 0 33 33");
     			attr_dev(svg0, "fill", "none");
     			attr_dev(svg0, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg0, file$h, 76, 15, 2787);
+    			add_location(svg0, file$h, 66, 15, 2373);
     			attr_dev(a1, "href", "https://twitter.com/bikedataproject");
     			attr_dev(a1, "target", "_blank");
     			attr_dev(a1, "rel", "noopener noreferrer");
     			attr_dev(a1, "class", "svelte-vxfk2x");
-    			add_location(a1, file$h, 72, 12, 2642);
+    			add_location(a1, file$h, 62, 12, 2228);
     			attr_dev(path1, "d", "M33 16.5C33 7.38633 25.6137 0 16.5 0C7.38633 0 0 7.38633 0 16.5C0 25.6137 7.38633 33 16.5 33C16.5967 33 16.6934 33 16.79 32.9936V20.1545H13.2451V16.023H16.79V12.9809C16.79 9.45527 18.9428 7.53457 22.0881 7.53457C23.5963 7.53457 24.8918 7.64414 25.2656 7.6957V11.3824H23.1C21.392 11.3824 21.0568 12.1945 21.0568 13.3869V16.0166H25.1496L24.6146 20.148H21.0568V32.3619C27.9533 30.3832 33 24.0346 33 16.5V16.5Z");
     			attr_dev(path1, "fill", "white");
-    			add_location(path1, file$h, 97, 17, 4594);
+    			add_location(path1, file$h, 87, 17, 4180);
     			attr_dev(svg1, "width", "33");
     			attr_dev(svg1, "height", "33");
     			attr_dev(svg1, "viewBox", "0 0 33 33");
     			attr_dev(svg1, "fill", "none");
     			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg1, file$h, 91, 15, 4402);
+    			add_location(svg1, file$h, 81, 15, 3988);
     			attr_dev(a2, "href", "https://www.facebook.com/BikeDataProject");
     			attr_dev(a2, "target", "_blank");
     			attr_dev(a2, "rel", "noopener noreferrer");
     			attr_dev(a2, "class", "svelte-vxfk2x");
-    			add_location(a2, file$h, 87, 13, 4252);
+    			add_location(a2, file$h, 77, 13, 3838);
     			attr_dev(path2, "fill-rule", "evenodd");
     			attr_dev(path2, "clip-rule", "evenodd");
     			attr_dev(path2, "d", "M33 16.5C33 25.6127 25.6127 33 16.5 33C7.3873 33 0 25.6127 0 16.5C0 7.3873 7.3873 0 16.5 0C25.6127 0 33 7.3873 33 16.5ZM13.8419 6.53378C12.7402 6.5346 11.8485 7.42691 11.8493 8.52645C11.8485 9.62599 12.741 10.5183 13.8427 10.5191H15.8361V8.52726C15.8369 7.42772 14.9445 6.53541 13.8419 6.53378ZM13.8419 11.8486H8.52782C7.42608 11.8494 6.53361 12.7418 6.53443 13.8413C6.5328 14.9408 7.42526 15.8331 8.52701 15.8348H13.8419C14.9437 15.834 15.8361 14.9417 15.8353 13.8421C15.8361 12.7418 14.9437 11.8494 13.8419 11.8486ZM24.4717 11.8486C25.5734 11.8494 26.4659 12.7418 26.4651 13.8413C26.4659 14.9417 25.5734 15.834 24.4717 15.8348H22.4783V13.8413C22.4775 12.7418 23.3699 11.8494 24.4717 11.8486ZM21.1502 8.52645V13.8413C21.151 14.9417 20.2585 15.834 19.1568 15.8348C18.055 15.8331 17.1626 14.9408 17.1642 13.8413V8.52645C17.1634 7.42691 18.0558 6.5346 19.1576 6.53378C20.2593 6.53541 21.151 7.42772 21.1502 8.52645ZM19.1568 26.4628C20.2586 26.4619 21.1511 25.5696 21.1502 24.4701C21.1511 23.3706 20.2586 22.4782 19.1568 22.4774H17.1635V24.4701C17.1626 25.5688 18.0551 26.4611 19.1568 26.4628ZM19.1568 21.1471H24.4718C25.5735 21.1463 26.466 20.254 26.4652 19.1544C26.4668 18.0549 25.5743 17.1626 24.4726 17.1609H19.1577C18.0559 17.1618 17.1635 18.0541 17.1643 19.1536C17.1635 20.254 18.0551 21.1463 19.1568 21.1471ZM8.52782 21.1501C7.42608 21.1493 6.53361 20.257 6.53442 19.1574C6.53361 18.0579 7.42608 17.1656 8.52782 17.1648H10.5212V19.1574C10.522 20.257 9.62956 21.1493 8.52782 21.1501ZM11.8493 24.4723V19.1574C11.8485 18.0579 12.7402 17.1656 13.8427 17.1656C14.9445 17.1672 15.8369 18.0595 15.8353 19.1591V24.4731C15.8361 25.5726 14.9437 26.4649 13.8419 26.4658C12.7402 26.4641 11.8477 25.5718 11.8493 24.4723Z");
     			attr_dev(path2, "fill", "white");
-    			add_location(path2, file$h, 112, 17, 5513);
+    			add_location(path2, file$h, 102, 17, 5099);
     			attr_dev(svg2, "width", "33");
     			attr_dev(svg2, "height", "33");
     			attr_dev(svg2, "viewBox", "0 0 33 33");
     			attr_dev(svg2, "fill", "none");
     			attr_dev(svg2, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg2, file$h, 106, 15, 5321);
+    			add_location(svg2, file$h, 96, 15, 4907);
     			attr_dev(a3, "href", "https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg");
     			attr_dev(a3, "target", "_blank");
     			attr_dev(a3, "rel", "noopener noreferrer");
     			attr_dev(a3, "class", "svelte-vxfk2x");
-    			add_location(a3, file$h, 102, 13, 5122);
+    			add_location(a3, file$h, 92, 13, 4708);
     			attr_dev(path3, "d", "M16 0C7.15983 0 0 7.26871 0 16.2433C0 23.877 5.15949 30.2125 12.1205 31.9986C12.0402 31.7954 12.0007 31.5106 12.0007 31.2272V28.4652H10.0003C8.92051 28.4652 7.91966 27.9786 7.47983 27.0842C6.95966 26.1096 6.87932 24.6069 5.55983 23.6724C5.15949 23.3475 5.47949 23.0226 5.91932 23.0627C6.75949 23.306 7.43898 23.8756 8.07898 24.7271C8.71898 25.5801 8.99949 25.7833 10.1991 25.7833C10.7588 25.7833 11.6385 25.7432 12.4391 25.6202C12.879 24.4825 13.6388 23.4678 14.5593 22.9812C9.19966 22.3314 6.63966 19.6509 6.63966 15.9959C6.63966 14.4116 7.31915 12.9089 8.43983 11.6095C8.08034 10.3501 7.59966 7.75117 8.60051 6.73648C11.0012 6.73648 12.4405 8.32072 12.8 8.72576C13.9997 8.31934 15.3205 8.07603 16.6795 8.07603C18.0793 8.07603 19.3593 8.31934 20.559 8.72576C20.9185 8.31934 22.3591 6.73648 24.7585 6.73648C25.7185 7.71108 25.2786 10.3501 24.8783 11.6095C25.999 12.8688 26.639 14.4116 26.639 15.9959C26.639 19.6509 24.1185 22.3314 18.7997 22.8996C20.2798 23.671 21.3202 25.8635 21.3202 27.4878V31.1871C21.3202 31.3088 21.2807 31.4304 21.2807 31.5521C27.52 29.3596 32 23.3503 32 16.2433C32 7.26871 24.8402 0 16 0Z");
     			attr_dev(path3, "fill", "white");
-    			add_location(path3, file$h, 129, 17, 7758);
+    			add_location(path3, file$h, 119, 17, 7344);
     			attr_dev(svg3, "width", "32");
     			attr_dev(svg3, "height", "32");
     			attr_dev(svg3, "viewBox", "0 0 32 32");
     			attr_dev(svg3, "fill", "none");
     			attr_dev(svg3, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg3, file$h, 123, 15, 7566);
+    			add_location(svg3, file$h, 113, 15, 7152);
     			attr_dev(a4, "href", "https://github.com/bikedataproject");
     			attr_dev(a4, "target", "_blank");
     			attr_dev(a4, "rel", "noopener noreferrer");
     			attr_dev(a4, "class", "svelte-vxfk2x");
-    			add_location(a4, file$h, 119, 13, 7422);
+    			add_location(a4, file$h, 109, 13, 7008);
     			attr_dev(div, "class", "socials mt-4 svelte-vxfk2x");
-    			add_location(div, file$h, 71, 10, 2603);
+    			add_location(div, file$h, 61, 10, 2189);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -13844,14 +16558,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$9.name,
     		type: "slot",
-    		source: "(61:8) <Col xs=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" class=\\\"px-4 mt-2\\\">",
+    		source: "(51:8) <Col xs=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" class=\\\"px-4 mt-2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (8:6) <Row>
+    // (9:6) <Row>
     function create_default_slot_2$e(ctx) {
     	let col0;
     	let t0;
@@ -13915,21 +16629,21 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 64) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $locale, $locales*/ 67) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
     			col1.$set(col1_changes);
     			const col2_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 64) {
     				col2_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13961,14 +16675,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$e.name,
     		type: "slot",
-    		source: "(8:6) <Row>",
+    		source: "(9:6) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (7:4) <Container>
+    // (8:4) <Container>
     function create_default_slot_1$e(ctx) {
     	let row;
     	let current;
@@ -13992,7 +16706,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $locale, $locales*/ 67) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14016,14 +16730,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$e.name,
     		type: "slot",
-    		source: "(7:4) <Container>",
+    		source: "(8:4) <Container>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (141:4) <Row class="p-4">
+    // (131:4) <Row class="p-4">
     function create_default_slot$g(ctx) {
     	let p;
     	let t0;
@@ -14039,9 +16753,9 @@ var app = (function () {
     			t2 = text(".");
     			attr_dev(a, "href", "https://creativecommons.org/licenses/by/4.0");
     			attr_dev(a, "class", "svelte-vxfk2x");
-    			add_location(a, file$h, 143, 8, 9196);
+    			add_location(a, file$h, 133, 8, 8782);
     			attr_dev(p, "class", "svelte-vxfk2x");
-    			add_location(p, file$h, 141, 6, 9105);
+    			add_location(p, file$h, 131, 6, 8691);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -14058,7 +16772,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$g.name,
     		type: "slot",
-    		source: "(141:4) <Row class=\\\"p-4\\\">",
+    		source: "(131:4) <Row class=\\\"p-4\\\">",
     		ctx
     	});
 
@@ -14100,11 +16814,11 @@ var app = (function () {
     			div1 = element("div");
     			create_component(row.$$.fragment);
     			attr_dev(div0, "class", "pb-5");
-    			add_location(div0, file$h, 5, 2, 95);
+    			add_location(div0, file$h, 6, 2, 142);
     			attr_dev(div1, "class", "subfooter svelte-vxfk2x");
-    			add_location(div1, file$h, 139, 2, 9053);
+    			add_location(div1, file$h, 129, 2, 8639);
     			attr_dev(footer, "class", "pt-5");
-    			add_location(footer, file$h, 4, 0, 71);
+    			add_location(footer, file$h, 5, 0, 118);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14121,14 +16835,14 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const container_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $locale, $locales*/ 67) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
     			container.$set(container_changes);
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 64) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14164,6 +16878,12 @@ var app = (function () {
     }
 
     function instance$j($$self, $$props, $$invalidate) {
+    	let $locale;
+    	let $locales;
+    	validate_store(M, 'locale');
+    	component_subscribe($$self, M, $$value => $$invalidate(0, $locale = $$value));
+    	validate_store(f, 'locales');
+    	component_subscribe($$self, f, $$value => $$invalidate(1, $locales = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Footer', slots, []);
     	const writable_props = [];
@@ -14172,8 +16892,22 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Footer> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Col, Container, Row });
-    	return [];
+    	function select_change_handler() {
+    		$locale = select_value(this);
+    		M.set($locale);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		Col,
+    		Container,
+    		Row,
+    		locale: M,
+    		locales: f,
+    		$locale,
+    		$locales
+    	});
+
+    	return [$locale, $locales, select_change_handler];
     }
 
     class Footer extends SvelteComponentDev {
@@ -15169,7 +17903,7 @@ var app = (function () {
     	return [];
     }
 
-    class About extends SvelteComponentDev {
+    class About$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$g, create_fragment$g, safe_not_equal, {});
@@ -16246,7 +18980,7 @@ var app = (function () {
     	return [];
     }
 
-    class Faq extends SvelteComponentDev {
+    class Faq$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$e, create_fragment$e, safe_not_equal, {});
@@ -16882,7 +19616,7 @@ var app = (function () {
     	return [];
     }
 
-    class Data$1 extends SvelteComponentDev {
+    class Data$4 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$d, create_fragment$d, safe_not_equal, {});
@@ -17239,7 +19973,7 @@ var app = (function () {
     	return [];
     }
 
-    class Data extends SvelteComponentDev {
+    class Data$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$c, create_fragment$c, safe_not_equal, {});
@@ -17254,7 +19988,6 @@ var app = (function () {
     }
 
     /* src/views/home/Head.svelte generated by Svelte v3.44.0 */
-
     const file$9 = "src/views/home/Head.svelte";
 
     function create_fragment$b(ctx) {
@@ -17262,9 +19995,13 @@ var app = (function () {
     	let div1;
     	let div0;
     	let h1;
+    	let t0_value = /*$_*/ ctx[0]("Heading") + "";
+    	let t0;
     	let t1;
     	let div3;
     	let p0;
+    	let t2_value = /*$_*/ ctx[0]("Introduction") + "";
+    	let t2;
     	let t3;
     	let div2;
     	let p1;
@@ -17273,6 +20010,8 @@ var app = (function () {
     	let t6;
     	let t7;
     	let p2;
+    	let t8_value = /*$_*/ ctx[0]("Label_total_km") + "";
+    	let t8;
 
     	const block = {
     		c: function create() {
@@ -17280,11 +20019,11 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			h1 = element("h1");
-    			h1.textContent = "Citizens collecting cycling data to make cities more\n                bike-friendly.";
+    			t0 = text(t0_value);
     			t1 = space();
     			div3 = element("div");
     			p0 = element("p");
-    			p0.textContent = "Thanks to the data shared by citizens around the world, the Bike\n            Data Project aims at showing where and when people ride their\n            bicycles. The data gathered will help local communities and\n            decision-makers make cycling and cities safer.";
+    			t2 = text(t2_value);
     			t3 = space();
     			div2 = element("div");
     			p1 = element("p");
@@ -17294,25 +20033,25 @@ var app = (function () {
     			t6 = text("K");
     			t7 = space();
     			p2 = element("p");
-    			p2.textContent = "Total kilometers cycled and shared so far by citizens all over\n                the world";
-    			attr_dev(h1, "class", "slogan svelte-frwzlg");
-    			add_location(h1, file$9, 3, 12, 98);
-    			attr_dev(div0, "class", "container svelte-frwzlg");
-    			add_location(div0, file$9, 2, 8, 62);
-    			attr_dev(div1, "class", "jumbotron jumbotron-fluid svelte-frwzlg");
-    			add_location(div1, file$9, 1, 4, 14);
+    			t8 = text(t8_value);
+    			attr_dev(h1, "class", "slogan svelte-1y6g8ok");
+    			add_location(h1, file$9, 6, 6, 148);
+    			attr_dev(div0, "class", "container svelte-1y6g8ok");
+    			add_location(div0, file$9, 5, 4, 118);
+    			attr_dev(div1, "class", "jumbotron jumbotron-fluid svelte-1y6g8ok");
+    			add_location(div1, file$9, 4, 2, 74);
     			attr_dev(p0, "class", "p-0 m-0");
-    			add_location(p0, file$9, 10, 8, 297);
-    			add_location(span, file$9, 18, 17, 714);
-    			attr_dev(p1, "class", "counter-number p-0 m-0 svelte-frwzlg");
-    			add_location(p1, file$9, 17, 12, 662);
+    			add_location(p0, file$9, 12, 4, 253);
+    			add_location(span, file$9, 17, 9, 395);
+    			attr_dev(p1, "class", "counter-number p-0 m-0 svelte-1y6g8ok");
+    			add_location(p1, file$9, 16, 6, 351);
     			attr_dev(p2, "class", "p-0 m-0");
-    			add_location(p2, file$9, 20, 12, 763);
+    			add_location(p2, file$9, 19, 6, 432);
     			attr_dev(div2, "class", "counter p-0 m-0");
-    			add_location(div2, file$9, 16, 8, 620);
-    			attr_dev(div3, "class", "subtitle svelte-frwzlg");
-    			add_location(div3, file$9, 9, 4, 266);
-    			add_location(section, file$9, 0, 0, 0);
+    			add_location(div2, file$9, 15, 4, 315);
+    			attr_dev(div3, "class", "subtitle svelte-1y6g8ok");
+    			add_location(div3, file$9, 11, 2, 226);
+    			add_location(section, file$9, 3, 0, 62);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17322,9 +20061,11 @@ var app = (function () {
     			append_dev(section, div1);
     			append_dev(div1, div0);
     			append_dev(div0, h1);
+    			append_dev(h1, t0);
     			append_dev(section, t1);
     			append_dev(section, div3);
     			append_dev(div3, p0);
+    			append_dev(p0, t2);
     			append_dev(div3, t3);
     			append_dev(div3, div2);
     			append_dev(div2, p1);
@@ -17333,8 +20074,13 @@ var app = (function () {
     			append_dev(p1, t6);
     			append_dev(div2, t7);
     			append_dev(div2, p2);
+    			append_dev(p2, t8);
     		},
-    		p: noop,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Heading") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 1 && t2_value !== (t2_value = /*$_*/ ctx[0]("Introduction") + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$_*/ 1 && t8_value !== (t8_value = /*$_*/ ctx[0]("Label_total_km") + "")) set_data_dev(t8, t8_value);
+    		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -17353,7 +20099,10 @@ var app = (function () {
     	return block;
     }
 
-    function instance$b($$self, $$props) {
+    function instance$b($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Head', slots, []);
     	const writable_props = [];
@@ -17362,7 +20111,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Head> was created with unknown prop '${key}'`);
     	});
 
-    	return [];
+    	$$self.$capture_state = () => ({ _: X, $_ });
+    	return [$_];
     }
 
     class Head extends SvelteComponentDev {
@@ -17704,7 +20454,7 @@ var app = (function () {
     	return [];
     }
 
-    class Help extends SvelteComponentDev {
+    class Help$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
@@ -18832,7 +21582,7 @@ var app = (function () {
     	return [];
     }
 
-    class Partners extends SvelteComponentDev {
+    class Partners$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
@@ -19108,7 +21858,7 @@ var app = (function () {
     	return [];
     }
 
-    class Power extends SvelteComponentDev {
+    class Power$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$6, create_fragment$6, safe_not_equal, {});
@@ -19573,7 +22323,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(/*message*/ ctx[0]);
-    			add_location(p, file$2, 19, 6, 523);
+    			add_location(p, file$2, 19, 6, 525);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -19942,7 +22692,7 @@ var app = (function () {
     	validate_slots('Message', slots, []);
     	let manager = new MessageManager();
     	let message = "";
-    	let { hook = manager } = $$props;
+    	const hook = manager;
     	let isOpen = false;
     	manager.on("hide", () => $$invalidate(1, isOpen = false));
 
@@ -19955,17 +22705,13 @@ var app = (function () {
     		$$invalidate(1, isOpen = false);
     	};
 
-    	const writable_props = ['hook'];
+    	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Message> was created with unknown prop '${key}'`);
     	});
 
     	const click_handler = async () => await link();
-
-    	$$self.$$set = $$props => {
-    		if ('hook' in $$props) $$invalidate(3, hook = $$props.hook);
-    	};
 
     	$$self.$capture_state = () => ({
     		Button,
@@ -19984,7 +22730,6 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('manager' in $$props) manager = $$props.manager;
     		if ('message' in $$props) $$invalidate(0, message = $$props.message);
-    		if ('hook' in $$props) $$invalidate(3, hook = $$props.hook);
     		if ('isOpen' in $$props) $$invalidate(1, isOpen = $$props.isOpen);
     	};
 
@@ -20009,7 +22754,7 @@ var app = (function () {
     	}
 
     	get hook() {
-    		throw new Error("<Message>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		return this.$$.ctx[3];
     	}
 
     	set hook(value) {
@@ -20928,7 +23673,7 @@ var app = (function () {
     }
 
     // (108:0) {#if registerOpen}
-    function create_if_block(ctx) {
+    function create_if_block$1(ctx) {
     	let modal;
     	let current;
 
@@ -20979,7 +23724,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block.name,
+    		id: create_if_block$1.name,
     		type: "if",
     		source: "(108:0) {#if registerOpen}",
     		ctx
@@ -21609,7 +24354,7 @@ var app = (function () {
     		});
 
     	button.$on("click", /*click_handler*/ ctx[10]);
-    	let if_block2 = /*registerOpen*/ ctx[4] && create_if_block(ctx);
+    	let if_block2 = /*registerOpen*/ ctx[4] && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -21692,7 +24437,7 @@ var app = (function () {
     						transition_in(if_block2, 1);
     					}
     				} else {
-    					if_block2 = create_if_block(ctx);
+    					if_block2 = create_if_block$1(ctx);
     					if_block2.c();
     					transition_in(if_block2, 1);
     					if_block2.m(if_block2_anchor.parentNode, if_block2_anchor);
@@ -22657,18 +25402,18 @@ var app = (function () {
     	let partners;
     	let current;
     	head = new Head({ $$inline: true });
-    	help = new Help({ $$inline: true });
+    	help = new Help$3({ $$inline: true });
 
     	share = new Share({
     			props: { fitbit: /*fitbit*/ ctx[0] },
     			$$inline: true
     		});
 
-    	data = new Data({ $$inline: true });
+    	data = new Data$3({ $$inline: true });
     	opendata = new OpenData({ $$inline: true });
-    	power = new Power({ $$inline: true });
+    	power = new Power$3({ $$inline: true });
     	newsletter = new Newsletter({ $$inline: true });
-    	partners = new Partners({ $$inline: true });
+    	partners = new Partners$3({ $$inline: true });
 
     	const block = {
     		c: function create() {
@@ -22782,13 +25527,13 @@ var app = (function () {
     	};
 
     	$$self.$capture_state = () => ({
-    		Data,
+    		Data: Data$3,
     		Head,
-    		Help,
+    		Help: Help$3,
     		Newsletter,
     		OpenData,
-    		Partners,
-    		Power,
+    		Partners: Partners$3,
+    		Power: Power$3,
     		Share,
     		fitbit
     	});
@@ -22828,7 +25573,82 @@ var app = (function () {
 
     /* src/App.svelte generated by Svelte v3.44.0 */
 
-    // (12:2) <Route path="/">
+    // (19:0) {:else}
+    function create_else_block(ctx) {
+    	let router;
+    	let current;
+
+    	router = new Router$1({
+    			props: {
+    				$$slots: { default: [create_default_slot] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(router.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(router, target, anchor);
+    			current = true;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(router.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(router.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(router, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(19:0) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (17:0) {#if $isLoading}
+    function create_if_block(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Please wait...");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(17:0) {#if $isLoading}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (22:2) <Route path="/">
     function create_default_slot_6(ctx) {
     	let home;
     	let current;
@@ -22860,18 +25680,18 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(12:2) <Route path=\\\"/\\\">",
+    		source: "(22:2) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (16:2) <Route path="faq">
+    // (26:2) <Route path="faq">
     function create_default_slot_5(ctx) {
     	let faq;
     	let current;
-    	faq = new Faq({ $$inline: true });
+    	faq = new Faq$3({ $$inline: true });
 
     	const block = {
     		c: function create() {
@@ -22899,18 +25719,18 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(16:2) <Route path=\\\"faq\\\">",
+    		source: "(26:2) <Route path=\\\"faq\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (20:2) <Route path="about">
+    // (30:2) <Route path="about">
     function create_default_slot_4(ctx) {
     	let about;
     	let current;
-    	about = new About({ $$inline: true });
+    	about = new About$3({ $$inline: true });
 
     	const block = {
     		c: function create() {
@@ -22938,18 +25758,18 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(20:2) <Route path=\\\"about\\\">",
+    		source: "(30:2) <Route path=\\\"about\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:2) <Route path="datamap">
+    // (34:2) <Route path="datamap">
     function create_default_slot_3(ctx) {
     	let data;
     	let current;
-    	data = new Data$1({ $$inline: true });
+    	data = new Data$4({ $$inline: true });
 
     	const block = {
     		c: function create() {
@@ -22977,14 +25797,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(24:2) <Route path=\\\"datamap\\\">",
+    		source: "(34:2) <Route path=\\\"datamap\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:2) <Route path="fitbit/callback">
+    // (38:2) <Route path="fitbit/callback">
     function create_default_slot_2(ctx) {
     	let home;
     	let current;
@@ -23023,14 +25843,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(28:2) <Route path=\\\"fitbit/callback\\\">",
+    		source: "(38:2) <Route path=\\\"fitbit/callback\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:2) <Route path="fitbit/confirmemail">
+    // (44:2) <Route path="fitbit/confirmemail">
     function create_default_slot_1(ctx) {
     	let home;
     	let current;
@@ -23069,14 +25889,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(34:2) <Route path=\\\"fitbit/confirmemail\\\">",
+    		source: "(44:2) <Route path=\\\"fitbit/confirmemail\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (10:0) <Router>
+    // (20:0) <Router>
     function create_default_slot(ctx) {
     	let header;
     	let t0;
@@ -23191,42 +26011,42 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const route0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				route0_changes.$$scope = { dirty, ctx };
     			}
 
     			route0.$set(route0_changes);
     			const route1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				route1_changes.$$scope = { dirty, ctx };
     			}
 
     			route1.$set(route1_changes);
     			const route2_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				route2_changes.$$scope = { dirty, ctx };
     			}
 
     			route2.$set(route2_changes);
     			const route3_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				route3_changes.$$scope = { dirty, ctx };
     			}
 
     			route3.$set(route3_changes);
     			const route4_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				route4_changes.$$scope = { dirty, ctx };
     			}
 
     			route4.$set(route4_changes);
     			const route5_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				route5_changes.$$scope = { dirty, ctx };
     			}
 
@@ -23278,7 +26098,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(10:0) <Router>",
+    		source: "(20:0) <Router>",
     		ctx
     	});
 
@@ -23286,48 +26106,69 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
-    	let router;
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
     	let current;
+    	const if_block_creators = [create_if_block, create_else_block];
+    	const if_blocks = [];
 
-    	router = new Router$1({
-    			props: {
-    				$$slots: { default: [create_default_slot] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
+    	function select_block_type(ctx, dirty) {
+    		if (/*$isLoading*/ ctx[0]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
     	const block = {
     		c: function create() {
-    			create_component(router.$$.fragment);
+    			if_block.c();
+    			if_block_anchor = empty();
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			mount_component(router, target, anchor);
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			const router_changes = {};
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
 
-    			if (dirty & /*$$scope*/ 1) {
-    				router_changes.$$scope = { dirty, ctx };
+    			if (current_block_type_index !== previous_block_index) {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
     			}
-
-    			router.$set(router_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(router.$$.fragment, local);
+    			transition_in(if_block);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(router.$$.fragment, local);
+    			transition_out(if_block);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(router, detaching);
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
     		}
     	};
 
@@ -23343,8 +26184,20 @@ var app = (function () {
     }
 
     function instance($$self, $$props, $$invalidate) {
+    	let $isLoading;
+    	validate_store(k, 'isLoading');
+    	component_subscribe($$self, k, $$value => $$invalidate(0, $isLoading = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
+    	y("en", () => Promise.resolve().then(function () { return en$1; }));
+    	y("fr", () => Promise.resolve().then(function () { return fr$1; }));
+    	y("nl", () => Promise.resolve().then(function () { return nl$1; }));
+
+    	$({
+    		fallbackLocale: "en",
+    		initialLocale: I()
+    	});
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -23356,13 +26209,18 @@ var app = (function () {
     		Route: Route$1,
     		Footer,
     		Header,
-    		About,
-    		Faq,
-    		Data: Data$1,
-    		Home
+    		About: About$3,
+    		Faq: Faq$3,
+    		Data: Data$4,
+    		Home,
+    		register: y,
+    		init: $,
+    		getLocaleFromNavigator: I,
+    		isLoading: k,
+    		$isLoading
     	});
 
-    	return [];
+    	return [$isLoading];
     }
 
     class App extends SvelteComponentDev {
@@ -23381,6 +26239,2190 @@ var app = (function () {
 
     var app = new App({
         target: document.body
+    });
+
+    var Contribute$2 = "Participate";
+    var The_data$2 = "The Data";
+    var About$2 = "About";
+    var FAQ$2 = "FAQ";
+    var Contact$2 = "Contact";
+    var Heading$2 = "Citizens collecting cycling data to make cities more bike-friendly.";
+    var Introduction$2 = "Thanks to the data shared by citizens around the world, the Bike Data Project aims at showing where and when people ride their bicycles. The data gathered will help local communities and decision-makers make cycling and cities safer.";
+    var Label_total_km$2 = "Total kilometers cycled and shared so far by citizens all over the world";
+    var Help_title$2 = "We need your help!";
+    var Ask_for_favor$2 = "To make this work we want to ask you to share your cycling data.";
+    var By_sharing_your$2 = "We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted to cyclists.";
+    var Every_cyclist_can$2 = "All cyclists are welcome to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also want to consider other types of activities such as: commuting to work, dropping the kids off at school or a quick ride to the grocery store.";
+    var Donate_title$2 = "Share your bike data";
+    var Several_ways_to_contribute$2 = "There are a several ways you can contribute to the Bike Data Project. For now, you can either connect your Strava account or upload your Garmin files. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform.";
+    var You_not_using$2 = "What if you aren't using any of the listed apps yet? You will be able to download and use the Bike Data Project app soon. Moreover, we're also working on the integration of other cycling apps!";
+    var Connect_existing_account$2 = "Connect your existing account";
+    var Download_our_app$2 = "Download our app (coming soon)";
+    var Data_title$2 = "Collected data worldwide";
+    var Rides_collected$2 = "rides collected";
+    var Distance_collected$2 = "distance collected";
+    var Average_duration$2 = "average duration";
+    var Average_speed$2 = "average speed";
+    var Average_distance$2 = "average distance";
+    var co2_saved$2 = "CO2 saved";
+    var Data_subtitle$2 = "Interested in the data by region?";
+    var Data_button$2 = "Explore the data";
+    var Contribute_title$2 = "Who's the data for?";
+    var People_who_work$2 = "People who work in departments of transportation and city planners around the world need data like this to help them develop modern infrastructure and sustainable cities. Some of them are aware and others we have to convince. And the more data we can provide, the greater impact we shall have.";
+    var Common_goal$2 = "The data can also be very useful for other bike related products and services. The common goal is aggregating cycling data and make it available as open data in order to make cities better adapted to cyclists. For us and the people to come.";
+    var Visible_title$2 = "More cycling data means more power to and for cyclists";
+    var Community_more_visible$2 = "The Bike Data Project provides the opportunity to collect all cycling data from different applications into one platform, which is - based on the principle of open source and open data - adaptable and accessible by everyone to ensure it benefits society.";
+    var Globally_but_locally$2 = "Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we have about car transport.";
+    var Informed_title$2 = "Stay informed";
+    var Email_label$2 = "Email";
+    var Informed_placeholder$2 = "Your email adress";
+    var Partners_title$2 = "Project Partners";
+    var Footer_intro$2 = "Bike Data Project is a project managed by Open Knowledge Belgium";
+    var Footer_nav_title$2 = "Information";
+    var Footer_contact$2 = "Contact";
+    var Footer_street$2 = "Cantersteen 12";
+    var Footer_city$2 = "1000 Brussels";
+    var Footer_copyright_one$2 = "Except where otherwise noted, content on this site is licensed under a";
+    var Footer_copyright_two$2 = "Creative Commons Attribution 4.0 International License";
+    var Terms_of_use$2 = "Terms of use";
+    var Privacy_policy$2 = "Privacy policy";
+    var Cookie_policy$2 = "Cookie policy";
+    var Help$2 = "Help";
+    var Contribute_big$2 = "Share";
+    var Data$2 = "Data";
+    var Power$2 = "Power";
+    var Partners$2 = "Partners";
+    var About_us$2 = "About";
+    var Faq$2 = "Faq";
+    var Contact_us$2 = "Contact";
+    var Cookies$2 = "Cookies";
+    var Privacy$2 = "Privacy";
+    var Terms$2 = "Terms";
+    var Map_title$2 = "The Data";
+    var Data_content_one$2 = "Scroll down to explore the map with all cycling data collected so far.";
+    var Data_content_two$2 = "The data collected by this project consists of contributions made by all different kinds of cyclists. All individual cycling data are aggregated into collective data. The collective data gives us patterns we can use to demonstrate where and when cyclists ride their bicycles.";
+    var Data_content_three$2 = "The anonymous aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes. Here’s a non-exhaustive list of different use cases of the open data:";
+    var Data_content_listOne$2 = "Transportation experts, city planners, mobility planners and urban designers around the world need open data like this to help them develop modern infrastructure and sustainable cities.";
+    var Data_content_listTwo$2 = "Citizens can get a high-level overview of the number of cyclists and kilometers cycled in the city and check out a map with the number of cyclists per route.";
+    var Data_content_listThree$2 = "Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.";
+    var Data_content_listFour$2 = "Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.";
+    var Data_content_four$2 = "All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.";
+    var Map_subtitle$2 = "Have a look at our open source code";
+    var About_title$2 = "About the Bike Data Project";
+    var About_intro$2 = "With the Bike Data Project, Open Knowledge Belgium – the umbrella organisation for open knowledge and open data initiatives in Belgium – wants to build a community-driven open bike data platform that collects data on where and when people actually cycle. The project aims at aggregating data from cyclists, coming from different mobile applications and sources, into one open bike data platform. The collective open data will empower local communities in making cycling more visible and decision-makers in making cities more liveable and bike-friendly.";
+    var About_titleOne$2 = "Short history: who's behind the project";
+    var About_contentOne_oneBefore$2 = "The Bike Data Project was initially set up by";
+    var About_contentOne_oneMiddle$2 = "and launched as part of the release of the ";
+    var About_contentOne_oneAfter$2 = ", directed by Fredrik Gertten. As the documentary has been screened in over 50 countries, there has already been collected more than 275.000 bicycle rides collected.";
+    var About_contentOne_twoBefore$2 = "At the beginning of 2020, the project was moved under the umbrella of Open Knowledge Belgium. ";
+    var About_contentOne_twoAfter$2 = "(non-profit/vzw/asbl), as local chapter of Open Knowledge International, is an umbrella organisation for various open knowledge and open data initiatives in Belgium. We strive for a world where knowledge creates power for the many, not the few and proactively promote openness through projects and events, to the general public as well as to experts in the field. As grassroots organisation we consist of people, mainly volunteers, passionate about openness, using advocacy, research, technology and projects to unlock information, enabling people to use and share knowledge.";
+    var About_contentOne_three$2 = "Open Knowledge Belgium guarantees the openness of the project for all purposes and takes all required measures according to the GDPR regulations concerning data privacy and protection. With a transparent and clear terms of use for this project, Open Knowledge Belgium wants to set an example on how to deal with privacy-related issues and wants to take the opportunity to inform citizens about their digital rights.";
+    var About_titleTwo$2 = "More cycling data means more power to and for cyclists";
+    var About_contentTwo_one$2 = "Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we have about car transport.";
+    var About_contentTwo_two$2 = "Open Knowledge Belgium aims to create impact by showing where and when people actually cycle. The Bike Data Project provides the opportunity to collect all cycling data from different applications into one platform, which is - based on the principle of open source and open data - adaptable and accessible by everyone to ensure it benefits society.";
+    var About_titleThree$2 = "Public digital infrastructure as common good";
+    var About_contentThree_one$2 = "Similar to activities like OpenStreetMap Belgium and Open Planner Team by Open Knowledge Belgium, the Bike Data Project is set up as a collaborative project which is open to all and makes society benefit as a whole. Therefore, the digital infrastructure and aggregated data are - based on the principles of open source and open data - freely adaptable and accessible to anyone.";
+    var About_contentThree_two$2 = "Furthermore, Open Knowledge Belgium strives to play with this Bike Data Project an important role in wider societal movements:";
+    var About_contentThree_listOneBold$2 = "Citizens can take back control of their data";
+    var About_contentThree_listOne$2 = "thanks to strong European GDPR regulations. In the case of the Bike Data Project, we want to encourage citizens to get their data out of third party apps (e.g. popular apps as Strava and even potentially Google Maps) and ask them to contribute them to a good cause.";
+    var About_contentThree_listTwoBold$2 = "Promote skill sharing and encourage learning within the community";
+    var About_contentThree_listTwo$2 = "throughout the whole process from project launch to further development of the platform. Strongly inspired by the work of the School of Data in Riga, we want to involve the cycling community in the local Bike Data Project campaigns as from the first day. Throughout a series of community events, Open Knowledge Belgium wants to improve data literacy.";
+    var About_contentThree_listThreeBold$2 = "Think globally, act locally.";
+    var About_contentThree_listThree$2 = "The Bike Data Project platform is global and open by default. Although it is possible for cycling communities all around the world to contribute to the project, Open Knowledge Belgium wants to support local communities with making them act on a local level.";
+    var About_titleFour$2 = "Longer-term sustainability of the Bike Data Project";
+    var About_contentFour$2 = "Open Knowledge Belgium partners up with Brussels Mobility to launch, as part of its Bike for Brussels program, a first campaign in the Brussels-Capital Region. The launch of local crowdsourcing campaigns in different cities and the setup of the open data platform are part of a longer-term plan for the Bike Data Project. When a crowdsourcing campaign in a specific city or region comes to an end, the platform will stay online and will be maintained by the open source community of Open Knowledge Belgium. Cycling communities in other cities will be encouraged to launch a campaign in their cities and make use of the platform. Given the interest of different stakeholders in the Bike Data Platform, Open Knowledge Belgium has already received confirmation from different stakeholders that they want to contribute financially to the project so that the server costs can get covered. In that way, the project will be sustained over the longer term.";
+    var Faq_title$2 = "Frequently Asked Questions";
+    var Question_one_title$2 = "Why should I participate in this project?";
+    var Question_one_answerOne$2 = "By contributing your cycling data, you can help make our cities better adapted to cyclists.";
+    var Question_one_answerTwo$2 = "More cycling data means more power to and for cyclists. Little is known about how cyclists move around in cities today. If there’s data available, it’s closed and restricted data sold by one single app provider or static data collected through manual counts. If we want to have more people cycling in cities and make the bicycle as easy and logical to opt for as the car, we also need to get the same data insights into cyclists’ behavior as we have about car transport.";
+    var Question_two_title$2 = "How does this project work?";
+    var Question_two_answerOne$2 = "To make this work we want to ask you to contribute your cycling data. We need to know where you ride your bicycle. Your data contributions, combined with the data from many other cyclists, will make cities more adapted to cyclists.";
+    var Question_two_answerTwo$2 = "We ask different types of cyclists (e.g., daily commuters, delivery riders, sportsmen and tourists) to track their bicycle rides via their preferred mobile application and contribute their data to our community-driven bike data platform. Every kind of cyclist has something to contribute to this project. Some people already track their activity for training purposes. That’s great, but we also really want to take into account the short routes: commuting to work, dropping the kids off at school or a quick ride to the grocery store.";
+    var Question_two_answerThree$2 = "In return, the anonymous aggregated cycling data will be opened up to the public and can be freely used by anyone. We aim to create impact by showing where and when people actually cycle. More data means more influence over those in power to make cities more sustainable and bike-friendly.";
+    var Question_three_title$2 = "How do I contribute my data to the platform?";
+    var Question_three_answer$2 = "You can simply connect your existing cycling app to the Bike Data Project platform. For now, you can either connect your Strava account or upload your Garmin files, but we're also working on the integration of other cycling apps. Once your app is connected you can just carry on as usual and your rides will be automatically uploaded to the Bike Data Project platform. If you do not use any cycling app yet, you will be able to use our own app soon. With the Bike Data Project app, you won't need to create an account, you will be able to anonymously share your data to the platform.";
+    var Question_four_title$2 = "What is happening with my data?";
+    var Question_four_answerOne$2 = "The data collected by this project consists of contributions made by all different kinds of cyclists. All individual cycling data are aggregated into collective data. The collective data gives us patterns we can use to demonstrate where and when cyclists ride their bicycles.";
+    var Question_four_answerTwo$2 = "The anonymous aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes. Here’s a non-exhaustive list of different use cases of the open data:";
+    var Question_four_answerThree$2 = "Transportation experts, city planners, mobility planners and urban designers around the world need open data like this to help them develop modern infrastructure and sustainable cities.";
+    var Question_four_answerFour$2 = "Citizens can get a high-level overview of the number of cyclists and kilometers cycled in the city and check out a map with the number of cyclists per route.";
+    var Question_four_answerFive$2 = "Civil society and journalists use the data to analyse the situation for cyclists in the city, such as the amount of time cyclists lose on average at traffic lights.";
+    var Question_four_answerSix$2 = "Data and software companies can dive into the data to obtain smart cycling insights and build tools like advanced cycling route planners and recommendation engines to improve cycling infrastructure. The data can also be very useful for other bike related products and services.";
+    var Question_four_answerSeven$2 = "All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.";
+    var Question_five_title$2 = "Is my privacy respected when I contribute my data?";
+    var Question_five_answerOne$2 = "Yes, Open Knowledge Belgium guarantees the openness of the project so that society benefits as a whole and takes all required measures according to the GDPR regulations concerning data privacy and protection.";
+    var Question_five_answerTwo$2 = "We are collecting cycling data of many individual cyclists and aim to make the anonymous aggregated data available to the public as open data. The aggregated data will be published in a way that it's not possible to retrieve any personal information of an individual cyclist.";
+    var Question_five_answerThree$2 = "The data publishing will be done based on the principle of differential privacy, which is a system for publicly sharing information about a dataset by describing the patterns of groups within the dataset while withholding information about individuals in the dataset. This basically means that data will only be published if a particular individual's information cannot be retrieved.";
+    var Question_six_title$2 = "Can I delete my data?";
+    var Question_six_answer$2 = "Yes! Although you contribute your data in an anonymous way (we don't ask for your name or any other information that identifies you), you can ask us to extract your data from the Bike Data Project platform.If you'd like to do so, please send us an email to bikedataproject@openknowledge.be with the name of the app you've used to contribute your data and, if possible, also the ID number associated with your account in the app.";
+    var Question_seven_title$2 = "What data am I sharing from my app?";
+    var Question_seven_answer$2 = "We mainly want to ask you to contribute the data regarding your cycling activities, more specifically where and when you cycle. Besides that, there's the possibility to share information on your gender, age, type of bicycles and the reason of your bicycle ride(leisure, sports, commute, ...).";
+    var Question_eight_title$2 = "How do I get access to the open data?";
+    var Question_eight_answerOne$2 = "The anonymous aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform can be freely used by different stakeholders and for different purposes.";
+    var Question_eight_answerTwo$2 = "All aggregated cycling data will be available as open data by the end of October 2020. For now, you can contribute to the project by donating your cycling data.";
+    var Question_nine_title$2 = "I'd love to be more involved in this project - how can I help?";
+    var Question_nine_answer$2 = "That's awesome! Feel free to join our Slack group (https://join.slack.com/t/bikedataproject/shared_invite/zt-hr00amgw-elYn9WbdFHLta8qQKW_wvQ) and introduce yourself there. We'd love to hear how you'd like to contribute to the project!";
+    var Contact_title$2 = "Contact";
+    var Further_questions$2 = "For any further questions or information, please contact us via:";
+    var Follow_socials$2 = "Follow our project via our social media channels:";
+    var Cookies_title$2 = "Cookie Policy";
+    var What_are_cookies$2 = "1. What are cookies";
+    var Cookies_section_one$2 = "Cookies are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored. However, this may downgrade or \"break\" certain elements of the site functionality. For more general information on cookies";
+    var Cookies_section_oneLink$2 = "see this Wikipedia article on HTTP Cookies.";
+    var How_we_use_cookies$2 = "2. How we use cookies";
+    var Cookies_section_two$2 = "We use cookies for a variety of reasons detailed below. Unfortunately, in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.";
+    var Disabling_cookies$2 = "3. Disabling cookies";
+    var Cookies_section_three$2 = "You can prevent cookies being downloaded by adjusting your browser settings (see the Help menu of your browser to find out how to do this). Please be aware that disabling cookies might affect the functionality of this and many other websites that you visit. Disabling cookies will usually result in disabling certain functionality and features of this site as well. If you'd like to disable cookies, we recommend using";
+    var Cookies_section_threeLink$2 = "on Firefox.";
+    var Cookies_we_set$2 = "4. Cookies we set";
+    var Cookies_section_fourOne$2 = "Our website includes a newsletter subscription service and cookies may be used to remember if you are already registered and whether to show certain notifications which might only be valid to subscribed/unsubscribed users.";
+    var Cookies_section_fourTwo$2 = "In order to provide you with a great experience on this site, we provide the functionality to set the language according to the language you use in your browser. In order to remember your preferences we need to set cookies, so that this information can be recalled whenever you interact with a page that is affected by your preferences.";
+    var Third_party_cookies$2 = "5. Third party cookies";
+    var Cookies_section_five$2 = "Our site doesn’t make use of cookies provided by third parties.";
+    var More_information$2 = "6. More Information";
+    var Cookies_section_six$2 = "As previously mentioned, if there is anything that you aren't sure you need or not, it's usually safer to leave cookies enabled - just in case it does interact with one of the features you use on our site. If you are still looking for more information, you can contact us at ";
+    var Privacy_title$2 = "Privacy Policy";
+    var Privacy_introOne$2 = "Responsible for the processing of the Data and Owner";
+    var Privacy_introTwo$2 = "Bike Data Project with Open Knowledge Belgium as legal entity, a not-for-profit organization, incorporated and existing under the laws of Belgium, with registered office at 12 Cantersteen 1000 Brussels, Belgium, with company number 0845.419.930.";
+    var Privacy_policy_section$2 = "1. Privacy Policy";
+    var Privacy_section_one$2 = "This ‘Privacy Policy’ applies to the ‘Personal Data’ collected by Bike Data Project through this website.";
+    var What_does_personal$2 = "2. What does personal data mean?";
+    var Privacy_section_two$2 = "In this Privacy Policy, Personal Data refers to information that makes it possible to identify you. An identifiable person is someone who can be identified, either directly or indirectly, in particular by referring to an identification number or to one or more factors that are linked to physical, physiological, mental, economic, cultural or social identity. A typical example of personal information is your name and email address.";
+    var What_personal_data$2 = "3. What personal data do we collect?";
+    var Privacy_section_three$2 = "We might collect your Personal Data from the following sources:";
+    var Privacy_section_threeOne$2 = "3.1 Personal Data that you provide during the data contribution process on the platform.";
+    var Privacy_section_threeOne_pointOne$2 = "Data about your public profile in your preferred cycling app (mandatory)";
+    var Privacy_section_threeOne_pointTwo$2 = "Data about your private cycling activitiesin your preferred cycling app (mandatory)";
+    var Privacy_section_threeOne_pointThree$2 = "Your consent to these terms";
+    var Privacy_section_threeTwo$2 = "3.2 Personal Data that we collect when you visit our website.";
+    var Privacy_section_threeTwo_content$2 = "We use cookies to automatically collect personal data about you when you use this website. For more information, please consult our Cookie Policy.";
+    var Privacy_section_threeThree$2 = "3.3. Personal Data that you provide when sharing your bike data";
+    var Privacy_section_threeThree_pointOne$2 = "Your cycling rides (mandatory)";
+    var Privacy_section_threeThree_pointTwo$2 = "Your age range (optional)";
+    var Privacy_section_threeThree_pointThree$2 = "Your gender (optional)";
+    var Privacy_section_threeThree_pointFour$2 = "Your cycling trip purpose (optional)";
+    var Privacy_section_threeThree_pointFive$2 = "Your type of bicycle (optional)";
+    var How_use_personal_data$2 = "4. How do we use personal data?";
+    var Privacy_section_fourOne$2 = "We are collecting cycling data of many individual cyclists and aim to make the anonymous aggregated data available to the public as open data. The aggregated data will be published in a way that it's not possible to retrieve any personal information of an individual cyclist.";
+    var Privacy_section_fourTwo$2 = "The data publishing will be done based on the principle of differential privacy, which is a system for publicly sharing information about a dataset by describing the patterns of groups within the dataset while withholding information about individuals in the dataset. This basically means that data will only be published if a particular individual's information cannot be retrieved.In case it's not possible the respect the disclosure of a particular individual's information, the data won't be published.";
+    var Privacy_section_fourThree$2 = "The personal data is only stored and processed for the period required for the purpose of the processing. After that, the data will be deleted or anonymized. Bike Data Project relies on DigitalOcean which is certified under major privacy and security standards. DigitalOcean services are GDPR compliant.";
+    var With_whom_do$2 = "5. With whom do we share your personal data?";
+    var Privacy_section_five$2 = "Your personal data will not be shared with any third party. We will never sell or rent your personal data to other service providers, nor will we share your Personal Data with any service providers who are not compliant with the GDPR.";
+    var Where_do_we_transfer$2 = "6. Where do we transfer your personal data to?";
+    var Privacy_section_six$2 = "We only transfer your Personal Data to service providers established outside the European Economic Area if they comply to art 44 GDPR. All US-based service providers comply with Privacy Shield.";
+    var Automated_decision$2 = "7. Automated decision-making and profiling ";
+    var Privacy_section_seven$2 = "The processing of your personal data does not include profiling and will not  be subjected to automated decision-making for the Bike Data Project.";
+    var What_rights_do$2 = "8. What rights do you have? ";
+    var Privacy_section_eight$2 = "You have the right to view your personal data at any time, as well as the right to be informed of the use that Bike Data Project makes of your personal data.";
+    var Privacy_section_eightOne$2 = "1. Right to rectification, removal and restriction of processing";
+    var Privacy_section_eightOne_content$2 = "You are free to decide whether or not to provide your personal data to Bike Data Project. In addition, you always have the right to amend, supplement or remove your personal data at Bike Data Project. You acknowledge that a refusal to provide or a request for the removal of personal data means that certain services can no longer be delivered. You may also request the limitation of the processing of your personal data.";
+    var Privacy_section_eightTwo$2 = "2. Right to object";
+    var Privacy_section_eightTwo_content$2 = "You have the right to object to the processing of your personal data, as long as this is for serious and legitimate reasons.";
+    var Privacy_section_eightThree$2 = "3. Right to data portability";
+    var Privacy_section_eightThree_content$2 = "You have the right to obtain the personal data you have provided to Bike Data Project in a structured, typical and machine-readable form and/or transfer it to different controllers.";
+    var Privacy_section_eightFour$2 = "4. Right to withdraw consent";
+    var Privacy_section_eightFour_content$2 = "Insofar as the processing is based on your prior consent, you have the right to withdraw this approval.";
+    var Privacy_section_eightFive$2 = "5. Right to lodge a complaint";
+    var Privacy_section_eightFive_content$2 = "You have the right to lodge a complaint to the Belgian Privacy Commission:  Personal Privacy Protection Commission, Drukpersstraat 35,1000 Brussels,  Belgium, Tel +32 (0)2 274 48 00, Fax +32 (0)2 274 48 35, email:  commission@privacycommission.be. This does not affect relief before a civil  court.";
+    var Exercising_your_rights$2 = "9. Exercising your rights";
+    var Privacy_section_nine$2 = "You can exercise your rights by contacting Bike Data Project to this end by sending an email to support bikedataproject@openknowledge.be, provided you enclose a copy of your identity card";
+    var Additional_info$2 = "Additional information on data collection and processing";
+    var Legal_procedures$2 = "Legal procedures";
+    var Legal_procedures_contentOne$2 = "The Processor and the Controller for the processing of the Data might use the Personal Data of the User for legal purposes, for the court or legal proceedings in the event of unlawful use of this Application or the related services.";
+    var Legal_procedures_contentTwo$2 = "The User is aware that the Processor and the Data Controller might be obliged to disclose the personal data at the request of competent government institutions for the processing of the Data.";
+    var Security_measures$2 = "Security measures";
+    var Security_measures_contentOne$2 = "Bike Data Project has developed security measures which have been adjusted at the technological and organisational level to prevent the destruction, loss, falsification, changing, prohibited access or the erroneous disclosure to third parties of personal data as well as any other prohibited processing of this data.";
+    var Security_measures_contentTwo$2 = "Under no circumstances can Bike Data Project be held liable for any direct or indirect loss resulting from the incorrect or unlawful use of your personal data by a third party.";
+    var Security_measures_contentThree$2 = "You must at all times comply with the security instructions, which includes preventing all prohibited access to your login details including your password. You are solely responsible for the usage of the website on your computer, from your IP-address and with your identification details, as well as for keeping these confidential.";
+    var Definitions_legal_framework$2 = "Definitions and legal framework";
+    var Personal_data$2 = "Personal data (or Data)";
+    var Personal_data_content$2 = "All information regarding a natural person, a legal person, an institution or an association that has been or might be identified directly or indirectly by reference to other information.";
+    var Usage_data$2 = "Usage data";
+    var Usage_data_content$2 = "Information that is automatically collected from this Application (or external services used in this Application), including: the IP addresses or domain names of the computers used by the Users of this Application, the URI (Uniform Resource Identifier) ​​addresses, the time of the request, the method used to submit the request to the server, the size of the file received in response to it, the numerical code indicating the status of the server response (successful, error, etc.), the functions of the browser and the operating system of the User, the different time data per visit (such as the time spent on each page of the application) and the data collected while using the application (example : the order of pages visited or other parameters about the operating system of the device).";
+    var User$2 = "User";
+    var User_content$2 = "The person using this Application and who must agree with or be authorized by the Data Subject to whom the Personal Data refer.";
+    var Person_concerned$2 = "The person concerned";
+    var Person_concerned_content$2 = "The legal person or natural person to whom the Personal Data relate.";
+    var Data_processor$2 = "Data processor (or Data supervisor)";
+    var Data_processor_content$2 = "The natural person, legal entity, government administration or any other institution, association or organization that has been authorized by the Data Controller to process the Personal Data in accordance with this privacy policy.";
+    var Responsible_processing$2 = "Responsible for the processing of the data (or Owner)";
+    var Responsible_processing_content$2 = "The natural person, legal person, government administration or any other institution, association or organization with the right, also jointly with the Controller for the processing of the Data to make decisions regarding the purposes and methods of processing Personal Data and the means used, including security measures regarding the exploitation and use of this Application. The Controller for the processing of the Data is the Owner of this Application, unless otherwise indicated.";
+    var This_application$2 = "This application";
+    var This_application_content$2 = "The hardware or software tools through which the Personal Data of the User are collected.";
+    var Cookie$2 = "Cookie";
+    var Cookie_content$2 = "Small chunk of data stored on the User's device. See our Cookie policy.";
+    var Legal_information$2 = "Legal information";
+    var Legal_information_content$2 = "Notice to European Users: this privacy statement has been drawn up with due observance of the obligations in art. 10 of the European Directive 95/46 / EC and the provisions of European Directive 2002/58 / EC, as well as the revision in Directive 2009/136 / EC regarding cookies.";
+    var Changes_privacy_policy$2 = "Changes to this privacy policy";
+    var Changes_privacy_policy_date$2 = "Last updated: 28 September 2020";
+    var Changes_privacy_policy_content$2 = "The Controller for the processing of the Data reserves the right to change this privacy policy at any time by notifying Users on this page. We encourage you to check this page for possible changes. The date of the last change is indicated at the bottom of the page. If a User objects to any change in the policy, the User must not continue to use this Application. One might request the Controller for the processing of the Data to delete the Personal Data. Unless otherwise indicated, the valid Privacy Policy applicable at that time applies to all Personal Data that the Controller has stored for the processing of the Data about Users.";
+    var Terms_title$2 = "Terms of Use";
+    var Terms_introOne$2 = "With the Bike Data Project, Open Knowledge Belgium – the umbrella organisation for open knowledge and open data initiatives in Belgium –  provides a community-driven open bike data platform that collects data on where and when people actually cycle.";
+    var Terms_introTwo$2 = "The platform aims at aggregating data from cyclists, coming from different mobile applications and sources, into one open bike data platform in order to empower local communities in making cycling more visible and decision-makers in making cities more liveable and bike-friendly.";
+    var Terms_introThree$2 = "The participation in this project and use of this platform is subject to a number of rules. Below you can find the general conditions of our project , as we are convinced that clear rules provide the best guarantee for a respectful community.";
+    var Terms_introFour$2 = "Because Open Knowledge Belgium appreciates the feedback of the Bike Data Project community, we welcome any ideas to further improve the platform. You can email your suggestions to support";
+    var Who_can_contribute$2 = "Who can contribute to the Bike Data Project and who can make use of the open data provided by the Bike Data Project?";
+    var Who_can_contribute_contentOne$2 = "Any kind of cyclist can contribute to the project by sharing cycling data. You can either link your preferred cycling app to share your data or use the Bike Data Project app in order to contribute to the Bike Data Project. For using the app of the Bike Data Project, you don’t need to create an account to use the app, so you and your collected cycling data will stay anonymous.";
+    var Who_can_contribute_contentTwo$2 = "The anonymous aggregated cycling data will be opened up to the public as open data. The open data provided by the Bike Data Project platform is published under a Creative Commons Attribution 4.0 International Licens, which imposes no restrictions on your use of the open data. You are only required to give appropriate credit to the Bike Data Project by providing the name of the project, copyright notice, license notice, disclaimer notice and a link to the platform.";
+    var Limitation_of_liability$2 = "Limitation of Liability";
+    var Limitation_of_liability_contentOne$2 = "The project cannot be held responsible for any failure or delay in performing the conditions . The platform cannot be held responsible for any liability in case of personal damage from using it. You shall defend, indemnify and hold harmless the Bike Data Project (and each of its partners and/or volunteers) from any claim, demand, action, damage, loss, cost or expense, including without limitation reasonable attorneys’ fees, arising out or relating to (a) your use of our project; (b) any member content or submissions you provide; (c) your violation of these terms; (d) your violation of any rights of another; or (e) your conduct in connection with the services. Further, if you are using the project on behalf of any entity, you represent and warrant that such entity agrees to indemnify you and the Bike Data Project for violations of these terms in accordance with this section. If you are obligated to indemnify us, we will have the right, in our sole and unfettered discretion, to control any action or proceeding and determine whether we wish to settle it, and if so, on what terms.";
+    var Limitation_of_liability_contentTwo$2 = "We firmly believe in freedom of speech. However, in order to ensure that the platform can be used in a constructive way by the users, with respect for different opinions and without people having to be afraid to participate in the project, we do not allow offensive behaviour that harasses, intimidates or uses fear to silence another user.";
+    var Spam$2 = "Spam";
+    var Spam_contentOne$2 = "We strive at all times to protect the Bike Data Project platform user from technical abuse and spam. Accounts that are used to perform the actions listed below can be temporarily blocked or permanently deleted.";
+    var Spam_contentTwo$2 = "Malware / phishing / viruses / worms / Trojans: You may not post malicious content or links to such content for the purpose of damaging or disrupting someone else's browsers or computers, or of violating someone's privacy. Spam: You are not allowed to use the Bike Data Project platform to spam people.";
+    var Infringement$2 = "Infringement of applicable laws";
+    var Infringement_contentOne$2 = "The use of the account may not in any way infringe applicable laws. This includes infringements against privacy legislation, intellectual property rights, the criminal code, etc. The account may not be used to promote illegal activities in any way.";
+    var Infringement_contentTwo$2 = "The account may not be used to promote illegal activities in any way.";
+    var Breaches_aforementioned_rules$2 = "In case of breaches of the aforementioned rules";
+    var Breaches_aforementioned_rules_content$2 = "It may occur that harmful files can be downloaded via the platform, whether or not due to a user, or that users place harmful hyperlinks. Every download by a user or click on a hyperlink, placed by a user, is done at the user’s own risk. Any damage incurred is completely and solely the responsibility of this user.";
+    var Property_rights$2 = "Property rights Bike Data Project";
+    var Property_rights_content$2 = "The source code of Bike Data Project is published under an open source MIT license. You agree to be bound by and comply with any license agreement that applies to this open source software. The visual identity, including the logo and colors, is available under CC BY 4.0. The name of the Bike Data Project cannot be used nor replicated.";
+    var Thanks_Bigletter$2 = "Thank You";
+    var Thanks_Fitbit_title$2 = "Thank you for linking you Fitbit account!";
+    var Thanks_Content1$2 = "Your Fibit account is now linked to the Bike Data Project.";
+    var Thanks_Content2$2 = "Your contributions will show up automatically from now on when you log bicycle rides via FitBit.";
+    var en = {
+    	Contribute: Contribute$2,
+    	The_data: The_data$2,
+    	About: About$2,
+    	FAQ: FAQ$2,
+    	Contact: Contact$2,
+    	Heading: Heading$2,
+    	Introduction: Introduction$2,
+    	Label_total_km: Label_total_km$2,
+    	Help_title: Help_title$2,
+    	Ask_for_favor: Ask_for_favor$2,
+    	By_sharing_your: By_sharing_your$2,
+    	Every_cyclist_can: Every_cyclist_can$2,
+    	Donate_title: Donate_title$2,
+    	Several_ways_to_contribute: Several_ways_to_contribute$2,
+    	You_not_using: You_not_using$2,
+    	Connect_existing_account: Connect_existing_account$2,
+    	Download_our_app: Download_our_app$2,
+    	Data_title: Data_title$2,
+    	Rides_collected: Rides_collected$2,
+    	Distance_collected: Distance_collected$2,
+    	Average_duration: Average_duration$2,
+    	Average_speed: Average_speed$2,
+    	Average_distance: Average_distance$2,
+    	co2_saved: co2_saved$2,
+    	Data_subtitle: Data_subtitle$2,
+    	Data_button: Data_button$2,
+    	Contribute_title: Contribute_title$2,
+    	People_who_work: People_who_work$2,
+    	Common_goal: Common_goal$2,
+    	Visible_title: Visible_title$2,
+    	Community_more_visible: Community_more_visible$2,
+    	Globally_but_locally: Globally_but_locally$2,
+    	Informed_title: Informed_title$2,
+    	Email_label: Email_label$2,
+    	Informed_placeholder: Informed_placeholder$2,
+    	Partners_title: Partners_title$2,
+    	Footer_intro: Footer_intro$2,
+    	Footer_nav_title: Footer_nav_title$2,
+    	Footer_contact: Footer_contact$2,
+    	Footer_street: Footer_street$2,
+    	Footer_city: Footer_city$2,
+    	Footer_copyright_one: Footer_copyright_one$2,
+    	Footer_copyright_two: Footer_copyright_two$2,
+    	Terms_of_use: Terms_of_use$2,
+    	Privacy_policy: Privacy_policy$2,
+    	Cookie_policy: Cookie_policy$2,
+    	Help: Help$2,
+    	Contribute_big: Contribute_big$2,
+    	Data: Data$2,
+    	Power: Power$2,
+    	Partners: Partners$2,
+    	About_us: About_us$2,
+    	Faq: Faq$2,
+    	Contact_us: Contact_us$2,
+    	Cookies: Cookies$2,
+    	Privacy: Privacy$2,
+    	Terms: Terms$2,
+    	Map_title: Map_title$2,
+    	Data_content_one: Data_content_one$2,
+    	Data_content_two: Data_content_two$2,
+    	Data_content_three: Data_content_three$2,
+    	Data_content_listOne: Data_content_listOne$2,
+    	Data_content_listTwo: Data_content_listTwo$2,
+    	Data_content_listThree: Data_content_listThree$2,
+    	Data_content_listFour: Data_content_listFour$2,
+    	Data_content_four: Data_content_four$2,
+    	Map_subtitle: Map_subtitle$2,
+    	About_title: About_title$2,
+    	About_intro: About_intro$2,
+    	About_titleOne: About_titleOne$2,
+    	About_contentOne_oneBefore: About_contentOne_oneBefore$2,
+    	About_contentOne_oneMiddle: About_contentOne_oneMiddle$2,
+    	About_contentOne_oneAfter: About_contentOne_oneAfter$2,
+    	About_contentOne_twoBefore: About_contentOne_twoBefore$2,
+    	About_contentOne_twoAfter: About_contentOne_twoAfter$2,
+    	About_contentOne_three: About_contentOne_three$2,
+    	About_titleTwo: About_titleTwo$2,
+    	About_contentTwo_one: About_contentTwo_one$2,
+    	About_contentTwo_two: About_contentTwo_two$2,
+    	About_titleThree: About_titleThree$2,
+    	About_contentThree_one: About_contentThree_one$2,
+    	About_contentThree_two: About_contentThree_two$2,
+    	About_contentThree_listOneBold: About_contentThree_listOneBold$2,
+    	About_contentThree_listOne: About_contentThree_listOne$2,
+    	About_contentThree_listTwoBold: About_contentThree_listTwoBold$2,
+    	About_contentThree_listTwo: About_contentThree_listTwo$2,
+    	About_contentThree_listThreeBold: About_contentThree_listThreeBold$2,
+    	About_contentThree_listThree: About_contentThree_listThree$2,
+    	About_titleFour: About_titleFour$2,
+    	About_contentFour: About_contentFour$2,
+    	Faq_title: Faq_title$2,
+    	Question_one_title: Question_one_title$2,
+    	Question_one_answerOne: Question_one_answerOne$2,
+    	Question_one_answerTwo: Question_one_answerTwo$2,
+    	Question_two_title: Question_two_title$2,
+    	Question_two_answerOne: Question_two_answerOne$2,
+    	Question_two_answerTwo: Question_two_answerTwo$2,
+    	Question_two_answerThree: Question_two_answerThree$2,
+    	Question_three_title: Question_three_title$2,
+    	Question_three_answer: Question_three_answer$2,
+    	Question_four_title: Question_four_title$2,
+    	Question_four_answerOne: Question_four_answerOne$2,
+    	Question_four_answerTwo: Question_four_answerTwo$2,
+    	Question_four_answerThree: Question_four_answerThree$2,
+    	Question_four_answerFour: Question_four_answerFour$2,
+    	Question_four_answerFive: Question_four_answerFive$2,
+    	Question_four_answerSix: Question_four_answerSix$2,
+    	Question_four_answerSeven: Question_four_answerSeven$2,
+    	Question_five_title: Question_five_title$2,
+    	Question_five_answerOne: Question_five_answerOne$2,
+    	Question_five_answerTwo: Question_five_answerTwo$2,
+    	Question_five_answerThree: Question_five_answerThree$2,
+    	Question_six_title: Question_six_title$2,
+    	Question_six_answer: Question_six_answer$2,
+    	Question_seven_title: Question_seven_title$2,
+    	Question_seven_answer: Question_seven_answer$2,
+    	Question_eight_title: Question_eight_title$2,
+    	Question_eight_answerOne: Question_eight_answerOne$2,
+    	Question_eight_answerTwo: Question_eight_answerTwo$2,
+    	Question_nine_title: Question_nine_title$2,
+    	Question_nine_answer: Question_nine_answer$2,
+    	Contact_title: Contact_title$2,
+    	Further_questions: Further_questions$2,
+    	Follow_socials: Follow_socials$2,
+    	Cookies_title: Cookies_title$2,
+    	What_are_cookies: What_are_cookies$2,
+    	Cookies_section_one: Cookies_section_one$2,
+    	Cookies_section_oneLink: Cookies_section_oneLink$2,
+    	How_we_use_cookies: How_we_use_cookies$2,
+    	Cookies_section_two: Cookies_section_two$2,
+    	Disabling_cookies: Disabling_cookies$2,
+    	Cookies_section_three: Cookies_section_three$2,
+    	Cookies_section_threeLink: Cookies_section_threeLink$2,
+    	Cookies_we_set: Cookies_we_set$2,
+    	Cookies_section_fourOne: Cookies_section_fourOne$2,
+    	Cookies_section_fourTwo: Cookies_section_fourTwo$2,
+    	Third_party_cookies: Third_party_cookies$2,
+    	Cookies_section_five: Cookies_section_five$2,
+    	More_information: More_information$2,
+    	Cookies_section_six: Cookies_section_six$2,
+    	Privacy_title: Privacy_title$2,
+    	Privacy_introOne: Privacy_introOne$2,
+    	Privacy_introTwo: Privacy_introTwo$2,
+    	Privacy_policy_section: Privacy_policy_section$2,
+    	Privacy_section_one: Privacy_section_one$2,
+    	What_does_personal: What_does_personal$2,
+    	Privacy_section_two: Privacy_section_two$2,
+    	What_personal_data: What_personal_data$2,
+    	Privacy_section_three: Privacy_section_three$2,
+    	Privacy_section_threeOne: Privacy_section_threeOne$2,
+    	Privacy_section_threeOne_pointOne: Privacy_section_threeOne_pointOne$2,
+    	Privacy_section_threeOne_pointTwo: Privacy_section_threeOne_pointTwo$2,
+    	Privacy_section_threeOne_pointThree: Privacy_section_threeOne_pointThree$2,
+    	Privacy_section_threeTwo: Privacy_section_threeTwo$2,
+    	Privacy_section_threeTwo_content: Privacy_section_threeTwo_content$2,
+    	Privacy_section_threeThree: Privacy_section_threeThree$2,
+    	Privacy_section_threeThree_pointOne: Privacy_section_threeThree_pointOne$2,
+    	Privacy_section_threeThree_pointTwo: Privacy_section_threeThree_pointTwo$2,
+    	Privacy_section_threeThree_pointThree: Privacy_section_threeThree_pointThree$2,
+    	Privacy_section_threeThree_pointFour: Privacy_section_threeThree_pointFour$2,
+    	Privacy_section_threeThree_pointFive: Privacy_section_threeThree_pointFive$2,
+    	How_use_personal_data: How_use_personal_data$2,
+    	Privacy_section_fourOne: Privacy_section_fourOne$2,
+    	Privacy_section_fourTwo: Privacy_section_fourTwo$2,
+    	Privacy_section_fourThree: Privacy_section_fourThree$2,
+    	With_whom_do: With_whom_do$2,
+    	Privacy_section_five: Privacy_section_five$2,
+    	Where_do_we_transfer: Where_do_we_transfer$2,
+    	Privacy_section_six: Privacy_section_six$2,
+    	Automated_decision: Automated_decision$2,
+    	Privacy_section_seven: Privacy_section_seven$2,
+    	What_rights_do: What_rights_do$2,
+    	Privacy_section_eight: Privacy_section_eight$2,
+    	Privacy_section_eightOne: Privacy_section_eightOne$2,
+    	Privacy_section_eightOne_content: Privacy_section_eightOne_content$2,
+    	Privacy_section_eightTwo: Privacy_section_eightTwo$2,
+    	Privacy_section_eightTwo_content: Privacy_section_eightTwo_content$2,
+    	Privacy_section_eightThree: Privacy_section_eightThree$2,
+    	Privacy_section_eightThree_content: Privacy_section_eightThree_content$2,
+    	Privacy_section_eightFour: Privacy_section_eightFour$2,
+    	Privacy_section_eightFour_content: Privacy_section_eightFour_content$2,
+    	Privacy_section_eightFive: Privacy_section_eightFive$2,
+    	Privacy_section_eightFive_content: Privacy_section_eightFive_content$2,
+    	Exercising_your_rights: Exercising_your_rights$2,
+    	Privacy_section_nine: Privacy_section_nine$2,
+    	Additional_info: Additional_info$2,
+    	Legal_procedures: Legal_procedures$2,
+    	Legal_procedures_contentOne: Legal_procedures_contentOne$2,
+    	Legal_procedures_contentTwo: Legal_procedures_contentTwo$2,
+    	Security_measures: Security_measures$2,
+    	Security_measures_contentOne: Security_measures_contentOne$2,
+    	Security_measures_contentTwo: Security_measures_contentTwo$2,
+    	Security_measures_contentThree: Security_measures_contentThree$2,
+    	Definitions_legal_framework: Definitions_legal_framework$2,
+    	Personal_data: Personal_data$2,
+    	Personal_data_content: Personal_data_content$2,
+    	Usage_data: Usage_data$2,
+    	Usage_data_content: Usage_data_content$2,
+    	User: User$2,
+    	User_content: User_content$2,
+    	Person_concerned: Person_concerned$2,
+    	Person_concerned_content: Person_concerned_content$2,
+    	Data_processor: Data_processor$2,
+    	Data_processor_content: Data_processor_content$2,
+    	Responsible_processing: Responsible_processing$2,
+    	Responsible_processing_content: Responsible_processing_content$2,
+    	This_application: This_application$2,
+    	This_application_content: This_application_content$2,
+    	Cookie: Cookie$2,
+    	Cookie_content: Cookie_content$2,
+    	Legal_information: Legal_information$2,
+    	Legal_information_content: Legal_information_content$2,
+    	Changes_privacy_policy: Changes_privacy_policy$2,
+    	Changes_privacy_policy_date: Changes_privacy_policy_date$2,
+    	Changes_privacy_policy_content: Changes_privacy_policy_content$2,
+    	Terms_title: Terms_title$2,
+    	Terms_introOne: Terms_introOne$2,
+    	Terms_introTwo: Terms_introTwo$2,
+    	Terms_introThree: Terms_introThree$2,
+    	Terms_introFour: Terms_introFour$2,
+    	Who_can_contribute: Who_can_contribute$2,
+    	Who_can_contribute_contentOne: Who_can_contribute_contentOne$2,
+    	Who_can_contribute_contentTwo: Who_can_contribute_contentTwo$2,
+    	Limitation_of_liability: Limitation_of_liability$2,
+    	Limitation_of_liability_contentOne: Limitation_of_liability_contentOne$2,
+    	Limitation_of_liability_contentTwo: Limitation_of_liability_contentTwo$2,
+    	Spam: Spam$2,
+    	Spam_contentOne: Spam_contentOne$2,
+    	Spam_contentTwo: Spam_contentTwo$2,
+    	Infringement: Infringement$2,
+    	Infringement_contentOne: Infringement_contentOne$2,
+    	Infringement_contentTwo: Infringement_contentTwo$2,
+    	Breaches_aforementioned_rules: Breaches_aforementioned_rules$2,
+    	Breaches_aforementioned_rules_content: Breaches_aforementioned_rules_content$2,
+    	Property_rights: Property_rights$2,
+    	Property_rights_content: Property_rights_content$2,
+    	Thanks_Bigletter: Thanks_Bigletter$2,
+    	Thanks_Fitbit_title: Thanks_Fitbit_title$2,
+    	Thanks_Content1: Thanks_Content1$2,
+    	Thanks_Content2: Thanks_Content2$2
+    };
+
+    var en$1 = /*#__PURE__*/Object.freeze({
+        __proto__: null,
+        Contribute: Contribute$2,
+        The_data: The_data$2,
+        About: About$2,
+        FAQ: FAQ$2,
+        Contact: Contact$2,
+        Heading: Heading$2,
+        Introduction: Introduction$2,
+        Label_total_km: Label_total_km$2,
+        Help_title: Help_title$2,
+        Ask_for_favor: Ask_for_favor$2,
+        By_sharing_your: By_sharing_your$2,
+        Every_cyclist_can: Every_cyclist_can$2,
+        Donate_title: Donate_title$2,
+        Several_ways_to_contribute: Several_ways_to_contribute$2,
+        You_not_using: You_not_using$2,
+        Connect_existing_account: Connect_existing_account$2,
+        Download_our_app: Download_our_app$2,
+        Data_title: Data_title$2,
+        Rides_collected: Rides_collected$2,
+        Distance_collected: Distance_collected$2,
+        Average_duration: Average_duration$2,
+        Average_speed: Average_speed$2,
+        Average_distance: Average_distance$2,
+        co2_saved: co2_saved$2,
+        Data_subtitle: Data_subtitle$2,
+        Data_button: Data_button$2,
+        Contribute_title: Contribute_title$2,
+        People_who_work: People_who_work$2,
+        Common_goal: Common_goal$2,
+        Visible_title: Visible_title$2,
+        Community_more_visible: Community_more_visible$2,
+        Globally_but_locally: Globally_but_locally$2,
+        Informed_title: Informed_title$2,
+        Email_label: Email_label$2,
+        Informed_placeholder: Informed_placeholder$2,
+        Partners_title: Partners_title$2,
+        Footer_intro: Footer_intro$2,
+        Footer_nav_title: Footer_nav_title$2,
+        Footer_contact: Footer_contact$2,
+        Footer_street: Footer_street$2,
+        Footer_city: Footer_city$2,
+        Footer_copyright_one: Footer_copyright_one$2,
+        Footer_copyright_two: Footer_copyright_two$2,
+        Terms_of_use: Terms_of_use$2,
+        Privacy_policy: Privacy_policy$2,
+        Cookie_policy: Cookie_policy$2,
+        Help: Help$2,
+        Contribute_big: Contribute_big$2,
+        Data: Data$2,
+        Power: Power$2,
+        Partners: Partners$2,
+        About_us: About_us$2,
+        Faq: Faq$2,
+        Contact_us: Contact_us$2,
+        Cookies: Cookies$2,
+        Privacy: Privacy$2,
+        Terms: Terms$2,
+        Map_title: Map_title$2,
+        Data_content_one: Data_content_one$2,
+        Data_content_two: Data_content_two$2,
+        Data_content_three: Data_content_three$2,
+        Data_content_listOne: Data_content_listOne$2,
+        Data_content_listTwo: Data_content_listTwo$2,
+        Data_content_listThree: Data_content_listThree$2,
+        Data_content_listFour: Data_content_listFour$2,
+        Data_content_four: Data_content_four$2,
+        Map_subtitle: Map_subtitle$2,
+        About_title: About_title$2,
+        About_intro: About_intro$2,
+        About_titleOne: About_titleOne$2,
+        About_contentOne_oneBefore: About_contentOne_oneBefore$2,
+        About_contentOne_oneMiddle: About_contentOne_oneMiddle$2,
+        About_contentOne_oneAfter: About_contentOne_oneAfter$2,
+        About_contentOne_twoBefore: About_contentOne_twoBefore$2,
+        About_contentOne_twoAfter: About_contentOne_twoAfter$2,
+        About_contentOne_three: About_contentOne_three$2,
+        About_titleTwo: About_titleTwo$2,
+        About_contentTwo_one: About_contentTwo_one$2,
+        About_contentTwo_two: About_contentTwo_two$2,
+        About_titleThree: About_titleThree$2,
+        About_contentThree_one: About_contentThree_one$2,
+        About_contentThree_two: About_contentThree_two$2,
+        About_contentThree_listOneBold: About_contentThree_listOneBold$2,
+        About_contentThree_listOne: About_contentThree_listOne$2,
+        About_contentThree_listTwoBold: About_contentThree_listTwoBold$2,
+        About_contentThree_listTwo: About_contentThree_listTwo$2,
+        About_contentThree_listThreeBold: About_contentThree_listThreeBold$2,
+        About_contentThree_listThree: About_contentThree_listThree$2,
+        About_titleFour: About_titleFour$2,
+        About_contentFour: About_contentFour$2,
+        Faq_title: Faq_title$2,
+        Question_one_title: Question_one_title$2,
+        Question_one_answerOne: Question_one_answerOne$2,
+        Question_one_answerTwo: Question_one_answerTwo$2,
+        Question_two_title: Question_two_title$2,
+        Question_two_answerOne: Question_two_answerOne$2,
+        Question_two_answerTwo: Question_two_answerTwo$2,
+        Question_two_answerThree: Question_two_answerThree$2,
+        Question_three_title: Question_three_title$2,
+        Question_three_answer: Question_three_answer$2,
+        Question_four_title: Question_four_title$2,
+        Question_four_answerOne: Question_four_answerOne$2,
+        Question_four_answerTwo: Question_four_answerTwo$2,
+        Question_four_answerThree: Question_four_answerThree$2,
+        Question_four_answerFour: Question_four_answerFour$2,
+        Question_four_answerFive: Question_four_answerFive$2,
+        Question_four_answerSix: Question_four_answerSix$2,
+        Question_four_answerSeven: Question_four_answerSeven$2,
+        Question_five_title: Question_five_title$2,
+        Question_five_answerOne: Question_five_answerOne$2,
+        Question_five_answerTwo: Question_five_answerTwo$2,
+        Question_five_answerThree: Question_five_answerThree$2,
+        Question_six_title: Question_six_title$2,
+        Question_six_answer: Question_six_answer$2,
+        Question_seven_title: Question_seven_title$2,
+        Question_seven_answer: Question_seven_answer$2,
+        Question_eight_title: Question_eight_title$2,
+        Question_eight_answerOne: Question_eight_answerOne$2,
+        Question_eight_answerTwo: Question_eight_answerTwo$2,
+        Question_nine_title: Question_nine_title$2,
+        Question_nine_answer: Question_nine_answer$2,
+        Contact_title: Contact_title$2,
+        Further_questions: Further_questions$2,
+        Follow_socials: Follow_socials$2,
+        Cookies_title: Cookies_title$2,
+        What_are_cookies: What_are_cookies$2,
+        Cookies_section_one: Cookies_section_one$2,
+        Cookies_section_oneLink: Cookies_section_oneLink$2,
+        How_we_use_cookies: How_we_use_cookies$2,
+        Cookies_section_two: Cookies_section_two$2,
+        Disabling_cookies: Disabling_cookies$2,
+        Cookies_section_three: Cookies_section_three$2,
+        Cookies_section_threeLink: Cookies_section_threeLink$2,
+        Cookies_we_set: Cookies_we_set$2,
+        Cookies_section_fourOne: Cookies_section_fourOne$2,
+        Cookies_section_fourTwo: Cookies_section_fourTwo$2,
+        Third_party_cookies: Third_party_cookies$2,
+        Cookies_section_five: Cookies_section_five$2,
+        More_information: More_information$2,
+        Cookies_section_six: Cookies_section_six$2,
+        Privacy_title: Privacy_title$2,
+        Privacy_introOne: Privacy_introOne$2,
+        Privacy_introTwo: Privacy_introTwo$2,
+        Privacy_policy_section: Privacy_policy_section$2,
+        Privacy_section_one: Privacy_section_one$2,
+        What_does_personal: What_does_personal$2,
+        Privacy_section_two: Privacy_section_two$2,
+        What_personal_data: What_personal_data$2,
+        Privacy_section_three: Privacy_section_three$2,
+        Privacy_section_threeOne: Privacy_section_threeOne$2,
+        Privacy_section_threeOne_pointOne: Privacy_section_threeOne_pointOne$2,
+        Privacy_section_threeOne_pointTwo: Privacy_section_threeOne_pointTwo$2,
+        Privacy_section_threeOne_pointThree: Privacy_section_threeOne_pointThree$2,
+        Privacy_section_threeTwo: Privacy_section_threeTwo$2,
+        Privacy_section_threeTwo_content: Privacy_section_threeTwo_content$2,
+        Privacy_section_threeThree: Privacy_section_threeThree$2,
+        Privacy_section_threeThree_pointOne: Privacy_section_threeThree_pointOne$2,
+        Privacy_section_threeThree_pointTwo: Privacy_section_threeThree_pointTwo$2,
+        Privacy_section_threeThree_pointThree: Privacy_section_threeThree_pointThree$2,
+        Privacy_section_threeThree_pointFour: Privacy_section_threeThree_pointFour$2,
+        Privacy_section_threeThree_pointFive: Privacy_section_threeThree_pointFive$2,
+        How_use_personal_data: How_use_personal_data$2,
+        Privacy_section_fourOne: Privacy_section_fourOne$2,
+        Privacy_section_fourTwo: Privacy_section_fourTwo$2,
+        Privacy_section_fourThree: Privacy_section_fourThree$2,
+        With_whom_do: With_whom_do$2,
+        Privacy_section_five: Privacy_section_five$2,
+        Where_do_we_transfer: Where_do_we_transfer$2,
+        Privacy_section_six: Privacy_section_six$2,
+        Automated_decision: Automated_decision$2,
+        Privacy_section_seven: Privacy_section_seven$2,
+        What_rights_do: What_rights_do$2,
+        Privacy_section_eight: Privacy_section_eight$2,
+        Privacy_section_eightOne: Privacy_section_eightOne$2,
+        Privacy_section_eightOne_content: Privacy_section_eightOne_content$2,
+        Privacy_section_eightTwo: Privacy_section_eightTwo$2,
+        Privacy_section_eightTwo_content: Privacy_section_eightTwo_content$2,
+        Privacy_section_eightThree: Privacy_section_eightThree$2,
+        Privacy_section_eightThree_content: Privacy_section_eightThree_content$2,
+        Privacy_section_eightFour: Privacy_section_eightFour$2,
+        Privacy_section_eightFour_content: Privacy_section_eightFour_content$2,
+        Privacy_section_eightFive: Privacy_section_eightFive$2,
+        Privacy_section_eightFive_content: Privacy_section_eightFive_content$2,
+        Exercising_your_rights: Exercising_your_rights$2,
+        Privacy_section_nine: Privacy_section_nine$2,
+        Additional_info: Additional_info$2,
+        Legal_procedures: Legal_procedures$2,
+        Legal_procedures_contentOne: Legal_procedures_contentOne$2,
+        Legal_procedures_contentTwo: Legal_procedures_contentTwo$2,
+        Security_measures: Security_measures$2,
+        Security_measures_contentOne: Security_measures_contentOne$2,
+        Security_measures_contentTwo: Security_measures_contentTwo$2,
+        Security_measures_contentThree: Security_measures_contentThree$2,
+        Definitions_legal_framework: Definitions_legal_framework$2,
+        Personal_data: Personal_data$2,
+        Personal_data_content: Personal_data_content$2,
+        Usage_data: Usage_data$2,
+        Usage_data_content: Usage_data_content$2,
+        User: User$2,
+        User_content: User_content$2,
+        Person_concerned: Person_concerned$2,
+        Person_concerned_content: Person_concerned_content$2,
+        Data_processor: Data_processor$2,
+        Data_processor_content: Data_processor_content$2,
+        Responsible_processing: Responsible_processing$2,
+        Responsible_processing_content: Responsible_processing_content$2,
+        This_application: This_application$2,
+        This_application_content: This_application_content$2,
+        Cookie: Cookie$2,
+        Cookie_content: Cookie_content$2,
+        Legal_information: Legal_information$2,
+        Legal_information_content: Legal_information_content$2,
+        Changes_privacy_policy: Changes_privacy_policy$2,
+        Changes_privacy_policy_date: Changes_privacy_policy_date$2,
+        Changes_privacy_policy_content: Changes_privacy_policy_content$2,
+        Terms_title: Terms_title$2,
+        Terms_introOne: Terms_introOne$2,
+        Terms_introTwo: Terms_introTwo$2,
+        Terms_introThree: Terms_introThree$2,
+        Terms_introFour: Terms_introFour$2,
+        Who_can_contribute: Who_can_contribute$2,
+        Who_can_contribute_contentOne: Who_can_contribute_contentOne$2,
+        Who_can_contribute_contentTwo: Who_can_contribute_contentTwo$2,
+        Limitation_of_liability: Limitation_of_liability$2,
+        Limitation_of_liability_contentOne: Limitation_of_liability_contentOne$2,
+        Limitation_of_liability_contentTwo: Limitation_of_liability_contentTwo$2,
+        Spam: Spam$2,
+        Spam_contentOne: Spam_contentOne$2,
+        Spam_contentTwo: Spam_contentTwo$2,
+        Infringement: Infringement$2,
+        Infringement_contentOne: Infringement_contentOne$2,
+        Infringement_contentTwo: Infringement_contentTwo$2,
+        Breaches_aforementioned_rules: Breaches_aforementioned_rules$2,
+        Breaches_aforementioned_rules_content: Breaches_aforementioned_rules_content$2,
+        Property_rights: Property_rights$2,
+        Property_rights_content: Property_rights_content$2,
+        Thanks_Bigletter: Thanks_Bigletter$2,
+        Thanks_Fitbit_title: Thanks_Fitbit_title$2,
+        Thanks_Content1: Thanks_Content1$2,
+        Thanks_Content2: Thanks_Content2$2,
+        'default': en
+    });
+
+    var Contribute$1 = "Participer";
+    var The_data$1 = "Les données";
+    var About$1 = "À propos";
+    var FAQ$1 = "FAQ";
+    var Contact$1 = "Contact";
+    var Heading$1 = "Collecte de données par et pour les cyclistes.";
+    var Introduction$1 = "Grâce aux données partagées par les citoyens et citoyennes du monde entier, le Bike Data Project vise à montrer où et quand le vélo est utilisé. Les données recueillies aideront les communautés locales et les institutions à rendre la pratique du vélo et nos villes plus sûres.";
+    var Label_total_km$1 = "Nombre total de kilomètres parcourus et partagés jusqu'à présent par des citoyens et citoyennes du monde entier";
+    var Help_title$1 = "Nous avons besoin de votre aide !";
+    var Ask_for_favor$1 = "Pour que cela fonctionne, nous avons besoin de vos contributions de données cyclables.";
+    var By_sharing_your$1 = "Nous voulons analyser où et quand vous roulez à vélo. Vos contributions de données, combinées avec celles d’autres cyclistes, aideront à créer des villes plus adaptées au vélo.";
+    var Every_cyclist_can$1 = "Chaque type de cycliste a quelque chose à contribuer. Par exemple, certaines personnes enregistrent déjà leur entraînement mais ce n’est pas suffisant. Nous voulons prendre en considération les parcours plus courts : sur le chemin du travail, en allant déposer les enfants à l’école ou en allant faire vos courses. Tout fonctionne !";
+    var Donate_title$1 = "Partagez vos données cyclables";
+    var Several_ways_to_contribute$1 = "Il existe plusieurs façons de contribuer au Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin. Une fois votre application connectée, vous n'avez plus rien à faire : vos trajets seront automatiquement téléchargés sur la plateforme du Bike Data Project.";
+    var You_not_using$1 = "Que faire si vous n'utilisez pas encore l'une des applications répertoriées? Vous pourrez bientôt télécharger et utiliser l'application du Bike Data Project. Nous travaillons aussi sur l'intégration d'autres applications de cyclisme !";
+    var Connect_existing_account$1 = "Connectez votre compte";
+    var Download_our_app$1 = "Télécharger notre application (disponible prochainement)";
+    var Data_title$1 = "Données collectées dans le monde";
+    var Rides_collected$1 = "Déplacements enregistrés";
+    var Distance_collected$1 = "Distance collectée";
+    var Average_duration$1 = "Durée moyenne";
+    var Average_speed$1 = "Vitesse moyenne";
+    var Average_distance$1 = "Distance moyenne";
+    var co2_saved$1 = "CO2 sauvé";
+    var Data_subtitle$1 = "Intéressé.e dans les données de votre région?";
+    var Data_button$1 = "Explorez les données";
+    var Contribute_title$1 = "A qui serviront ces données ?";
+    var People_who_work$1 = "Les professionnel.le.s qui travaillent sur les questions de mobilité et de planification urbaine dans le monde ont besoin d’information, et donc de données, pour développer des infrastructures modernes et créer des villes durables. Certain.e.s sont déjà convaincu.e.s et d’autres restent encore à convaincre. Au plus nous aurons des données à leur fournir, au plus nous aurons un impact important.";
+    var Common_goal$1 = "Ces données sont ouvertes et peuvent être utilisées pour d’autres produits ou services liés à la pratique du vélo. Le but est d'agréger les données cyclables - et donc de les anonymiser - pour les rendre disponibles en tant que données ouvertes et de faciliter la création de villes plus adaptées aux cyclistes. Pour nous et les générations à venir.";
+    var Visible_title$1 = "Plus de données cyclables signifie plus de possibilités pour et par les cyclistes.";
+    var Community_more_visible$1 = "Le Bike Data Project permet de rassembler des données cyclables issues de différentes applications dans une plateforme unique qui, basée sur les principes de données ouvertes et de logiciel ouvert, sont disponibles et utilisables à tou.te.s afin de s’assurer que la société entière en bénéficie.";
+    var Globally_but_locally$1 = "On sait peu de chose sur la façon dont les cyclistes se déplacent dans les villes. Si des données sont disponibles, elles sont souvent fermées, restreintes et vendues par un fournisseur unique d’application mobile. Dans d’autres cas, ces données sont collectées manuellement et sont donc statiques. Si nous voulons faire en sorte que plus de personnes fassent du vélo en ville et rendre ce choix aussi logique et évident qu’a pu l’être la voiture dans le passé, nous devons récolter autant d’informations sur le comportement des cyclistes que de données actuellement collectées sur la circulation automobile.";
+    var Informed_title$1 = "Restez informé.e";
+    var Email_label$1 = "Email";
+    var Informed_placeholder$1 = "Votre adresse email";
+    var Partners_title$1 = "Partenaires du projet";
+    var Footer_intro$1 = "Bike Data Project est un projet organisé par Open Knowledge Belgium";
+    var Footer_nav_title$1 = "Information";
+    var Footer_contact$1 = "Contact";
+    var Footer_street$1 = "Cantersteen 12";
+    var Footer_city$1 = "1000 Bruxelles";
+    var Footer_copyright_one$1 = "Sauf indication contraire, le contenu de ce site est sous licence";
+    var Footer_copyright_two$1 = "Creative Commons Attribution 4.0 International License";
+    var Terms_of_use$1 = "Conditions d’utilisation";
+    var Privacy_policy$1 = "Vie Privée";
+    var Cookie_policy$1 = "Cookies";
+    var Help$1 = "Aide";
+    var Contribute_big$1 = "Contribuez";
+    var Data$1 = "Data";
+    var Power$1 = "Power";
+    var Partners$1 = "Partenaires";
+    var About_us$1 = "À propos";
+    var Faq$1 = "Faq";
+    var Contact_us$1 = "Contact";
+    var Cookies$1 = "Cookies";
+    var Privacy$1 = "Vie Privée";
+    var Terms$1 = "Conditions";
+    var Map_title$1 = "Les données";
+    var Data_content_one$1 = "Faites défiler la page vers le bas pour explorer la carte et voir toutes les données cyclables collectées jusqu’à présent.";
+    var Data_content_two$1 = "Les données collectées dans ce projet sont des contributions de différents types de cyclistes. Toutes les données individuelles sont agrégées en données collectives qui sont donc anonymisées. Ces données collectives visualisent des traits de comportements des utilisateurs et utilisatrices en montrant comment et où les cyclistes se déplacent à vélo.";
+    var Data_content_three$1 = "Les données agrégées et non-personnelles seront ouvertes au public sous forme de données ouvertes. Ces données ouvertes, diffusées via The Bike Data Project, peuvent être utilisées par différents acteurs et pour différentes raisons. Voici une liste non-exhaustive du type d’utilisations possible avec ces données : ";
+    var Data_content_listOne$1 = "Les expert.e.s de la mobilité, de la planification urbaine ou du design urbain ont besoin de données ouvertes pour développer des infrastructures modernes et, ainsi, créer des villes durables.";
+    var Data_content_listTwo$1 = "Les citoyen.ne.s peuvent visualiser le nombre de cyclistes et le nombre de kilomètres parcourus dans leur ville en regardant la carte.";
+    var Data_content_listThree$1 = "La société civile et les journalistes peuvent utiliser ces données pour analyser la situation des cyclistes dans une ville, comme par exemple le temps que les cyclistes attendent à un feu rouge.";
+    var Data_content_listFour$1 = "Les entreprises actives dans les données peuvent les utiliser pour développer des outils avancés de navigations et de recommandations d’amélioration de l’infrastructure cycliste. Les données peuvent être utile pour tout service ou produit lié à l’utilisation du vélo.";
+    var Data_content_four$1 = "Toutes les données agrégées et anonymisées seront publiées comme données ouvertes fin Octobre 2020. Contribuez déjà vos données cyclables au projet !";
+    var Map_subtitle$1 = "Voir tout le code open source";
+    var About_title$1 = "À propos du projet";
+    var About_intro$1 = "Avec le Bike Data Project, Open Knowledge Belgium - l’organisation parapluie pour la connaissance ouverte et les données ouvertes en Belgique - veut construire une plateforme de données ouvertes collectées par les cyclistes et bénéficiant aux cyclistes. Le but est d’observer quand et où les cyclistes se déplacent. Ces données sont importées grâces à des applications différentes qui sont connectées à la plateforme du Bike Data Project. Ces données ouvertes collectives permettront aux communautés locales de rendre le vélo plus visible et aux pouvoirs publics de créer des villes plus cyclables et vivables.";
+    var About_titleOne$1 = "Qui est derrière ce projet ?";
+    var About_contentOne_oneBefore$1 = "Le Bike Data Project a initialement été initié par";
+    var About_contentOne_oneMiddle$1 = "et lancé dans le cadre de la sortie du";
+    var About_contentOne_oneAfter$1 = ", réalisé par Fredrik Gertten. Etant donné que ce documentaire ai été projeté dans plus de 50 pays, déjà plus de 275.000 déplacements à vélo ont été collectés.";
+    var About_contentOne_twoBefore$1 = "Début 2020, le projet a été déplacé sous Open Knowledge Belgium.";
+    var About_contentOne_twoAfter$1 = "(à but non lucratif / vzw / asbl), en tant que section locale d'Open Knowledge International, est une association parapluie pour diverses initiatives de connaissance ouverte et de données ouvertes en Belgique. Nous aspirons à un monde dans lequel la connaissance crée du pouvoir pour le plus grand nombre et non pour quelques personnes. Nous faison activement la promotion de l'ouverture à travers des projets et des événements, au grand public ainsi qu'aux expert.e.s du domaine. En tant qu'organisation parapluie, nous sommes constitués de personnes principalement des bénévoles et passionnées par l'ouverture, utilisant le plaidoyer, la recherche, la technologie et les projets pour débloquer des informations, permettant aux gens d'utiliser et de partager leurs connaissances.";
+    var About_contentOne_three$1 = "Open Knowledge Belgium garantit l'ouverture du projet à toutes fins et prend toutes les mesures nécessaires conformément à la réglementation GDPR concernant la confidentialité et la protection des données. Avec des conditions d'utilisation transparentes et claires pour ce projet, Open Knowledge Belgium souhaite montrer l'exemple sur la manière de traiter les problèmes liés à la vie privée et souhaite profiter de l'occasion pour informer les citoyens sur leurs droits numériques.";
+    var About_titleTwo$1 = "Plus de données sur le cyclisme signifie plus d’opportunités par et pour les cyclistes";
+    var About_contentTwo_one$1 = "On sait peu de choses sur la façon dont les cyclistes se déplacent dans les villes aujourd'hui. S'il y a des données disponibles, il s'agit de données fermées et restreintes vendues par un seul fournisseur d'application ou de données statiques collectées via des comptages manuels. Si nous voulons avoir plus de gens à vélo dans les villes et rendre le vélo aussi simple et logique que la voiture, nous devons également obtenir les mêmes données sur le comportement des cyclistes que nous avons sur le transport en voiture.";
+    var About_contentTwo_two$1 = "Open Knowledge Belgium vise à créer un impact en montrant où et quand les gens font du vélo. Le Bike Data Project offre la possibilité de collecter toutes les données cyclistes de différentes applications sur une seule plateforme, qui - basée sur le principe de l'open source et des données ouvertes - est adaptable et accessible par tous pour garantir qu’elle profite à la société dans son entièreté.";
+    var About_titleThree$1 = "L'infrastructure numérique publique comme bien commun";
+    var About_contentThree_one$1 = "Comme pour des activités comme OpenStreetMap Belgium et Open Planner Team d'Open Knowledge Belgium, le Bike Data Project est conçu comme un projet collaboratif ouvert à tou.t.es et qui fait bénéficier la société dans son ensemble. Par conséquent, l'infrastructure numérique et les données agrégées, étant basées sur les principes de l'open source et des données ouvertes - sont librement adaptables et accessibles à tou.t.es.";
+    var About_contentThree_two$1 = "De plus, Open Knowledge Belgium souhaite jouer, avec le Bike Data Project, un rôle important dans des mouvements sociétaux plus larges :";
+    var About_contentThree_listOneBold$1 = "Les citoyen.ne.s peuvent reprendre le contrôle de leurs données";
+    var About_contentThree_listOne$1 = "grâce à la forte réglementation européenne GDPR. Dans le cas du Bike Data Project, nous voulons encourager les citoyen.ne.s à extraire leurs données d'applications tierces (par exemple des applications populaires comme Strava et même potentiellement Google Maps) et leur demander de les contribuer à une bonne cause.";
+    var About_contentThree_listTwoBold$1 = "Promouvoir le partage des compétences et encourager l'apprentissage au sein de la communauté";
+    var About_contentThree_listTwo$1 = "tout au long du processus, de la construction du projet au développement de la plateforme. Fortement inspirés par le travail de la School of Data de Riga, nous souhaitons impliquer la communauté cycliste dans les campagnes locales du Bike Data Project dès le premier jour. Tout au long d'une série d'événements, Open Knowledge Belgium souhaite améliorer la maîtrise des données.";
+    var About_contentThree_listThreeBold$1 = "Penser globalement, agir localement.";
+    var About_contentThree_listThree$1 = "La plateforme Bike Data Project est globale et ouverte par défaut. Bien qu'il soit possible pour les communautés cyclistes du monde entier de contribuer au projet, Open Knowledge Belgium souhaite soutenir les communautés locales en les faisant agir au niveau local.";
+    var About_titleFour$1 = "Durabilité à long terme du Bike Data Project";
+    var About_contentFour$1 = "Open Knowledge Belgium s'associe à Bruxelles Mobilité pour lancer, dans le cadre de son programme Bike for Brussels, une première campagne en Région de Bruxelles-Capitale. Le lancement de campagnes locales de crowdsourcing dans différentes villes et la mise en place de la plateforme de données ouvertes font partie d'un plan à plus long terme pour le Bike Data Project. Lorsqu'une campagne de crowdsourcing dans une ville ou une région spécifique prend fin, la plateforme restera en ligne et sera maintenue par la communauté open source d'Open Knowledge Belgium. Les communautés cyclistes d'autres villes seront encouragées à lancer une campagne dans leurs villes et à utiliser la plateforme. Compte tenu de l'intérêt des différentes parties prenantes pour la Bike Data Platform, Open Knowledge Belgium a déjà reçu la confirmation de différentes parties prenantes de leur souhait de contribuer financièrement au projet afin que les coûts du serveur puissent être couverts. De cette manière, le projet sera pérennisé sur le long terme.";
+    var Faq_title$1 = "Questions fréquemment posées";
+    var Question_one_title$1 = "Pourquoi devrais-je participer à ce projet ?";
+    var Question_one_answerOne$1 = "En contribuant vos données cyclistes, vous pouvez contribuer à rendre nos villes mieux adaptées aux cyclistes.";
+    var Question_one_answerTwo$1 = "Plus de données sur le cyclisme signifie plus d’opportunités par et pour les cyclistes. On sait peu de choses sur la façon dont les cyclistes se déplacent dans les villes aujourd'hui. S'il y a des données disponibles, il s'agit de données fermées et restreintes vendues par un seul fournisseur d'application, ou de données statiques collectées via des comptages manuels. Si nous voulons avoir plus de gens à vélo dans les villes et rendre le vélo aussi simple et logique que la voiture, nous devons également obtenir les mêmes données sur le comportement des cyclistes que nous avons sur le transport en voiture.";
+    var Question_two_title$1 = "Comment fonctionne ce projet ?";
+    var Question_two_answerOne$1 = "Pour faire ce travail, nous avons besoin que vous fournissez vos données cyclistes. Nous avons besoin de savoir où vous faites du vélo. Vos contributions de données, combinées aux données de nombreux et nombreuses autres cyclistes, rendront les villes plus adaptées aux cyclistes.";
+    var Question_two_answerTwo$1 = "Nous demandons à différents types de cyclistes (par exemple, les navetteurs/navetteuses quotidiens, les livreurs/livreuses, les sportifs/sportives et les touristes) d’enregistrer leurs déplacements à vélo via leur application mobile préférée et de fournir leurs données à la plateforme du Bike Data Project. Chaque type de cycliste a quelque chose à apporter à ce projet. Certaines personnes suivent déjà leurs activités sportives. C'est super, mais nous voulons aussi vraiment prendre en compte les trajets courts: se rendre au travail, déposer les enfants à l'école ou en allant à l'épicerie du coin.";
+    var Question_two_answerThree$1 = "En retour, les données cyclistes agrégées et anonymisées seront ouvertes au public et pourront être librement utilisées par n'importe qui. Nous visons à créer un impact en montrant où et quand les gens font du vélo. Plus de données signifie plus d'influence sur les personnes au pouvoir pour rendre les villes plus durables et plus adaptées aux vélos.";
+    var Question_three_title$1 = "Comment puis-je contribuer mes données à la plateforme ?";
+    var Question_three_answer$1 = "Vous pouvez simplement connecter une application cycliste à la plateforme du Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin, mais nous travaillons également sur l'intégration d'autres applications. Une fois votre application connectée, vous n'avez plus rien à faire et vos trajets seront automatiquement téléchargés sur la plateforme. Si vous n'utilisez pas encore d'application de cyclisme, vous pourrez bientôt utiliser notre propre application. Avec l'application Bike Data Project, vous n'aurez pas besoin de créer de compte : vous pourrez partager anonymement vos données sur la plateforme.";
+    var Question_four_title$1 = "Que se passe-t-il avec mes données ?";
+    var Question_four_answerOne$1 = "Les données collectées dans le cadre de ce projet sont des contributions de tous types de cyclistes. Toutes les données individuelles sont agrégées en données collectives. Les données collectives nous donnent alors des modèles que nous pouvons utiliser pour montrer où et quand les cyclistes font du vélo.";
+    var Question_four_answerTwo$1 = "Les données cyclistes agrégées non-privées seront ouvertes au public en tant que données ouvertes. Les données ouvertes fournies par la plateforme Bike Data Project peuvent être librement utilisées par différentes parties prenantes et à des fins différentes. Voici une liste non exhaustive des différents cas d'utilisation des données ouvertes :";
+    var Question_four_answerThree$1 = "Les expert.e.s en mobilité et les urbanistes du monde entier ont besoin de données ouvertes comme celles-ci pour les aider à développer des infrastructures modernes et des villes durables.";
+    var Question_four_answerFour$1 = "Les citoyen.ne.s peuvent avoir un aperçu du nombre de cyclistes, des kilomètres parcourus dans la ville et consulter une carte avec le nombre de cyclistes par itinéraire.";
+    var Question_four_answerFive$1 = "La société civile et les journalistes peuvent utiliser les données pour analyser la situation des cyclistes dans la ville, comme par exemple le temps que les cyclistes attendent en moyenne aux feux de signalisation.";
+    var Question_four_answerSix$1 = "Les sociétés active dans la gestion de données et de logiciels peuvent obtenir des informations intelligentes sur le cyclisme et créer des outils tels que des planificateurs d'itinéraires cyclables avancés et des moteurs de recommandation pour améliorer l'infrastructure cyclable. Les données peuvent également être très utiles pour d'autres produits et services liés au vélo.";
+    var Question_four_answerSeven$1 = "Toutes les données cyclables agrégées seront disponibles sous forme de données ouvertes d'ici la fin octobre 2020. Pour l'instant, vous pouvez contribuer au projet en faisant don de vos données cyclistes.";
+    var Question_five_title$1 = "Ma vie privée est-elle respectée lorsque je communique mes données ?";
+    var Question_five_answerOne$1 = "Oui, Open Knowledge Belgium garantit l'ouverture du projet afin que la société en profite dans son ensemble et prend toutes les mesures nécessaires conformément à la réglementation GDPR concernant la confidentialité et la protection des données.";
+    var Question_five_answerTwo$1 = "Nous collectons des données de nombreux cyclistes individuels et visons à rendre les données agrégées non privées disponibles au public sous forme de données ouvertes. Les données agrégées seront publiées de manière à ce qu'il ne soit pas possible de récupérer les informations personnelles d'une personne.";
+    var Question_five_answerThree$1 = "La publication des données se fera sur la base du principe de confidentialité différentielle, qui est un système de partage public d'informations sur un ensemble de données en décrivant les modèles de groupes au sein de l'ensemble de données tout en retenant des informations sur les individus de l'ensemble de données. Cela signifie essentiellement que les données ne seront publiées que si les informations d'une personne particulière ne peuvent pas être récupérées.";
+    var Question_six_title$1 = "Puis-je supprimer mes données ?";
+    var Question_six_answer$1 = "Oui ! Bien que vous fournissiez vos données de manière anonyme (nous ne vous demandons pas votre nom ou toute autre information qui vous identifie), vous pouvez nous demander d'extraire vos données de la plateforme Bike Data Project. Veuillez nous envoyer un e-mail à bikedataproject@openknowledge.be avec le nom de l'application que vous avez utilisée pour fournir vos données et, si possible, également le numéro d'identification associé à votre compte dans l'application.";
+    var Question_seven_title$1 = "Quelles données est-ce que je partage depuis mon application ?";
+    var Question_seven_answer$1 = "Nous souhaitons principalement vous demander de fournir les données concernant vos activités cyclistes, plus précisément où et quand vous faites du vélo. En plus de cela, il est possible de partager des informations sur votre genre, votre âge, le type de vélo et la raison de votre déplacement (loisirs, sports, domicile-travail,...).";
+    var Question_eight_title$1 = "Comment accéder aux données ouvertes ?";
+    var Question_eight_answerOne$1 = "Les données cyclistes agrégées non privées seront ouvertes au public en tant que données ouvertes. Les données ouvertes fournies par la plateforme Bike Data Project peuvent être librement utilisées par différentes parties prenantes et à des fins différentes.";
+    var Question_eight_answerTwo$1 = "Toutes les données cyclables agrégées seront disponibles sous forme de données ouvertes d'ici la fin octobre 2020. Pour l'instant, vous pouvez contribuer au projet en faisant don de vos données cyclistes.";
+    var Question_nine_title$1 = "J'aimerais être plus impliqué.e dans ce projet - comment aider ?";
+    var Question_nine_answer$1 = "C'est génial! N'hésitez pas à rejoindre notre groupe Slack (https://join.slack.com/t/bikedataproject/sharedinvite/zt-g60t5w5c-lT2ucV0HtLEVnE4wG9hTg) et à vous y introduire. Nous serons super heureux de savoir comment vous aimeriez contribuer au projet !";
+    var Contact_title$1 = "Contact";
+    var Further_questions$1 = "Pour toute question ou information complémentaire, veuillez nous contacter via :";
+    var Follow_socials$1 = "Pour toute question ou information complémentaire, veuillez nous contacter via :";
+    var Cookies_title$1 = "Cookie Policy";
+    var What_are_cookies$1 = "1. Que sont les cookies ?";
+    var Cookies_section_one$1 = "Les cookies sont de petits fichiers téléchargés sur votre ordinateur pour améliorer votre expérience. Cette page décrit les informations qu'ils collectent, comment nous les utilisons et pourquoi nous avons parfois besoin de stocker ces cookies. Nous partagerons également comment vous pouvez empêcher le stockage de ces cookies. Cependant, cela peut rétrograder ou «casser» certains éléments de la fonctionnalité du site. Pour plus d'informations générales sur les cookies";
+    var Cookies_section_oneLink$1 = "voir cet article de Wikipedia sur les cookies HTTP.";
+    var How_we_use_cookies$1 = "2. Comment nous utilisons les cookies";
+    var Cookies_section_two$1 = "Nous utilisons des cookies pour diverses raisons détaillées ci-dessous. Malheureusement, dans la plupart des cas, il n'y a pas d'options standard pour désactiver les cookies sans désactiver complètement les fonctionnalités qu'ils ajoutent à ce site. Il est recommandé de laisser tous les cookies si vous n'êtes pas sûr d'en avoir besoin ou non au cas où ils seraient utilisés pour fournir un service que vous utilisez.";
+    var Disabling_cookies$1 = "3. Désactiver les cookies";
+    var Cookies_section_three$1 = "Vous pouvez empêcher le téléchargement de cookies en ajustant les paramètres de votre navigateur (voir le menu Aide de votre navigateur pour savoir comment procéder). Veuillez noter que la désactivation des cookies peut affecter la fonctionnalité de ce site Web et de nombreux autres sites Web que vous visitez. La désactivation des cookies entraînera généralement la désactivation de certaines fonctionnalités et fonctionnalités de ce site. Si vous souhaitez désactiver les cookies, nous vous recommandons d'utiliser";
+    var Cookies_section_threeLink$1 = "Firefox.";
+    var Cookies_we_set$1 = "4. Cookies que nous définissons";
+    var Cookies_section_fourOne$1 = "Notre site web comprend un service d'abonnement à la newsletter et des cookies peuvent être utilisés pour vous rappeler si vous êtes déjà inscrit et si vous souhaitez afficher certaines notifications qui ne sont valables que pour les utilisateurs abonnés/désabonnés.";
+    var Cookies_section_fourTwo$1 = "Afin de vous offrir une excellente expérience sur ce site, nous fournissons la fonctionnalité permettant de définir la langue en fonction de la langue que vous utilisez dans votre navigateur. Afin de nous souvenir de vos préférences, nous devons définir des cookies, afin que ces informations puissent être rappelées chaque fois que vous interagissez avec une page qui est affectée par vos préférences.";
+    var Third_party_cookies$1 = "5. Cookies tiers";
+    var Cookies_section_five$1 = "Notre site n'utilise pas de cookies fournis par des tiers.";
+    var More_information$1 = "6. Plus d'information";
+    var Cookies_section_six$1 = "Comme mentionné précédemment, s'il y a quelque chose dont vous n'êtes pas sûr d'avoir besoin ou non, il est généralement plus sûr de laisser les cookies activés - juste au cas où ils interagissent avec l'une des fonctionnalités que vous utilisez sur notre site. Si vous cherchez toujours plus d'informations, vous pouvez nous contacter au ";
+    var Privacy_title$1 = "Politique de confidentialité";
+    var Privacy_introOne$1 = "Responsable du traitement des données et propriétaire";
+    var Privacy_introTwo$1 = "Bike Data Project est sous Open Knowledge Belgium en tant que personne morale, une organisation à but non lucratif, constituée et existant sous le droit belge, avec siège social au 12 Cantersteen 1000 Bruxelles, Belgique, sous le numéro d'entreprise 0845.419.930.";
+    var Privacy_policy_section$1 = "1. Politique de la Vie Privée";
+    var Privacy_section_one$1 = "Cette «Politique de confidentialité» s'applique aux «Données personnelles» collectées par Bike Data Project via ce site Web.";
+    var What_does_personal$1 = "2. Que signifient les données personnelles ?";
+    var Privacy_section_two$1 = "Dans cette politique de confidentialité, les données personnelles font référence aux informations qui permettent de vous identifier. Une personne identifiable est une personne qui peut être identifiée, directement ou indirectement, notamment par référence à un numéro d'identification ou à un ou plusieurs facteurs liés à l'identité physique, physiologique, mentale, économique, culturelle ou sociale. Un exemple typique d'informations personnelles est votre nom et votre adresse e-mail.";
+    var What_personal_data$1 = "3. Quelles données personnelles collectons-nous ?";
+    var Privacy_section_three$1 = "Nous pouvons collecter vos données personnelles à partir des sources suivantes :";
+    var Privacy_section_threeOne$1 = "3.1 Données personnelles que vous fournissez lors du processus de contribution des données sur la plateforme.";
+    var Privacy_section_threeOne_pointOne$1 = "Données sur votre profil public dans votre application cycliste préférée (obligatoire)";
+    var Privacy_section_threeOne_pointTwo$1 = "Données sur vos activités cyclistes privées dans votre application cycliste préférée (obligatoire)";
+    var Privacy_section_threeOne_pointThree$1 = "Votre consentez à ces conditions";
+    var Privacy_section_threeTwo$1 = "3.2 Données personnelles que nous collectons lorsque vous visitez notre site Web.";
+    var Privacy_section_threeTwo_content$1 = "Nous utilisons des cookies pour collecter automatiquement des données personnelles vous concernant lorsque vous utilisez ce site Web. Pour plus d'informations, veuillez consulter notre politique en matière de cookies.";
+    var Privacy_section_threeThree$1 = "3.3. Données personnelles que vous fournissez lors du partage des données cyclistes";
+    var Privacy_section_threeThree_pointOne$1 = "Vos déplacements à vélo (obligatoire)";
+    var Privacy_section_threeThree_pointTwo$1 = "Votre tranche d'âge (facultatif)";
+    var Privacy_section_threeThree_pointThree$1 = "Votre genre (facultatif)";
+    var Privacy_section_threeThree_pointFour$1 = "La raison de votre déplacement à vélo (facultatif)";
+    var Privacy_section_threeThree_pointFive$1 = "Votre type de vélo (facultatif)";
+    var How_use_personal_data$1 = "4. Comment utilisons-nous les données personnelles ?";
+    var Privacy_section_fourOne$1 = "Nous collectons des données cyclistes de nombreux cyclistes individuels et visons à rendre les données agrégées non privées disponibles au public sous forme de données ouvertes. Les données agrégées seront publiées de manière à ce qu'il ne soit pas possible de récupérer les informations personnelles d'un cycliste individuel.";
+    var Privacy_section_fourTwo$1 = "La publication des données se fera sur la base du principe de confidentialité différentielle, qui est un système de partage public d'informations sur un ensemble de données en décrivant les modèles de groupes au sein de l'ensemble de données tout en retenant des informations sur les individus de l'ensemble de données. Cela signifie essentiellement que les données ne seront publiées que si les informations d'une personne en particulier ne peuvent pas être récupérées.";
+    var Privacy_section_fourThree$1 = "Les données personnelles ne sont stockées et traitées que pendant la durée requise aux fins du traitement. Après cela, les données seront supprimées ou rendues anonymes. Bike Data Project s'appuie sur DigitalOcean qui est certifié selon les principales normes de confidentialité et de sécurité. Les services DigitalOcean sont conformes au GDPR. Toutes les informations relatives à DigitalOcean peuvent être trouvées ici.";
+    var With_whom_do$1 = "5. Avec qui partageons-nous vos données personnelles ?";
+    var Privacy_section_five$1 = "Vos données personnelles ne seront partagées avec aucun tiers. Nous ne vendrons ni ne louerons jamais vos données personnelles à d'autres fournisseurs de services, ni ne partagerons vos données personnelles avec des fournisseurs de services qui ne sont pas conformes au RGPD.";
+    var Where_do_we_transfer$1 = "6. Où transférons-nous vos données personnelles ?";
+    var Privacy_section_six$1 = "Nous ne transférons vos données personnelles à des prestataires de services établis en dehors de l'Espace économique européen que s'ils se conforment à l'article 44 du RGPD. Tous les fournisseurs de services basés aux États-Unis se conforment au Privacy Shield.";
+    var Automated_decision$1 = "7. Prise de décision et profilage automatisés.";
+    var Privacy_section_seven$1 = "Le traitement de vos données personnelles n'inclut pas le profilage et ne sera pas soumis à une prise de décision automatisée pour le Bike Data Project.";
+    var What_rights_do$1 = "8. Quels droits avez-vous ? ";
+    var Privacy_section_eight$1 = "Vous avez le droit de consulter vos données personnelles à tout moment, ainsi que le droit d'être informé.e de l'utilisation que Bike Data Project fait de vos données personnelles.";
+    var Privacy_section_eightOne$1 = "1. Droit de rectification, de suppression et de limitation du traitement";
+    var Privacy_section_eightOne_content$1 = "Vous êtes libre de décider de fournir ou non vos données personnelles au Bike Data Project. De plus, vous avez toujours le droit de modifier, compléter ou supprimer vos données personnelles sur le Bike Data Project. Vous reconnaissez qu'un refus de fournir ou une demande de suppression de données personnelles signifie que certains services ne peuvent plus être fournis. Vous pouvez également demander la limitation du traitement de vos données personnelles.";
+    var Privacy_section_eightTwo$1 = "2. Droit d'opposition";
+    var Privacy_section_eightTwo_content$1 = "Vous avez le droit de vous opposer au traitement de vos données personnelles, pour autant que cela soit pour des raisons sérieuses et légitimes.";
+    var Privacy_section_eightThree$1 = "3. Droit à la portabilité des données";
+    var Privacy_section_eightThree_content$1 = "Vous avez le droit d'obtenir les données personnelles que vous avez fournies au Bike Data Project sous une forme structurée, typique et lisible par machine et/ou de les transférer à différents contrôleurs.";
+    var Privacy_section_eightFour$1 = "4. Droit de retirer son consentement";
+    var Privacy_section_eightFour_content$1 = "Dans la mesure où le traitement est basé sur votre consentement préalable, vous avez le droit de retirer cette approbation.";
+    var Privacy_section_eightFive$1 = "5. Droit de déposer une plainte";
+    var Privacy_section_eightFive_content$1 = "Vous avez le droit de déposer une plainte auprès de la Commission belge de la protection de la vie privée: Personal Privacy Protection Commission, Drukpersstraat 35, 1000 Bruxelles, Belgique, Tel +32 (0) 2274 48 00, Fax +32 (0) 2274 48 35, email : commission@privacycommission.be. Cela n'affecte pas la réparation devant un tribunal civil.";
+    var Exercising_your_rights$1 = "9. Exercer vos droits";
+    var Privacy_section_nine$1 = "Vous pouvez exercer vos droits en contactant Bike Data Project à cet effet en envoyant un email à support bikedataproject@openknowledge.be, à condition de joindre une copie de votre carte d'identité";
+    var Additional_info$1 = "Informations supplémentaires sur la collecte et le traitement des données";
+    var Legal_procedures$1 = "Procédures légales";
+    var Legal_procedures_contentOne$1 = "The Processor and the Controller for the processing of the Data might use the Personal Data of the User for legal purposes, for the court or legal proceedings in the event of unlawful use of this Application or the related services.";
+    var Legal_procedures_contentTwo$1 = "Le sous-traitant et le responsable du traitement des données peuvent utiliser les données personnelles de l'utilisateur à des fins légales, pour le tribunal ou des procédures judiciaires en cas d'utilisation illégale de cette application ou des services associés.";
+    var Security_measures$1 = "Mesures de sécurité";
+    var Security_measures_contentOne$1 = "Bike Data Project a développé des mesures de sécurité qui ont été ajustées au niveau technologique et organisationnel pour empêcher la destruction, la perte, la falsification, la modification, l'accès interdit ou la divulgation erronée à des tiers de données personnelles ainsi que tout autre traitement interdit de ces données.";
+    var Security_measures_contentTwo$1 = "En aucun cas Bike Data Project ne pourra être tenu pour responsable de toute perte directe ou indirecte résultant d'une utilisation incorrecte ou illicite de vos données personnelles par un tiers.";
+    var Security_measures_contentThree$1 = "Vous devez à tout moment vous conformer aux instructions de sécurité, qui incluent la prévention de tout accès interdit à vos informations de connexion, y compris votre mot de passe. Vous êtes seul responsable de l'utilisation du site Web sur votre ordinateur, de votre adresse IP et de vos informations d'identification, ainsi que de la confidentialité de celles-ci.";
+    var Definitions_legal_framework$1 = "Définitions et cadre juridique";
+    var Personal_data$1 = "Données personnelles (ou données)";
+    var Personal_data_content$1 = "Toute information concernant une personne physique, une personne morale, une institution ou une association qui a été ou pourrait être identifiée directement ou indirectement par référence à d'autres informations.";
+    var Usage_data$1 = "Des données d'utilisation";
+    var Usage_data_content$1 = "Les informations qui sont automatiquement collectées à partir de cette Application (ou des services externes utilisés dans cette Application), y compris: les adresses IP ou les noms de domaine des ordinateurs utilisés par les Utilisateurs de cette Application, les adresses URI (Uniform Resource Identifier), l'heure de la requête, la méthode utilisée pour soumettre la requête au serveur, la taille du fichier reçu en réponse, le code numérique indiquant l'état de la réponse du serveur (succès, erreur, etc.), les fonctions du navigateur et le système d'exploitation de l'Utilisateur, les différentes données de temps par visite (comme le temps passé sur chaque page de l'application) et les données collectées lors de l'utilisation de l'application (exemple: l'ordre des pages visitées ou d'autres paramètres concernant le système d'exploitation de l'appareil).";
+    var User$1 = "Utilisateur";
+    var User_content$1 = "La personne utilisant cette application et qui doit être d'accord avec ou être autorisée par la personne concernée à laquelle se réfèrent les données personnelles.";
+    var Person_concerned$1 = "La personne concernée";
+    var Person_concerned_content$1 = "La personne morale ou physique à laquelle se rapportent les données personnelles.";
+    var Data_processor$1 = "Processeur de données (ou superviseur de données)";
+    var Data_processor_content$1 = "La personne physique, la personne morale, l'administration gouvernementale ou toute autre institution, association ou organisation qui a été autorisée par le contrôleur de données à traiter les données personnelles conformément à la présente politique de confidentialité.";
+    var Responsible_processing$1 = "Responsable du traitement des données (ou propriétaire)";
+    var Responsible_processing_content$1 = "La personne physique, la personne morale, l'administration gouvernementale ou toute autre institution, association ou organisation ayant le droit, également conjointement avec le responsable du traitement des données, de prendre des décisions concernant les finalités et les méthodes de traitement des données personnelles et les moyens utilisés, y compris mesures de sécurité concernant l'exploitation et l'utilisation de cette application. Le responsable du traitement des données est le propriétaire de cette application, sauf indication contraire.";
+    var This_application$1 = "Cette application";
+    var This_application_content$1 = "Les outils matériels ou logiciels par lesquels les données personnelles de l'utilisateur sont collectées.";
+    var Cookie$1 = "Cookie";
+    var Cookie_content$1 = "Petit morceau de données stocké sur l'appareil de l'utilisateur. Consultez notre politique relative aux cookies.";
+    var Legal_information$1 = "Information légale";
+    var Legal_information_content$1 = "Avis aux utilisateurs européens: cette déclaration de confidentialité a été rédigée dans le respect des obligations de l'art. 10 de la directive européenne 95/46 / CE et les dispositions de la directive européenne 2002/58 / CE, ainsi que la révision de la directive 2009/136 / CE concernant les cookies.";
+    var Changes_privacy_policy$1 = "Modifications de cette politique de confidentialité";
+    var Changes_privacy_policy_date$1 = "Dernière mise à jour: 16 septembre 2020";
+    var Changes_privacy_policy_content$1 = "Le Responsable du traitement des Données se réserve le droit de modifier cette politique de confidentialité à tout moment en informant les Utilisateurs sur cette page. Nous vous encourageons à consulter cette page pour d'éventuels changements. La date du dernier changement est indiquée en bas de page. Si un utilisateur s'oppose à toute modification de la politique, l'utilisateur ne doit pas continuer à utiliser cette application. On peut demander au responsable du traitement des données de supprimer les données personnelles. Sauf indication contraire, la politique de confidentialité en vigueur à ce moment-là s'applique à toutes les données personnelles que le contrôleur a stockées pour le traitement des données sur les utilisateurs.";
+    var Terms_title$1 = "Conditions d'utilisation";
+    var Terms_introOne$1 = "Avec le Bike Data Project, Open Knowledge Belgium - l'organisation parapluie des initiatives de connaissance ouverte et de données ouvertes en Belgique - fournit une plateforme de données cyclables collaborative qui collecte des données sur où et quand les cyclistes font du vélo.";
+    var Terms_introTwo$1 = "La plate-forme vise à regrouper les données des cyclistes, provenant de différentes applications et sources mobiles, en une seule plate-forme de données de vélo ouverte afin de permettre aux communautés locales de rendre le cyclisme plus visible et aux décideurs de rendre les villes plus vivables et plus conviviales pour les vélos.";
+    var Terms_introThree$1 = "La participation à ce projet et l'utilisation de cette plateforme sont soumises à un certain nombre de règles. Vous trouverez ci-dessous les conditions générales de notre projet, car nous sommes convaincus que des règles claires offrent la meilleure garantie pour une communauté respectueuse.";
+    var Terms_introFour$1 = "Parce qu'Open Knowledge Belgium apprécie les retours de la communauté Bike Data Project, nous accueillons toute idée pour améliorer encore la plateforme. Vous pouvez envoyer vos suggestions par e-mail.";
+    var Who_can_contribute$1 = "Qui peut contribuer au Bike Data Project et qui peut utiliser les données ouvertes fournies par le Bike Data Project ?";
+    var Who_can_contribute_contentOne$1 = "Tout type de cycliste peut contribuer au projet en partageant des données cyclables. Vous pouvez soit lier votre application cycliste préférée pour partager vos données, soit utiliser l'application Bike Data Project afin de contribuer au Bike Data Project. Pour utiliser l'application du Bike Data Project, vous n'avez pas besoin de créer un compte pour utiliser l'application.Vous et vos données cyclistes collectées resteront donc anonymes.";
+    var Who_can_contribute_contentTwo$1 = "Les données cyclistes agrégées non privées seront ouvertes au public en tant que données ouvertes. Les données ouvertes fournies par la plate-forme Bike Data Project sont publiées sous une licence internationale Creative Commons Attribution 4.0, qui n'impose aucune restriction sur votre utilisation des données ouvertes. Vous n'êtes tenu de donner un crédit approprié au projet de données de vélo qu'en fournissant le nom du projet, un avis de droit d'auteur, un avis de licence, un avis de non-responsabilité et un lien vers la plate-forme.";
+    var Limitation_of_liability$1 = "Limitation de responsabilité";
+    var Limitation_of_liability_contentOne$1 = "Le projet ne peut être tenu responsable de tout échec ou retard dans l'exécution des conditions. La plateforme ne saurait être tenue pour responsable de toute responsabilité en cas de dommage personnel résultant de son utilisation. Vous devez défendre, indemniser et dégager de toute responsabilité le Bike Data Project (et chacun de ses partenaires et / ou bénévoles) contre toute réclamation, demande, action, dommage, perte, coût ou dépense, y compris, sans limitation, les honoraires d'avocat raisonnables, découlant ou concernant (a) votre utilisation de notre projet; (b) tout contenu de membre ou soumissions que vous fournissez; (c) votre violation de ces conditions; (d) votre violation des droits d'autrui; ou (e) votre conduite en relation avec les services. En outre, si vous utilisez le projet au nom d'une entité, vous déclarez et garantissez que cette entité accepte de vous indemniser, vous et le Bike Data Project, pour les violations de ces conditions conformément à la présente section. Si vous êtes obligé de nous indemniser, nous aurons le droit, à notre seule et entière discrétion, de contrôler toute action ou procédure et de déterminer si nous souhaitons la régler et, le cas échéant, à quelles conditions.";
+    var Limitation_of_liability_contentTwo$1 = "Nous croyons fermement à la liberté d'expression. Cependant, afin de garantir que la plateforme puisse être utilisée de manière constructive par les utilisateurs, dans le respect des différentes opinions et sans que les gens aient à craindre de participer au projet, nous n'autorisons pas les comportements offensants qui harcèlent, intimident ou utilisent peur de faire taire un autre utilisateur.";
+    var Spam$1 = "Spam";
+    var Spam_contentOne$1 = "Nous nous efforçons à tout moment de protéger l'utilisateur de la plateforme Bike Data Project contre les abus techniques et les spams. Les comptes utilisés pour effectuer les actions répertoriées ci-dessous peuvent être temporairement bloqués ou supprimés définitivement.";
+    var Spam_contentTwo$1 = "Malware / phishing / viruses / worms / Trojans: Vous ne pouvez pas publier de contenu malveillant ou des liens vers un tel contenu dans le but d'endommager ou de perturber les navigateurs ou les ordinateurs de quelqu'un d'autre, ou de violer la vie privée de quelqu'un. Spam: vous n'êtes pas autorisé à utiliser la plateforme Bike Data Project pour spammer des personnes.";
+    var Infringement$1 = "Violation des lois applicables";
+    var Infringement_contentOne$1 = "L'utilisation du compte ne doit en aucun cas enfreindre les lois applicables. Cela inclut les infractions à la législation sur la protection de la vie privée, aux droits de propriété intellectuelle, au code pénal, etc. Le compte ne peut en aucun cas être utilisé pour promouvoir des activités illégales.";
+    var Infringement_contentTwo$1 = "Le compte ne peut en aucun cas être utilisé pour promouvoir des activités illégales.";
+    var Breaches_aforementioned_rules$1 = "En cas de non-respect des règles précitées";
+    var Breaches_aforementioned_rules_content$1 = "Il peut arriver que des fichiers nuisibles puissent être téléchargés via la plateforme, que ce soit du fait ou non d'un utilisateur, ou que les utilisateurs placent des hyperliens nuisibles. Tout téléchargement par un utilisateur ou clic sur un lien hypertexte, placé par un utilisateur, se fait aux risques et périls de l'utilisateur. Tout dommage encouru est entièrement et uniquement de la responsabilité de cet utilisateur.";
+    var Property_rights$1 = "Droits de propriété Bike Data Project";
+    var Property_rights_content$1 = "Le code source de Bike Data Project est publié sous une licence open source MIT. Vous acceptez d'être lié et de vous conformer à tout accord de licence qui s'applique à ce logiciel open source. L'identité visuelle, y compris le logo et les couleurs, est disponible sous CC BY 4.0. Le nom du Bike Data Project ne peut être ni utilisé ni répliqué.";
+    var Thanks_Bigletter$1 = "Thank You";
+    var Thanks_Fitbit_title$1 = "Thank you for linking your Fitbit account!";
+    var Thanks_Content1$1 = "Your Fibit account is now linked to the Bike Data Project.";
+    var Thanks_Content2$1 = "Your contributions will show up automatically from now on when you log bicycle rides via FitBit.";
+    var fr = {
+    	Contribute: Contribute$1,
+    	The_data: The_data$1,
+    	About: About$1,
+    	FAQ: FAQ$1,
+    	Contact: Contact$1,
+    	Heading: Heading$1,
+    	Introduction: Introduction$1,
+    	Label_total_km: Label_total_km$1,
+    	Help_title: Help_title$1,
+    	Ask_for_favor: Ask_for_favor$1,
+    	By_sharing_your: By_sharing_your$1,
+    	Every_cyclist_can: Every_cyclist_can$1,
+    	Donate_title: Donate_title$1,
+    	Several_ways_to_contribute: Several_ways_to_contribute$1,
+    	You_not_using: You_not_using$1,
+    	Connect_existing_account: Connect_existing_account$1,
+    	Download_our_app: Download_our_app$1,
+    	Data_title: Data_title$1,
+    	Rides_collected: Rides_collected$1,
+    	Distance_collected: Distance_collected$1,
+    	Average_duration: Average_duration$1,
+    	Average_speed: Average_speed$1,
+    	Average_distance: Average_distance$1,
+    	co2_saved: co2_saved$1,
+    	Data_subtitle: Data_subtitle$1,
+    	Data_button: Data_button$1,
+    	Contribute_title: Contribute_title$1,
+    	People_who_work: People_who_work$1,
+    	Common_goal: Common_goal$1,
+    	Visible_title: Visible_title$1,
+    	Community_more_visible: Community_more_visible$1,
+    	Globally_but_locally: Globally_but_locally$1,
+    	Informed_title: Informed_title$1,
+    	Email_label: Email_label$1,
+    	Informed_placeholder: Informed_placeholder$1,
+    	Partners_title: Partners_title$1,
+    	Footer_intro: Footer_intro$1,
+    	Footer_nav_title: Footer_nav_title$1,
+    	Footer_contact: Footer_contact$1,
+    	Footer_street: Footer_street$1,
+    	Footer_city: Footer_city$1,
+    	Footer_copyright_one: Footer_copyright_one$1,
+    	Footer_copyright_two: Footer_copyright_two$1,
+    	Terms_of_use: Terms_of_use$1,
+    	Privacy_policy: Privacy_policy$1,
+    	Cookie_policy: Cookie_policy$1,
+    	Help: Help$1,
+    	Contribute_big: Contribute_big$1,
+    	Data: Data$1,
+    	Power: Power$1,
+    	Partners: Partners$1,
+    	About_us: About_us$1,
+    	Faq: Faq$1,
+    	Contact_us: Contact_us$1,
+    	Cookies: Cookies$1,
+    	Privacy: Privacy$1,
+    	Terms: Terms$1,
+    	Map_title: Map_title$1,
+    	Data_content_one: Data_content_one$1,
+    	Data_content_two: Data_content_two$1,
+    	Data_content_three: Data_content_three$1,
+    	Data_content_listOne: Data_content_listOne$1,
+    	Data_content_listTwo: Data_content_listTwo$1,
+    	Data_content_listThree: Data_content_listThree$1,
+    	Data_content_listFour: Data_content_listFour$1,
+    	Data_content_four: Data_content_four$1,
+    	Map_subtitle: Map_subtitle$1,
+    	About_title: About_title$1,
+    	About_intro: About_intro$1,
+    	About_titleOne: About_titleOne$1,
+    	About_contentOne_oneBefore: About_contentOne_oneBefore$1,
+    	About_contentOne_oneMiddle: About_contentOne_oneMiddle$1,
+    	About_contentOne_oneAfter: About_contentOne_oneAfter$1,
+    	About_contentOne_twoBefore: About_contentOne_twoBefore$1,
+    	About_contentOne_twoAfter: About_contentOne_twoAfter$1,
+    	About_contentOne_three: About_contentOne_three$1,
+    	About_titleTwo: About_titleTwo$1,
+    	About_contentTwo_one: About_contentTwo_one$1,
+    	About_contentTwo_two: About_contentTwo_two$1,
+    	About_titleThree: About_titleThree$1,
+    	About_contentThree_one: About_contentThree_one$1,
+    	About_contentThree_two: About_contentThree_two$1,
+    	About_contentThree_listOneBold: About_contentThree_listOneBold$1,
+    	About_contentThree_listOne: About_contentThree_listOne$1,
+    	About_contentThree_listTwoBold: About_contentThree_listTwoBold$1,
+    	About_contentThree_listTwo: About_contentThree_listTwo$1,
+    	About_contentThree_listThreeBold: About_contentThree_listThreeBold$1,
+    	About_contentThree_listThree: About_contentThree_listThree$1,
+    	About_titleFour: About_titleFour$1,
+    	About_contentFour: About_contentFour$1,
+    	Faq_title: Faq_title$1,
+    	Question_one_title: Question_one_title$1,
+    	Question_one_answerOne: Question_one_answerOne$1,
+    	Question_one_answerTwo: Question_one_answerTwo$1,
+    	Question_two_title: Question_two_title$1,
+    	Question_two_answerOne: Question_two_answerOne$1,
+    	Question_two_answerTwo: Question_two_answerTwo$1,
+    	Question_two_answerThree: Question_two_answerThree$1,
+    	Question_three_title: Question_three_title$1,
+    	Question_three_answer: Question_three_answer$1,
+    	Question_four_title: Question_four_title$1,
+    	Question_four_answerOne: Question_four_answerOne$1,
+    	Question_four_answerTwo: Question_four_answerTwo$1,
+    	Question_four_answerThree: Question_four_answerThree$1,
+    	Question_four_answerFour: Question_four_answerFour$1,
+    	Question_four_answerFive: Question_four_answerFive$1,
+    	Question_four_answerSix: Question_four_answerSix$1,
+    	Question_four_answerSeven: Question_four_answerSeven$1,
+    	Question_five_title: Question_five_title$1,
+    	Question_five_answerOne: Question_five_answerOne$1,
+    	Question_five_answerTwo: Question_five_answerTwo$1,
+    	Question_five_answerThree: Question_five_answerThree$1,
+    	Question_six_title: Question_six_title$1,
+    	Question_six_answer: Question_six_answer$1,
+    	Question_seven_title: Question_seven_title$1,
+    	Question_seven_answer: Question_seven_answer$1,
+    	Question_eight_title: Question_eight_title$1,
+    	Question_eight_answerOne: Question_eight_answerOne$1,
+    	Question_eight_answerTwo: Question_eight_answerTwo$1,
+    	Question_nine_title: Question_nine_title$1,
+    	Question_nine_answer: Question_nine_answer$1,
+    	Contact_title: Contact_title$1,
+    	Further_questions: Further_questions$1,
+    	Follow_socials: Follow_socials$1,
+    	Cookies_title: Cookies_title$1,
+    	What_are_cookies: What_are_cookies$1,
+    	Cookies_section_one: Cookies_section_one$1,
+    	Cookies_section_oneLink: Cookies_section_oneLink$1,
+    	How_we_use_cookies: How_we_use_cookies$1,
+    	Cookies_section_two: Cookies_section_two$1,
+    	Disabling_cookies: Disabling_cookies$1,
+    	Cookies_section_three: Cookies_section_three$1,
+    	Cookies_section_threeLink: Cookies_section_threeLink$1,
+    	Cookies_we_set: Cookies_we_set$1,
+    	Cookies_section_fourOne: Cookies_section_fourOne$1,
+    	Cookies_section_fourTwo: Cookies_section_fourTwo$1,
+    	Third_party_cookies: Third_party_cookies$1,
+    	Cookies_section_five: Cookies_section_five$1,
+    	More_information: More_information$1,
+    	Cookies_section_six: Cookies_section_six$1,
+    	Privacy_title: Privacy_title$1,
+    	Privacy_introOne: Privacy_introOne$1,
+    	Privacy_introTwo: Privacy_introTwo$1,
+    	Privacy_policy_section: Privacy_policy_section$1,
+    	Privacy_section_one: Privacy_section_one$1,
+    	What_does_personal: What_does_personal$1,
+    	Privacy_section_two: Privacy_section_two$1,
+    	What_personal_data: What_personal_data$1,
+    	Privacy_section_three: Privacy_section_three$1,
+    	Privacy_section_threeOne: Privacy_section_threeOne$1,
+    	Privacy_section_threeOne_pointOne: Privacy_section_threeOne_pointOne$1,
+    	Privacy_section_threeOne_pointTwo: Privacy_section_threeOne_pointTwo$1,
+    	Privacy_section_threeOne_pointThree: Privacy_section_threeOne_pointThree$1,
+    	Privacy_section_threeTwo: Privacy_section_threeTwo$1,
+    	Privacy_section_threeTwo_content: Privacy_section_threeTwo_content$1,
+    	Privacy_section_threeThree: Privacy_section_threeThree$1,
+    	Privacy_section_threeThree_pointOne: Privacy_section_threeThree_pointOne$1,
+    	Privacy_section_threeThree_pointTwo: Privacy_section_threeThree_pointTwo$1,
+    	Privacy_section_threeThree_pointThree: Privacy_section_threeThree_pointThree$1,
+    	Privacy_section_threeThree_pointFour: Privacy_section_threeThree_pointFour$1,
+    	Privacy_section_threeThree_pointFive: Privacy_section_threeThree_pointFive$1,
+    	How_use_personal_data: How_use_personal_data$1,
+    	Privacy_section_fourOne: Privacy_section_fourOne$1,
+    	Privacy_section_fourTwo: Privacy_section_fourTwo$1,
+    	Privacy_section_fourThree: Privacy_section_fourThree$1,
+    	With_whom_do: With_whom_do$1,
+    	Privacy_section_five: Privacy_section_five$1,
+    	Where_do_we_transfer: Where_do_we_transfer$1,
+    	Privacy_section_six: Privacy_section_six$1,
+    	Automated_decision: Automated_decision$1,
+    	Privacy_section_seven: Privacy_section_seven$1,
+    	What_rights_do: What_rights_do$1,
+    	Privacy_section_eight: Privacy_section_eight$1,
+    	Privacy_section_eightOne: Privacy_section_eightOne$1,
+    	Privacy_section_eightOne_content: Privacy_section_eightOne_content$1,
+    	Privacy_section_eightTwo: Privacy_section_eightTwo$1,
+    	Privacy_section_eightTwo_content: Privacy_section_eightTwo_content$1,
+    	Privacy_section_eightThree: Privacy_section_eightThree$1,
+    	Privacy_section_eightThree_content: Privacy_section_eightThree_content$1,
+    	Privacy_section_eightFour: Privacy_section_eightFour$1,
+    	Privacy_section_eightFour_content: Privacy_section_eightFour_content$1,
+    	Privacy_section_eightFive: Privacy_section_eightFive$1,
+    	Privacy_section_eightFive_content: Privacy_section_eightFive_content$1,
+    	Exercising_your_rights: Exercising_your_rights$1,
+    	Privacy_section_nine: Privacy_section_nine$1,
+    	Additional_info: Additional_info$1,
+    	Legal_procedures: Legal_procedures$1,
+    	Legal_procedures_contentOne: Legal_procedures_contentOne$1,
+    	Legal_procedures_contentTwo: Legal_procedures_contentTwo$1,
+    	Security_measures: Security_measures$1,
+    	Security_measures_contentOne: Security_measures_contentOne$1,
+    	Security_measures_contentTwo: Security_measures_contentTwo$1,
+    	Security_measures_contentThree: Security_measures_contentThree$1,
+    	Definitions_legal_framework: Definitions_legal_framework$1,
+    	Personal_data: Personal_data$1,
+    	Personal_data_content: Personal_data_content$1,
+    	Usage_data: Usage_data$1,
+    	Usage_data_content: Usage_data_content$1,
+    	User: User$1,
+    	User_content: User_content$1,
+    	Person_concerned: Person_concerned$1,
+    	Person_concerned_content: Person_concerned_content$1,
+    	Data_processor: Data_processor$1,
+    	Data_processor_content: Data_processor_content$1,
+    	Responsible_processing: Responsible_processing$1,
+    	Responsible_processing_content: Responsible_processing_content$1,
+    	This_application: This_application$1,
+    	This_application_content: This_application_content$1,
+    	Cookie: Cookie$1,
+    	Cookie_content: Cookie_content$1,
+    	Legal_information: Legal_information$1,
+    	Legal_information_content: Legal_information_content$1,
+    	Changes_privacy_policy: Changes_privacy_policy$1,
+    	Changes_privacy_policy_date: Changes_privacy_policy_date$1,
+    	Changes_privacy_policy_content: Changes_privacy_policy_content$1,
+    	Terms_title: Terms_title$1,
+    	Terms_introOne: Terms_introOne$1,
+    	Terms_introTwo: Terms_introTwo$1,
+    	Terms_introThree: Terms_introThree$1,
+    	Terms_introFour: Terms_introFour$1,
+    	Who_can_contribute: Who_can_contribute$1,
+    	Who_can_contribute_contentOne: Who_can_contribute_contentOne$1,
+    	Who_can_contribute_contentTwo: Who_can_contribute_contentTwo$1,
+    	Limitation_of_liability: Limitation_of_liability$1,
+    	Limitation_of_liability_contentOne: Limitation_of_liability_contentOne$1,
+    	Limitation_of_liability_contentTwo: Limitation_of_liability_contentTwo$1,
+    	Spam: Spam$1,
+    	Spam_contentOne: Spam_contentOne$1,
+    	Spam_contentTwo: Spam_contentTwo$1,
+    	Infringement: Infringement$1,
+    	Infringement_contentOne: Infringement_contentOne$1,
+    	Infringement_contentTwo: Infringement_contentTwo$1,
+    	Breaches_aforementioned_rules: Breaches_aforementioned_rules$1,
+    	Breaches_aforementioned_rules_content: Breaches_aforementioned_rules_content$1,
+    	Property_rights: Property_rights$1,
+    	Property_rights_content: Property_rights_content$1,
+    	Thanks_Bigletter: Thanks_Bigletter$1,
+    	Thanks_Fitbit_title: Thanks_Fitbit_title$1,
+    	Thanks_Content1: Thanks_Content1$1,
+    	Thanks_Content2: Thanks_Content2$1
+    };
+
+    var fr$1 = /*#__PURE__*/Object.freeze({
+        __proto__: null,
+        Contribute: Contribute$1,
+        The_data: The_data$1,
+        About: About$1,
+        FAQ: FAQ$1,
+        Contact: Contact$1,
+        Heading: Heading$1,
+        Introduction: Introduction$1,
+        Label_total_km: Label_total_km$1,
+        Help_title: Help_title$1,
+        Ask_for_favor: Ask_for_favor$1,
+        By_sharing_your: By_sharing_your$1,
+        Every_cyclist_can: Every_cyclist_can$1,
+        Donate_title: Donate_title$1,
+        Several_ways_to_contribute: Several_ways_to_contribute$1,
+        You_not_using: You_not_using$1,
+        Connect_existing_account: Connect_existing_account$1,
+        Download_our_app: Download_our_app$1,
+        Data_title: Data_title$1,
+        Rides_collected: Rides_collected$1,
+        Distance_collected: Distance_collected$1,
+        Average_duration: Average_duration$1,
+        Average_speed: Average_speed$1,
+        Average_distance: Average_distance$1,
+        co2_saved: co2_saved$1,
+        Data_subtitle: Data_subtitle$1,
+        Data_button: Data_button$1,
+        Contribute_title: Contribute_title$1,
+        People_who_work: People_who_work$1,
+        Common_goal: Common_goal$1,
+        Visible_title: Visible_title$1,
+        Community_more_visible: Community_more_visible$1,
+        Globally_but_locally: Globally_but_locally$1,
+        Informed_title: Informed_title$1,
+        Email_label: Email_label$1,
+        Informed_placeholder: Informed_placeholder$1,
+        Partners_title: Partners_title$1,
+        Footer_intro: Footer_intro$1,
+        Footer_nav_title: Footer_nav_title$1,
+        Footer_contact: Footer_contact$1,
+        Footer_street: Footer_street$1,
+        Footer_city: Footer_city$1,
+        Footer_copyright_one: Footer_copyright_one$1,
+        Footer_copyright_two: Footer_copyright_two$1,
+        Terms_of_use: Terms_of_use$1,
+        Privacy_policy: Privacy_policy$1,
+        Cookie_policy: Cookie_policy$1,
+        Help: Help$1,
+        Contribute_big: Contribute_big$1,
+        Data: Data$1,
+        Power: Power$1,
+        Partners: Partners$1,
+        About_us: About_us$1,
+        Faq: Faq$1,
+        Contact_us: Contact_us$1,
+        Cookies: Cookies$1,
+        Privacy: Privacy$1,
+        Terms: Terms$1,
+        Map_title: Map_title$1,
+        Data_content_one: Data_content_one$1,
+        Data_content_two: Data_content_two$1,
+        Data_content_three: Data_content_three$1,
+        Data_content_listOne: Data_content_listOne$1,
+        Data_content_listTwo: Data_content_listTwo$1,
+        Data_content_listThree: Data_content_listThree$1,
+        Data_content_listFour: Data_content_listFour$1,
+        Data_content_four: Data_content_four$1,
+        Map_subtitle: Map_subtitle$1,
+        About_title: About_title$1,
+        About_intro: About_intro$1,
+        About_titleOne: About_titleOne$1,
+        About_contentOne_oneBefore: About_contentOne_oneBefore$1,
+        About_contentOne_oneMiddle: About_contentOne_oneMiddle$1,
+        About_contentOne_oneAfter: About_contentOne_oneAfter$1,
+        About_contentOne_twoBefore: About_contentOne_twoBefore$1,
+        About_contentOne_twoAfter: About_contentOne_twoAfter$1,
+        About_contentOne_three: About_contentOne_three$1,
+        About_titleTwo: About_titleTwo$1,
+        About_contentTwo_one: About_contentTwo_one$1,
+        About_contentTwo_two: About_contentTwo_two$1,
+        About_titleThree: About_titleThree$1,
+        About_contentThree_one: About_contentThree_one$1,
+        About_contentThree_two: About_contentThree_two$1,
+        About_contentThree_listOneBold: About_contentThree_listOneBold$1,
+        About_contentThree_listOne: About_contentThree_listOne$1,
+        About_contentThree_listTwoBold: About_contentThree_listTwoBold$1,
+        About_contentThree_listTwo: About_contentThree_listTwo$1,
+        About_contentThree_listThreeBold: About_contentThree_listThreeBold$1,
+        About_contentThree_listThree: About_contentThree_listThree$1,
+        About_titleFour: About_titleFour$1,
+        About_contentFour: About_contentFour$1,
+        Faq_title: Faq_title$1,
+        Question_one_title: Question_one_title$1,
+        Question_one_answerOne: Question_one_answerOne$1,
+        Question_one_answerTwo: Question_one_answerTwo$1,
+        Question_two_title: Question_two_title$1,
+        Question_two_answerOne: Question_two_answerOne$1,
+        Question_two_answerTwo: Question_two_answerTwo$1,
+        Question_two_answerThree: Question_two_answerThree$1,
+        Question_three_title: Question_three_title$1,
+        Question_three_answer: Question_three_answer$1,
+        Question_four_title: Question_four_title$1,
+        Question_four_answerOne: Question_four_answerOne$1,
+        Question_four_answerTwo: Question_four_answerTwo$1,
+        Question_four_answerThree: Question_four_answerThree$1,
+        Question_four_answerFour: Question_four_answerFour$1,
+        Question_four_answerFive: Question_four_answerFive$1,
+        Question_four_answerSix: Question_four_answerSix$1,
+        Question_four_answerSeven: Question_four_answerSeven$1,
+        Question_five_title: Question_five_title$1,
+        Question_five_answerOne: Question_five_answerOne$1,
+        Question_five_answerTwo: Question_five_answerTwo$1,
+        Question_five_answerThree: Question_five_answerThree$1,
+        Question_six_title: Question_six_title$1,
+        Question_six_answer: Question_six_answer$1,
+        Question_seven_title: Question_seven_title$1,
+        Question_seven_answer: Question_seven_answer$1,
+        Question_eight_title: Question_eight_title$1,
+        Question_eight_answerOne: Question_eight_answerOne$1,
+        Question_eight_answerTwo: Question_eight_answerTwo$1,
+        Question_nine_title: Question_nine_title$1,
+        Question_nine_answer: Question_nine_answer$1,
+        Contact_title: Contact_title$1,
+        Further_questions: Further_questions$1,
+        Follow_socials: Follow_socials$1,
+        Cookies_title: Cookies_title$1,
+        What_are_cookies: What_are_cookies$1,
+        Cookies_section_one: Cookies_section_one$1,
+        Cookies_section_oneLink: Cookies_section_oneLink$1,
+        How_we_use_cookies: How_we_use_cookies$1,
+        Cookies_section_two: Cookies_section_two$1,
+        Disabling_cookies: Disabling_cookies$1,
+        Cookies_section_three: Cookies_section_three$1,
+        Cookies_section_threeLink: Cookies_section_threeLink$1,
+        Cookies_we_set: Cookies_we_set$1,
+        Cookies_section_fourOne: Cookies_section_fourOne$1,
+        Cookies_section_fourTwo: Cookies_section_fourTwo$1,
+        Third_party_cookies: Third_party_cookies$1,
+        Cookies_section_five: Cookies_section_five$1,
+        More_information: More_information$1,
+        Cookies_section_six: Cookies_section_six$1,
+        Privacy_title: Privacy_title$1,
+        Privacy_introOne: Privacy_introOne$1,
+        Privacy_introTwo: Privacy_introTwo$1,
+        Privacy_policy_section: Privacy_policy_section$1,
+        Privacy_section_one: Privacy_section_one$1,
+        What_does_personal: What_does_personal$1,
+        Privacy_section_two: Privacy_section_two$1,
+        What_personal_data: What_personal_data$1,
+        Privacy_section_three: Privacy_section_three$1,
+        Privacy_section_threeOne: Privacy_section_threeOne$1,
+        Privacy_section_threeOne_pointOne: Privacy_section_threeOne_pointOne$1,
+        Privacy_section_threeOne_pointTwo: Privacy_section_threeOne_pointTwo$1,
+        Privacy_section_threeOne_pointThree: Privacy_section_threeOne_pointThree$1,
+        Privacy_section_threeTwo: Privacy_section_threeTwo$1,
+        Privacy_section_threeTwo_content: Privacy_section_threeTwo_content$1,
+        Privacy_section_threeThree: Privacy_section_threeThree$1,
+        Privacy_section_threeThree_pointOne: Privacy_section_threeThree_pointOne$1,
+        Privacy_section_threeThree_pointTwo: Privacy_section_threeThree_pointTwo$1,
+        Privacy_section_threeThree_pointThree: Privacy_section_threeThree_pointThree$1,
+        Privacy_section_threeThree_pointFour: Privacy_section_threeThree_pointFour$1,
+        Privacy_section_threeThree_pointFive: Privacy_section_threeThree_pointFive$1,
+        How_use_personal_data: How_use_personal_data$1,
+        Privacy_section_fourOne: Privacy_section_fourOne$1,
+        Privacy_section_fourTwo: Privacy_section_fourTwo$1,
+        Privacy_section_fourThree: Privacy_section_fourThree$1,
+        With_whom_do: With_whom_do$1,
+        Privacy_section_five: Privacy_section_five$1,
+        Where_do_we_transfer: Where_do_we_transfer$1,
+        Privacy_section_six: Privacy_section_six$1,
+        Automated_decision: Automated_decision$1,
+        Privacy_section_seven: Privacy_section_seven$1,
+        What_rights_do: What_rights_do$1,
+        Privacy_section_eight: Privacy_section_eight$1,
+        Privacy_section_eightOne: Privacy_section_eightOne$1,
+        Privacy_section_eightOne_content: Privacy_section_eightOne_content$1,
+        Privacy_section_eightTwo: Privacy_section_eightTwo$1,
+        Privacy_section_eightTwo_content: Privacy_section_eightTwo_content$1,
+        Privacy_section_eightThree: Privacy_section_eightThree$1,
+        Privacy_section_eightThree_content: Privacy_section_eightThree_content$1,
+        Privacy_section_eightFour: Privacy_section_eightFour$1,
+        Privacy_section_eightFour_content: Privacy_section_eightFour_content$1,
+        Privacy_section_eightFive: Privacy_section_eightFive$1,
+        Privacy_section_eightFive_content: Privacy_section_eightFive_content$1,
+        Exercising_your_rights: Exercising_your_rights$1,
+        Privacy_section_nine: Privacy_section_nine$1,
+        Additional_info: Additional_info$1,
+        Legal_procedures: Legal_procedures$1,
+        Legal_procedures_contentOne: Legal_procedures_contentOne$1,
+        Legal_procedures_contentTwo: Legal_procedures_contentTwo$1,
+        Security_measures: Security_measures$1,
+        Security_measures_contentOne: Security_measures_contentOne$1,
+        Security_measures_contentTwo: Security_measures_contentTwo$1,
+        Security_measures_contentThree: Security_measures_contentThree$1,
+        Definitions_legal_framework: Definitions_legal_framework$1,
+        Personal_data: Personal_data$1,
+        Personal_data_content: Personal_data_content$1,
+        Usage_data: Usage_data$1,
+        Usage_data_content: Usage_data_content$1,
+        User: User$1,
+        User_content: User_content$1,
+        Person_concerned: Person_concerned$1,
+        Person_concerned_content: Person_concerned_content$1,
+        Data_processor: Data_processor$1,
+        Data_processor_content: Data_processor_content$1,
+        Responsible_processing: Responsible_processing$1,
+        Responsible_processing_content: Responsible_processing_content$1,
+        This_application: This_application$1,
+        This_application_content: This_application_content$1,
+        Cookie: Cookie$1,
+        Cookie_content: Cookie_content$1,
+        Legal_information: Legal_information$1,
+        Legal_information_content: Legal_information_content$1,
+        Changes_privacy_policy: Changes_privacy_policy$1,
+        Changes_privacy_policy_date: Changes_privacy_policy_date$1,
+        Changes_privacy_policy_content: Changes_privacy_policy_content$1,
+        Terms_title: Terms_title$1,
+        Terms_introOne: Terms_introOne$1,
+        Terms_introTwo: Terms_introTwo$1,
+        Terms_introThree: Terms_introThree$1,
+        Terms_introFour: Terms_introFour$1,
+        Who_can_contribute: Who_can_contribute$1,
+        Who_can_contribute_contentOne: Who_can_contribute_contentOne$1,
+        Who_can_contribute_contentTwo: Who_can_contribute_contentTwo$1,
+        Limitation_of_liability: Limitation_of_liability$1,
+        Limitation_of_liability_contentOne: Limitation_of_liability_contentOne$1,
+        Limitation_of_liability_contentTwo: Limitation_of_liability_contentTwo$1,
+        Spam: Spam$1,
+        Spam_contentOne: Spam_contentOne$1,
+        Spam_contentTwo: Spam_contentTwo$1,
+        Infringement: Infringement$1,
+        Infringement_contentOne: Infringement_contentOne$1,
+        Infringement_contentTwo: Infringement_contentTwo$1,
+        Breaches_aforementioned_rules: Breaches_aforementioned_rules$1,
+        Breaches_aforementioned_rules_content: Breaches_aforementioned_rules_content$1,
+        Property_rights: Property_rights$1,
+        Property_rights_content: Property_rights_content$1,
+        Thanks_Bigletter: Thanks_Bigletter$1,
+        Thanks_Fitbit_title: Thanks_Fitbit_title$1,
+        Thanks_Content1: Thanks_Content1$1,
+        Thanks_Content2: Thanks_Content2$1,
+        'default': fr
+    });
+
+    var Contribute = "Deelnemen";
+    var The_data = "De Data";
+    var About = "Over";
+    var FAQ = "FAQ";
+    var Contact = "Contact";
+    var Heading = "Burgers verzamelen fietsdata om steden fietsvriendelijker te maken.";
+    var Introduction = "Dankzij data gedeeld door burgers overal ter wereld, wil het Bike Data Project laten zien waar en wanneer mensen met de fiets rijden. De verzamelde fietsgegevens bieden inzichten die lokale gemeenschappen en besluitvormers gebruiken om fietsen en steden veiliger te maken.";
+    var Label_total_km = "Totaal aantal kilometers gefietst en gedeeld door burgers over de hele wereld";
+    var Help_title = "We hebben je hulp nodig!";
+    var Ask_for_favor = "Voor dit project willen we je vragen om je fietsgegevens te delen.";
+    var By_sharing_your = "We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden geschikter maken voor fietsers.";
+    var Every_cyclist_can = "Alle fieters kunnen deelnemen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook rekening houden met andere activiteiten: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.";
+    var Donate_title = "Deel jouw fietsdata";
+    var Several_ways_to_contribute = "Er zijn verschillende manieren waarop je je gegevens met het Bike Data Project kunt delen. Voorlopig kan je je Strava-account verbinden of je Garmin-bestanden uploaden. Zodra jouw app is verbonden, kan je doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het platform van het Bike Data Project.";
+    var You_not_using = "Wat als je nog geen van deze apps gebruikt? Binnenkort kan je de Bike Data Project-app downloaden en gebruiken. Bovendien werken we ook aan de integratie van andere fietsapps!";
+    var Connect_existing_account = "Koppel je bestaand account";
+    var Download_our_app = "Download onze app (komt binnenkort)";
+    var Data_title = "Verzamelde data wereldwijd";
+    var Rides_collected = "ritten verzameld";
+    var Distance_collected = "afstand verzameld";
+    var Average_duration = "gemiddelde duur";
+    var Average_speed = "gemiddelde snelheid";
+    var Average_distance = "gemiddelde afstand";
+    var co2_saved = "CO2 bespaard";
+    var Data_subtitle = "Geïnteresseerd in de gegevens per regio?";
+    var Data_button = "Verken de data";
+    var Contribute_title = "Voor wie zijn de data nuttig?";
+    var People_who_work = "Mobiliteitsplanners en stadsplanners hebben dit soort data nodig om moderne infrastructuur en duurzame steden te ontwikkelen. Sommigen van hen zijn op de hoogte en anderen moeten we nog overtuigen. Hoe meer data we kunnen verstrekken, hoe groter de impact zal zijn.";
+    var Common_goal = "De data kunnen ook waardevol zijn voor andere fietsgerelateerde producten en diensten. Het gemeenschappelijke doel is om fietsdata te verzamelen en deze beschikbaar te stellen als open data zodat steden fietsvriendelijker worden gemaakt. Voor ons en de mensen die komen.";
+    var Visible_title = "Meer fietsdata betekent meer slagkracht door en voor fietsers";
+    var Community_more_visible = "Het Bike Data Project biedt de mogelijkheid om fietsdata van verschillende applicaties te verzamelen in één platform, dat - gebaseerd op het principe van open source en open data - aanpasbaar en voor iedereen toegankelijk is om ervoor te zorgen dat het de samenleving ten goede komt.";
+    var Globally_but_locally = "Er is weinig bekend over hoe fietsers zich vandaag in steden verplaatsen. Als er gegevens beschikbaar zijn, gaat het om gesloten en beperkte gegevens die worden verkocht door één app-provider of statische gegevens verzameld via handmatige tellingen. Als we meer mensen op de fiets willen en en de keuze voor de fiets net zo makkelijk en logisch willen maken als de auto, hebben we evenveel informatie nodig over het gedrag van fietsers als over autoverkeer.";
+    var Informed_title = "Blijf op de hoogte";
+    var Email_label = "E-mail";
+    var Informed_placeholder = "Jouw e-mailadres";
+    var Partners_title = "Projectpartners";
+    var Footer_intro = "Bike Data Project is een project beheerd door Open Knowledge Belgium";
+    var Footer_nav_title = "Informatie";
+    var Footer_contact = "Contact";
+    var Footer_street = "Cantersteen 12";
+    var Footer_city = "1000 Brussels";
+    var Footer_copyright_one = "Tenzij anders vermeld, is de inhoud van deze site gelicentieerd onder een";
+    var Footer_copyright_two = "Creative Commons Attribution 4.0 International License";
+    var Terms_of_use = "Gebruiksvoorwaarden";
+    var Privacy_policy = "Privacybeleid";
+    var Cookie_policy = "Cookiebeleid";
+    var Help = "Help";
+    var Contribute_big = "Bijdragen";
+    var Data = "Data";
+    var Power = "Slagkracht";
+    var Partners = "Partners";
+    var About_us = "Over";
+    var Faq = "Faq";
+    var Contact_us = "Contact";
+    var Cookies = "Cookies";
+    var Privacy = "Privacy";
+    var Terms = "Voorwaarden";
+    var Map_title = "De data";
+    var Data_content_one = "Scroll naar beneden om de kaart te verkennen met alle fietsgegevens die tot nu toe zijn verzameld.";
+    var Data_content_two = "De data van dit project is afkomstig van allerlei verschillende soorten fietsers. Alle individuele fietsgegevens worden samengevoegd tot collectieve gegevens. De collectieve gegevens geven ons patronen waarmee we kunnen laten zien waar en wanneer fietsers zich verplaatsen.";
+    var Data_content_three = "De anonieme geaggregeerde fietsdata worden als open data voor het publiek opengesteld. De open data van het Bike Data Project platform kunnen vrij worden gebruikt door verschillende belanghebbenden en doeleinden. Hier is een niet-exhaustieve lijst van verschillende gebruikstoepassingen van de open data:";
+    var Data_content_listOne = "Transportexperts, stadsplanners, mobiliteitsplanners en stedenbouwkundigen over de hele wereld hebben dergelijke open data nodig om hen te helpen bij het ontwikkelen van moderne infrastructuur en duurzame steden.";
+    var Data_content_listTwo = "Burgers kunnen een overzicht krijgen van het aantal fietsers en gefietste kilometers in hun buurt en een kaart bekijken met het aantal fietsers per route.";
+    var Data_content_listThree = "Het maatschappelijk middenveld en journalisten gebruiken de data om de situatie van fietsers te analyseren, zoals de tijd die fietsers gemiddeld verliezen bij verkeerslichten.";
+    var Data_content_listFour = "Data- en softwarebedrijven kunnen in de data duiken om slimme fietsinzichten te verkrijgen en tools te bouwen zoals geavanceerde fietsrouteplanners en aanbevelingsmotoren om de fietsinfrastructuur te verbeteren. De gegevens kunnen ook nuttig zijn voor andere fietsgerelateerde producten en diensten.";
+    var Data_content_four = "Alle geaggregeerde fietsgegevens zullen vanaf eind oktober 2020 beschikbaar zijn als open data. Voorlopig kun je bijdragen aan het project door je fietsgegevens te delen.";
+    var Map_subtitle = "Bekijk onze open source code";
+    var About_title = "Over het Bike Data Project";
+    var About_intro = "Met het Bike Data Project wil Open Knowledge Belgium - de koepelorganisatie voor open kennis en open data-initiatieven in België - een community-driven open fietsdataplatform aanbieden dat data verzamelt over waar en wanneer mensen fietsen. Het project heeft tot doel gegevens van fietsers, afkomstig van verschillende mobiele applicaties en bronnen, samen te voegen tot één open fietsdataplatform. De collectieve open data zullen lokale gemeenschappen in staat stellen om fietsen zichtbaarder te maken en besluitvormers de mogelijkheid bieden om steden leefbaarder en fietsvriendelijker te maken.";
+    var About_titleOne = "Korte geschiedenis: wie zit er achter het project";
+    var About_contentOne_oneBefore = "Het Bike Data Project is in eerste instantie opgezet door";
+    var About_contentOne_oneMiddle = "en gelanceerd als onderdeel van de release van de ";
+    var About_contentOne_oneAfter = ", geregisseerd door Fredrik Gertten. Doordat de documentaire in meer dan 50 landen is vertoond, zijn er al meer dan 275.000 verzamelde fietsritten verzameld.";
+    var About_contentOne_twoBefore = "Begin 2020 werd het project ondergebracht bij Open Knowledge Belgium.";
+    var About_contentOne_twoAfter = "is een non-profit organisatie en officiële afdeling van Open Knowledge International die aan de hand van activiteiten en projecten bijdraagt tot een wereld waar kennis kansen creëert voor velen, niet voor enkelen. De organisatie beschikt over een grote groep vrijwilligers die door middel van technologie, onderzoek, community-gedreven bijeenkomsten en projecten bijdragen tot het gebruik en delen van open kennis in België en daarbuiten.";
+    var About_contentOne_three = "Open Knowledge Belgium staat in voor de openheid van het project voor alle doeleinden en neemt alle nodige maatregelen volgens de GDPR-regelgeving inzake gegevensprivacy en -bescherming. Met een transparante en duidelijke gebruiksvoorwaarden voor dit project wil Open Knowledge Belgium een ​​voorbeeld stellen in hoe om te gaan met privacygerelateerde kwesties en van de gelegenheid gebruik maken om burgers te informeren over hun digitale rechten.";
+    var About_titleTwo = "Meer fietsgegevens betekent meer slagkracht door en voor fietsers";
+    var About_contentTwo_one = "Er is weinig bekend over hoe fietsers zich vandaag in steden verplaatsen. Als er gegevens beschikbaar zijn, gaat het om gesloten en beperkte gegevens die worden verkocht door één app-provider of statische gegevens verzameld via handmatige tellingen. Als we meer mensen op de fiets willen en en de keuze voor de fiets net zo makkelijk en logisch willen maken als de auto, hebben we evenveel informatie nodig over het gedrag van fietsers als over autoverkeer.";
+    var About_contentTwo_two = "Open Knowledge Belgium wil impact creëren door te laten zien waar en wanneer mensen fietsen. Het Bike Data Project biedt de mogelijkheid om alle fietsdata van verschillende applicaties te verzamelen op één platform, dat - gebaseerd is op het principe van open source en open gegevens - aanpasbaar en toegankelijk voor iedereen om ervoor te zorgen dat ze de samenleving ten goede komen.";
+    var About_titleThree = "Openbare digitale infrastructuur als gemeengoed";
+    var About_contentThree_one = "Vergelijkbaar met activiteiten zoals OpenStreetMap Belgium en Open Planner Team door Open Knowledge Belgium, is het Bike Data Project opgezet als een collaboratief project dat openstaat voor iedereen en dat de samenleving als geheel ten goede komt. Vandaar zijn de digitale infrastructuur en geaggregeerde data - gebaseerd op de principes van open source en open data - vrij aanpasbaar en voor iedereen toegankelijk.";
+    var About_contentThree_two = "Bovendien streeft Open Knowledge Belgium ernaar om met dit Bike Data Project een belangrijke rol te spelen in bredere maatschappelijke bewegingen:";
+    var About_contentThree_listOneBold = "Burgers kunnen de controle over hun data terugnemen";
+    var About_contentThree_listOne = "dankzij de sterke Europese GDPR-wetgeving. In het geval van het Bike Data Project willen we burgers aanmoedigen om hun gegevens uit apps van derden te halen (bijv. Populaire apps zoals Strava en mogelijk zelfs Google Maps) en hen vragen om ze bij te dragen aan een goed doel.";
+    var About_contentThree_listTwoBold = "Bevorderen van het delen van expertise en leren binnen de community";
+    var About_contentThree_listTwo = "gedurende het hele proces van de datainzameling tot de verdere ontwikkeling van het platform. Sterk geïnspireerd door het werk van de School of Data in Riga, willen we de fietsgemeenschap vanaf de eerste dag betrekken bij de lokale Bike Data Project campagnes. Met een reeks community-gedreven evenementen wil Open Knowledge Belgium werk maken van meer datageletterdheid.";
+    var About_contentThree_listThreeBold = "Denk globaal, handel lokaal.";
+    var About_contentThree_listThree = "Het Bike Data Project platform is is van opzet globaal en open. Hoewel het voor fietsgemeenschappen over de hele wereld mogelijk is om bij te dragen aan het project, wil Open Knowledge Belgium de lokale gemeenschappen ondersteunen door hen op lokaal niveau te laten handelen.";
+    var About_titleFour = "Duurzaamheid van het Bike Data Project op langere termijn";
+    var About_contentFour = "Open Knowledge Belgium werkt samen met Brussel Mobiliteit om, als onderdeel van het Bike for Brussels-programma, een eerste campagne te lanceren in het Brussels Hoofdstedelijk Gewest. De lancering van lokale dataverzamelingsacties in verschillende steden en de opzet van het open dataplatform maken deel uit van een langeretermijnplan voor het Bike Data Project. Wanneer een dataverzamelingsactie in een specifieke stad of regio ten einde loopt, blijft het platform online en wordt het onderhouden door de open source community van Open Knowledge Belgium. Fietscommunities in andere steden zullen worden aangemoedigd om een ​​campagne te lanceren in hun steden en gebruik te maken van het platform. Gezien de interesse van verschillende stakeholders in het Bike Data Platform, heeft Open Knowledge Belgium al de bevestiging gekregen van verschillende stakeholders dat ze financieel willen bijdragen aan de project zodat de serverkosten kunnen worden gedekt. ​​Op die manier blijft het project op langere termijn in stand.";
+    var Faq_title = "Veelgestelde vragen";
+    var Question_one_title = "Waarom zou ik deelnemen aan dit project?";
+    var Question_one_answerOne = "Door jouw fietsgegevens bij te dragen, kan je de ontwikkeling van meer fietsvriendelijke steden mogelijk maken.";
+    var Question_one_answerTwo = "Meer fietsgegevens betekent meer slagkracht door en voor fietsers. Er is weinig bekend over hoe fietsers zich vandaag in steden verplaatsen. Als er gegevens beschikbaar zijn, gaat het om gesloten en beperkte gegevens die worden verkocht door één app-provider of statische gegevens verzameld via handmatige tellingen. Als we meer mensen op de fiets willen en en de keuze voor de fiets net zo makkelijk en logisch willen maken als de auto, hebben we evenveel informatie nodig over het gedrag van fietsers als over autoverkeer.";
+    var Question_two_title = "Hoe werkt dit project?";
+    var Question_two_answerOne = "Voor dit project willen we je vragen om je fietsgegevens bij te dragen. We moeten weten waar er wordt gefietst. Jouw gegevensbijdragen, gecombineerd met de gegevens van veel andere fietsers, zullen steden geschikter maken voor fietsers.";
+    var Question_two_answerTwo = "We vragen verschillende soorten fietsers (bijv. pendelaars, bezorgers, sporters en toeristen) om hun fietsritten te registreren via hun favoriete mobiele applicatie en hun gegevens bij te dragen aan ons community-gedreven fietsdataplatform. Elke soort fietser heeft iets bij te dragen aan dit project. Sommige mensen houden hun activiteit al bij voor trainingsdoeleinden. Dat is mooi, maar we willen ook echt rekening houden met de korte routes: pendelen naar het werk, de kinderen naar school brengen of voor een snelle rit naar de supermarkt.";
+    var Question_two_answerThree = "In ruil daarvoor worden de anonieme geaggregeerde fietsgegevens opengesteld voor het publiek en kunnen ze door iedereen vrij worden gebruikt. We willen impact creëren door te laten zien waar en wanneer mensen fietsen. Meer gegevens betekent meer invloed op beslissingsnemers om steden duurzamer en fietsvriendelijker te maken.";
+    var Question_three_title = "Hoe draag ik mijn gegevens bij aan het platform?";
+    var Question_three_answer = "Je kan eenvoudigweg je bestaande fietsapp verbinden met het Bike Data Project-platform. Momenteel kan je je Strava-account koppelen of je Garmin-bestanden uploaden, maar we werken ook aan de integratie van andere fietsapps. Zodra jouw app is verbonden, kan je gewoon doorgaan zoals je gewend bent en worden jouw ritten automatisch geüpload naar het Bike Data Project-platform. Als je nog geen fietsapp gebruikt, kan je binnenkort onze eigen app gebruiken. Met de Bike Data Project-app hoef je geen account aan te maken, maar kun je je gegevens anoniem delen met het platform.";
+    var Question_four_title = "Wat gebeurt er met mijn gegevens?";
+    var Question_four_answerOne = "Alle individuele fietsgegevens worden samengevoegd tot anonieme collectieve gegevens. De collectieve gegevens geven ons patronen waarmee we kunnen laten zien waar en wanneer fietsers zich verplaatsen.";
+    var Question_four_answerTwo = "De anonieme geaggregeerde fietsgegevens worden als open data voor het publiek toegankelijk gemaakt. De open data van het Bike Data Project platform kunnen vrij worden gebruikt door verschillende belanghebbenden en doeleinden. Hier is een niet-exhaustieve lijst van verschillende gebruikstoepassingen van de open data:";
+    var Question_four_answerThree = "Vervoersdeskundigen, stadsplanners, mobiliteitsplanners en stedenbouwkundigen over de hele wereld hebben open data nodig om hen te helpen moderne infrastructuur en duurzame steden te ontwikkelen.";
+    var Question_four_answerFour = "Burgers kunnen een overzicht krijgen van het aantal fietsers en gefietste kilometers, en een kaart bekijken met het aantal fietsers per route.";
+    var Question_four_answerFive = "Het maatschappelijk middenveld en journalisten gebruiken de gegevens om de situatie van fietsers in de stad te analyseren, zoals de tijd die fietsers gemiddeld verliezen bij verkeerslichten.";
+    var Question_four_answerSix = "Data- en softwarebedrijven kunnen in de data duiken om slimme fietsinzichten te verkrijgen en tools bouwen zoals geavanceerde fietsrouteplanners en aanbevelingsmotoren om de fietsinfrastructuur te verbeteren. De gegevens kunnen ook erg handig zijn voor andere fietsgerelateerde producten en diensten.";
+    var Question_four_answerSeven = "Alle geaggregeerde fietsgegevens zullen eind oktober 2020 beschikbaar zijn als open data. Voorlopig kun je bijdragen aan het project door je fietsgegevens te delen.";
+    var Question_five_title = "Wordt mijn privacy gerespecteerd wanneer ik mijn gegevens deel?";
+    var Question_five_answerOne = "Ja, Open Knowledge Belgium garandeert de openheid van het project en neemt alle nodige maatregelen volgens de GDPR-regelgeving inzake gegevensbescherming.";
+    var Question_five_answerTwo = "We verzamelen fietsgegevens van veel individuele fietsers en streven ernaar om de anonieme verzamelde gegevens als open data beschikbaar te maken voor het publiek. De verzamelde gegevens worden gepubliceerd op een manier dat het niet mogelijk is om persoonlijke gegevens van een individuele fietser te achterhalen.";
+    var Question_five_answerThree = "Het publiceren van de gegevens zal gebeuren volgens het concept van differentiële privacy, een methode voor het openbaar delen van informatie over een dataset door de patronen van groepen binnen de dataset te beschrijven, terwijl informatie over individuen in de dataset achterblijft. Dit betekent in feite dat gegevens worden alleen gepubliceerd als de informatie van een bepaald individu niet kan worden achtergehaald.";
+    var Question_six_title = "Kan ik mijn gegevens verwijderen?";
+    var Question_six_answer = "Ja! Hoewel je je gegevens op een anonieme manier bijdraagt (we vragen niet om uw naam of enige andere informatie die je identificeert), kan je ons vragen om je gegevens uit het Bike Data Project platform te halen. Wil je dit doen, stuur ons dan een e-mail naar bikedataproject@openknowledge.be met de naam van de app waarmee je je gegevens hebt verstrekt en, indien mogelijk, ook het ID-nummer dat aan je profiel in de app is gekoppeld.";
+    var Question_seven_title = "Welke gegevens deel ik vanuit mijn app?";
+    var Question_seven_answer = "We willen je vooral vragen om de gegevens over jouw fietsactiviteiten bij te dragen, meer specifiek waar en wanneer je fietst. Daarnaast is er de mogelijkheid om informatie te delen over jouw geslacht, leeftijd, type fiets en de reden van jouw fietsrit (vrije tijd, sport, woon-werkverkeer, ...).";
+    var Question_eight_title = "Hoe krijg ik toegang tot de open data?";
+    var Question_eight_answerOne = "De anonieme geaggregeerde fietsgegevens worden als open data voor het publiek toegankelijk gemaakt. De open data van het Bike Data Project platform kunnen vrij worden gebruikt door verschillende belanghebbenden en doeleinden.";
+    var Question_eight_answerTwo = "Alle geaggregeerde fietsgegevens zijn eind oktober 2020 beschikbaar als open data. Voorlopig kun je bijdragen aan het project door je fietsgegevens te delen.";
+    var Question_nine_title = "Ik zou graag meer betrokken willen zijn bij dit project - hoe kan ik helpen?";
+    var Question_nine_answer = "Dat is geweldig! Voel je vrij om lid te worden van onze Slack groep (https://join.slack.com/t/bikedataproject/sharedinvite/zt-g60t5w5c-lT2ucV0HtLEVnE4wG9hTg) en stel jezelf daar voor. We horen graag hoe je wil bijdragen aan het project!";
+    var Contact_title = "Contact";
+    var Further_questions = "Voor verdere vragen of informatie kan je contact met ons opnemen via:";
+    var Follow_socials = "Volg het Bike Data Project via onze social media kanalen:";
+    var Cookies_title = "Cookiebeleid";
+    var What_are_cookies = "1. Wat zijn cookies";
+    var Cookies_section_one = "Cookies zijn kleine bestanden die naar uw computer worden gedownload om uw ervaring te verbeteren. Op deze pagina wordt beschreven welke informatie ze verzamelen, hoe we deze gebruiken en waarom we deze cookies soms moeten opslaan. We zullen ook delen hoe u kunt voorkomen dat deze cookies worden opgeslagen. Dit kan echter bepaalde elementen van de sitefunctionaliteit beperken of \"breken\". Voor meer algemene informatie over cookies";
+    var Cookies_section_oneLink = "zie dit Wikipedia-artikel over HTTP-cookies.";
+    var How_we_use_cookies = "2. Hoe we cookies gebruiken";
+    var Cookies_section_two = "We gebruiken cookies om verschillende redenen die hieronder worden beschreven. Helaas zijn er in de meeste gevallen geen standaardopties voor het uitschakelen van cookies zonder de functionaliteit en functies die ze aan deze site toevoegen volledig uit te schakelen. Het wordt aanbevolen dat u alle cookies laat staan ​​als u niet zeker weet of u ze nodig heeft of niet, voor het geval ze worden gebruikt om een ​​dienst te leveren die u gebruikt.";
+    var Disabling_cookies = "3. Cookies uitschakelen";
+    var Cookies_section_three = "U kunt voorkomen dat cookies worden gedownload door uw browserinstellingen aan te passen (zie het helpmenu van uw browser om te zien hoe u dit moet doen). Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van deze en vele andere websites die u bezoekt, kan beïnvloeden. Het uitschakelen van cookies zal meestal resulteren in het uitschakelen van bepaalde functies en functies van deze site. Als u cookies wilt uitschakelen, raden we u aan om";
+    var Cookies_section_threeLink = "op Firefox.";
+    var Cookies_we_set = "4. Cookies die we plaatsen";
+    var Cookies_section_fourOne = "Onze website bevat een inschrijvingsmodule voor de nieuwsbrief en cookies kunnen worden gebruikt om te onthouden of u al bent geregistreerd en of u bepaalde meldingen wilt weergeven die mogelijk alleen geldig zijn voor aangemelde / niet-geabonneerde gebruikers.";
+    var Cookies_section_fourTwo = "Om u een geweldige ervaring op deze site te bieden, bieden we de functionaliteit om de taal in te stellen op basis van de taal die u in uw browser gebruikt. Om uw voorkeuren te onthouden, moeten we cookies instellen, zodat deze informatie kan worden opgeroepen wanneer u een pagina bezoekt die wordt beïnvloed door uw voorkeuren.";
+    var Third_party_cookies = "5. Cookies van derden";
+    var Cookies_section_five = "Onze site maakt geen gebruik van cookies van derden.";
+    var More_information = "6. Meer informatie";
+    var Cookies_section_six = "Zoals eerder vermeld, is het, als er iets is waarvan je niet zeker weet of je het nodig hebt of niet, meestal veiliger om cookies ingeschakeld te laten - voor het geval dat het een interactie aangaat met een van de functies die je op onze site gebruikt. Als u op zoek bent naar meer informatie, kunt u contact met ons opnemen via ";
+    var Privacy_title = "Privacybeleid";
+    var Privacy_introOne = "Verantwoordelijk voor de verwerking van de gegevens en eigenaar";
+    var Privacy_introTwo = "Bike Data Project met Open Knowledge Belgium als juridische entiteit, een non-profitorganisatie, opgericht en bestaande naar Belgisch recht, met maatschappelijke zetel te 12 Cantersteen 1000 Brussel, België, met ondernemingsnummer 0845.419.930.";
+    var Privacy_policy_section = "1. Privacybeleid";
+    var Privacy_section_one = "Dit ‘Privacybeleid’ is van toepassing op de ‘persoonlijke gegevens’ die door Bike Data Project via deze website worden verzameld.";
+    var What_does_personal = "2. Wat wordt bedoeld met persoonlijke gegevens?";
+    var Privacy_section_two = "In dit privacybeleid verwijst persoonsgegevens naar informatie waarmee u geïdentificeerd kunt worden. Een identificeerbare persoon is iemand die direct of indirect kan worden geïdentificeerd, in het bijzonder door te verwijzen naar een identificatienummer of naar een of meer factoren die verband houden met fysieke, fysiologische, mentale, economische, culturele of sociale identiteit. Een typisch voorbeeld van persoonlijke informatie is uw naam en e-mailadres.";
+    var What_personal_data = "3. Welke persoonlijke gegevens verzamelen we?";
+    var Privacy_section_three = "We kunnen uw persoonlijke gegevens verzamelen uit de volgende bronnen:";
+    var Privacy_section_threeOne = "3.1 Persoonsgegevens die u verstrekt tijdens het gegevensinbrengproces op het platform.";
+    var Privacy_section_threeOne_pointOne = "Gegevens over je openbare profiel in je favoriete fietsapp (verplicht)";
+    var Privacy_section_threeOne_pointTwo = "Gegevens over je privé fietsactiviteiten in je favoriete fietsapp (verplicht)";
+    var Privacy_section_threeOne_pointThree = "Uw toestemming voor deze voorwaarden";
+    var Privacy_section_threeTwo = "3.2 Persoonsgegevens die we verzamelen wanneer u onze website bezoekt.";
+    var Privacy_section_threeTwo_content = "We gebruiken cookies om automatisch persoonlijke gegevens over u te verzamelen wanneer u deze website gebruikt. Raadpleeg ons Cookiebeleid voor meer informatie.";
+    var Privacy_section_threeThree = "3.3. Persoonsgegevens die u verstrekt bij het delen van uw fietsgegevens";
+    var Privacy_section_threeThree_pointOne = "Uw fietsritten (verplicht)";
+    var Privacy_section_threeThree_pointTwo = "Uw leeftijdscategorie (optioneel)";
+    var Privacy_section_threeThree_pointThree = "Uw geslacht (optioneel)";
+    var Privacy_section_threeThree_pointFour = "Het doel van uw fietstocht (optioneel)";
+    var Privacy_section_threeThree_pointFive = "Uw type fiets (optioneel)";
+    var How_use_personal_data = "4. Hoe gebruiken we persoonsgegevens?";
+    var Privacy_section_fourOne = "We verzamelen fietsgegevens van veel individuele fietsers en streven ernaar de anonieme geaggregeerde gegevens als open data beschikbaar te maken voor het publiek. De geaggregeerde gegevens worden zo gepubliceerd dat het niet mogelijk is om persoonlijke informatie van een individuele fietser te achterhalen.";
+    var Privacy_section_fourTwo = "Het publiceren van de gegevens zal gebeuren volgens het concept van differentiële privacy, een methode voor het openbaar delen van informatie over een dataset door de patronen van groepen binnen de dataset te beschrijven, terwijl informatie over individuen in de dataset achterblijft. Dit betekent in feite dat gegevens worden alleen gepubliceerd als de informatie van een bepaald individu niet kan worden achtergehaald.";
+    var Privacy_section_fourThree = "De persoonsgegevens worden alleen opgeslagen en verwerkt gedurende de periode die nodig is voor het doel van de verwerking. Daarna worden de gegevens verwijderd of geanonimiseerd. Bike Data Project vertrouwt op DigitalOcean dat is gecertificeerd volgens de belangrijkste privacy- en beveiligingsnormen. DigitalOcean services voldoen aan de GDPR-wetgeving.";
+    var With_whom_do = "5. Met wie delen we uw persoonsgegevens?";
+    var Privacy_section_five = "Uw persoonlijke gegevens worden niet gedeeld met derden. We zullen uw persoonlijke gegevens nooit verkopen of verhuren aan andere dienstverleners, noch zullen we uw persoonlijke gegevens delen met dienstverleners die niet voldoen aan de GDPR-wetgeving.";
+    var Where_do_we_transfer = "6. Waar transfereren we uw persoonsgegevens naartoe?";
+    var Privacy_section_six = "We geven uw persoonsgegevens alleen door aan dienstverleners die buiten de Europese Economische Ruimte zijn gevestigd als ze voldoen aan art 44 GDPR.";
+    var Automated_decision = "7. Geautomatiseerde besluitvorming en profilering";
+    var Privacy_section_seven = "De verwerking van uw persoonsgegevens omvat geen profilering en zal niet worden onderworpen aan geautomatiseerde besluitvorming voor het Bike Data Project.";
+    var What_rights_do = "8. Welke rechten heeft u?";
+    var Privacy_section_eight = "U heeft te allen tijde het recht om uw persoonsgegevens in te zien, evenals het recht om geïnformeerd te worden over het gebruik dat Bike Data Project van uw persoonsgegevens maakt.";
+    var Privacy_section_eightOne = "1. Recht op rectificatie, verwijdering en beperking van de verwerking";
+    var Privacy_section_eightOne_content = "Het staat u vrij om al dan niet uw persoonsgegevens aan Bike Data Project te verstrekken. Daarnaast heb je altijd het recht om jouw persoonsgegevens bij Bike Data Project te wijzigen, aan te vullen of te verwijderen. U erkent dat een weigering om persoonsgegevens te verstrekken of een verzoek tot verwijdering van persoonsgegevens betekent dat bepaalde diensten niet meer geleverd kunnen worden. U kunt ook verzoeken om beperking van de verwerking van uw persoonsgegevens.";
+    var Privacy_section_eightTwo = "2. Recht op bezwaar";
+    var Privacy_section_eightTwo_content = "U heeft het recht om bezwaar te maken tegen de verwerking van uw persoonsgegevens, zolang dit om ernstige en legitieme redenen is.";
+    var Privacy_section_eightThree = "3. Recht op overdraagbaarheid van gegevens";
+    var Privacy_section_eightThree_content = "Je hebt het recht om de persoonsgegevens die u aan het Bike Data Project hebt verstrekt in een gestructureerde, typische en machineleesbare vorm te verkrijgen en / of over te dragen aan verschillende verwerkingsverantwoordelijken.";
+    var Privacy_section_eightFour = "4. Recht om toestemming in te trekken";
+    var Privacy_section_eightFour_content = "Voor zover de verwerking is gebaseerd op uw voorafgaande toestemming, heeft u het recht om deze toestemming in te trekken.";
+    var Privacy_section_eightFive = "5. Recht om een ​​klacht in te dienen";
+    var Privacy_section_eightFive_content = "U hebt het recht om een ​​klacht in te dienen bij de Belgische Privacycommissie: Persoonlijke Privacycommissie, Drukpersstraat 35, 1000 Brussel, België, Tel. +32 (0) 2274 48 00, Fax +32 (0) 2274 48 35, e-mail: commission@privacycommission.be. Dit heeft geen invloed op de voorziening voor een burgerlijke rechtbank.";
+    var Exercising_your_rights = "9. Uitoefening van uw rechten";
+    var Privacy_section_nine = "U kunt uw rechten uitoefenen door hiervoor contact op te nemen met het Bike Data Project door een e-mail te sturen naar bikedataproject@openknowledge.be, op voorwaarde dat u een kopie van uw identiteitskaart meestuurt.";
+    var Additional_info = "Aanvullende informatie over het verzamelen en verwerken van gegevens";
+    var Legal_procedures = "Juridische procedures";
+    var Legal_procedures_contentOne = "De Verwerker en de Verantwoordelijke voor de verwerking van de Gegevens kunnen de Persoonsgegevens van de Gebruiker gebruiken voor juridische doeleinden, voor de rechtbank of gerechtelijke procedures in geval van onrechtmatig gebruik van deze Applicatie of de gerelateerde diensten.";
+    var Legal_procedures_contentTwo = "De Gebruiker is zich ervan bewust dat de Verwerker en de Gegevensbeheerder mogelijk verplicht zijn om de persoonsgegevens vrij te geven op verzoek van bevoegde overheidsinstanties voor de verwerking van de Gegevens.";
+    var Security_measures = "Beveiligingsmaatregelen";
+    var Security_measures_contentOne = "Bike Data Project heeft beveiligingsmaatregelen ontwikkeld die op technologisch en organisatorisch niveau zijn aangepast om vernietiging, verlies, vervalsing, wijziging, verboden toegang of de foutieve bekendmaking aan derden van persoonsgegevens en elke andere verboden verwerking te voorkomen van deze gegevens.";
+    var Security_measures_contentTwo = "Bike Data Project kan in geen geval aansprakelijk worden gesteld voor enige directe of indirecte schade die het gevolg is van het onjuist of onrechtmatig gebruik van uw persoonsgegevens door een derde partij.";
+    var Security_measures_contentThree = "U dient zich te allen tijde te houden aan de veiligheidsinstructies, waaronder het voorkomen van alle verboden toegang tot uw inloggegevens inclusief uw wachtwoord. U bent als enige verantwoordelijk voor het gebruik van de website op uw computer, vanaf uw IP-adres en met uw identificatiegegevens, evenals voor het vertrouwelijk houden van deze.";
+    var Definitions_legal_framework = "Definities en wettelijk kader";
+    var Personal_data = "Persoonlijke gegevens (of gegevens)";
+    var Personal_data_content = "Alle informatie betreffende een natuurlijke persoon, een rechtspersoon, een instelling of een vereniging die direct of indirect geïdentificeerd is of kan worden door middel van verwijzing naar andere informatie.";
+    var Usage_data = "Gebruiksgegevens";
+    var Usage_data_content = "Informatie die automatisch wordt verzameld via deze Applicatie (of externe services die in deze Applicatie worden gebruikt), inclusief: de IP-adressen of domeinnamen van de computers die worden gebruikt door de Gebruikers van deze Applicatie, de URI-adressen (Uniform Resource Identifier), het tijdstip van het verzoek, de methode die wordt gebruikt om het verzoek in te dienen bij de server, de grootte van het bestand dat erop wordt ontvangen, de numerieke code die de status van de serverreactie aangeeft (succesvol, fout, enz.), de functies van de browser en het besturingssysteem van de Gebruiker, de verschillende tijdgegevens per bezoek (zoals de tijd doorgebracht op elke pagina van de applicatie) en de gegevens die tijdens het gebruik van de applicatie worden verzameld (bijvoorbeeld: de volgorde van bezochte delen of andere parameters over het besturingssysteem van het apparaat).";
+    var User = "Gebruiker";
+    var User_content = "De persoon die deze Applicatie gebruikt en die akkoord moet gaan met of geautoriseerd moet zijn door de Betrokkene naar wie de Persoonsgegevens verwijzen.";
+    var Person_concerned = "Betrokkene";
+    var Person_concerned_content = "De rechtspersoon of natuurlijke persoon op wie de Persoonsgegevens betrekking hebben.";
+    var Data_processor = "Gegevensverwerker (or Gegevenstoezichtshouder)";
+    var Data_processor_content = "De natuurlijke persoon, rechtspersoon, overheidsadministratie of enige andere instelling, vereniging of organisatie die door de gegevensbeheerder is gemachtigd om de persoonsgegevens te verwerken in overeenstemming met dit privacybeleid.";
+    var Responsible_processing = "Verantwoordelijk voor de verwerking van de gegevens (of eigenaar)";
+    var Responsible_processing_content = "De natuurlijke persoon, rechtspersoon, overheidsadministratie of enige andere instelling, vereniging of organisatie die het recht heeft om, ook samen met de Verantwoordelijke voor de verwerking van de Gegevens, beslissingen te nemen over de doeleinden en methoden voor het verwerken van Persoonsgegevens en de middelen gebruikt, inclusief beveiligingsmaatregelen met betrekking tot de exploitatie en het gebruik van deze applicatie. De verantwoordelijke voor de verwerking van de gegevens is de eigenaar van deze applicatie, tenzij anders aangegeven.";
+    var This_application = "Deze applicatie";
+    var This_application_content = "De hardware of software tools waarmee de persoonlijke gegevens van de gebruiker worden verzameld.";
+    var Cookie = "Cookie";
+    var Cookie_content = "Klein stukje gegevens opgeslagen op het apparaat van de Gebruiker. Zie ons Cookiebeleid.";
+    var Legal_information = "Juridische informatie";
+    var Legal_information_content = "Kennisgeving aan Europese gebruikers: deze privacyverklaring is opgesteld met inachtneming van de verplichtingen in art. 10 van de Europese richtlijn 95/46 / EG en de bepalingen van de Europese richtlijn 2002/58 / EG, evenals de herziening in richtlijn 2009/136 / EG met betrekking tot cookies.";
+    var Changes_privacy_policy = "Wijzigingen in dit privacybeleid";
+    var Changes_privacy_policy_date = "Laatst bijgewerkt: 28 september 2020";
+    var Changes_privacy_policy_content = "De verantwoordelijke voor de verwerking van de gegevens behoudt zich het recht voor om dit privacybeleid op elk moment te wijzigen door gebruikers op deze pagina op de hoogte te stellen. We raden u aan deze pagina te controleren op mogelijke wijzigingen. De datum van de laatste wijziging wordt aangegeven onderaan de pagina. Als een Gebruiker bezwaar maakt tegen enige wijziging in het beleid, mag de Gebruiker deze Applicatie niet blijven gebruiken. Men kan de Verwerkingsverantwoordelijke verzoeken om de Gegevens te verwerken om de Persoonsgegevens te verwijderen. Tenzij anders aangegeven, is het geldige privacybeleid dat op dat moment van toepassing is, van toepassing op alle persoonlijke gegevens die de verantwoordelijke heeft opgeslagen voor de verwerking van de gegevens over gebruikers.";
+    var Terms_title = "Gebruiksvoorwaarden";
+    var Terms_introOne = "Met het Bike Data Project biedt Open Knowledge Belgium - de koepelorganisatie voor open kennis en open data-initiatieven in België - een community-driven open fietsdataplatform dat data verzamelt over waar en wanneer er wordt gefietst.";
+    var Terms_introTwo = "Het project heeft tot doel gegevens van fietsers, afkomstig van verschillende mobiele applicaties en bronnen, samen te voegen tot één open fietsdataplatform. De collectieve open data zullen lokale gemeenschappen in staat stellen om fietsen zichtbaarder te maken en besluitvormers de mogelijkheid bieden om steden leefbaarder en fietsvriendelijker te maken.";
+    var Terms_introThree = "De deelname aan dit project en het gebruik van dit platform is onderworpen aan een aantal regels. Hieronder vindt u de algemene voorwaarden van het project, aangezien we ervan overtuigd zijn dat duidelijke regels de beste garantie bieden voor een respectvolle community.";
+    var Terms_introFour = "Omdat Open Knowledge Belgium de feedback van de Bike Data Project community waardeert, verwelkomen we alle ideeën om het platform verder te verbeteren. U kunt uw suggesties e-mailen om";
+    var Who_can_contribute = "Wie kan bijdragen aan het Bike Data Project en wie kan gebruik maken van de open data van het Bike Data Project?";
+    var Who_can_contribute_contentOne = "Elke soort fietser kan bijdragen aan het project door fietsgegevens te delen. U kunt uw favoriete fietsapp koppelen om uw gegevens te delen of de Bike Data Project-app gebruiken om bij te dragen aan het Bike Data Project. Voor het gebruik van de app van het Bike Data Project hoeft u geen account aan te maken om de app te gebruiken, dus u en uw gedeelde fietsgegevens blijven anoniem.";
+    var Who_can_contribute_contentTwo = "De anonieme geaggregeerde fietsdata worden als open data voor het publiek opengesteld. De open data van het Bike Data Project platform wordt gepubliceerd onder een Creative Commons Attribution 4.0 International Licentie, die geen beperkingen oplegt aan uw gebruik van de open data. U hoeft het Bike Data Project alleen op de juiste manier te vermelden door de naam van het project, copyrightmelding, licentiemelding, disclaimer en een link naar het platform op te geven.";
+    var Limitation_of_liability = "Beperking van aansprakelijkheid";
+    var Limitation_of_liability_contentOne = "Het Bike Data Project kan niet verantwoordelijk worden gehouden voor mislukkingen of vertragingen bij het gebruik van het platform. Het platform kan niet verantwoordelijk worden gehouden voor enige aansprakelijkheid in geval van persoonlijke schade door het gebruik ervan. U dient het Bike Data Project (en elk van zijn partners en / of vrijwilligers) te verdedigen, schadeloos te stellen en te vrijwaren tegen elke claim, eis, actie, schade, verlies, kosten of uitgave, inclusief maar niet beperkt tot redelijke advocaatkosten, die voortvloeien uit of met betrekking tot (a) uw gebruik van ons project; (b) alle ledeninhoud of inzendingen die u verstrekt; (c) uw schending van deze voorwaarden; (d) uw schending van rechten van een ander; of (e) uw gedrag in verband met de diensten. Verder, als u het project namens een entiteit gebruikt, verklaart en garandeert u dat een dergelijke entiteit ermee instemt u en het Bike Data Project schadeloos te stellen voor schendingen van deze voorwaarden in overeenstemming met deze sectie. Als u verplicht bent om ons schadeloos te stellen, hebben we het recht om, naar eigen goeddunken en onbeperkt, elke actie of procedure te controleren en te bepalen of we deze willen schikken, en zo ja, onder welke voorwaarden.";
+    var Limitation_of_liability_contentTwo = "Wij geloven sterk in vrijheid van meningsuiting. Om er echter voor te zorgen dat het platform op een constructieve manier gebruikt kan worden door de gebruikers, met respect voor verschillende meningen en zonder dat mensen bang hoeven te zijn om deel te nemen aan het project, staan ​​wij geen aanstootgevend gedrag toe dat intimideert, intimideert of gebruikt angst om een ​​andere gebruiker het zwijgen op te leggen.";
+    var Spam = "Spam";
+    var Spam_contentOne = "We streven er te allen tijde naar om de gebruiker van het Bike Data Project platform te beschermen tegen technisch misbruik en spam. Accounts die worden gebruikt om de onderstaande acties uit te voeren, kunnen tijdelijk worden geblokkeerd of permanent worden verwijderd.";
+    var Spam_contentTwo = "Malware / phishing / virussen / wormen / Trojaanse paarden: u mag geen schadelijke inhoud of links naar dergelijke inhoud plaatsen met als doel de browsers of computers van iemand anders te beschadigen of te verstoren, of om iemands privacy te schenden. Spam: het is niet toegestaan ​​om gebruik het Bike Data Project-platform om mensen te spammen.";
+    var Infringement = "Inbreuk op toepasselijke wetgeving";
+    var Infringement_contentOne = "Het gebruik van het account mag op geen enkele manier in strijd zijn met de toepasselijke wetgeving. Dit omvat inbreuken op de privacywetgeving, intellectuele eigendomsrechten, het wetboek van strafrecht, enz. Het account mag op geen enkele manier worden gebruikt om illegale activiteiten te promoten.";
+    var Infringement_contentTwo = "Het account mag op geen enkele manier worden gebruikt om illegale activiteiten te promoten.";
+    var Breaches_aforementioned_rules = "In geval van overtreding van de bovengenoemde regels";
+    var Breaches_aforementioned_rules_content = "Het kan voorkomen dat via het platform schadelijke bestanden gedownload kunnen worden, al dan niet door een gebruiker, of dat gebruikers schadelijke hyperlinks plaatsen. Elke download door een gebruiker of het klikken op een hyperlink, geplaatst door een gebruiker, gebeurt op eigen risico van de gebruiker. Eventuele opgelopen schade is volledig en uitsluitend de verantwoordelijkheid van deze gebruiker.";
+    var Property_rights = "Eigendomsrechten Bike Data Project";
+    var Property_rights_content = "De broncode van het Bike Data Project is gepubliceerd onder een open source MIT-licentie. U gaat ermee akkoord gebonden te zijn aan en te voldoen aan alle licentieovereenkomsten die van toepassing zijn op deze open source software. De visuele identiteit, inclusief het logo en de kleuren, is beschikbaar onder CC BY 4.0. De naam van het Bike Data Project kan niet worden gebruikt of gerepliceerd.";
+    var Thanks_Bigletter = "Bedankt";
+    var Thanks_Fitbit_title = "Bedankt om je Fitbit account te verbinden!";
+    var Thanks_Content1 = "Je Fitbit account is nu verbonden met het Bike Data Project.";
+    var Thanks_Content2 = "Je fiets ritten worden nu automatisch gedeeld met een Bike Data Project als je je Fitbit gebruikt tijdens het fietsen.";
+    var nl = {
+    	Contribute: Contribute,
+    	The_data: The_data,
+    	About: About,
+    	FAQ: FAQ,
+    	Contact: Contact,
+    	Heading: Heading,
+    	Introduction: Introduction,
+    	Label_total_km: Label_total_km,
+    	Help_title: Help_title,
+    	Ask_for_favor: Ask_for_favor,
+    	By_sharing_your: By_sharing_your,
+    	Every_cyclist_can: Every_cyclist_can,
+    	Donate_title: Donate_title,
+    	Several_ways_to_contribute: Several_ways_to_contribute,
+    	You_not_using: You_not_using,
+    	Connect_existing_account: Connect_existing_account,
+    	Download_our_app: Download_our_app,
+    	Data_title: Data_title,
+    	Rides_collected: Rides_collected,
+    	Distance_collected: Distance_collected,
+    	Average_duration: Average_duration,
+    	Average_speed: Average_speed,
+    	Average_distance: Average_distance,
+    	co2_saved: co2_saved,
+    	Data_subtitle: Data_subtitle,
+    	Data_button: Data_button,
+    	Contribute_title: Contribute_title,
+    	People_who_work: People_who_work,
+    	Common_goal: Common_goal,
+    	Visible_title: Visible_title,
+    	Community_more_visible: Community_more_visible,
+    	Globally_but_locally: Globally_but_locally,
+    	Informed_title: Informed_title,
+    	Email_label: Email_label,
+    	Informed_placeholder: Informed_placeholder,
+    	Partners_title: Partners_title,
+    	Footer_intro: Footer_intro,
+    	Footer_nav_title: Footer_nav_title,
+    	Footer_contact: Footer_contact,
+    	Footer_street: Footer_street,
+    	Footer_city: Footer_city,
+    	Footer_copyright_one: Footer_copyright_one,
+    	Footer_copyright_two: Footer_copyright_two,
+    	Terms_of_use: Terms_of_use,
+    	Privacy_policy: Privacy_policy,
+    	Cookie_policy: Cookie_policy,
+    	Help: Help,
+    	Contribute_big: Contribute_big,
+    	Data: Data,
+    	Power: Power,
+    	Partners: Partners,
+    	About_us: About_us,
+    	Faq: Faq,
+    	Contact_us: Contact_us,
+    	Cookies: Cookies,
+    	Privacy: Privacy,
+    	Terms: Terms,
+    	Map_title: Map_title,
+    	Data_content_one: Data_content_one,
+    	Data_content_two: Data_content_two,
+    	Data_content_three: Data_content_three,
+    	Data_content_listOne: Data_content_listOne,
+    	Data_content_listTwo: Data_content_listTwo,
+    	Data_content_listThree: Data_content_listThree,
+    	Data_content_listFour: Data_content_listFour,
+    	Data_content_four: Data_content_four,
+    	Map_subtitle: Map_subtitle,
+    	About_title: About_title,
+    	About_intro: About_intro,
+    	About_titleOne: About_titleOne,
+    	About_contentOne_oneBefore: About_contentOne_oneBefore,
+    	About_contentOne_oneMiddle: About_contentOne_oneMiddle,
+    	About_contentOne_oneAfter: About_contentOne_oneAfter,
+    	About_contentOne_twoBefore: About_contentOne_twoBefore,
+    	About_contentOne_twoAfter: About_contentOne_twoAfter,
+    	About_contentOne_three: About_contentOne_three,
+    	About_titleTwo: About_titleTwo,
+    	About_contentTwo_one: About_contentTwo_one,
+    	About_contentTwo_two: About_contentTwo_two,
+    	About_titleThree: About_titleThree,
+    	About_contentThree_one: About_contentThree_one,
+    	About_contentThree_two: About_contentThree_two,
+    	About_contentThree_listOneBold: About_contentThree_listOneBold,
+    	About_contentThree_listOne: About_contentThree_listOne,
+    	About_contentThree_listTwoBold: About_contentThree_listTwoBold,
+    	About_contentThree_listTwo: About_contentThree_listTwo,
+    	About_contentThree_listThreeBold: About_contentThree_listThreeBold,
+    	About_contentThree_listThree: About_contentThree_listThree,
+    	About_titleFour: About_titleFour,
+    	About_contentFour: About_contentFour,
+    	Faq_title: Faq_title,
+    	Question_one_title: Question_one_title,
+    	Question_one_answerOne: Question_one_answerOne,
+    	Question_one_answerTwo: Question_one_answerTwo,
+    	Question_two_title: Question_two_title,
+    	Question_two_answerOne: Question_two_answerOne,
+    	Question_two_answerTwo: Question_two_answerTwo,
+    	Question_two_answerThree: Question_two_answerThree,
+    	Question_three_title: Question_three_title,
+    	Question_three_answer: Question_three_answer,
+    	Question_four_title: Question_four_title,
+    	Question_four_answerOne: Question_four_answerOne,
+    	Question_four_answerTwo: Question_four_answerTwo,
+    	Question_four_answerThree: Question_four_answerThree,
+    	Question_four_answerFour: Question_four_answerFour,
+    	Question_four_answerFive: Question_four_answerFive,
+    	Question_four_answerSix: Question_four_answerSix,
+    	Question_four_answerSeven: Question_four_answerSeven,
+    	Question_five_title: Question_five_title,
+    	Question_five_answerOne: Question_five_answerOne,
+    	Question_five_answerTwo: Question_five_answerTwo,
+    	Question_five_answerThree: Question_five_answerThree,
+    	Question_six_title: Question_six_title,
+    	Question_six_answer: Question_six_answer,
+    	Question_seven_title: Question_seven_title,
+    	Question_seven_answer: Question_seven_answer,
+    	Question_eight_title: Question_eight_title,
+    	Question_eight_answerOne: Question_eight_answerOne,
+    	Question_eight_answerTwo: Question_eight_answerTwo,
+    	Question_nine_title: Question_nine_title,
+    	Question_nine_answer: Question_nine_answer,
+    	Contact_title: Contact_title,
+    	Further_questions: Further_questions,
+    	Follow_socials: Follow_socials,
+    	Cookies_title: Cookies_title,
+    	What_are_cookies: What_are_cookies,
+    	Cookies_section_one: Cookies_section_one,
+    	Cookies_section_oneLink: Cookies_section_oneLink,
+    	How_we_use_cookies: How_we_use_cookies,
+    	Cookies_section_two: Cookies_section_two,
+    	Disabling_cookies: Disabling_cookies,
+    	Cookies_section_three: Cookies_section_three,
+    	Cookies_section_threeLink: Cookies_section_threeLink,
+    	Cookies_we_set: Cookies_we_set,
+    	Cookies_section_fourOne: Cookies_section_fourOne,
+    	Cookies_section_fourTwo: Cookies_section_fourTwo,
+    	Third_party_cookies: Third_party_cookies,
+    	Cookies_section_five: Cookies_section_five,
+    	More_information: More_information,
+    	Cookies_section_six: Cookies_section_six,
+    	Privacy_title: Privacy_title,
+    	Privacy_introOne: Privacy_introOne,
+    	Privacy_introTwo: Privacy_introTwo,
+    	Privacy_policy_section: Privacy_policy_section,
+    	Privacy_section_one: Privacy_section_one,
+    	What_does_personal: What_does_personal,
+    	Privacy_section_two: Privacy_section_two,
+    	What_personal_data: What_personal_data,
+    	Privacy_section_three: Privacy_section_three,
+    	Privacy_section_threeOne: Privacy_section_threeOne,
+    	Privacy_section_threeOne_pointOne: Privacy_section_threeOne_pointOne,
+    	Privacy_section_threeOne_pointTwo: Privacy_section_threeOne_pointTwo,
+    	Privacy_section_threeOne_pointThree: Privacy_section_threeOne_pointThree,
+    	Privacy_section_threeTwo: Privacy_section_threeTwo,
+    	Privacy_section_threeTwo_content: Privacy_section_threeTwo_content,
+    	Privacy_section_threeThree: Privacy_section_threeThree,
+    	Privacy_section_threeThree_pointOne: Privacy_section_threeThree_pointOne,
+    	Privacy_section_threeThree_pointTwo: Privacy_section_threeThree_pointTwo,
+    	Privacy_section_threeThree_pointThree: Privacy_section_threeThree_pointThree,
+    	Privacy_section_threeThree_pointFour: Privacy_section_threeThree_pointFour,
+    	Privacy_section_threeThree_pointFive: Privacy_section_threeThree_pointFive,
+    	How_use_personal_data: How_use_personal_data,
+    	Privacy_section_fourOne: Privacy_section_fourOne,
+    	Privacy_section_fourTwo: Privacy_section_fourTwo,
+    	Privacy_section_fourThree: Privacy_section_fourThree,
+    	With_whom_do: With_whom_do,
+    	Privacy_section_five: Privacy_section_five,
+    	Where_do_we_transfer: Where_do_we_transfer,
+    	Privacy_section_six: Privacy_section_six,
+    	Automated_decision: Automated_decision,
+    	Privacy_section_seven: Privacy_section_seven,
+    	What_rights_do: What_rights_do,
+    	Privacy_section_eight: Privacy_section_eight,
+    	Privacy_section_eightOne: Privacy_section_eightOne,
+    	Privacy_section_eightOne_content: Privacy_section_eightOne_content,
+    	Privacy_section_eightTwo: Privacy_section_eightTwo,
+    	Privacy_section_eightTwo_content: Privacy_section_eightTwo_content,
+    	Privacy_section_eightThree: Privacy_section_eightThree,
+    	Privacy_section_eightThree_content: Privacy_section_eightThree_content,
+    	Privacy_section_eightFour: Privacy_section_eightFour,
+    	Privacy_section_eightFour_content: Privacy_section_eightFour_content,
+    	Privacy_section_eightFive: Privacy_section_eightFive,
+    	Privacy_section_eightFive_content: Privacy_section_eightFive_content,
+    	Exercising_your_rights: Exercising_your_rights,
+    	Privacy_section_nine: Privacy_section_nine,
+    	Additional_info: Additional_info,
+    	Legal_procedures: Legal_procedures,
+    	Legal_procedures_contentOne: Legal_procedures_contentOne,
+    	Legal_procedures_contentTwo: Legal_procedures_contentTwo,
+    	Security_measures: Security_measures,
+    	Security_measures_contentOne: Security_measures_contentOne,
+    	Security_measures_contentTwo: Security_measures_contentTwo,
+    	Security_measures_contentThree: Security_measures_contentThree,
+    	Definitions_legal_framework: Definitions_legal_framework,
+    	Personal_data: Personal_data,
+    	Personal_data_content: Personal_data_content,
+    	Usage_data: Usage_data,
+    	Usage_data_content: Usage_data_content,
+    	User: User,
+    	User_content: User_content,
+    	Person_concerned: Person_concerned,
+    	Person_concerned_content: Person_concerned_content,
+    	Data_processor: Data_processor,
+    	Data_processor_content: Data_processor_content,
+    	Responsible_processing: Responsible_processing,
+    	Responsible_processing_content: Responsible_processing_content,
+    	This_application: This_application,
+    	This_application_content: This_application_content,
+    	Cookie: Cookie,
+    	Cookie_content: Cookie_content,
+    	Legal_information: Legal_information,
+    	Legal_information_content: Legal_information_content,
+    	Changes_privacy_policy: Changes_privacy_policy,
+    	Changes_privacy_policy_date: Changes_privacy_policy_date,
+    	Changes_privacy_policy_content: Changes_privacy_policy_content,
+    	Terms_title: Terms_title,
+    	Terms_introOne: Terms_introOne,
+    	Terms_introTwo: Terms_introTwo,
+    	Terms_introThree: Terms_introThree,
+    	Terms_introFour: Terms_introFour,
+    	Who_can_contribute: Who_can_contribute,
+    	Who_can_contribute_contentOne: Who_can_contribute_contentOne,
+    	Who_can_contribute_contentTwo: Who_can_contribute_contentTwo,
+    	Limitation_of_liability: Limitation_of_liability,
+    	Limitation_of_liability_contentOne: Limitation_of_liability_contentOne,
+    	Limitation_of_liability_contentTwo: Limitation_of_liability_contentTwo,
+    	Spam: Spam,
+    	Spam_contentOne: Spam_contentOne,
+    	Spam_contentTwo: Spam_contentTwo,
+    	Infringement: Infringement,
+    	Infringement_contentOne: Infringement_contentOne,
+    	Infringement_contentTwo: Infringement_contentTwo,
+    	Breaches_aforementioned_rules: Breaches_aforementioned_rules,
+    	Breaches_aforementioned_rules_content: Breaches_aforementioned_rules_content,
+    	Property_rights: Property_rights,
+    	Property_rights_content: Property_rights_content,
+    	Thanks_Bigletter: Thanks_Bigletter,
+    	Thanks_Fitbit_title: Thanks_Fitbit_title,
+    	Thanks_Content1: Thanks_Content1,
+    	Thanks_Content2: Thanks_Content2
+    };
+
+    var nl$1 = /*#__PURE__*/Object.freeze({
+        __proto__: null,
+        Contribute: Contribute,
+        The_data: The_data,
+        About: About,
+        FAQ: FAQ,
+        Contact: Contact,
+        Heading: Heading,
+        Introduction: Introduction,
+        Label_total_km: Label_total_km,
+        Help_title: Help_title,
+        Ask_for_favor: Ask_for_favor,
+        By_sharing_your: By_sharing_your,
+        Every_cyclist_can: Every_cyclist_can,
+        Donate_title: Donate_title,
+        Several_ways_to_contribute: Several_ways_to_contribute,
+        You_not_using: You_not_using,
+        Connect_existing_account: Connect_existing_account,
+        Download_our_app: Download_our_app,
+        Data_title: Data_title,
+        Rides_collected: Rides_collected,
+        Distance_collected: Distance_collected,
+        Average_duration: Average_duration,
+        Average_speed: Average_speed,
+        Average_distance: Average_distance,
+        co2_saved: co2_saved,
+        Data_subtitle: Data_subtitle,
+        Data_button: Data_button,
+        Contribute_title: Contribute_title,
+        People_who_work: People_who_work,
+        Common_goal: Common_goal,
+        Visible_title: Visible_title,
+        Community_more_visible: Community_more_visible,
+        Globally_but_locally: Globally_but_locally,
+        Informed_title: Informed_title,
+        Email_label: Email_label,
+        Informed_placeholder: Informed_placeholder,
+        Partners_title: Partners_title,
+        Footer_intro: Footer_intro,
+        Footer_nav_title: Footer_nav_title,
+        Footer_contact: Footer_contact,
+        Footer_street: Footer_street,
+        Footer_city: Footer_city,
+        Footer_copyright_one: Footer_copyright_one,
+        Footer_copyright_two: Footer_copyright_two,
+        Terms_of_use: Terms_of_use,
+        Privacy_policy: Privacy_policy,
+        Cookie_policy: Cookie_policy,
+        Help: Help,
+        Contribute_big: Contribute_big,
+        Data: Data,
+        Power: Power,
+        Partners: Partners,
+        About_us: About_us,
+        Faq: Faq,
+        Contact_us: Contact_us,
+        Cookies: Cookies,
+        Privacy: Privacy,
+        Terms: Terms,
+        Map_title: Map_title,
+        Data_content_one: Data_content_one,
+        Data_content_two: Data_content_two,
+        Data_content_three: Data_content_three,
+        Data_content_listOne: Data_content_listOne,
+        Data_content_listTwo: Data_content_listTwo,
+        Data_content_listThree: Data_content_listThree,
+        Data_content_listFour: Data_content_listFour,
+        Data_content_four: Data_content_four,
+        Map_subtitle: Map_subtitle,
+        About_title: About_title,
+        About_intro: About_intro,
+        About_titleOne: About_titleOne,
+        About_contentOne_oneBefore: About_contentOne_oneBefore,
+        About_contentOne_oneMiddle: About_contentOne_oneMiddle,
+        About_contentOne_oneAfter: About_contentOne_oneAfter,
+        About_contentOne_twoBefore: About_contentOne_twoBefore,
+        About_contentOne_twoAfter: About_contentOne_twoAfter,
+        About_contentOne_three: About_contentOne_three,
+        About_titleTwo: About_titleTwo,
+        About_contentTwo_one: About_contentTwo_one,
+        About_contentTwo_two: About_contentTwo_two,
+        About_titleThree: About_titleThree,
+        About_contentThree_one: About_contentThree_one,
+        About_contentThree_two: About_contentThree_two,
+        About_contentThree_listOneBold: About_contentThree_listOneBold,
+        About_contentThree_listOne: About_contentThree_listOne,
+        About_contentThree_listTwoBold: About_contentThree_listTwoBold,
+        About_contentThree_listTwo: About_contentThree_listTwo,
+        About_contentThree_listThreeBold: About_contentThree_listThreeBold,
+        About_contentThree_listThree: About_contentThree_listThree,
+        About_titleFour: About_titleFour,
+        About_contentFour: About_contentFour,
+        Faq_title: Faq_title,
+        Question_one_title: Question_one_title,
+        Question_one_answerOne: Question_one_answerOne,
+        Question_one_answerTwo: Question_one_answerTwo,
+        Question_two_title: Question_two_title,
+        Question_two_answerOne: Question_two_answerOne,
+        Question_two_answerTwo: Question_two_answerTwo,
+        Question_two_answerThree: Question_two_answerThree,
+        Question_three_title: Question_three_title,
+        Question_three_answer: Question_three_answer,
+        Question_four_title: Question_four_title,
+        Question_four_answerOne: Question_four_answerOne,
+        Question_four_answerTwo: Question_four_answerTwo,
+        Question_four_answerThree: Question_four_answerThree,
+        Question_four_answerFour: Question_four_answerFour,
+        Question_four_answerFive: Question_four_answerFive,
+        Question_four_answerSix: Question_four_answerSix,
+        Question_four_answerSeven: Question_four_answerSeven,
+        Question_five_title: Question_five_title,
+        Question_five_answerOne: Question_five_answerOne,
+        Question_five_answerTwo: Question_five_answerTwo,
+        Question_five_answerThree: Question_five_answerThree,
+        Question_six_title: Question_six_title,
+        Question_six_answer: Question_six_answer,
+        Question_seven_title: Question_seven_title,
+        Question_seven_answer: Question_seven_answer,
+        Question_eight_title: Question_eight_title,
+        Question_eight_answerOne: Question_eight_answerOne,
+        Question_eight_answerTwo: Question_eight_answerTwo,
+        Question_nine_title: Question_nine_title,
+        Question_nine_answer: Question_nine_answer,
+        Contact_title: Contact_title,
+        Further_questions: Further_questions,
+        Follow_socials: Follow_socials,
+        Cookies_title: Cookies_title,
+        What_are_cookies: What_are_cookies,
+        Cookies_section_one: Cookies_section_one,
+        Cookies_section_oneLink: Cookies_section_oneLink,
+        How_we_use_cookies: How_we_use_cookies,
+        Cookies_section_two: Cookies_section_two,
+        Disabling_cookies: Disabling_cookies,
+        Cookies_section_three: Cookies_section_three,
+        Cookies_section_threeLink: Cookies_section_threeLink,
+        Cookies_we_set: Cookies_we_set,
+        Cookies_section_fourOne: Cookies_section_fourOne,
+        Cookies_section_fourTwo: Cookies_section_fourTwo,
+        Third_party_cookies: Third_party_cookies,
+        Cookies_section_five: Cookies_section_five,
+        More_information: More_information,
+        Cookies_section_six: Cookies_section_six,
+        Privacy_title: Privacy_title,
+        Privacy_introOne: Privacy_introOne,
+        Privacy_introTwo: Privacy_introTwo,
+        Privacy_policy_section: Privacy_policy_section,
+        Privacy_section_one: Privacy_section_one,
+        What_does_personal: What_does_personal,
+        Privacy_section_two: Privacy_section_two,
+        What_personal_data: What_personal_data,
+        Privacy_section_three: Privacy_section_three,
+        Privacy_section_threeOne: Privacy_section_threeOne,
+        Privacy_section_threeOne_pointOne: Privacy_section_threeOne_pointOne,
+        Privacy_section_threeOne_pointTwo: Privacy_section_threeOne_pointTwo,
+        Privacy_section_threeOne_pointThree: Privacy_section_threeOne_pointThree,
+        Privacy_section_threeTwo: Privacy_section_threeTwo,
+        Privacy_section_threeTwo_content: Privacy_section_threeTwo_content,
+        Privacy_section_threeThree: Privacy_section_threeThree,
+        Privacy_section_threeThree_pointOne: Privacy_section_threeThree_pointOne,
+        Privacy_section_threeThree_pointTwo: Privacy_section_threeThree_pointTwo,
+        Privacy_section_threeThree_pointThree: Privacy_section_threeThree_pointThree,
+        Privacy_section_threeThree_pointFour: Privacy_section_threeThree_pointFour,
+        Privacy_section_threeThree_pointFive: Privacy_section_threeThree_pointFive,
+        How_use_personal_data: How_use_personal_data,
+        Privacy_section_fourOne: Privacy_section_fourOne,
+        Privacy_section_fourTwo: Privacy_section_fourTwo,
+        Privacy_section_fourThree: Privacy_section_fourThree,
+        With_whom_do: With_whom_do,
+        Privacy_section_five: Privacy_section_five,
+        Where_do_we_transfer: Where_do_we_transfer,
+        Privacy_section_six: Privacy_section_six,
+        Automated_decision: Automated_decision,
+        Privacy_section_seven: Privacy_section_seven,
+        What_rights_do: What_rights_do,
+        Privacy_section_eight: Privacy_section_eight,
+        Privacy_section_eightOne: Privacy_section_eightOne,
+        Privacy_section_eightOne_content: Privacy_section_eightOne_content,
+        Privacy_section_eightTwo: Privacy_section_eightTwo,
+        Privacy_section_eightTwo_content: Privacy_section_eightTwo_content,
+        Privacy_section_eightThree: Privacy_section_eightThree,
+        Privacy_section_eightThree_content: Privacy_section_eightThree_content,
+        Privacy_section_eightFour: Privacy_section_eightFour,
+        Privacy_section_eightFour_content: Privacy_section_eightFour_content,
+        Privacy_section_eightFive: Privacy_section_eightFive,
+        Privacy_section_eightFive_content: Privacy_section_eightFive_content,
+        Exercising_your_rights: Exercising_your_rights,
+        Privacy_section_nine: Privacy_section_nine,
+        Additional_info: Additional_info,
+        Legal_procedures: Legal_procedures,
+        Legal_procedures_contentOne: Legal_procedures_contentOne,
+        Legal_procedures_contentTwo: Legal_procedures_contentTwo,
+        Security_measures: Security_measures,
+        Security_measures_contentOne: Security_measures_contentOne,
+        Security_measures_contentTwo: Security_measures_contentTwo,
+        Security_measures_contentThree: Security_measures_contentThree,
+        Definitions_legal_framework: Definitions_legal_framework,
+        Personal_data: Personal_data,
+        Personal_data_content: Personal_data_content,
+        Usage_data: Usage_data,
+        Usage_data_content: Usage_data_content,
+        User: User,
+        User_content: User_content,
+        Person_concerned: Person_concerned,
+        Person_concerned_content: Person_concerned_content,
+        Data_processor: Data_processor,
+        Data_processor_content: Data_processor_content,
+        Responsible_processing: Responsible_processing,
+        Responsible_processing_content: Responsible_processing_content,
+        This_application: This_application,
+        This_application_content: This_application_content,
+        Cookie: Cookie,
+        Cookie_content: Cookie_content,
+        Legal_information: Legal_information,
+        Legal_information_content: Legal_information_content,
+        Changes_privacy_policy: Changes_privacy_policy,
+        Changes_privacy_policy_date: Changes_privacy_policy_date,
+        Changes_privacy_policy_content: Changes_privacy_policy_content,
+        Terms_title: Terms_title,
+        Terms_introOne: Terms_introOne,
+        Terms_introTwo: Terms_introTwo,
+        Terms_introThree: Terms_introThree,
+        Terms_introFour: Terms_introFour,
+        Who_can_contribute: Who_can_contribute,
+        Who_can_contribute_contentOne: Who_can_contribute_contentOne,
+        Who_can_contribute_contentTwo: Who_can_contribute_contentTwo,
+        Limitation_of_liability: Limitation_of_liability,
+        Limitation_of_liability_contentOne: Limitation_of_liability_contentOne,
+        Limitation_of_liability_contentTwo: Limitation_of_liability_contentTwo,
+        Spam: Spam,
+        Spam_contentOne: Spam_contentOne,
+        Spam_contentTwo: Spam_contentTwo,
+        Infringement: Infringement,
+        Infringement_contentOne: Infringement_contentOne,
+        Infringement_contentTwo: Infringement_contentTwo,
+        Breaches_aforementioned_rules: Breaches_aforementioned_rules,
+        Breaches_aforementioned_rules_content: Breaches_aforementioned_rules_content,
+        Property_rights: Property_rights,
+        Property_rights_content: Property_rights_content,
+        Thanks_Bigletter: Thanks_Bigletter,
+        Thanks_Fitbit_title: Thanks_Fitbit_title,
+        Thanks_Content1: Thanks_Content1,
+        Thanks_Content2: Thanks_Content2,
+        'default': nl
     });
 
     return app;
