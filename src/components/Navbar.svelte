@@ -14,6 +14,9 @@
             <Link class="nav-link m-2" to="about">About</Link>
         </li>
         <li class="nav-item">
+            <a class="nav-link m-2" href="https://wiki.bikedataproject.org/">Wiki</a>
+        </li>
+        <li class="nav-item">
             <a type="button" class="btn btn-primary m-2" href="#share-section">Participate</a>
         </li>
     </ul>

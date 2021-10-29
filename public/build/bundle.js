@@ -14287,7 +14287,10 @@ var app = (function () {
     	let link2;
     	let t2;
     	let li3;
-    	let a;
+    	let a0;
+    	let t4;
+    	let li4;
+    	let a1;
     	let current;
 
     	link0 = new Link$1({
@@ -14334,20 +14337,29 @@ var app = (function () {
     			create_component(link2.$$.fragment);
     			t2 = space();
     			li3 = element("li");
-    			a = element("a");
-    			a.textContent = "Participate";
+    			a0 = element("a");
+    			a0.textContent = "Wiki";
+    			t4 = space();
+    			li4 = element("li");
+    			a1 = element("a");
+    			a1.textContent = "Participate";
     			attr_dev(li0, "class", "nav-item active");
     			add_location(li0, file$f, 6, 8, 163);
     			attr_dev(li1, "class", "nav-item");
     			add_location(li1, file$f, 9, 8, 282);
     			attr_dev(li2, "class", "nav-item");
     			add_location(li2, file$f, 12, 8, 385);
-    			attr_dev(a, "type", "button");
-    			attr_dev(a, "class", "btn btn-primary m-2");
-    			attr_dev(a, "href", "#share-section");
-    			add_location(a, file$f, 16, 12, 526);
+    			attr_dev(a0, "class", "nav-link m-2");
+    			attr_dev(a0, "href", "https://wiki.bikedataproject.org/");
+    			add_location(a0, file$f, 16, 12, 526);
     			attr_dev(li3, "class", "nav-item");
     			add_location(li3, file$f, 15, 8, 492);
+    			attr_dev(a1, "type", "button");
+    			attr_dev(a1, "class", "btn btn-primary m-2");
+    			attr_dev(a1, "href", "#share-section");
+    			add_location(a1, file$f, 19, 12, 656);
+    			attr_dev(li4, "class", "nav-item");
+    			add_location(li4, file$f, 18, 8, 622);
     			attr_dev(ul, "class", "navbar-nav ms-auto");
     			add_location(ul, file$f, 5, 4, 123);
     			attr_dev(div, "class", "collapse navbar-collapse");
@@ -14370,7 +14382,10 @@ var app = (function () {
     			mount_component(link2, li2, null);
     			append_dev(ul, t2);
     			append_dev(ul, li3);
-    			append_dev(li3, a);
+    			append_dev(li3, a0);
+    			append_dev(ul, t4);
+    			append_dev(ul, li4);
+    			append_dev(li4, a1);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
