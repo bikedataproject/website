@@ -1,12 +1,13 @@
 <script>
 import { Col, Container, Row } from "sveltestrap";
+import { _ } from "svelte-i18n";
 </script>
 
 <section class="my-5">
   <Container class="mb-5">
     <Row>
       <Col xs="8">
-        <h2>Stay informed</h2>
+        <h2>{$_("Informed_title")}</h2>
         <form
           action="https://bikedataproject.us10.list-manage.com/subscribe/post?u=0c7a4077dc373a78e97129b40&amp;id=48e38aad42"
           method="post"
@@ -21,11 +22,11 @@ import { Col, Container, Row } from "sveltestrap";
               tabindex="-1"
               value="" />
           </div>
-          <label for="mce-EMAIL">Email</label>
+          <label for="mce-EMAIL">{$_("Email_label")}</label>
           <div>
             <input
               type="email"
-              placeholder="Your email adress"
+              placeholder="{$_("Informed_placeholder")}"
               name="EMAIL"
               id="mce-EMAIL"
               required="" />

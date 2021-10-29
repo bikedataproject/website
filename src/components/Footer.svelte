@@ -1,6 +1,6 @@
 <script>
 import { Col, Container, Row } from "sveltestrap";
-import { locale, locales } from "svelte-i18n";
+import { _, locale, locales } from "svelte-i18n";
 </script>
 
 <footer class="pt-5">
@@ -9,7 +9,7 @@ import { locale, locales } from "svelte-i18n";
       <Row>
         <Col xs="12" md="4" lg="6" class="px-4 mt-2">
           <p>
-            Bike Data Project is a project managed by Open Knowledge Belgium
+            {$_("Footer_intro")}
           </p>
           <a href="https://be.okfn.org/">
             <picture>
@@ -27,19 +27,19 @@ import { locale, locales } from "svelte-i18n";
           </a>
         </Col>
         <Col xs="6" md="4" lg="3" class="px-4 mt-2">
-          <h3 class="text-uppercase">Information</h3>
+          <h3 class="text-uppercase">{$_("Footer_nav_title")}</h3>
 
           <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
             <li class="mb-3">
               <a target="_blank" rel="noopener noreferrer" href="/datamap"
-                >The Data</a>
+                >{$_("The_data")}</a>
             </li>
             <li class="mb-3">
               <a target="_blank" rel="noopener noreferrer" href="/about"
-                >About</a>
+                >{$_("About")}</a>
             </li>
             <li class="mb-3">
-              <a target="_blank" rel="noopener noreferrer" href="/faq">FAQ</a>
+              <a target="_blank" rel="noopener noreferrer" href="/faq">{$_("FAQ")}</a>
             </li>
           </ul>
           <select bind:value="{$locale}">
@@ -49,7 +49,7 @@ import { locale, locales } from "svelte-i18n";
           </select>
         </Col>
         <Col xs="6" md="4" lg="3" class="px-4 mt-2">
-          <h3 class="text-uppercase">Contact</h3>
+          <h3 class="text-uppercase">{$_("Footer_contact")}</h3>
           <p class="Footer_footer__contactBold__3W-zb">
             Open Knowledge Belgium
           </p>
@@ -130,7 +130,7 @@ import { locale, locales } from "svelte-i18n";
   <div class="subfooter">
     <Row class="p-4">
       <p>
-        Except where otherwise noted, content on this site is licensed under a
+        {$_("Footer_copyright_one")}
         <a href="https://creativecommons.org/licenses/by/4.0">
           Creative Commons Attribution 4.0 International License</a
         >.

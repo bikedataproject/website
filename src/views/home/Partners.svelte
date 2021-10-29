@@ -1,12 +1,13 @@
 <script>
 import { Container, Row, Col } from "sveltestrap";
+import { _ } from "svelte-i18n";
 </script>
 
 <section class="my-5">
-  <p class="background-big-letter">Partners</p>
+  <p class="background-big-letter">{$_("Partners")}</p>
   <Container>
     <Row>
-      <h2>Project Partners</h2>
+      <h2>{$_("Partners_title")}</h2>
       <Col xs="3" class="mt-3">
         <a
           href="https://be.okfn.org/"
@@ -55,7 +56,7 @@ import { Container, Row, Col } from "sveltestrap";
           class="partner-card"
           target="_blank"
           rel="noopener noreferrer">
-          <h3>Want to partner up?</h3>
+          <h3>{$_("Partner_up")}</h3>
         </a>
       </Col>
     </Row>

@@ -16111,13 +16111,15 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[3] = list[i];
+    	child_ctx[4] = list[i];
     	return child_ctx;
     }
 
     // (10:8) <Col xs="12" md="4" lg="6" class="px-4 mt-2">
     function create_default_slot_5$7(ctx) {
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Footer_intro") + "";
+    	let t0;
     	let t1;
     	let a;
     	let picture;
@@ -16131,7 +16133,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			p = element("p");
-    			p.textContent = "Bike Data Project is a project managed by Open Knowledge Belgium";
+    			t0 = text(t0_value);
     			t1 = space();
     			a = element("a");
     			picture = element("picture");
@@ -16141,24 +16143,25 @@ var app = (function () {
     			t3 = space();
     			img = element("img");
     			attr_dev(p, "class", "svelte-vxfk2x");
-    			add_location(p, file$h, 10, 10, 253);
+    			add_location(p, file$h, 10, 10, 256);
     			attr_dev(source0, "media", "(max-width: 600px)");
     			attr_dev(source0, "srcset", "/img/open-knowledge-belgium-footer.svg 113w");
-    			add_location(source0, file$h, 15, 14, 427);
+    			add_location(source0, file$h, 15, 14, 386);
     			attr_dev(source1, "media", "(min-width: 600px)");
     			attr_dev(source1, "srcset", "/img/open-knowledge-belgium-footer.svg 266w");
-    			add_location(source1, file$h, 18, 14, 564);
+    			add_location(source1, file$h, 18, 14, 523);
     			attr_dev(img, "class", "Footer_footer__img__4N03j svelte-vxfk2x");
     			if (!src_url_equal(img.src, img_src_value = "/img/open-knowledge-belgium-footer.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Open Knowlegde Belgium");
-    			add_location(img, file$h, 21, 14, 701);
-    			add_location(picture, file$h, 14, 12, 403);
+    			add_location(img, file$h, 21, 14, 660);
+    			add_location(picture, file$h, 14, 12, 362);
     			attr_dev(a, "href", "https://be.okfn.org/");
     			attr_dev(a, "class", "svelte-vxfk2x");
-    			add_location(a, file$h, 13, 10, 359);
+    			add_location(a, file$h, 13, 10, 318);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, a, anchor);
     			append_dev(a, picture);
@@ -16167,6 +16170,9 @@ var app = (function () {
     			append_dev(picture, source1);
     			append_dev(picture, t3);
     			append_dev(picture, img);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Footer_intro") + "")) set_data_dev(t0, t0_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -16189,7 +16195,7 @@ var app = (function () {
     // (46:12) {#each $locales as locale}
     function create_each_block(ctx) {
     	let option;
-    	let t_value = /*locale*/ ctx[3] + "";
+    	let t_value = /*locale*/ ctx[4] + "";
     	let t;
     	let option_value_value;
 
@@ -16197,18 +16203,18 @@ var app = (function () {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = option_value_value = /*locale*/ ctx[3];
+    			option.__value = option_value_value = /*locale*/ ctx[4];
     			option.value = option.__value;
-    			add_location(option, file$h, 46, 14, 1634);
+    			add_location(option, file$h, 46, 14, 1630);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
     			append_dev(option, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$locales*/ 2 && t_value !== (t_value = /*locale*/ ctx[3] + "")) set_data_dev(t, t_value);
+    			if (dirty & /*$locales*/ 4 && t_value !== (t_value = /*locale*/ ctx[4] + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*$locales*/ 2 && option_value_value !== (option_value_value = /*locale*/ ctx[3])) {
+    			if (dirty & /*$locales*/ 4 && option_value_value !== (option_value_value = /*locale*/ ctx[4])) {
     				prop_dev(option, "__value", option_value_value);
     				option.value = option.__value;
     			}
@@ -16232,21 +16238,29 @@ var app = (function () {
     // (29:8) <Col xs="6" md="4" lg="3" class="px-4 mt-2">
     function create_default_slot_4$8(ctx) {
     	let h3;
+    	let t0_value = /*$_*/ ctx[0]("Footer_nav_title") + "";
+    	let t0;
     	let t1;
     	let ul;
     	let li0;
     	let a0;
+    	let t2_value = /*$_*/ ctx[0]("The_data") + "";
+    	let t2;
     	let t3;
     	let li1;
     	let a1;
+    	let t4_value = /*$_*/ ctx[0]("About") + "";
+    	let t4;
     	let t5;
     	let li2;
     	let a2;
+    	let t6_value = /*$_*/ ctx[0]("FAQ") + "";
+    	let t6;
     	let t7;
     	let select;
     	let mounted;
     	let dispose;
-    	let each_value = /*$locales*/ ctx[1];
+    	let each_value = /*$locales*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -16257,20 +16271,20 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h3 = element("h3");
-    			h3.textContent = "Information";
+    			t0 = text(t0_value);
     			t1 = space();
     			ul = element("ul");
     			li0 = element("li");
     			a0 = element("a");
-    			a0.textContent = "The Data";
+    			t2 = text(t2_value);
     			t3 = space();
     			li1 = element("li");
     			a1 = element("a");
-    			a1.textContent = "About";
+    			t4 = text(t4_value);
     			t5 = space();
     			li2 = element("li");
     			a2 = element("a");
-    			a2.textContent = "FAQ";
+    			t6 = text(t6_value);
     			t7 = space();
     			select = element("select");
 
@@ -16279,45 +16293,49 @@ var app = (function () {
     			}
 
     			attr_dev(h3, "class", "text-uppercase");
-    			add_location(h3, file$h, 29, 10, 981);
+    			add_location(h3, file$h, 29, 10, 940);
     			attr_dev(a0, "target", "_blank");
     			attr_dev(a0, "rel", "noopener noreferrer");
     			attr_dev(a0, "href", "/datamap");
     			attr_dev(a0, "class", "svelte-vxfk2x");
-    			add_location(a0, file$h, 33, 14, 1139);
+    			add_location(a0, file$h, 33, 14, 1111);
     			attr_dev(li0, "class", "mb-3");
-    			add_location(li0, file$h, 32, 12, 1107);
+    			add_location(li0, file$h, 32, 12, 1079);
     			attr_dev(a1, "target", "_blank");
     			attr_dev(a1, "rel", "noopener noreferrer");
     			attr_dev(a1, "href", "/about");
     			attr_dev(a1, "class", "svelte-vxfk2x");
-    			add_location(a1, file$h, 37, 14, 1292);
+    			add_location(a1, file$h, 37, 14, 1272);
     			attr_dev(li1, "class", "mb-3");
-    			add_location(li1, file$h, 36, 12, 1260);
+    			add_location(li1, file$h, 36, 12, 1240);
     			attr_dev(a2, "target", "_blank");
     			attr_dev(a2, "rel", "noopener noreferrer");
     			attr_dev(a2, "href", "/faq");
     			attr_dev(a2, "class", "svelte-vxfk2x");
-    			add_location(a2, file$h, 41, 14, 1440);
+    			add_location(a2, file$h, 41, 14, 1428);
     			attr_dev(li2, "class", "mb-3");
-    			add_location(li2, file$h, 40, 12, 1408);
+    			add_location(li2, file$h, 40, 12, 1396);
     			attr_dev(ul, "class", "list-unstyled text-muted mb-6 mb-md-8 mb-lg-0");
-    			add_location(ul, file$h, 31, 10, 1036);
-    			if (/*$locale*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[2].call(select));
-    			add_location(select, file$h, 44, 10, 1549);
+    			add_location(ul, file$h, 31, 10, 1008);
+    			if (/*$locale*/ ctx[1] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[3].call(select));
+    			add_location(select, file$h, 44, 10, 1545);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
+    			append_dev(h3, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, ul, anchor);
     			append_dev(ul, li0);
     			append_dev(li0, a0);
+    			append_dev(a0, t2);
     			append_dev(ul, t3);
     			append_dev(ul, li1);
     			append_dev(li1, a1);
+    			append_dev(a1, t4);
     			append_dev(ul, t5);
     			append_dev(ul, li2);
     			append_dev(li2, a2);
+    			append_dev(a2, t6);
     			insert_dev(target, t7, anchor);
     			insert_dev(target, select, anchor);
 
@@ -16325,16 +16343,21 @@ var app = (function () {
     				each_blocks[i].m(select, null);
     			}
 
-    			select_option(select, /*$locale*/ ctx[0]);
+    			select_option(select, /*$locale*/ ctx[1]);
 
     			if (!mounted) {
-    				dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[2]);
+    				dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[3]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$locales*/ 2) {
-    				each_value = /*$locales*/ ctx[1];
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Footer_nav_title") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 1 && t2_value !== (t2_value = /*$_*/ ctx[0]("The_data") + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$_*/ 1 && t4_value !== (t4_value = /*$_*/ ctx[0]("About") + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*$_*/ 1 && t6_value !== (t6_value = /*$_*/ ctx[0]("FAQ") + "")) set_data_dev(t6, t6_value);
+
+    			if (dirty & /*$locales*/ 4) {
+    				each_value = /*$locales*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
 
@@ -16357,8 +16380,8 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*$locale, $locales*/ 3) {
-    				select_option(select, /*$locale*/ ctx[0]);
+    			if (dirty & /*$locale, $locales*/ 6) {
+    				select_option(select, /*$locale*/ ctx[1]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -16387,6 +16410,8 @@ var app = (function () {
     // (51:8) <Col xs="6" md="4" lg="3" class="px-4 mt-2">
     function create_default_slot_3$9(ctx) {
     	let h3;
+    	let t0_value = /*$_*/ ctx[0]("Footer_contact") + "";
+    	let t0;
     	let t1;
     	let p0;
     	let t3;
@@ -16413,7 +16438,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h3 = element("h3");
-    			h3.textContent = "Contact";
+    			t0 = text(t0_value);
     			t1 = space();
     			p0 = element("p");
     			p0.textContent = "Open Knowledge Belgium";
@@ -16441,81 +16466,82 @@ var app = (function () {
     			svg3 = svg_element("svg");
     			path3 = svg_element("path");
     			attr_dev(h3, "class", "text-uppercase");
-    			add_location(h3, file$h, 51, 10, 1795);
+    			add_location(h3, file$h, 51, 10, 1791);
     			attr_dev(p0, "class", "Footer_footer__contactBold__3W-zb svelte-vxfk2x");
-    			add_location(p0, file$h, 52, 10, 1845);
+    			add_location(p0, file$h, 52, 10, 1856);
     			attr_dev(p1, "class", "svelte-vxfk2x");
-    			add_location(p1, file$h, 55, 10, 1951);
+    			add_location(p1, file$h, 55, 10, 1962);
     			attr_dev(p2, "class", "svelte-vxfk2x");
-    			add_location(p2, file$h, 56, 10, 1983);
+    			add_location(p2, file$h, 56, 10, 1994);
     			attr_dev(a0, "href", "mailto:bikedataproject@openknowledge.be");
     			attr_dev(a0, "target", "_blank");
     			attr_dev(a0, "rel", "noopener noreferrer");
     			attr_dev(a0, "class", "svelte-vxfk2x");
-    			add_location(a0, file$h, 57, 10, 2014);
+    			add_location(a0, file$h, 57, 10, 2025);
     			attr_dev(path0, "d", "M16.5 0C7.38869 0 0 7.38869 0 16.5C0 25.6113 7.38869 33 16.5 33C25.6113 33 33 25.6113 33 16.5C33 7.38869 25.6113 0 16.5 0ZM24.0337 12.8649C24.041 13.0273 24.0445 13.1905 24.0445 13.3544C24.0445 18.3588 20.2353 24.1296 13.269 24.1299H13.2693H13.269C11.1302 24.1299 9.14001 23.503 7.46397 22.4287C7.76031 22.4637 8.06193 22.481 8.36732 22.481C10.1418 22.481 11.7748 21.8758 13.0711 20.8599C11.4132 20.8292 10.0154 19.7342 9.53302 18.2294C9.76389 18.2737 10.0013 18.2979 10.2448 18.2979C10.5905 18.2979 10.9253 18.2513 11.2435 18.1645C9.51061 17.8175 8.20518 16.286 8.20518 14.4521C8.20518 14.435 8.20518 14.4196 8.20569 14.4038C8.71603 14.6875 9.29963 14.8582 9.921 14.8773C8.9041 14.1988 8.23565 13.0389 8.23565 11.7249C8.23565 11.0311 8.42322 10.381 8.7485 9.8213C10.6161 12.1129 13.4073 13.62 16.5549 13.7784C16.4899 13.5009 16.4564 13.2119 16.4564 12.9148C16.4564 10.8241 18.1526 9.12792 20.2441 9.12792C21.3335 9.12792 22.3174 9.58841 23.0085 10.3246C23.8713 10.1544 24.6815 9.83917 25.4134 9.40537C25.1302 10.2893 24.53 11.0311 23.748 11.5001C24.5141 11.4085 25.2442 11.2053 25.9227 10.9037C25.4159 11.6632 24.7732 12.3304 24.0337 12.8649V12.8649Z");
     			attr_dev(path0, "fill", "white");
-    			add_location(path0, file$h, 72, 17, 2565);
+    			add_location(path0, file$h, 72, 17, 2576);
     			attr_dev(svg0, "width", "33");
     			attr_dev(svg0, "height", "33");
     			attr_dev(svg0, "viewBox", "0 0 33 33");
     			attr_dev(svg0, "fill", "none");
     			attr_dev(svg0, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg0, file$h, 66, 15, 2373);
+    			add_location(svg0, file$h, 66, 15, 2384);
     			attr_dev(a1, "href", "https://twitter.com/bikedataproject");
     			attr_dev(a1, "target", "_blank");
     			attr_dev(a1, "rel", "noopener noreferrer");
     			attr_dev(a1, "class", "svelte-vxfk2x");
-    			add_location(a1, file$h, 62, 12, 2228);
+    			add_location(a1, file$h, 62, 12, 2239);
     			attr_dev(path1, "d", "M33 16.5C33 7.38633 25.6137 0 16.5 0C7.38633 0 0 7.38633 0 16.5C0 25.6137 7.38633 33 16.5 33C16.5967 33 16.6934 33 16.79 32.9936V20.1545H13.2451V16.023H16.79V12.9809C16.79 9.45527 18.9428 7.53457 22.0881 7.53457C23.5963 7.53457 24.8918 7.64414 25.2656 7.6957V11.3824H23.1C21.392 11.3824 21.0568 12.1945 21.0568 13.3869V16.0166H25.1496L24.6146 20.148H21.0568V32.3619C27.9533 30.3832 33 24.0346 33 16.5V16.5Z");
     			attr_dev(path1, "fill", "white");
-    			add_location(path1, file$h, 87, 17, 4180);
+    			add_location(path1, file$h, 87, 17, 4191);
     			attr_dev(svg1, "width", "33");
     			attr_dev(svg1, "height", "33");
     			attr_dev(svg1, "viewBox", "0 0 33 33");
     			attr_dev(svg1, "fill", "none");
     			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg1, file$h, 81, 15, 3988);
+    			add_location(svg1, file$h, 81, 15, 3999);
     			attr_dev(a2, "href", "https://www.facebook.com/BikeDataProject");
     			attr_dev(a2, "target", "_blank");
     			attr_dev(a2, "rel", "noopener noreferrer");
     			attr_dev(a2, "class", "svelte-vxfk2x");
-    			add_location(a2, file$h, 77, 13, 3838);
+    			add_location(a2, file$h, 77, 13, 3849);
     			attr_dev(path2, "fill-rule", "evenodd");
     			attr_dev(path2, "clip-rule", "evenodd");
     			attr_dev(path2, "d", "M33 16.5C33 25.6127 25.6127 33 16.5 33C7.3873 33 0 25.6127 0 16.5C0 7.3873 7.3873 0 16.5 0C25.6127 0 33 7.3873 33 16.5ZM13.8419 6.53378C12.7402 6.5346 11.8485 7.42691 11.8493 8.52645C11.8485 9.62599 12.741 10.5183 13.8427 10.5191H15.8361V8.52726C15.8369 7.42772 14.9445 6.53541 13.8419 6.53378ZM13.8419 11.8486H8.52782C7.42608 11.8494 6.53361 12.7418 6.53443 13.8413C6.5328 14.9408 7.42526 15.8331 8.52701 15.8348H13.8419C14.9437 15.834 15.8361 14.9417 15.8353 13.8421C15.8361 12.7418 14.9437 11.8494 13.8419 11.8486ZM24.4717 11.8486C25.5734 11.8494 26.4659 12.7418 26.4651 13.8413C26.4659 14.9417 25.5734 15.834 24.4717 15.8348H22.4783V13.8413C22.4775 12.7418 23.3699 11.8494 24.4717 11.8486ZM21.1502 8.52645V13.8413C21.151 14.9417 20.2585 15.834 19.1568 15.8348C18.055 15.8331 17.1626 14.9408 17.1642 13.8413V8.52645C17.1634 7.42691 18.0558 6.5346 19.1576 6.53378C20.2593 6.53541 21.151 7.42772 21.1502 8.52645ZM19.1568 26.4628C20.2586 26.4619 21.1511 25.5696 21.1502 24.4701C21.1511 23.3706 20.2586 22.4782 19.1568 22.4774H17.1635V24.4701C17.1626 25.5688 18.0551 26.4611 19.1568 26.4628ZM19.1568 21.1471H24.4718C25.5735 21.1463 26.466 20.254 26.4652 19.1544C26.4668 18.0549 25.5743 17.1626 24.4726 17.1609H19.1577C18.0559 17.1618 17.1635 18.0541 17.1643 19.1536C17.1635 20.254 18.0551 21.1463 19.1568 21.1471ZM8.52782 21.1501C7.42608 21.1493 6.53361 20.257 6.53442 19.1574C6.53361 18.0579 7.42608 17.1656 8.52782 17.1648H10.5212V19.1574C10.522 20.257 9.62956 21.1493 8.52782 21.1501ZM11.8493 24.4723V19.1574C11.8485 18.0579 12.7402 17.1656 13.8427 17.1656C14.9445 17.1672 15.8369 18.0595 15.8353 19.1591V24.4731C15.8361 25.5726 14.9437 26.4649 13.8419 26.4658C12.7402 26.4641 11.8477 25.5718 11.8493 24.4723Z");
     			attr_dev(path2, "fill", "white");
-    			add_location(path2, file$h, 102, 17, 5099);
+    			add_location(path2, file$h, 102, 17, 5110);
     			attr_dev(svg2, "width", "33");
     			attr_dev(svg2, "height", "33");
     			attr_dev(svg2, "viewBox", "0 0 33 33");
     			attr_dev(svg2, "fill", "none");
     			attr_dev(svg2, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg2, file$h, 96, 15, 4907);
+    			add_location(svg2, file$h, 96, 15, 4918);
     			attr_dev(a3, "href", "https://join.slack.com/t/bikedataproject/shared_invite/zt-g60t5w5c-lT2ucV0HtLEVnE4_wG9hTg");
     			attr_dev(a3, "target", "_blank");
     			attr_dev(a3, "rel", "noopener noreferrer");
     			attr_dev(a3, "class", "svelte-vxfk2x");
-    			add_location(a3, file$h, 92, 13, 4708);
+    			add_location(a3, file$h, 92, 13, 4719);
     			attr_dev(path3, "d", "M16 0C7.15983 0 0 7.26871 0 16.2433C0 23.877 5.15949 30.2125 12.1205 31.9986C12.0402 31.7954 12.0007 31.5106 12.0007 31.2272V28.4652H10.0003C8.92051 28.4652 7.91966 27.9786 7.47983 27.0842C6.95966 26.1096 6.87932 24.6069 5.55983 23.6724C5.15949 23.3475 5.47949 23.0226 5.91932 23.0627C6.75949 23.306 7.43898 23.8756 8.07898 24.7271C8.71898 25.5801 8.99949 25.7833 10.1991 25.7833C10.7588 25.7833 11.6385 25.7432 12.4391 25.6202C12.879 24.4825 13.6388 23.4678 14.5593 22.9812C9.19966 22.3314 6.63966 19.6509 6.63966 15.9959C6.63966 14.4116 7.31915 12.9089 8.43983 11.6095C8.08034 10.3501 7.59966 7.75117 8.60051 6.73648C11.0012 6.73648 12.4405 8.32072 12.8 8.72576C13.9997 8.31934 15.3205 8.07603 16.6795 8.07603C18.0793 8.07603 19.3593 8.31934 20.559 8.72576C20.9185 8.31934 22.3591 6.73648 24.7585 6.73648C25.7185 7.71108 25.2786 10.3501 24.8783 11.6095C25.999 12.8688 26.639 14.4116 26.639 15.9959C26.639 19.6509 24.1185 22.3314 18.7997 22.8996C20.2798 23.671 21.3202 25.8635 21.3202 27.4878V31.1871C21.3202 31.3088 21.2807 31.4304 21.2807 31.5521C27.52 29.3596 32 23.3503 32 16.2433C32 7.26871 24.8402 0 16 0Z");
     			attr_dev(path3, "fill", "white");
-    			add_location(path3, file$h, 119, 17, 7344);
+    			add_location(path3, file$h, 119, 17, 7355);
     			attr_dev(svg3, "width", "32");
     			attr_dev(svg3, "height", "32");
     			attr_dev(svg3, "viewBox", "0 0 32 32");
     			attr_dev(svg3, "fill", "none");
     			attr_dev(svg3, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg3, file$h, 113, 15, 7152);
+    			add_location(svg3, file$h, 113, 15, 7163);
     			attr_dev(a4, "href", "https://github.com/bikedataproject");
     			attr_dev(a4, "target", "_blank");
     			attr_dev(a4, "rel", "noopener noreferrer");
     			attr_dev(a4, "class", "svelte-vxfk2x");
-    			add_location(a4, file$h, 109, 13, 7008);
+    			add_location(a4, file$h, 109, 13, 7019);
     			attr_dev(div, "class", "socials mt-4 svelte-vxfk2x");
-    			add_location(div, file$h, 61, 10, 2189);
+    			add_location(div, file$h, 61, 10, 2200);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
+    			append_dev(h3, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, p0, anchor);
     			insert_dev(target, t3, anchor);
@@ -16538,6 +16564,9 @@ var app = (function () {
     			append_dev(div, a4);
     			append_dev(a4, svg3);
     			append_dev(svg3, path3);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Footer_contact") + "")) set_data_dev(t0, t0_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h3);
@@ -16629,21 +16658,21 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 64) {
+    			if (dirty & /*$$scope, $_*/ 129) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, $locale, $locales*/ 67) {
+    			if (dirty & /*$$scope, $locale, $locales, $_*/ 135) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
     			col1.$set(col1_changes);
     			const col2_changes = {};
 
-    			if (dirty & /*$$scope*/ 64) {
+    			if (dirty & /*$$scope, $_*/ 129) {
     				col2_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16706,7 +16735,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, $locale, $locales*/ 67) {
+    			if (dirty & /*$$scope, $_, $locale, $locales*/ 135) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16740,28 +16769,35 @@ var app = (function () {
     // (131:4) <Row class="p-4">
     function create_default_slot$g(ctx) {
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Footer_copyright_one") + "";
     	let t0;
+    	let t1;
     	let a;
-    	let t2;
+    	let t3;
 
     	const block = {
     		c: function create() {
     			p = element("p");
-    			t0 = text("Except where otherwise noted, content on this site is licensed under a\n        ");
+    			t0 = text(t0_value);
+    			t1 = space();
     			a = element("a");
     			a.textContent = "Creative Commons Attribution 4.0 International License";
-    			t2 = text(".");
+    			t3 = text(".");
     			attr_dev(a, "href", "https://creativecommons.org/licenses/by/4.0");
     			attr_dev(a, "class", "svelte-vxfk2x");
-    			add_location(a, file$h, 133, 8, 8782);
+    			add_location(a, file$h, 133, 8, 8751);
     			attr_dev(p, "class", "svelte-vxfk2x");
-    			add_location(p, file$h, 131, 6, 8691);
+    			add_location(p, file$h, 131, 6, 8702);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     			append_dev(p, t0);
+    			append_dev(p, t1);
     			append_dev(p, a);
-    			append_dev(p, t2);
+    			append_dev(p, t3);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Footer_copyright_one") + "")) set_data_dev(t0, t0_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -16814,11 +16850,11 @@ var app = (function () {
     			div1 = element("div");
     			create_component(row.$$.fragment);
     			attr_dev(div0, "class", "pb-5");
-    			add_location(div0, file$h, 6, 2, 142);
+    			add_location(div0, file$h, 6, 2, 145);
     			attr_dev(div1, "class", "subfooter svelte-vxfk2x");
-    			add_location(div1, file$h, 129, 2, 8639);
+    			add_location(div1, file$h, 129, 2, 8650);
     			attr_dev(footer, "class", "pt-5");
-    			add_location(footer, file$h, 5, 0, 118);
+    			add_location(footer, file$h, 5, 0, 121);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16835,14 +16871,14 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const container_changes = {};
 
-    			if (dirty & /*$$scope, $locale, $locales*/ 67) {
+    			if (dirty & /*$$scope, $_, $locale, $locales*/ 135) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
     			container.$set(container_changes);
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 64) {
+    			if (dirty & /*$$scope, $_*/ 129) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16878,12 +16914,15 @@ var app = (function () {
     }
 
     function instance$j($$self, $$props, $$invalidate) {
+    	let $_;
     	let $locale;
     	let $locales;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	validate_store(M, 'locale');
-    	component_subscribe($$self, M, $$value => $$invalidate(0, $locale = $$value));
+    	component_subscribe($$self, M, $$value => $$invalidate(1, $locale = $$value));
     	validate_store(f, 'locales');
-    	component_subscribe($$self, f, $$value => $$invalidate(1, $locales = $$value));
+    	component_subscribe($$self, f, $$value => $$invalidate(2, $locales = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Footer', slots, []);
     	const writable_props = [];
@@ -16901,13 +16940,15 @@ var app = (function () {
     		Col,
     		Container,
     		Row,
+    		_: X,
     		locale: M,
     		locales: f,
+    		$_,
     		$locale,
     		$locales
     	});
 
-    	return [$locale, $locales, select_change_handler];
+    	return [$_, $locale, $locales, select_change_handler];
     }
 
     class Footer extends SvelteComponentDev {
@@ -16927,16 +16968,20 @@ var app = (function () {
     /* src/components/Navbar.svelte generated by Svelte v3.44.0 */
     const file$g = "src/components/Navbar.svelte";
 
-    // (8:12) <Link class="nav-link m-2" to="datamap">
+    // (9:6) <Link class="nav-link m-2" to="datamap">
     function create_default_slot_2$d(ctx) {
+    	let t_value = /*$_*/ ctx[0]("The_data") + "";
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("The Data");
+    			t = text(t_value);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t_value !== (t_value = /*$_*/ ctx[0]("The_data") + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -16947,23 +16992,27 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$d.name,
     		type: "slot",
-    		source: "(8:12) <Link class=\\\"nav-link m-2\\\" to=\\\"datamap\\\">",
+    		source: "(9:6) <Link class=\\\"nav-link m-2\\\" to=\\\"datamap\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:12) <Link class="nav-link m-2" to="faq">
+    // (12:6) <Link class="nav-link m-2" to="faq">
     function create_default_slot_1$d(ctx) {
+    	let t_value = /*$_*/ ctx[0]("FAQ") + "";
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("FAQ");
+    			t = text(t_value);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t_value !== (t_value = /*$_*/ ctx[0]("FAQ") + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -16974,23 +17023,27 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$d.name,
     		type: "slot",
-    		source: "(11:12) <Link class=\\\"nav-link m-2\\\" to=\\\"faq\\\">",
+    		source: "(12:6) <Link class=\\\"nav-link m-2\\\" to=\\\"faq\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:12) <Link class="nav-link m-2" to="about">
+    // (15:6) <Link class="nav-link m-2" to="about">
     function create_default_slot$f(ctx) {
+    	let t_value = /*$_*/ ctx[0]("About") + "";
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("About");
+    			t = text(t_value);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t_value !== (t_value = /*$_*/ ctx[0]("About") + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -17001,7 +17054,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$f.name,
     		type: "slot",
-    		source: "(14:12) <Link class=\\\"nav-link m-2\\\" to=\\\"about\\\">",
+    		source: "(15:6) <Link class=\\\"nav-link m-2\\\" to=\\\"about\\\">",
     		ctx
     	});
 
@@ -17022,9 +17075,13 @@ var app = (function () {
     	let t2;
     	let li3;
     	let a0;
+    	let t3_value = /*$_*/ ctx[0]("Wiki") + "";
+    	let t3;
     	let t4;
     	let li4;
     	let a1;
+    	let t5_value = /*$_*/ ctx[0]("Contribute") + "";
+    	let t5;
     	let current;
 
     	link0 = new Link$1({
@@ -17072,33 +17129,33 @@ var app = (function () {
     			t2 = space();
     			li3 = element("li");
     			a0 = element("a");
-    			a0.textContent = "Wiki";
+    			t3 = text(t3_value);
     			t4 = space();
     			li4 = element("li");
     			a1 = element("a");
-    			a1.textContent = "Participate";
+    			t5 = text(t5_value);
     			attr_dev(li0, "class", "nav-item active");
-    			add_location(li0, file$g, 6, 8, 163);
+    			add_location(li0, file$g, 7, 4, 186);
     			attr_dev(li1, "class", "nav-item");
-    			add_location(li1, file$g, 9, 8, 282);
+    			add_location(li1, file$g, 10, 4, 299);
     			attr_dev(li2, "class", "nav-item");
-    			add_location(li2, file$g, 12, 8, 385);
+    			add_location(li2, file$g, 13, 4, 396);
     			attr_dev(a0, "class", "nav-link m-2");
     			attr_dev(a0, "href", "https://wiki.bikedataproject.org/");
-    			add_location(a0, file$g, 16, 12, 526);
+    			add_location(a0, file$g, 17, 6, 525);
     			attr_dev(li3, "class", "nav-item");
-    			add_location(li3, file$g, 15, 8, 492);
+    			add_location(li3, file$g, 16, 4, 497);
     			attr_dev(a1, "type", "button");
     			attr_dev(a1, "class", "btn btn-primary m-2");
     			attr_dev(a1, "href", "#share-section");
-    			add_location(a1, file$g, 19, 12, 656);
+    			add_location(a1, file$g, 20, 6, 649);
     			attr_dev(li4, "class", "nav-item");
-    			add_location(li4, file$g, 18, 8, 622);
+    			add_location(li4, file$g, 19, 4, 621);
     			attr_dev(ul, "class", "navbar-nav ms-auto");
-    			add_location(ul, file$g, 5, 4, 123);
+    			add_location(ul, file$g, 6, 2, 150);
     			attr_dev(div, "class", "collapse navbar-collapse");
     			attr_dev(div, "id", "navbarNav");
-    			add_location(div, file$g, 4, 0, 65);
+    			add_location(div, file$g, 5, 0, 94);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17117,33 +17174,37 @@ var app = (function () {
     			append_dev(ul, t2);
     			append_dev(ul, li3);
     			append_dev(li3, a0);
+    			append_dev(a0, t3);
     			append_dev(ul, t4);
     			append_dev(ul, li4);
     			append_dev(li4, a1);
+    			append_dev(a1, t5);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
     			const link0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				link0_changes.$$scope = { dirty, ctx };
     			}
 
     			link0.$set(link0_changes);
     			const link1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				link1_changes.$$scope = { dirty, ctx };
     			}
 
     			link1.$set(link1_changes);
     			const link2_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				link2_changes.$$scope = { dirty, ctx };
     			}
 
     			link2.$set(link2_changes);
+    			if ((!current || dirty & /*$_*/ 1) && t3_value !== (t3_value = /*$_*/ ctx[0]("Wiki") + "")) set_data_dev(t3, t3_value);
+    			if ((!current || dirty & /*$_*/ 1) && t5_value !== (t5_value = /*$_*/ ctx[0]("Contribute") + "")) set_data_dev(t5, t5_value);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -17178,6 +17239,9 @@ var app = (function () {
     }
 
     function instance$i($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Navbar', slots, []);
     	const writable_props = [];
@@ -17186,8 +17250,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Navbar> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Link: Link$1 });
-    	return [];
+    	$$self.$capture_state = () => ({ Link: Link$1, _: X, $_ });
+    	return [$_];
     }
 
     class Navbar extends SvelteComponentDev {
@@ -19633,16 +19697,20 @@ var app = (function () {
     /* src/views/home/Data.svelte generated by Svelte v3.44.0 */
     const file$a = "src/views/home/Data.svelte";
 
-    // (54:6) <Button class="btn-share mt-3">
+    // (55:6) <Button class="btn-share mt-3">
     function create_default_slot$a(ctx) {
+    	let t_value = /*$_*/ ctx[0]("Data_button") + "";
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("Explore the data");
+    			t = text(t_value);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t_value !== (t_value = /*$_*/ ctx[0]("Data_button") + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -19653,7 +19721,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$a.name,
     		type: "slot",
-    		source: "(54:6) <Button class=\\\"btn-share mt-3\\\">",
+    		source: "(55:6) <Button class=\\\"btn-share mt-3\\\">",
     		ctx
     	});
 
@@ -19663,15 +19731,21 @@ var app = (function () {
     function create_fragment$c(ctx) {
     	let section;
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Data") + "";
+    	let t0;
     	let t1;
     	let div9;
     	let h2;
+    	let t2_value = /*$_*/ ctx[0]("Data_title") + "";
+    	let t2;
     	let t3;
     	let div3;
     	let div0;
     	let span0;
     	let t5;
     	let span1;
+    	let t6_value = /*$_*/ ctx[0]("Rides_collected") + "";
+    	let t6;
     	let t7;
     	let div1;
     	let span4;
@@ -19680,6 +19754,8 @@ var app = (function () {
     	let span3;
     	let t11;
     	let span5;
+    	let t12_value = /*$_*/ ctx[0]("Distance_collected") + "";
+    	let t12;
     	let t13;
     	let div2;
     	let span9;
@@ -19688,6 +19764,8 @@ var app = (function () {
     	let span6;
     	let t16;
     	let span8;
+    	let t17_value = /*$_*/ ctx[0]("Average_distance") + "";
+    	let t17;
     	let t18;
     	let div7;
     	let div4;
@@ -19697,6 +19775,8 @@ var app = (function () {
     	let span11;
     	let t22;
     	let span13;
+    	let t23_value = /*$_*/ ctx[0]("Average_speed") + "";
+    	let t23;
     	let t24;
     	let div5;
     	let span16;
@@ -19705,6 +19785,8 @@ var app = (function () {
     	let span15;
     	let t28;
     	let span17;
+    	let t29_value = /*$_*/ ctx[0]("Average_duration") + "";
+    	let t29;
     	let t30;
     	let div6;
     	let span20;
@@ -19713,9 +19795,13 @@ var app = (function () {
     	let span19;
     	let t34;
     	let span21;
+    	let t35_value = /*$_*/ ctx[0]("co2_saved") + "";
+    	let t35;
     	let t36;
     	let div8;
     	let h3;
+    	let t37_value = /*$_*/ ctx[0]("Data_subtitle") + "";
+    	let t37;
     	let t38;
     	let button;
     	let current;
@@ -19733,11 +19819,11 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			p = element("p");
-    			p.textContent = "Data";
+    			t0 = text(t0_value);
     			t1 = space();
     			div9 = element("div");
     			h2 = element("h2");
-    			h2.textContent = "Collected data worldwide";
+    			t2 = text(t2_value);
     			t3 = space();
     			div3 = element("div");
     			div0 = element("div");
@@ -19745,7 +19831,7 @@ var app = (function () {
     			span0.textContent = "381.167";
     			t5 = space();
     			span1 = element("span");
-    			span1.textContent = "rides collected";
+    			t6 = text(t6_value);
     			t7 = space();
     			div1 = element("div");
     			span4 = element("span");
@@ -19756,7 +19842,7 @@ var app = (function () {
     			span3.textContent = "K km";
     			t11 = space();
     			span5 = element("span");
-    			span5.textContent = "distance collected";
+    			t12 = text(t12_value);
     			t13 = space();
     			div2 = element("div");
     			span9 = element("span");
@@ -19766,7 +19852,7 @@ var app = (function () {
     			span6.textContent = "km";
     			t16 = space();
     			span8 = element("span");
-    			span8.textContent = "average distance";
+    			t17 = text(t17_value);
     			t18 = space();
     			div7 = element("div");
     			div4 = element("div");
@@ -19778,7 +19864,7 @@ var app = (function () {
     			span11.textContent = "km/h";
     			t22 = space();
     			span13 = element("span");
-    			span13.textContent = "average speed";
+    			t23 = text(t23_value);
     			t24 = space();
     			div5 = element("div");
     			span16 = element("span");
@@ -19789,7 +19875,7 @@ var app = (function () {
     			span15.textContent = "min";
     			t28 = space();
     			span17 = element("span");
-    			span17.textContent = "average duration";
+    			t29 = text(t29_value);
     			t30 = space();
     			div6 = element("div");
     			span20 = element("span");
@@ -19800,67 +19886,67 @@ var app = (function () {
     			span19.textContent = "t";
     			t34 = space();
     			span21 = element("span");
-    			span21.textContent = "CO2 saved";
+    			t35 = text(t35_value);
     			t36 = space();
     			div8 = element("div");
     			h3 = element("h3");
-    			h3.textContent = "Interested in the data by region?";
+    			t37 = text(t37_value);
     			t38 = space();
     			create_component(button.$$.fragment);
     			attr_dev(p, "class", "background-big-letter");
-    			add_location(p, file$a, 5, 2, 70);
-    			add_location(h2, file$a, 7, 4, 160);
+    			add_location(p, file$a, 6, 2, 103);
+    			add_location(h2, file$a, 8, 4, 201);
     			attr_dev(span0, "class", "counter-number svelte-jdhn9y");
-    			add_location(span0, file$a, 10, 8, 263);
-    			add_location(span1, file$a, 11, 8, 315);
+    			add_location(span0, file$a, 11, 8, 298);
+    			add_location(span1, file$a, 12, 8, 350);
     			attr_dev(div0, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div0, file$a, 9, 6, 227);
+    			add_location(div0, file$a, 10, 6, 262);
     			attr_dev(span2, "class", "counter-number svelte-jdhn9y");
-    			add_location(span2, file$a, 15, 10, 416);
-    			add_location(span3, file$a, 16, 10, 468);
-    			add_location(span4, file$a, 14, 8, 399);
-    			add_location(span5, file$a, 18, 8, 510);
+    			add_location(span2, file$a, 16, 10, 459);
+    			add_location(span3, file$a, 17, 10, 511);
+    			add_location(span4, file$a, 15, 8, 442);
+    			add_location(span5, file$a, 19, 8, 553);
     			attr_dev(div1, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div1, file$a, 13, 6, 363);
-    			add_location(span6, file$a, 23, 41, 662);
+    			add_location(div1, file$a, 14, 6, 406);
+    			add_location(span6, file$a, 24, 41, 713);
     			attr_dev(span7, "class", "counter-number svelte-jdhn9y");
-    			add_location(span7, file$a, 23, 10, 631);
-    			add_location(span8, file$a, 24, 10, 696);
+    			add_location(span7, file$a, 24, 10, 682);
+    			add_location(span8, file$a, 25, 10, 747);
     			attr_dev(span9, "class", "counter svelte-jdhn9y");
-    			add_location(span9, file$a, 22, 8, 598);
+    			add_location(span9, file$a, 23, 8, 649);
     			attr_dev(div2, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div2, file$a, 21, 6, 562);
+    			add_location(div2, file$a, 22, 6, 613);
     			attr_dev(div3, "class", "row mb-4");
-    			add_location(div3, file$a, 8, 4, 198);
+    			add_location(div3, file$a, 9, 4, 233);
     			attr_dev(span10, "class", "counter-number svelte-jdhn9y");
-    			add_location(span10, file$a, 31, 10, 847);
-    			add_location(span11, file$a, 32, 10, 896);
-    			add_location(span12, file$a, 30, 8, 830);
-    			add_location(span13, file$a, 34, 8, 939);
+    			add_location(span10, file$a, 32, 10, 906);
+    			add_location(span11, file$a, 33, 10, 955);
+    			add_location(span12, file$a, 31, 8, 889);
+    			add_location(span13, file$a, 35, 8, 998);
     			attr_dev(div4, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div4, file$a, 29, 6, 794);
+    			add_location(div4, file$a, 30, 6, 853);
     			attr_dev(span14, "class", "counter-number svelte-jdhn9y");
-    			add_location(span14, file$a, 38, 10, 1038);
-    			add_location(span15, file$a, 39, 10, 1087);
-    			add_location(span16, file$a, 37, 8, 1021);
-    			add_location(span17, file$a, 41, 8, 1129);
+    			add_location(span14, file$a, 39, 10, 1105);
+    			add_location(span15, file$a, 40, 10, 1154);
+    			add_location(span16, file$a, 38, 8, 1088);
+    			add_location(span17, file$a, 42, 8, 1196);
     			attr_dev(div5, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div5, file$a, 36, 6, 985);
+    			add_location(div5, file$a, 37, 6, 1052);
     			attr_dev(span18, "class", "counter-number svelte-jdhn9y");
-    			add_location(span18, file$a, 45, 10, 1231);
-    			add_location(span19, file$a, 46, 10, 1282);
-    			add_location(span20, file$a, 44, 8, 1214);
-    			add_location(span21, file$a, 48, 8, 1322);
+    			add_location(span18, file$a, 46, 10, 1306);
+    			add_location(span19, file$a, 47, 10, 1357);
+    			add_location(span20, file$a, 45, 8, 1289);
+    			add_location(span21, file$a, 49, 8, 1397);
     			attr_dev(div6, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div6, file$a, 43, 6, 1178);
+    			add_location(div6, file$a, 44, 6, 1253);
     			attr_dev(div7, "class", "row");
-    			add_location(div7, file$a, 28, 4, 770);
-    			add_location(h3, file$a, 52, 6, 1401);
+    			add_location(div7, file$a, 29, 4, 829);
+    			add_location(h3, file$a, 53, 6, 1484);
     			attr_dev(div8, "class", "explore svelte-jdhn9y");
-    			add_location(div8, file$a, 51, 4, 1373);
+    			add_location(div8, file$a, 52, 4, 1456);
     			attr_dev(div9, "class", "container container-section");
-    			add_location(div9, file$a, 6, 2, 114);
-    			add_location(section, file$a, 4, 0, 58);
+    			add_location(div9, file$a, 7, 2, 155);
+    			add_location(section, file$a, 5, 0, 91);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19868,15 +19954,18 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			append_dev(section, p);
+    			append_dev(p, t0);
     			append_dev(section, t1);
     			append_dev(section, div9);
     			append_dev(div9, h2);
+    			append_dev(h2, t2);
     			append_dev(div9, t3);
     			append_dev(div9, div3);
     			append_dev(div3, div0);
     			append_dev(div0, span0);
     			append_dev(div0, t5);
     			append_dev(div0, span1);
+    			append_dev(span1, t6);
     			append_dev(div3, t7);
     			append_dev(div3, div1);
     			append_dev(div1, span4);
@@ -19885,6 +19974,7 @@ var app = (function () {
     			append_dev(span4, span3);
     			append_dev(div1, t11);
     			append_dev(div1, span5);
+    			append_dev(span5, t12);
     			append_dev(div3, t13);
     			append_dev(div3, div2);
     			append_dev(div2, span9);
@@ -19893,6 +19983,7 @@ var app = (function () {
     			append_dev(span7, span6);
     			append_dev(span9, t16);
     			append_dev(span9, span8);
+    			append_dev(span8, t17);
     			append_dev(div9, t18);
     			append_dev(div9, div7);
     			append_dev(div7, div4);
@@ -19902,6 +19993,7 @@ var app = (function () {
     			append_dev(span12, span11);
     			append_dev(div4, t22);
     			append_dev(div4, span13);
+    			append_dev(span13, t23);
     			append_dev(div7, t24);
     			append_dev(div7, div5);
     			append_dev(div5, span16);
@@ -19910,6 +20002,7 @@ var app = (function () {
     			append_dev(span16, span15);
     			append_dev(div5, t28);
     			append_dev(div5, span17);
+    			append_dev(span17, t29);
     			append_dev(div7, t30);
     			append_dev(div7, div6);
     			append_dev(div6, span20);
@@ -19918,17 +20011,28 @@ var app = (function () {
     			append_dev(span20, span19);
     			append_dev(div6, t34);
     			append_dev(div6, span21);
+    			append_dev(span21, t35);
     			append_dev(div9, t36);
     			append_dev(div9, div8);
     			append_dev(div8, h3);
+    			append_dev(h3, t37);
     			append_dev(div8, t38);
     			mount_component(button, div8, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
+    			if ((!current || dirty & /*$_*/ 1) && t0_value !== (t0_value = /*$_*/ ctx[0]("Data") + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*$_*/ 1) && t2_value !== (t2_value = /*$_*/ ctx[0]("Data_title") + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*$_*/ 1) && t6_value !== (t6_value = /*$_*/ ctx[0]("Rides_collected") + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*$_*/ 1) && t12_value !== (t12_value = /*$_*/ ctx[0]("Distance_collected") + "")) set_data_dev(t12, t12_value);
+    			if ((!current || dirty & /*$_*/ 1) && t17_value !== (t17_value = /*$_*/ ctx[0]("Average_distance") + "")) set_data_dev(t17, t17_value);
+    			if ((!current || dirty & /*$_*/ 1) && t23_value !== (t23_value = /*$_*/ ctx[0]("Average_speed") + "")) set_data_dev(t23, t23_value);
+    			if ((!current || dirty & /*$_*/ 1) && t29_value !== (t29_value = /*$_*/ ctx[0]("Average_duration") + "")) set_data_dev(t29, t29_value);
+    			if ((!current || dirty & /*$_*/ 1) && t35_value !== (t35_value = /*$_*/ ctx[0]("co2_saved") + "")) set_data_dev(t35, t35_value);
+    			if ((!current || dirty & /*$_*/ 1) && t37_value !== (t37_value = /*$_*/ ctx[0]("Data_subtitle") + "")) set_data_dev(t37, t37_value);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19961,6 +20065,9 @@ var app = (function () {
     }
 
     function instance$c($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Data', slots, []);
     	const writable_props = [];
@@ -19969,8 +20076,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Data> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Button });
-    	return [];
+    	$$self.$capture_state = () => ({ Button, _: X, $_ });
+    	return [$_];
     }
 
     class Data$3 extends SvelteComponentDev {
@@ -20132,48 +20239,66 @@ var app = (function () {
     /* src/views/home/Help.svelte generated by Svelte v3.44.0 */
     const file$8 = "src/views/home/Help.svelte";
 
-    // (9:12) <Col xs="6">
+    // (10:6) <Col xs="6">
     function create_default_slot_3$6(ctx) {
     	let h2;
+    	let t0_value = /*$_*/ ctx[0]("Help_title") + "";
+    	let t0;
     	let t1;
     	let div;
     	let p0;
+    	let t2_value = /*$_*/ ctx[0]("Ask_for_favor") + "";
+    	let t2;
     	let t3;
     	let p1;
+    	let t4_value = /*$_*/ ctx[0]("By_sharing_your") + "";
+    	let t4;
     	let t5;
     	let p2;
+    	let t6_value = /*$_*/ ctx[0]("Every_cyclist_can") + "";
+    	let t6;
 
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			h2.textContent = "We need your help!";
+    			t0 = text(t0_value);
     			t1 = space();
     			div = element("div");
     			p0 = element("p");
-    			p0.textContent = "To make this work we want to ask you to share your\n                        cycling data.";
+    			t2 = text(t2_value);
     			t3 = space();
     			p1 = element("p");
-    			p1.textContent = "We need to know where you ride your bicycle. Your data\n                        contributions, combined with the data from many other\n                        cyclists, will make cities more adapted to cyclists.";
+    			t4 = text(t4_value);
     			t5 = space();
     			p2 = element("p");
-    			p2.textContent = "All cyclists are welcome to contribute to this project.\n                        Some people already track their activity for training\n                        purposes. That’s great, but we also want to consider\n                        other types of activities such as: commuting to work,\n                        dropping the kids off at school or a quick ride to the\n                        grocery store.";
-    			add_location(h2, file$8, 9, 16, 238);
+    			t6 = text(t6_value);
+    			add_location(h2, file$8, 10, 8, 253);
     			attr_dev(p0, "class", "fw-bold");
-    			add_location(p0, file$8, 11, 20, 324);
-    			add_location(p1, file$8, 15, 20, 502);
-    			add_location(p2, file$8, 20, 20, 785);
+    			add_location(p0, file$8, 12, 10, 321);
+    			add_location(p1, file$8, 15, 10, 400);
+    			add_location(p2, file$8, 18, 10, 465);
     			attr_dev(div, "class", "content");
-    			add_location(div, file$8, 10, 16, 282);
+    			add_location(div, file$8, 11, 8, 289);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, div, anchor);
     			append_dev(div, p0);
+    			append_dev(p0, t2);
     			append_dev(div, t3);
     			append_dev(div, p1);
+    			append_dev(p1, t4);
     			append_dev(div, t5);
     			append_dev(div, p2);
+    			append_dev(p2, t6);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Help_title") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 1 && t2_value !== (t2_value = /*$_*/ ctx[0]("Ask_for_favor") + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$_*/ 1 && t4_value !== (t4_value = /*$_*/ ctx[0]("By_sharing_your") + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*$_*/ 1 && t6_value !== (t6_value = /*$_*/ ctx[0]("Every_cyclist_can") + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h2);
@@ -20186,14 +20311,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$6.name,
     		type: "slot",
-    		source: "(9:12) <Col xs=\\\"6\\\">",
+    		source: "(10:6) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:12) <Col xs="6">
+    // (24:6) <Col xs="6">
     function create_default_slot_2$9(ctx) {
     	let picture;
     	let img;
@@ -20208,9 +20333,9 @@ var app = (function () {
     			attr_dev(img, "alt", "Mock up of the app on a phone");
     			attr_dev(img, "width", "468");
     			attr_dev(img, "height", "593");
-    			add_location(img, file$8, 32, 21, 1391);
+    			add_location(img, file$8, 25, 11, 630);
     			attr_dev(picture, "class", "Home_content__img__225R5");
-    			add_location(picture, file$8, 31, 16, 1328);
+    			add_location(picture, file$8, 24, 8, 577);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, picture, anchor);
@@ -20225,14 +20350,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$9.name,
     		type: "slot",
-    		source: "(31:12) <Col xs=\\\"6\\\">",
+    		source: "(24:6) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (8:8) <Row>
+    // (9:4) <Row>
     function create_default_slot_1$9(ctx) {
     	let col0;
     	let t;
@@ -20272,14 +20397,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20307,14 +20432,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$9.name,
     		type: "slot",
-    		source: "(8:8) <Row>",
+    		source: "(9:4) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (7:4) <Container class="container container-section">
+    // (8:2) <Container class="container container-section">
     function create_default_slot$9(ctx) {
     	let row;
     	let current;
@@ -20338,7 +20463,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20362,7 +20487,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$9.name,
     		type: "slot",
-    		source: "(7:4) <Container class=\\\"container container-section\\\">",
+    		source: "(8:2) <Container class=\\\"container container-section\\\">",
     		ctx
     	});
 
@@ -20372,6 +20497,8 @@ var app = (function () {
     function create_fragment$a(ctx) {
     	let section;
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Help") + "";
+    	let t0;
     	let t1;
     	let container;
     	let current;
@@ -20389,12 +20516,12 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			p = element("p");
-    			p.textContent = "Help";
+    			t0 = text(t0_value);
     			t1 = space();
     			create_component(container.$$.fragment);
     			attr_dev(p, "class", "background-big-letter");
-    			add_location(p, file$8, 5, 4, 89);
-    			add_location(section, file$8, 4, 0, 75);
+    			add_location(p, file$8, 6, 2, 116);
+    			add_location(section, file$8, 5, 0, 104);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20402,14 +20529,16 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			append_dev(section, p);
+    			append_dev(p, t0);
     			append_dev(section, t1);
     			mount_component(container, section, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
+    			if ((!current || dirty & /*$_*/ 1) && t0_value !== (t0_value = /*$_*/ ctx[0]("Help") + "")) set_data_dev(t0, t0_value);
     			const container_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20442,6 +20571,9 @@ var app = (function () {
     }
 
     function instance$a($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Help', slots, []);
     	const writable_props = [];
@@ -20450,8 +20582,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Help> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Col, Container, Row });
-    	return [];
+    	$$self.$capture_state = () => ({ Col, Container, Row, _: X, $_ });
+    	return [$_];
     }
 
     class Help$3 extends SvelteComponentDev {
@@ -20471,18 +20603,23 @@ var app = (function () {
     /* src/views/home/Newsletter.svelte generated by Svelte v3.44.0 */
     const file$7 = "src/views/home/Newsletter.svelte";
 
-    // (8:6) <Col xs="8">
+    // (9:6) <Col xs="8">
     function create_default_slot_2$8(ctx) {
     	let h2;
+    	let t0_value = /*$_*/ ctx[0]("Informed_title") + "";
+    	let t0;
     	let t1;
     	let form;
     	let div0;
     	let input0;
     	let t2;
     	let label;
+    	let t3_value = /*$_*/ ctx[0]("Email_label") + "";
+    	let t3;
     	let t4;
     	let div1;
     	let input1;
+    	let input1_placeholder_value;
     	let t5;
     	let button;
     	let img;
@@ -20491,70 +20628,80 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			h2.textContent = "Stay informed";
+    			t0 = text(t0_value);
     			t1 = space();
     			form = element("form");
     			div0 = element("div");
     			input0 = element("input");
     			t2 = space();
     			label = element("label");
-    			label.textContent = "Email";
+    			t3 = text(t3_value);
     			t4 = space();
     			div1 = element("div");
     			input1 = element("input");
     			t5 = space();
     			button = element("button");
     			img = element("img");
-    			add_location(h2, file$7, 8, 8, 158);
+    			add_location(h2, file$7, 9, 8, 191);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "name", "b_4e280417525a8a98031f1ce33_9af7c29f8d");
     			attr_dev(input0, "tabindex", "-1");
     			input0.value = "";
     			attr_dev(input0, "class", "svelte-umtqww");
-    			add_location(input0, file$7, 17, 12, 554);
+    			add_location(input0, file$7, 18, 12, 596);
     			attr_dev(div0, "class", "d-none");
     			attr_dev(div0, "aria-hidden", "true");
-    			add_location(div0, file$7, 16, 10, 502);
+    			add_location(div0, file$7, 17, 10, 544);
     			attr_dev(label, "for", "mce-EMAIL");
     			attr_dev(label, "class", "svelte-umtqww");
-    			add_location(label, file$7, 23, 10, 728);
+    			add_location(label, file$7, 24, 10, 770);
     			attr_dev(input1, "type", "email");
-    			attr_dev(input1, "placeholder", "Your email adress");
+    			attr_dev(input1, "placeholder", input1_placeholder_value = /*$_*/ ctx[0]("Informed_placeholder"));
     			attr_dev(input1, "name", "EMAIL");
     			attr_dev(input1, "id", "mce-EMAIL");
     			input1.required = "";
     			attr_dev(input1, "class", "svelte-umtqww");
-    			add_location(input1, file$7, 25, 12, 793);
+    			add_location(input1, file$7, 26, 12, 849);
     			if (!src_url_equal(img.src, img_src_value = "/img/arrow-orange.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Arrow orange icon");
     			attr_dev(img, "width", "20");
     			attr_dev(img, "height", "20");
-    			add_location(img, file$7, 32, 14, 993);
+    			add_location(img, file$7, 33, 14, 1060);
     			attr_dev(button, "class", "svelte-umtqww");
-    			add_location(button, file$7, 31, 12, 970);
-    			add_location(div1, file$7, 24, 10, 775);
+    			add_location(button, file$7, 32, 12, 1037);
+    			add_location(div1, file$7, 25, 10, 831);
     			attr_dev(form, "action", "https://bikedataproject.us10.list-manage.com/subscribe/post?u=0c7a4077dc373a78e97129b40&id=48e38aad42");
     			attr_dev(form, "method", "post");
     			attr_dev(form, "class", "Home_form__3a7DN");
     			attr_dev(form, "id", "mc-embedded-subscribe-form");
     			attr_dev(form, "name", "mc-embedded-subscribe-form");
     			attr_dev(form, "target", "_blank");
-    			add_location(form, file$7, 9, 8, 189);
+    			add_location(form, file$7, 10, 8, 231);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, form, anchor);
     			append_dev(form, div0);
     			append_dev(div0, input0);
     			append_dev(form, t2);
     			append_dev(form, label);
+    			append_dev(label, t3);
     			append_dev(form, t4);
     			append_dev(form, div1);
     			append_dev(div1, input1);
     			append_dev(div1, t5);
     			append_dev(div1, button);
     			append_dev(button, img);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Informed_title") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 1 && t3_value !== (t3_value = /*$_*/ ctx[0]("Email_label") + "")) set_data_dev(t3, t3_value);
+
+    			if (dirty & /*$_*/ 1 && input1_placeholder_value !== (input1_placeholder_value = /*$_*/ ctx[0]("Informed_placeholder"))) {
+    				attr_dev(input1, "placeholder", input1_placeholder_value);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h2);
@@ -20567,14 +20714,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$8.name,
     		type: "slot",
-    		source: "(8:6) <Col xs=\\\"8\\\">",
+    		source: "(9:6) <Col xs=\\\"8\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (7:4) <Row>
+    // (8:4) <Row>
     function create_default_slot_1$8(ctx) {
     	let col;
     	let current;
@@ -20599,7 +20746,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20623,14 +20770,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(7:4) <Row>",
+    		source: "(8:4) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (6:2) <Container class="mb-5">
+    // (7:2) <Container class="mb-5">
     function create_default_slot$8(ctx) {
     	let row;
     	let current;
@@ -20654,7 +20801,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20678,7 +20825,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$8.name,
     		type: "slot",
-    		source: "(6:2) <Container class=\\\"mb-5\\\">",
+    		source: "(7:2) <Container class=\\\"mb-5\\\">",
     		ctx
     	});
 
@@ -20704,7 +20851,7 @@ var app = (function () {
     			section = element("section");
     			create_component(container.$$.fragment);
     			attr_dev(section, "class", "my-5 svelte-umtqww");
-    			add_location(section, file$7, 4, 0, 71);
+    			add_location(section, file$7, 5, 0, 104);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20717,7 +20864,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const container_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20750,6 +20897,9 @@ var app = (function () {
     }
 
     function instance$9($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Newsletter', slots, []);
     	const writable_props = [];
@@ -20758,8 +20908,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Newsletter> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Col, Container, Row });
-    	return [];
+    	$$self.$capture_state = () => ({ Col, Container, Row, _: X, $_ });
+    	return [$_];
     }
 
     class Newsletter extends SvelteComponentDev {
@@ -20779,43 +20929,57 @@ var app = (function () {
     /* src/views/home/OpenData.svelte generated by Svelte v3.44.0 */
     const file$6 = "src/views/home/OpenData.svelte";
 
-    // (8:6) <Col xs="6">
+    // (9:6) <Col xs="6">
     function create_default_slot_2$7(ctx) {
     	let div1;
     	let h2;
+    	let t0_value = /*$_*/ ctx[0]("Contribute_title") + "";
+    	let t0;
     	let t1;
     	let div0;
     	let p0;
+    	let t2_value = /*$_*/ ctx[0]("People_who_work") + "";
+    	let t2;
     	let t3;
     	let p1;
+    	let t4_value = /*$_*/ ctx[0]("Common_goal") + "";
+    	let t4;
 
     	const block = {
     		c: function create() {
     			div1 = element("div");
     			h2 = element("h2");
-    			h2.textContent = "Who's the data for?";
+    			t0 = text(t0_value);
     			t1 = space();
     			div0 = element("div");
     			p0 = element("p");
-    			p0.textContent = "People who work in departments of transportation and city planners\n              around the world need data like this to help them develop modern\n              infrastructure and sustainable cities. Some of them are aware and\n              others we have to convince. And the more data we can provide, the\n              greater impact we shall have.";
+    			t2 = text(t2_value);
     			t3 = space();
     			p1 = element("p");
-    			p1.textContent = "The data can also be very useful for other bike related products\n              and services. The common goal is aggregating cycling data and make\n              it available as open data in order to make cities better adapted\n              to cyclists. For us and the people to come.";
-    			add_location(h2, file$6, 9, 10, 166);
-    			add_location(p0, file$6, 11, 12, 223);
-    			add_location(p1, file$6, 18, 12, 620);
-    			add_location(div0, file$6, 10, 10, 205);
+    			t4 = text(t4_value);
+    			add_location(h2, file$6, 10, 10, 199);
+    			add_location(p0, file$6, 12, 12, 261);
+    			add_location(p1, file$6, 15, 12, 332);
+    			add_location(div0, file$6, 11, 10, 243);
     			attr_dev(div1, "class", "text-box svelte-1f0jxfc");
-    			add_location(div1, file$6, 8, 8, 133);
+    			add_location(div1, file$6, 9, 8, 166);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
     			append_dev(div1, h2);
+    			append_dev(h2, t0);
     			append_dev(div1, t1);
     			append_dev(div1, div0);
     			append_dev(div0, p0);
+    			append_dev(p0, t2);
     			append_dev(div0, t3);
     			append_dev(div0, p1);
+    			append_dev(p1, t4);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Contribute_title") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 1 && t2_value !== (t2_value = /*$_*/ ctx[0]("People_who_work") + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$_*/ 1 && t4_value !== (t4_value = /*$_*/ ctx[0]("Common_goal") + "")) set_data_dev(t4, t4_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
@@ -20826,16 +20990,18 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$7.name,
     		type: "slot",
-    		source: "(8:6) <Col xs=\\\"6\\\">",
+    		source: "(9:6) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:6) <Col xs="6">
+    // (22:6) <Col xs="6">
     function create_default_slot_1$7(ctx) {
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Contribute_big") + "";
+    	let t0;
     	let t1;
     	let img;
     	let img_src_value;
@@ -20843,20 +21009,24 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			p = element("p");
-    			p.textContent = "Share";
+    			t0 = text(t0_value);
     			t1 = space();
     			img = element("img");
     			attr_dev(p, "class", "background-big-letter");
-    			add_location(p, file$6, 28, 8, 1010);
+    			add_location(p, file$6, 22, 8, 459);
     			attr_dev(img, "class", "illustration svelte-1f0jxfc");
     			if (!src_url_equal(img.src, img_src_value = "/img/contribute.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "People cycling");
-    			add_location(img, file$6, 29, 8, 1061);
+    			add_location(img, file$6, 23, 8, 527);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, img, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Contribute_big") + "")) set_data_dev(t0, t0_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -20869,14 +21039,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$7.name,
     		type: "slot",
-    		source: "(28:6) <Col xs=\\\"6\\\">",
+    		source: "(22:6) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (7:4) <Row>
+    // (8:4) <Row>
     function create_default_slot$7(ctx) {
     	let col0;
     	let t;
@@ -20916,14 +21086,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20951,7 +21121,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$7.name,
     		type: "slot",
-    		source: "(7:4) <Row>",
+    		source: "(8:4) <Row>",
     		ctx
     	});
 
@@ -20978,9 +21148,9 @@ var app = (function () {
     			div = element("div");
     			create_component(row.$$.fragment);
     			attr_dev(div, "class", "container");
-    			add_location(div, file$6, 5, 2, 72);
+    			add_location(div, file$6, 6, 2, 105);
     			attr_dev(section, "class", "svelte-1f0jxfc");
-    			add_location(section, file$6, 4, 0, 60);
+    			add_location(section, file$6, 5, 0, 93);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20994,7 +21164,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21027,6 +21197,9 @@ var app = (function () {
     }
 
     function instance$8($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('OpenData', slots, []);
     	const writable_props = [];
@@ -21035,8 +21208,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<OpenData> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Col, Row });
-    	return [];
+    	$$self.$capture_state = () => ({ Col, Row, _: X, $_ });
+    	return [$_];
     }
 
     class OpenData extends SvelteComponentDev {
@@ -21056,7 +21229,7 @@ var app = (function () {
     /* src/views/home/Partners.svelte generated by Svelte v3.44.0 */
     const file$5 = "src/views/home/Partners.svelte";
 
-    // (10:6) <Col xs="3" class="mt-3">
+    // (11:6) <Col xs="3" class="mt-3">
     function create_default_slot_6$3(ctx) {
     	let a;
     	let img;
@@ -21069,12 +21242,12 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = "/img/partners/open-knowledge-belgium.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Logo of Open Knowlegde Belgium");
     			attr_dev(img, "class", "svelte-q1dc45");
-    			add_location(img, file$5, 15, 10, 383);
+    			add_location(img, file$5, 16, 10, 430);
     			attr_dev(a, "href", "https://be.okfn.org/");
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "class", "partner-card svelte-q1dc45");
     			attr_dev(a, "rel", "noopener noreferrer");
-    			add_location(a, file$5, 10, 8, 238);
+    			add_location(a, file$5, 11, 8, 285);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -21089,14 +21262,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$3.name,
     		type: "slot",
-    		source: "(10:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
+    		source: "(11:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (21:6) <Col xs="3" class="mt-3">
+    // (22:6) <Col xs="3" class="mt-3">
     function create_default_slot_5$4(ctx) {
     	let a;
     	let img;
@@ -21109,12 +21282,12 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = "/img/partners/wg-film.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Logo of WG Film");
     			attr_dev(img, "class", "svelte-q1dc45");
-    			add_location(img, file$5, 26, 10, 713);
+    			add_location(img, file$5, 27, 10, 760);
     			attr_dev(a, "href", "https://www.wgfilm.com/");
     			attr_dev(a, "class", "partner-card svelte-q1dc45");
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "rel", "noopener noreferrer");
-    			add_location(a, file$5, 21, 8, 565);
+    			add_location(a, file$5, 22, 8, 612);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -21129,14 +21302,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$4.name,
     		type: "slot",
-    		source: "(21:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
+    		source: "(22:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:6) <Col xs="3" class="mt-3">
+    // (31:6) <Col xs="3" class="mt-3">
     function create_default_slot_4$5(ctx) {
     	let a;
     	let img;
@@ -21149,12 +21322,12 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = "/img/partners/brussels-mobility.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Logo of brussels mobility");
     			attr_dev(img, "class", "svelte-q1dc45");
-    			add_location(img, file$5, 35, 10, 1002);
+    			add_location(img, file$5, 36, 10, 1049);
     			attr_dev(a, "href", "https://mobilite-mobiliteit.brussels");
     			attr_dev(a, "class", "partner-card svelte-q1dc45");
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "rel", "noopener noreferrer");
-    			add_location(a, file$5, 30, 8, 841);
+    			add_location(a, file$5, 31, 8, 888);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -21169,14 +21342,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$5.name,
     		type: "slot",
-    		source: "(30:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
+    		source: "(31:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:6) <Col xs="3" class="mt-3">
+    // (42:6) <Col xs="3" class="mt-3">
     function create_default_slot_3$5(ctx) {
     	let a;
     	let img;
@@ -21189,12 +21362,12 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = "/img/partners/bike-for-brussels.webp")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Logo of Bike Fore Brussels");
     			attr_dev(img, "class", "svelte-q1dc45");
-    			add_location(img, file$5, 46, 10, 1324);
+    			add_location(img, file$5, 47, 10, 1371);
     			attr_dev(a, "href", "https://bike.brussels/nl/");
     			attr_dev(a, "class", "partner-card svelte-q1dc45");
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "rel", "noopener noreferrer");
-    			add_location(a, file$5, 41, 8, 1174);
+    			add_location(a, file$5, 42, 8, 1221);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -21209,34 +21382,40 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$5.name,
     		type: "slot",
-    		source: "(41:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
+    		source: "(42:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:6) <Col xs="3" class="mt-3">
+    // (53:6) <Col xs="3" class="mt-3">
     function create_default_slot_2$6(ctx) {
     	let a;
     	let h3;
+    	let t_value = /*$_*/ ctx[0]("Partner_up") + "";
+    	let t;
 
     	const block = {
     		c: function create() {
     			a = element("a");
     			h3 = element("h3");
-    			h3.textContent = "Want to partner up?";
+    			t = text(t_value);
     			attr_dev(h3, "class", "svelte-q1dc45");
-    			add_location(h3, file$5, 57, 10, 1662);
+    			add_location(h3, file$5, 58, 10, 1709);
     			attr_dev(a, "href", "mailto:bikedataproject@openknowledge.be");
     			attr_dev(a, "class", "partner-card svelte-q1dc45");
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "rel", "noopener noreferrer");
-    			add_location(a, file$5, 52, 8, 1498);
+    			add_location(a, file$5, 53, 8, 1545);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
     			append_dev(a, h3);
+    			append_dev(h3, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t_value !== (t_value = /*$_*/ ctx[0]("Partner_up") + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(a);
@@ -21247,16 +21426,18 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$6.name,
     		type: "slot",
-    		source: "(52:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
+    		source: "(53:6) <Col xs=\\\"3\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (8:4) <Row>
+    // (9:4) <Row>
     function create_default_slot_1$6(ctx) {
     	let h2;
+    	let t0_value = /*$_*/ ctx[0]("Partners_title") + "";
+    	let t0;
     	let t1;
     	let col0;
     	let t2;
@@ -21322,7 +21503,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			h2.textContent = "Project Partners";
+    			t0 = text(t0_value);
     			t1 = space();
     			create_component(col0.$$.fragment);
     			t2 = space();
@@ -21333,10 +21514,11 @@ var app = (function () {
     			create_component(col3.$$.fragment);
     			t5 = space();
     			create_component(col4.$$.fragment);
-    			add_location(h2, file$5, 8, 6, 172);
+    			add_location(h2, file$5, 9, 6, 213);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
     			insert_dev(target, t1, anchor);
     			mount_component(col0, target, anchor);
     			insert_dev(target, t2, anchor);
@@ -21350,37 +21532,38 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
+    			if ((!current || dirty & /*$_*/ 1) && t0_value !== (t0_value = /*$_*/ ctx[0]("Partners_title") + "")) set_data_dev(t0, t0_value);
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
     			col1.$set(col1_changes);
     			const col2_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				col2_changes.$$scope = { dirty, ctx };
     			}
 
     			col2.$set(col2_changes);
     			const col3_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope*/ 2) {
     				col3_changes.$$scope = { dirty, ctx };
     			}
 
     			col3.$set(col3_changes);
     			const col4_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				col4_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21422,14 +21605,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$6.name,
     		type: "slot",
-    		source: "(8:4) <Row>",
+    		source: "(9:4) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (7:2) <Container>
+    // (8:2) <Container>
     function create_default_slot$6(ctx) {
     	let row;
     	let current;
@@ -21453,7 +21636,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21477,7 +21660,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$6.name,
     		type: "slot",
-    		source: "(7:2) <Container>",
+    		source: "(8:2) <Container>",
     		ctx
     	});
 
@@ -21487,6 +21670,8 @@ var app = (function () {
     function create_fragment$7(ctx) {
     	let section;
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Partners") + "";
+    	let t0;
     	let t1;
     	let container;
     	let t2;
@@ -21506,20 +21691,20 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			p = element("p");
-    			p.textContent = "Partners";
+    			t0 = text(t0_value);
     			t1 = space();
     			create_component(container.$$.fragment);
     			t2 = space();
     			div1 = element("div");
     			div0 = element("div");
     			attr_dev(p, "class", "background-big-letter");
-    			add_location(p, file$5, 5, 2, 96);
+    			add_location(p, file$5, 6, 2, 129);
     			attr_dev(div0, "class", "Home_partners__1dttM Home_grid__XUG6j components_grid__1VC05");
-    			add_location(div0, file$5, 63, 4, 1792);
+    			add_location(div0, file$5, 64, 4, 1838);
     			attr_dev(div1, "class", "Home_content__wrapper__lZpMD");
-    			add_location(div1, file$5, 62, 2, 1745);
+    			add_location(div1, file$5, 63, 2, 1791);
     			attr_dev(section, "class", "my-5");
-    			add_location(section, file$5, 4, 0, 71);
+    			add_location(section, file$5, 5, 0, 104);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21527,6 +21712,7 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			append_dev(section, p);
+    			append_dev(p, t0);
     			append_dev(section, t1);
     			mount_component(container, section, null);
     			append_dev(section, t2);
@@ -21535,9 +21721,10 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
+    			if ((!current || dirty & /*$_*/ 1) && t0_value !== (t0_value = /*$_*/ ctx[0]("Partners") + "")) set_data_dev(t0, t0_value);
     			const container_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21570,6 +21757,9 @@ var app = (function () {
     }
 
     function instance$7($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Partners', slots, []);
     	const writable_props = [];
@@ -21578,8 +21768,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Partners> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Container, Row, Col });
-    	return [];
+    	$$self.$capture_state = () => ({ Container, Row, Col, _: X, $_ });
+    	return [$_];
     }
 
     class Partners$3 extends SvelteComponentDev {
@@ -21599,38 +21789,52 @@ var app = (function () {
     /* src/views/home/Power.svelte generated by Svelte v3.44.0 */
     const file$4 = "src/views/home/Power.svelte";
 
-    // (9:6) <Col xs="8">
+    // (10:6) <Col xs="8">
     function create_default_slot_2$5(ctx) {
     	let h2;
+    	let t0_value = /*$_*/ ctx[0]("Visible_title") + "";
+    	let t0;
     	let t1;
     	let div;
     	let p0;
+    	let t2_value = /*$_*/ ctx[0]("Community_more_visible") + "";
+    	let t2;
     	let t3;
     	let p1;
+    	let t4_value = /*$_*/ ctx[0]("Globally_but_locally") + "";
+    	let t4;
 
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			h2.textContent = "More cycling data means more power to and for cyclists";
+    			t0 = text(t0_value);
     			t1 = space();
     			div = element("div");
     			p0 = element("p");
-    			p0.textContent = "The Bike Data Project provides the opportunity to collect all\n            cycling data from different applications into one platform, which is\n            - based on the principle of open source and open data - adaptable\n            and accessible by everyone to ensure it benefits society.";
+    			t2 = text(t2_value);
     			t3 = space();
     			p1 = element("p");
-    			p1.textContent = "Little is known about how cyclists move around in cities today. If\n            there’s data available, it’s closed and restricted data sold by one\n            single app provider or static data collected through manual counts.\n            If we want to have more people cycling in cities and make the\n            bicycle as easy and logical to opt for as the car, we also need to\n            get the same data insights into cyclists’ behavior as we have about\n            car transport.";
-    			add_location(h2, file$4, 9, 8, 177);
-    			add_location(p0, file$4, 11, 10, 265);
-    			add_location(p1, file$4, 17, 10, 597);
-    			add_location(div, file$4, 10, 8, 249);
+    			t4 = text(t4_value);
+    			add_location(h2, file$4, 10, 8, 218);
+    			add_location(p0, file$4, 12, 10, 273);
+    			add_location(p1, file$4, 15, 10, 345);
+    			add_location(div, file$4, 11, 8, 257);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, div, anchor);
     			append_dev(div, p0);
+    			append_dev(p0, t2);
     			append_dev(div, t3);
     			append_dev(div, p1);
+    			append_dev(p1, t4);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 1 && t0_value !== (t0_value = /*$_*/ ctx[0]("Visible_title") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 1 && t2_value !== (t2_value = /*$_*/ ctx[0]("Community_more_visible") + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$_*/ 1 && t4_value !== (t4_value = /*$_*/ ctx[0]("Globally_but_locally") + "")) set_data_dev(t4, t4_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h2);
@@ -21643,14 +21847,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$5.name,
     		type: "slot",
-    		source: "(9:6) <Col xs=\\\"8\\\">",
+    		source: "(10:6) <Col xs=\\\"8\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (8:4) <Row>
+    // (9:4) <Row>
     function create_default_slot_1$5(ctx) {
     	let col;
     	let current;
@@ -21675,7 +21879,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21699,14 +21903,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$5.name,
     		type: "slot",
-    		source: "(8:4) <Row>",
+    		source: "(9:4) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (7:2) <Container>
+    // (8:2) <Container>
     function create_default_slot$5(ctx) {
     	let row;
     	let current;
@@ -21730,7 +21934,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21754,7 +21958,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$5.name,
     		type: "slot",
-    		source: "(7:2) <Container>",
+    		source: "(8:2) <Container>",
     		ctx
     	});
 
@@ -21764,6 +21968,8 @@ var app = (function () {
     function create_fragment$6(ctx) {
     	let section;
     	let p;
+    	let t0_value = /*$_*/ ctx[0]("Power") + "";
+    	let t0;
     	let t1;
     	let container;
     	let t2;
@@ -21783,18 +21989,18 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			p = element("p");
-    			p.textContent = "Power";
+    			t0 = text(t0_value);
     			t1 = space();
     			create_component(container.$$.fragment);
     			t2 = space();
     			img = element("img");
     			attr_dev(p, "class", "background-big-letter");
-    			add_location(p, file$4, 5, 2, 83);
-    			add_location(section, file$4, 4, 0, 71);
+    			add_location(p, file$4, 6, 2, 116);
+    			add_location(section, file$4, 5, 0, 104);
     			attr_dev(img, "class", "illustration svelte-oppfdo");
     			if (!src_url_equal(img.src, img_src_value = "/img/route.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Striped line of a route with places marked on");
-    			add_location(img, file$4, 31, 0, 1180);
+    			add_location(img, file$4, 23, 0, 470);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21802,6 +22008,7 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			append_dev(section, p);
+    			append_dev(p, t0);
     			append_dev(section, t1);
     			mount_component(container, section, null);
     			insert_dev(target, t2, anchor);
@@ -21809,9 +22016,10 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
+    			if ((!current || dirty & /*$_*/ 1) && t0_value !== (t0_value = /*$_*/ ctx[0]("Power") + "")) set_data_dev(t0, t0_value);
     			const container_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $_*/ 3) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21846,6 +22054,9 @@ var app = (function () {
     }
 
     function instance$6($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(0, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Power', slots, []);
     	const writable_props = [];
@@ -21854,8 +22065,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Power> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Container, Row, Col });
-    	return [];
+    	$$self.$capture_state = () => ({ Container, Row, Col, _: X, $_ });
+    	return [$_];
     }
 
     class Power$3 extends SvelteComponentDev {
@@ -24713,9 +24924,11 @@ var app = (function () {
     /* src/views/home/Share.svelte generated by Svelte v3.44.0 */
     const file = "src/views/home/Share.svelte";
 
-    // (20:10) <Col xs="6">
+    // (21:10) <Col xs="6">
     function create_default_slot_6$1(ctx) {
     	let h4;
+    	let t0_value = /*$_*/ ctx[2]("Connect_existing_account") + "";
+    	let t0;
     	let t1;
     	let div1;
     	let div0;
@@ -24735,7 +24948,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h4 = element("h4");
-    			h4.textContent = "Connect your account";
+    			t0 = text(t0_value);
     			t1 = space();
     			div1 = element("div");
     			div0 = element("div");
@@ -24744,15 +24957,16 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "After connecting your account your data will be automatically\n              shared with us. You can revoke our access at any time.";
     			attr_dev(h4, "class", "svelte-1lcp26q");
-    			add_location(h4, file, 20, 12, 579);
+    			add_location(h4, file, 21, 12, 614);
     			attr_dev(div0, "class", "mb-1");
-    			add_location(div0, file, 22, 14, 659);
+    			add_location(div0, file, 23, 14, 706);
     			attr_dev(div1, "class", "mt-1 mb-3");
-    			add_location(div1, file, 21, 12, 621);
-    			add_location(p, file, 26, 12, 826);
+    			add_location(div1, file, 22, 12, 668);
+    			add_location(p, file, 29, 12, 914);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h4, anchor);
+    			append_dev(h4, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, div1, anchor);
     			append_dev(div1, div0);
@@ -24762,6 +24976,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
+    			if ((!current || dirty & /*$_*/ 4) && t0_value !== (t0_value = /*$_*/ ctx[2]("Connect_existing_account") + "")) set_data_dev(t0, t0_value);
     			const fitbit_1_changes = {};
     			if (dirty & /*fitbit*/ 1) fitbit_1_changes.isCallback = /*fitbit*/ ctx[0].isCallback;
     			if (dirty & /*fitbit*/ 1) fitbit_1_changes.isConfirmEmail = /*fitbit*/ ctx[0].isConfirmEmail;
@@ -24790,14 +25005,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$1.name,
     		type: "slot",
-    		source: "(20:10) <Col xs=\\\"6\\\">",
+    		source: "(21:10) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:10) <Col xs="6">
+    // (35:10) <Col xs="6">
     function create_default_slot_5$1(ctx) {
     	let h4;
     	let t1;
@@ -24821,12 +25036,12 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Have GPX tracks of your cycling trips, upload them here!";
     			attr_dev(h4, "class", "svelte-1lcp26q");
-    			add_location(h4, file, 32, 12, 1044);
+    			add_location(h4, file, 35, 12, 1132);
     			attr_dev(div0, "class", "mb-1");
-    			add_location(div0, file, 34, 14, 1120);
+    			add_location(div0, file, 37, 14, 1208);
     			attr_dev(div1, "class", "mt-1 mb-3");
-    			add_location(div1, file, 33, 12, 1082);
-    			add_location(p, file, 36, 12, 1183);
+    			add_location(div1, file, 36, 12, 1170);
+    			add_location(p, file, 39, 12, 1271);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h4, anchor);
@@ -24861,14 +25076,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$1.name,
     		type: "slot",
-    		source: "(32:10) <Col xs=\\\"6\\\">",
+    		source: "(35:10) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (19:8) <Row>
+    // (20:8) <Row>
     function create_default_slot_4$1(ctx) {
     	let col0;
     	let t;
@@ -24908,14 +25123,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, fitbit*/ 9) {
+    			if (dirty & /*$$scope, fitbit, $_*/ 21) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 8) {
+    			if (dirty & /*$$scope*/ 16) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -24943,14 +25158,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(19:8) <Row>",
+    		source: "(20:8) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (18:6) <Col class="mt-5" xs="6">
+    // (19:6) <Col class="mt-5" xs="6">
     function create_default_slot_3$1(ctx) {
     	let row;
     	let current;
@@ -24974,7 +25189,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, fitbit*/ 9) {
+    			if (dirty & /*$$scope, fitbit, $_*/ 21) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -24998,50 +25213,68 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(18:6) <Col class=\\\"mt-5\\\" xs=\\\"6\\\">",
+    		source: "(19:6) <Col class=\\\"mt-5\\\" xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:6) <Col xs="6">
+    // (44:6) <Col xs="6">
     function create_default_slot_2$1(ctx) {
     	let p0;
+    	let t0_value = /*$_*/ ctx[2]("Contribute_big") + "";
+    	let t0;
     	let t1;
     	let h2;
+    	let t2_value = /*$_*/ ctx[2]("Donate_title") + "";
+    	let t2;
     	let t3;
     	let p1;
+    	let t4_value = /*$_*/ ctx[2]("Several_ways_to_contribute") + "";
+    	let t4;
     	let t5;
     	let p2;
+    	let t6_value = /*$_*/ ctx[2]("You_not_using") + "";
+    	let t6;
 
     	const block = {
     		c: function create() {
     			p0 = element("p");
-    			p0.textContent = "Share";
+    			t0 = text(t0_value);
     			t1 = space();
     			h2 = element("h2");
-    			h2.textContent = "Share your bike data";
+    			t2 = text(t2_value);
     			t3 = space();
     			p1 = element("p");
-    			p1.textContent = "There are a several ways you can contribute to the Bike Data Project.\n          For now, you can either connect your Strava account or upload your\n          Garmin files. Once your app is connected you can just carry on as\n          usual and your rides will be automatically uploaded to the Bike Data\n          Project platform.";
+    			t4 = text(t4_value);
     			t5 = space();
     			p2 = element("p");
-    			p2.textContent = "What if you aren't using any of the listed apps yet? You will be able\n          to download and use the Bike Data Project app soon. Moreover, we're\n          also working on the integration of other cycling apps!";
+    			t6 = text(t6_value);
     			attr_dev(p0, "class", "background-big-letter");
-    			add_location(p0, file, 41, 8, 1319);
-    			add_location(h2, file, 42, 8, 1370);
-    			add_location(p1, file, 43, 8, 1408);
-    			add_location(p2, file, 50, 8, 1773);
+    			add_location(p0, file, 44, 8, 1407);
+    			add_location(h2, file, 45, 8, 1475);
+    			add_location(p1, file, 46, 8, 1513);
+    			add_location(p2, file, 49, 8, 1583);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
+    			append_dev(p0, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, h2, anchor);
+    			append_dev(h2, t2);
     			insert_dev(target, t3, anchor);
     			insert_dev(target, p1, anchor);
+    			append_dev(p1, t4);
     			insert_dev(target, t5, anchor);
     			insert_dev(target, p2, anchor);
+    			append_dev(p2, t6);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$_*/ 4 && t0_value !== (t0_value = /*$_*/ ctx[2]("Contribute_big") + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$_*/ 4 && t2_value !== (t2_value = /*$_*/ ctx[2]("Donate_title") + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$_*/ 4 && t4_value !== (t4_value = /*$_*/ ctx[2]("Several_ways_to_contribute") + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*$_*/ 4 && t6_value !== (t6_value = /*$_*/ ctx[2]("You_not_using") + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p0);
@@ -25058,14 +25291,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(41:6) <Col xs=\\\"6\\\">",
+    		source: "(44:6) <Col xs=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:4) <Row>
+    // (18:4) <Row>
     function create_default_slot_1$1(ctx) {
     	let col0;
     	let t;
@@ -25106,14 +25339,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, fitbit*/ 9) {
+    			if (dirty & /*$$scope, fitbit, $_*/ 21) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope*/ 8) {
+    			if (dirty & /*$$scope, $_*/ 20) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -25141,14 +25374,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(17:4) <Row>",
+    		source: "(18:4) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (16:2) <Container>
+    // (17:2) <Container>
     function create_default_slot$1(ctx) {
     	let row;
     	let current;
@@ -25172,7 +25405,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, fitbit*/ 9) {
+    			if (dirty & /*$$scope, $_, fitbit*/ 21) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -25196,7 +25429,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(16:2) <Container>",
+    		source: "(17:2) <Container>",
     		ctx
     	});
 
@@ -25215,7 +25448,7 @@ var app = (function () {
     	let current;
 
     	function message_hook_binding(value) {
-    		/*message_hook_binding*/ ctx[2](value);
+    		/*message_hook_binding*/ ctx[3](value);
     	}
 
     	let message_props = {};
@@ -25246,9 +25479,9 @@ var app = (function () {
     			attr_dev(img, "class", "illustration");
     			if (!src_url_equal(img.src, img_src_value = "/img/bike_illustration.svg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Line illustration of a bike and some trees.");
-    			add_location(img, file, 11, 2, 350);
+    			add_location(img, file, 12, 2, 385);
     			attr_dev(section, "id", "share-section");
-    			add_location(section, file, 10, 0, 319);
+    			add_location(section, file, 11, 0, 354);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -25274,7 +25507,7 @@ var app = (function () {
     			message.$set(message_changes);
     			const container_changes = {};
 
-    			if (dirty & /*$$scope, fitbit*/ 9) {
+    			if (dirty & /*$$scope, $_, fitbit*/ 21) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -25311,6 +25544,9 @@ var app = (function () {
     }
 
     function instance$2($$self, $$props, $$invalidate) {
+    	let $_;
+    	validate_store(X, '_');
+    	component_subscribe($$self, X, $$value => $$invalidate(2, $_ = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Share', slots, []);
     	let { fitbit } = $$props;
@@ -25337,8 +25573,10 @@ var app = (function () {
     		Gpx,
     		Message,
     		Fitbit,
+    		_: X,
     		fitbit,
-    		messageHook
+    		messageHook,
+    		$_
     	});
 
     	$$self.$inject_state = $$props => {
@@ -25350,7 +25588,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [fitbit, messageHook, message_hook_binding];
+    	return [fitbit, messageHook, $_, message_hook_binding];
     }
 
     class Share extends SvelteComponentDev {

@@ -4,16 +4,17 @@ import Gpx from "../../integrations/Gpx.svelte";
 import Message from "../../components/modals/Message.svelte";
 import type { IMessageHook } from "../../components/modals/IMessageHook";
 import Fitbit from "../../integrations/Fitbit.svelte";
+import { _ } from "svelte-i18n";
 
 export let fitbit: {
-  isCallback: boolean,
-  isConfirmEmail: boolean
+  isCallback: boolean;
+  isConfirmEmail: boolean;
 };
 
 let messageHook: IMessageHook;
 </script>
 
-<Message bind:hook={messageHook} />
+<Message bind:hook="{messageHook}" />
 
 <section id="share-section">
   <img
@@ -25,10 +26,12 @@ let messageHook: IMessageHook;
       <Col class="mt-5" xs="6">
         <Row>
           <Col xs="6">
-            <h4>Connect your account</h4>
+            <h4>{$_("Connect_existing_account")}</h4>
             <div class="mt-1 mb-3">
               <div class="mb-1">
-                <Fitbit isCallback={fitbit.isCallback} isConfirmEmail={fitbit.isConfirmEmail}/>
+                <Fitbit
+                  isCallback="{fitbit.isCallback}"
+                  isConfirmEmail="{fitbit.isConfirmEmail}" />
               </div>
             </div>
             <p>
@@ -46,19 +49,13 @@ let messageHook: IMessageHook;
         </Row>
       </Col>
       <Col xs="6">
-        <p class="background-big-letter">Share</p>
-        <h2>Share your bike data</h2>
+        <p class="background-big-letter">{$_("Contribute_big")}</p>
+        <h2>{$_("Donate_title")}</h2>
         <p>
-          There are a several ways you can contribute to the Bike Data Project.
-          For now, you can either connect your Strava account or upload your
-          Garmin files. Once your app is connected you can just carry on as
-          usual and your rides will be automatically uploaded to the Bike Data
-          Project platform.
+          {$_("Several_ways_to_contribute")}
         </p>
         <p>
-          What if you aren't using any of the listed apps yet? You will be able
-          to download and use the Bike Data Project app soon. Moreover, we're
-          also working on the integration of other cycling apps!
+          {$_("You_not_using")}
         </p>
       </Col>
     </Row>

@@ -1,5 +1,6 @@
 <script>
 import { Col, Row } from "sveltestrap";
+import { _ } from "svelte-i18n";
 </script>
 
 <section>
@@ -7,26 +8,19 @@ import { Col, Row } from "sveltestrap";
     <Row>
       <Col xs="6">
         <div class="text-box">
-          <h2>Who's the data for?</h2>
+          <h2>{$_("Contribute_title")}</h2>
           <div>
             <p>
-              People who work in departments of transportation and city planners
-              around the world need data like this to help them develop modern
-              infrastructure and sustainable cities. Some of them are aware and
-              others we have to convince. And the more data we can provide, the
-              greater impact we shall have.
+              {$_("People_who_work")}
             </p>
             <p>
-              The data can also be very useful for other bike related products
-              and services. The common goal is aggregating cycling data and make
-              it available as open data in order to make cities better adapted
-              to cyclists. For us and the people to come.
+              {$_("Common_goal")}
             </p>
           </div>
         </div>
       </Col>
       <Col xs="6">
-        <p class="background-big-letter">Share</p>
+        <p class="background-big-letter">{$_("Contribute_big")}</p>
         <img
           class="illustration"
           src="/img/contribute.png"
