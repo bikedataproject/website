@@ -85,3 +85,30 @@ footer {
     color: #fff;
     margin-top: 14rem;
 }
+
+.accordion {
+    box-shadow: 0 2px 10px #e5e5e5;
+    border-radius: 7px;
+}
+
+.accordion-button {
+    color: #36469d;
+    font-size: large;
+    padding: 2rem;
+}
+
+.accordion-button:hover {
+    color: #ef4823;
+}
+
+.accordion-button:focus {
+    border-color: unset;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #36469d;
+    font-weight: 700;
+    padding: 2rem;
+    background-color: unset;
+}
