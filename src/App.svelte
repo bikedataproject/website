@@ -2,6 +2,7 @@
 import { Router, Route } from "svelte-navigator";
 import Footer from "./components/Footer.svelte";
 import Header from "./components/Header.svelte";
+import About from "./views/about/About.svelte";
 import Faq from "./views/faq/Faq.svelte";
 import Home from "./views/home/Home.svelte";
 </script>
@@ -14,6 +15,10 @@ import Home from "./views/home/Home.svelte";
 
   <Route path="faq">
     <Faq />
+  </Route>
+
+  <Route path="about">
+    <About />
   </Route>
 
   <Route path="fitbit/callback">
