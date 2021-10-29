@@ -44,11 +44,14 @@ export class IdentityApi {
      */
     async confirmEmail(email: string, token: string): Promise<boolean> {
         const comfirmEmailUrl = `${this.url}/confirmemail?email=${email}&token=${token}`;
-        const response = await fetch(comfirmEmailUrl);
+        fetch(comfirmEmailUrl)
+            .then(async (response) => {
+                return response.ok;
+            })
+            .catch(() => {
+                return false;
+            });
 
-        if (!response.ok) {
-            return false;
-        }
-        return true;
+        return false;
     }
 }

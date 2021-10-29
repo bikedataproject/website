@@ -8,15 +8,20 @@ import Partners from "./Partners.svelte";
 import Power from "./Power.svelte";
 import Share from "./Share.svelte";
 
-export let fitbitCallbackOpen = false;
-export let FitbitConfirmEmailOpen = false;
+export let fitbit: {
+  isCallback: boolean,
+  isConfirmEmail: boolean
+} = {
+    isCallback: false,
+    isConfirmEmail: false
+};
 </script>
 
 <Head />
 
 <Help />
 
-<Share {fitbitCallbackOpen} {FitbitConfirmEmailOpen} />
+<Share {fitbit} />
 
 <Data />
 

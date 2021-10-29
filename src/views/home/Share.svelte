@@ -1,68 +1,19 @@
 <script lang="ts">
-import { useLocation, useNavigate } from "svelte-navigator";
-import { Container, Row, Col, Input, Label } from "sveltestrap";
-import { IdentityApi } from "../../apis/identity/IdentityApi";
+import { Container, Row, Col, Input, Label, Button } from "sveltestrap";
 import Gpx from "../../integrations/Gpx.svelte";
-import Message from "../../integrations/Message.svelte";
-import Fitbit from "../../integrations/register/fitbit/Fitbit.svelte";
-import FitbitCallback from "../../integrations/register/fitbit/FitbitCallback.svelte";
-import FitbitConfirmEmail from "../../integrations/register/fitbit/FitbitConfirmEmail.svelte";
-import Strava from "../../integrations/register/Strava.svelte";
-const navigate = useNavigate();
+import Message from "../../components/modals/Message.svelte";
+import type { IMessageHook } from "../../components/modals/IMessageHook";
+import Fitbit from "../../integrations/Fitbit.svelte";
 
-export let fitbitCallbackOpen = false;
-export let FitbitConfirmEmailOpen = false;
-
-let identityApi = new IdentityApi({
-  url: "http://localhost:5001",
-});
-
-let messageOpen: boolean = false;
-let message = "";
-let messageClose = () => {
-  messageOpen = false;
+export let fitbit: {
+  isCallback: boolean,
+  isConfirmEmail: boolean
 };
 
-let fitbitSubmit = async (email: string) => {
-  const registerResponse = await identityApi.fitbit.register({
-    redirectUrl: "http://localhost:5000/fitbit/callback",
-    confirmEmailUrl: "http://localhost:5000/fitbit/confirmemail",
-    email: email,
-  });
-
-  // check if there is a response.
-  if (typeof registerResponse === "undefined") {
-    message = "Our apologies, linking your fitbit account failed, please try again later.";
-    messageOpen = true;
-    return;
-  }
-
-  // 2 responses possible:
-  // 1: email sent to authorize.
-  // 2: redirect to authorize endpoint received.
-  if (registerResponse.emailSent) {
-    // if the email is sent, tell the user.
-    message = "Thank you for sharing, we've sent you an email to confirm.";
-    messageOpen = true;
-    return;
-  } else {
-    navigate(registerResponse.url);
-    return;
-  }
-};
+let messageHook: IMessageHook;
 </script>
 
-{#if messageOpen}
-  <Message on:close="{messageClose}" message="{message}" />
-{/if}
-
-{#if fitbitCallbackOpen}
-  <FitbitCallback />
-{/if}
-
-{#if FitbitConfirmEmailOpen}
-  <FitbitConfirmEmail />
-{/if}
+<Message bind:hook={messageHook} />
 
 <section>
   <img
@@ -77,10 +28,8 @@ let fitbitSubmit = async (email: string) => {
             <h4>Connect your account</h4>
             <div class="mt-1 mb-3">
               <div class="mb-1">
-                <Fitbit
-                  on:submit="{async (e) => await fitbitSubmit(e.detail)}" />
+                <Fitbit isCallback={fitbit.isCallback} isConfirmEmail={fitbit.isConfirmEmail}/>
               </div>
-              <div class="mb-1"><Strava /></div>
             </div>
             <p>
               After connecting your account your data will be automatically
