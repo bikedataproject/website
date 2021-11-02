@@ -34,6 +34,7 @@ let register = async () => {
   });
 
   // check if there is a response.
+  console.log(registerResponse);
   if (typeof registerResponse === "undefined") {
     messageHook.show(
       "Our apologies, linking your fitbit account failed, please try again later."

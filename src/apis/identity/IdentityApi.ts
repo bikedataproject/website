@@ -23,18 +23,23 @@ export class IdentityApi {
      */
     async register(data: RegisterUserData): Promise<boolean> {
         const registerUrl = `${this.url}/register`;
-        const response = await fetch(registerUrl, {
-            body: JSON.stringify(data),
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+        try {
+            const response = await fetch(registerUrl, {
+                body: JSON.stringify(data),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
 
-        if (!response.ok) {
-            return false;
+            if (!response.ok) {
+                return false;
+            }
+            return true;
+        } catch (error) {
+            console.error(error);
         }
-        return true;
+        return false;
     }
 
     /**
@@ -44,13 +49,16 @@ export class IdentityApi {
      */
     async confirmEmail(email: string, token: string): Promise<boolean> {
         const comfirmEmailUrl = `${this.url}/confirmemail?email=${email}&token=${token}`;
-        fetch(comfirmEmailUrl)
-            .then(async (response) => {
-                return response.ok;
-            })
-            .catch(() => {
+        try {
+            const response = await fetch(comfirmEmailUrl);
+
+            if (!response.ok) {
                 return false;
-            });
+            }
+            return true;
+        } catch (error) {
+            console.error(error);
+        }
 
         return false;
     }
