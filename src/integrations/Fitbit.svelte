@@ -18,7 +18,7 @@ export let isCallback: boolean = false;
 export let isConfirmEmail: boolean = false;
 let messageHook: IMessageHook;
 let identityApi: IdentityApi = new IdentityApi({
-  url: "http://localhost:5001",
+  url: "http://localhost:8080/api/identity",
 });
 let email: string;
 let registerOpen: boolean = false;
@@ -26,35 +26,35 @@ let registerOpen: boolean = false;
 let open = async () => {
   registerOpen = true;
 };
+const redirectUrl = "http://localhost:8080/fitbit/callback";
+const confirmEmailUrl = "http://localhost:8080/fitbit/confirmemail";
+let buttonPush = async () => {
+  if (email) {
+    await register();
+  } else {
+    await authorize();
+  }
+};
+
+let authorize = async () => {};
+
 let register = async () => {
   const registerResponse = await identityApi.fitbit.register({
-    redirectUrl: "http://localhost:5000/fitbit/callback",
-    confirmEmailUrl: "http://localhost:5000/fitbit/confirmemail",
+    confirmEmailUrl: confirmEmailUrl,
     email: email,
   });
 
-  // check if there is a response.
-  console.log(registerResponse);
-  if (typeof registerResponse === "undefined") {
+  // show message if register failed.
+  if (!registerResponse) {
     messageHook.show(
       "Our apologies, linking your fitbit account failed, please try again later."
     );
     return;
   }
 
-  // 2 responses possible:
-  // 1: email sent to authorize.
-  // 2: redirect to authorize endpoint received.
-  if (registerResponse.emailSent) {
-    // if the email is sent, tell the user.
-    messageHook.show(
-      "Thank you for sharing, we've sent you an email to confirm."
-    );
-    return;
-  } else {
-    window.location.href = registerResponse.url;
-    return;
-  }
+  messageHook.show(
+    "Thank you for sharing, we've sent you an email to confirm."
+  );
 };
 let callback = async () => {
   const parsed = queryString.parse(window.location.search);
@@ -62,7 +62,10 @@ let callback = async () => {
     throw Error("callback without code");
   }
 
-  const ok = await identityApi.fitbit.registerCallback(parsed.code as string);
+  const ok = await identityApi.fitbit.callback(
+    parsed.code as string,
+    redirectUrl
+  );
   if (ok) {
     messageHook.show("Your fitbit account was successfully linked, thank you!");
   } else {
@@ -85,6 +88,8 @@ let confirmEmail = async () => {
     parsed.email as string,
     parsed.token as string
   );
+
+  // show message if email confirmation failed.
   if (!emailResult) {
     messageHook.show(
       "Our apologies, we could not confirm your email, the link is probably expired. Try connecting your account again."
@@ -94,9 +99,8 @@ let confirmEmail = async () => {
 
   // call register again, this time the user is logged in.
   // this should return the authorize link only.
-  const registerResponse = await identityApi.fitbit.register({
-    redirectUrl: "http://localhost:5000/fitbit/callback",
-    confirmEmailUrl: "http://localhost:5000/fitbit/confirmemail",
+  const registerResponse = await identityApi.fitbit.authorize({
+    redirectUrl: redirectUrl
   });
 
   // check if there is a response.
@@ -108,14 +112,7 @@ let confirmEmail = async () => {
   }
 
   // the response should be a url to redirect.
-  if (registerResponse.emailSent) {
-    // oeps, this is wrong!
-    throw Error("this should not happen, user is logged in here");
-    return;
-  } else {
-    window.location.href = registerResponse.url;
-    return;
-  }
+  window.location.href = registerResponse.url;
 };
 </script>
 
@@ -185,7 +182,7 @@ let confirmEmail = async () => {
             color="primary"
             on:click="{async () => {
               registerOpen = false;
-              await register();
+              await buttonPush();
             }}">Connect my Fitbit account</Button>
         </Col>
       </Row>
