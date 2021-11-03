@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:11 AS build
+FROM mhart/alpine-node:14 AS build
 WORKDIR /app
 COPY . .
 
@@ -6,8 +6,7 @@ COPY . .
 RUN npm config set unsafe-perm true
 
 RUN npm install
-RUN npm install react-scripts@3.4.1 -g
-RUN yarn run build
+RUN npm run build
 
 # production environment
 FROM nginx:stable-alpine
