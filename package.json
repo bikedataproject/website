@@ -1,51 +1,41 @@
 {
-  "name": "website-bikedata",
-  "version": "0.1.0",
+  "name": "svelte-app",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "dotenv": "^8.2.0",
-    "i18next": "^19.6.2",
-    "i18next-browser-languagedetector": "^5.0.0",
-    "mobx": "^5.15.4",
-    "mobx-react-lite": "^2.0.7",
-    "react": "^16.13.1",
-    "react-accessible-accordion": "^3.3.1",
-    "react-countup": "^4.3.3",
-    "react-dom": "^16.12.0",
-    "react-dropdown": "^1.7.0",
-    "react-flags-select": "^1.1.13",
-    "react-hamburger-menu": "^1.2.1",
-    "react-i18next": "^11.7.0",
-    "react-icons": "^3.10.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.0",
-    "react-scroll": "^1.8.0",
-    "react-spinners": "^0.9.0",
-    "react-visibility-sensor": "^5.1.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "coverage": "yarn test --coverage --watchAll=false"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear --single",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@tsconfig/svelte": "^2.0.0",
+    "prettier": "^2.4.1",
+    "prettier-plugin-svelte": "^2.4.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^2.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "^4.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@types/mapbox-gl": "^1.7.0",
+    "bootstrap": "^5.0.2",
+    "mapbox-gl": "^1.13.1",
+    "query-string": "^7.0.1",
+    "sirv-cli": "^1.0.0",
+    "svelte-i18n": "^3.3.13",
+    "svelte-navigator": "^3.1.5",
+    "sveltestrap": "^5.6.3"
   }
 }

@@ -1,0 +1,18 @@
+.sharing-illustration {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    align-items: center;
+}
+
+.sharing-large-logo {
+    width: 33%;
+}
+
+.sharing-large-logo img {
+    max-width: 100%;
+}
+
+.sharing-arrow {
+    width: 75px;
+}
