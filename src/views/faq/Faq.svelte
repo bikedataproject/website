@@ -1,6 +1,5 @@
 <script lang="ts">
-import { Container, Row, Col } from "sveltestrap";
-import App from "../../App.svelte";
+import { Container, Row, Col } from "sveltestrap";=
 import Question from "./Question.svelte";
 </script>
 
