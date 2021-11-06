@@ -18,7 +18,7 @@ export let isCallback: boolean = false;
 export let isConfirmEmail: boolean = false;
 let messageHook: IMessageHook;
 let identityApi: IdentityApi = new IdentityApi({
-  url: "http://localhost:8080/api/identity",
+  url: "https://staging.bikedataproject.org/api/identity",
 });
 let email: string;
 let registerOpen: boolean = false;
@@ -26,8 +26,8 @@ let registerOpen: boolean = false;
 let open = async () => {
   registerOpen = true;
 };
-const redirectUrl = "http://localhost:8080/fitbit/callback";
-const confirmEmailUrl = "http://localhost:8080/fitbit/confirmemail";
+const redirectUrl = "https://staging.bikedataproject.org/fitbit/callback";
+const confirmEmailUrl = "https://staging.bikedataproject.org/fitbit/confirmemail";
 let buttonPush = async () => {
   if (email) {
     await register();
