@@ -12,6 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: mv .env.staging .env
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag bikedataproject/website:staging
     - name: Login to Dock Hub

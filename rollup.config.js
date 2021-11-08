@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -8,8 +9,10 @@ import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
+import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
+const baseUrl = process.env.BASEURL;
 
 function serve() {
 	let server;
@@ -42,6 +45,9 @@ export default {
 		inlineDynamicImports: true // https://github.com/kaisermann/svelte-i18n/issues/48
 	},
 	plugins: [
+		replace({
+			'process.env.BASEURL': baseUrl
+		}),
 		svelte({
 			preprocess: sveltePreprocess({ sourceMap: !production }),
 			compilerOptions: {

@@ -13,12 +13,13 @@ import { IdentityApi } from "../apis/identity/IdentityApi";
 import type { IMessageHook } from "../components/modals/IMessageHook";
 import Message from "../components/modals/Message.svelte";
 import queryString from "query-string";
+import { appManager } from "../AppManagerStore";
 
 export let isCallback: boolean = false;
 export let isConfirmEmail: boolean = false;
 let messageHook: IMessageHook;
 let identityApi: IdentityApi = new IdentityApi({
-  url: "https://staging.bikedataproject.org/api/identity",
+  url: `${$appManager.PublicUrl}api/identity`,
 });
 let email: string;
 let registerOpen: boolean = false;
@@ -26,8 +27,8 @@ let registerOpen: boolean = false;
 let open = async () => {
   registerOpen = true;
 };
-const redirectUrl = "https://staging.bikedataproject.org/fitbit/callback";
-const confirmEmailUrl = "https://staging.bikedataproject.org/fitbit/confirmemail";
+const redirectUrl = `${$appManager.PublicUrl}fitbit/callback`;
+const confirmEmailUrl = `${$appManager.PublicUrl}fitbit/confirmemail`;
 let buttonPush = async () => {
   if (email) {
     await register();

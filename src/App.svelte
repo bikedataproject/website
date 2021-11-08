@@ -6,7 +6,11 @@ import About from "./views/about/About.svelte";
 import Faq from "./views/faq/Faq.svelte";
 import Data from "./views/datamap/Data.svelte";
 import Home from "./views/home/Home.svelte";
+import { appManager } from "./AppManagerStore";
 import { register, init, getLocaleFromNavigator, isLoading } from "svelte-i18n";
+
+const publicUrl = new URL("process.env.BASEURL");
+$appManager.PublicUrl = publicUrl.href;
 
 register("en", () => import("./locales/en.json"));
 register("fr", () => import("./locales/fr.json"));
