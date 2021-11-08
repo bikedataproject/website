@@ -19,7 +19,7 @@ export let isCallback: boolean = false;
 export let isConfirmEmail: boolean = false;
 let messageHook: IMessageHook;
 let identityApi: IdentityApi = new IdentityApi({
-  url: `${$appManager.PublicUrl}api/identity`,
+  url: `${$appManager.PublicUrl}api/account`,
 });
 let email: string;
 let registerOpen: boolean = false;
