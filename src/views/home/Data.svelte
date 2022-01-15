@@ -1,6 +1,7 @@
 <script>
 import { Button } from "sveltestrap";
 import { _ } from "svelte-i18n";
+import { Link } from "svelte-navigator";
 </script>
 
 <section>
@@ -52,7 +53,7 @@ import { _ } from "svelte-i18n";
     </div>
     <div class="explore">
       <h3>{$_("Data_subtitle")}</h3>
-      <Button class="btn-share mt-3">{$_("Data_button")}</Button>
+      <Link to="datamap"><Button class="btn-share mt-3">{$_("Data_button")}</Button></Link>
     </div>
   </div>
 </section>

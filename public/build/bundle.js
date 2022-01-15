@@ -8724,7 +8724,7 @@ var app = (function () {
     	formfeedback = new FormFeedback({
     			props: {
     				valid: /*valid*/ ctx[17],
-    				$$slots: { default: [create_default_slot_1$g] },
+    				$$slots: { default: [create_default_slot_1$h] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -8870,7 +8870,7 @@ var app = (function () {
     }
 
     // (529:4) <FormFeedback {valid}>
-    function create_default_slot_1$g(ctx) {
+    function create_default_slot_1$h(ctx) {
     	let t;
 
     	const block = {
@@ -8890,7 +8890,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$g.name,
+    		id: create_default_slot_1$h.name,
     		type: "slot",
     		source: "(529:4) <FormFeedback {valid}>",
     		ctx
@@ -11854,7 +11854,7 @@ var app = (function () {
     	function switch_props(ctx) {
     		return {
     			props: {
-    				$$slots: { default: [create_default_slot_1$f] },
+    				$$slots: { default: [create_default_slot_1$g] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -12407,7 +12407,7 @@ var app = (function () {
     }
 
     // (217:2) <svelte:component this={outer}>
-    function create_default_slot_1$f(ctx) {
+    function create_default_slot_1$g(ctx) {
     	let div;
     	let current;
     	let if_block = /*isOpen*/ ctx[1] && create_if_block_2$1(ctx);
@@ -12483,7 +12483,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$f.name,
+    		id: create_default_slot_1$g.name,
     		type: "slot",
     		source: "(217:2) <svelte:component this={outer}>",
     		ctx
@@ -16716,7 +16716,7 @@ var app = (function () {
     }
 
     // (8:4) <Container>
-    function create_default_slot_1$e(ctx) {
+    function create_default_slot_1$f(ctx) {
     	let row;
     	let current;
 
@@ -16761,7 +16761,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$e.name,
+    		id: create_default_slot_1$f.name,
     		type: "slot",
     		source: "(8:4) <Container>",
     		ctx
@@ -16830,7 +16830,7 @@ var app = (function () {
 
     	container = new Container({
     			props: {
-    				$$slots: { default: [create_default_slot_1$e] },
+    				$$slots: { default: [create_default_slot_1$f] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17004,7 +17004,7 @@ var app = (function () {
     }
 
     // (12:6) <Link class="nav-link m-2" to="faq">
-    function create_default_slot_1$d(ctx) {
+    function create_default_slot_1$e(ctx) {
     	let t_value = /*$_*/ ctx[0]("FAQ") + "";
     	let t;
 
@@ -17025,7 +17025,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$d.name,
+    		id: create_default_slot_1$e.name,
     		type: "slot",
     		source: "(12:6) <Link class=\\\"nav-link m-2\\\" to=\\\"faq\\\">",
     		ctx
@@ -17102,7 +17102,7 @@ var app = (function () {
     			props: {
     				class: "nav-link m-2",
     				to: "faq",
-    				$$slots: { default: [create_default_slot_1$d] },
+    				$$slots: { default: [create_default_slot_1$e] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17776,7 +17776,7 @@ var app = (function () {
     }
 
     // (7:4) <Row>
-    function create_default_slot_1$c(ctx) {
+    function create_default_slot_1$d(ctx) {
     	let col;
     	let current;
 
@@ -17822,7 +17822,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$c.name,
+    		id: create_default_slot_1$d.name,
     		type: "slot",
     		source: "(7:4) <Row>",
     		ctx
@@ -17838,7 +17838,7 @@ var app = (function () {
 
     	row = new Row({
     			props: {
-    				$$slots: { default: [create_default_slot_1$c] },
+    				$$slots: { default: [create_default_slot_1$d] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18853,7 +18853,7 @@ var app = (function () {
     }
 
     // (8:4) <Row>
-    function create_default_slot_1$b(ctx) {
+    function create_default_slot_1$c(ctx) {
     	let col;
     	let current;
 
@@ -18899,7 +18899,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$b.name,
+    		id: create_default_slot_1$c.name,
     		type: "slot",
     		source: "(8:4) <Row>",
     		ctx
@@ -18915,7 +18915,7 @@ var app = (function () {
 
     	row = new Row({
     			props: {
-    				$$slots: { default: [create_default_slot_1$b] },
+    				$$slots: { default: [create_default_slot_1$c] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -19417,7 +19417,7 @@ var app = (function () {
     }
 
     // (67:4) <Row>
-    function create_default_slot_1$a(ctx) {
+    function create_default_slot_1$b(ctx) {
     	let col;
     	let current;
 
@@ -19463,7 +19463,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$a.name,
+    		id: create_default_slot_1$b.name,
     		type: "slot",
     		source: "(67:4) <Row>",
     		ctx
@@ -19489,7 +19489,7 @@ var app = (function () {
 
     	row1 = new Row({
     			props: {
-    				$$slots: { default: [create_default_slot_1$a] },
+    				$$slots: { default: [create_default_slot_1$b] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -19701,8 +19701,8 @@ var app = (function () {
     /* src/views/home/Data.svelte generated by Svelte v3.44.0 */
     const file$a = "src/views/home/Data.svelte";
 
-    // (55:6) <Button class="btn-share mt-3">
-    function create_default_slot$b(ctx) {
+    // (56:25) <Button class="btn-share mt-3">
+    function create_default_slot_1$a(ctx) {
     	let t_value = /*$_*/ ctx[0]("Data_button") + "";
     	let t;
 
@@ -19723,9 +19723,65 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_default_slot_1$a.name,
+    		type: "slot",
+    		source: "(56:25) <Button class=\\\"btn-share mt-3\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (56:6) <Link to="datamap">
+    function create_default_slot$b(ctx) {
+    	let button;
+    	let current;
+
+    	button = new Button({
+    			props: {
+    				class: "btn-share mt-3",
+    				$$slots: { default: [create_default_slot_1$a] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(button.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(button, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope, $_*/ 3) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(button, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_default_slot$b.name,
     		type: "slot",
-    		source: "(55:6) <Button class=\\\"btn-share mt-3\\\">",
+    		source: "(56:6) <Link to=\\\"datamap\\\">",
     		ctx
     	});
 
@@ -19807,12 +19863,12 @@ var app = (function () {
     	let t37_value = /*$_*/ ctx[0]("Data_subtitle") + "";
     	let t37;
     	let t38;
-    	let button;
+    	let link;
     	let current;
 
-    	button = new Button({
+    	link = new Link$1({
     			props: {
-    				class: "btn-share mt-3",
+    				to: "datamap",
     				$$slots: { default: [create_default_slot$b] },
     				$$scope: { ctx }
     			},
@@ -19896,61 +19952,61 @@ var app = (function () {
     			h3 = element("h3");
     			t37 = text(t37_value);
     			t38 = space();
-    			create_component(button.$$.fragment);
+    			create_component(link.$$.fragment);
     			attr_dev(p, "class", "background-big-letter");
-    			add_location(p, file$a, 6, 2, 103);
-    			add_location(h2, file$a, 8, 4, 201);
+    			add_location(p, file$a, 7, 2, 144);
+    			add_location(h2, file$a, 9, 4, 242);
     			attr_dev(span0, "class", "counter-number svelte-jdhn9y");
-    			add_location(span0, file$a, 11, 8, 298);
-    			add_location(span1, file$a, 12, 8, 350);
+    			add_location(span0, file$a, 12, 8, 339);
+    			add_location(span1, file$a, 13, 8, 391);
     			attr_dev(div0, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div0, file$a, 10, 6, 262);
+    			add_location(div0, file$a, 11, 6, 303);
     			attr_dev(span2, "class", "counter-number svelte-jdhn9y");
-    			add_location(span2, file$a, 16, 10, 459);
-    			add_location(span3, file$a, 17, 10, 511);
-    			add_location(span4, file$a, 15, 8, 442);
-    			add_location(span5, file$a, 19, 8, 553);
+    			add_location(span2, file$a, 17, 10, 500);
+    			add_location(span3, file$a, 18, 10, 552);
+    			add_location(span4, file$a, 16, 8, 483);
+    			add_location(span5, file$a, 20, 8, 594);
     			attr_dev(div1, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div1, file$a, 14, 6, 406);
-    			add_location(span6, file$a, 24, 41, 713);
+    			add_location(div1, file$a, 15, 6, 447);
+    			add_location(span6, file$a, 25, 41, 754);
     			attr_dev(span7, "class", "counter-number svelte-jdhn9y");
-    			add_location(span7, file$a, 24, 10, 682);
-    			add_location(span8, file$a, 25, 10, 747);
+    			add_location(span7, file$a, 25, 10, 723);
+    			add_location(span8, file$a, 26, 10, 788);
     			attr_dev(span9, "class", "counter svelte-jdhn9y");
-    			add_location(span9, file$a, 23, 8, 649);
+    			add_location(span9, file$a, 24, 8, 690);
     			attr_dev(div2, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div2, file$a, 22, 6, 613);
+    			add_location(div2, file$a, 23, 6, 654);
     			attr_dev(div3, "class", "row mb-4");
-    			add_location(div3, file$a, 9, 4, 233);
+    			add_location(div3, file$a, 10, 4, 274);
     			attr_dev(span10, "class", "counter-number svelte-jdhn9y");
-    			add_location(span10, file$a, 32, 10, 906);
-    			add_location(span11, file$a, 33, 10, 955);
-    			add_location(span12, file$a, 31, 8, 889);
-    			add_location(span13, file$a, 35, 8, 998);
+    			add_location(span10, file$a, 33, 10, 947);
+    			add_location(span11, file$a, 34, 10, 996);
+    			add_location(span12, file$a, 32, 8, 930);
+    			add_location(span13, file$a, 36, 8, 1039);
     			attr_dev(div4, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div4, file$a, 30, 6, 853);
+    			add_location(div4, file$a, 31, 6, 894);
     			attr_dev(span14, "class", "counter-number svelte-jdhn9y");
-    			add_location(span14, file$a, 39, 10, 1105);
-    			add_location(span15, file$a, 40, 10, 1154);
-    			add_location(span16, file$a, 38, 8, 1088);
-    			add_location(span17, file$a, 42, 8, 1196);
+    			add_location(span14, file$a, 40, 10, 1146);
+    			add_location(span15, file$a, 41, 10, 1195);
+    			add_location(span16, file$a, 39, 8, 1129);
+    			add_location(span17, file$a, 43, 8, 1237);
     			attr_dev(div5, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div5, file$a, 37, 6, 1052);
+    			add_location(div5, file$a, 38, 6, 1093);
     			attr_dev(span18, "class", "counter-number svelte-jdhn9y");
-    			add_location(span18, file$a, 46, 10, 1306);
-    			add_location(span19, file$a, 47, 10, 1357);
-    			add_location(span20, file$a, 45, 8, 1289);
-    			add_location(span21, file$a, 49, 8, 1397);
+    			add_location(span18, file$a, 47, 10, 1347);
+    			add_location(span19, file$a, 48, 10, 1398);
+    			add_location(span20, file$a, 46, 8, 1330);
+    			add_location(span21, file$a, 50, 8, 1438);
     			attr_dev(div6, "class", "col-4 counter svelte-jdhn9y");
-    			add_location(div6, file$a, 44, 6, 1253);
+    			add_location(div6, file$a, 45, 6, 1294);
     			attr_dev(div7, "class", "row");
-    			add_location(div7, file$a, 29, 4, 829);
-    			add_location(h3, file$a, 53, 6, 1484);
+    			add_location(div7, file$a, 30, 4, 870);
+    			add_location(h3, file$a, 54, 6, 1525);
     			attr_dev(div8, "class", "explore svelte-jdhn9y");
-    			add_location(div8, file$a, 52, 4, 1456);
+    			add_location(div8, file$a, 53, 4, 1497);
     			attr_dev(div9, "class", "container container-section");
-    			add_location(div9, file$a, 7, 2, 155);
-    			add_location(section, file$a, 5, 0, 91);
+    			add_location(div9, file$a, 8, 2, 196);
+    			add_location(section, file$a, 6, 0, 132);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20021,7 +20077,7 @@ var app = (function () {
     			append_dev(div8, h3);
     			append_dev(h3, t37);
     			append_dev(div8, t38);
-    			mount_component(button, div8, null);
+    			mount_component(link, div8, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -20034,26 +20090,26 @@ var app = (function () {
     			if ((!current || dirty & /*$_*/ 1) && t29_value !== (t29_value = /*$_*/ ctx[0]("Average_duration") + "")) set_data_dev(t29, t29_value);
     			if ((!current || dirty & /*$_*/ 1) && t35_value !== (t35_value = /*$_*/ ctx[0]("co2_saved") + "")) set_data_dev(t35, t35_value);
     			if ((!current || dirty & /*$_*/ 1) && t37_value !== (t37_value = /*$_*/ ctx[0]("Data_subtitle") + "")) set_data_dev(t37, t37_value);
-    			const button_changes = {};
+    			const link_changes = {};
 
     			if (dirty & /*$$scope, $_*/ 3) {
-    				button_changes.$$scope = { dirty, ctx };
+    				link_changes.$$scope = { dirty, ctx };
     			}
 
-    			button.$set(button_changes);
+    			link.$set(link_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(button.$$.fragment, local);
+    			transition_in(link.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(button.$$.fragment, local);
+    			transition_out(link.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(section);
-    			destroy_component(button);
+    			destroy_component(link);
     		}
     	};
 
@@ -20080,7 +20136,7 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Data> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Button, _: X, $_ });
+    	$$self.$capture_state = () => ({ Button, _: X, Link: Link$1, $_ });
     	return [$_];
     }
 
