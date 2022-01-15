@@ -9,7 +9,7 @@
     }
 </script>
 
-<Button class="btn-share w-100" on:click={toggle}>GPX</Button>
+<Button class="btn-share w-100 disabled" on:click={toggle}>GPX</Button>
 <Modal body {isOpen} {toggle} header="Thanks for sharing your Strava data!">
     <p>
         When linking your Fitbit account BikeDataProject gets access to your

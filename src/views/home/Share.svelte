@@ -5,6 +5,7 @@ import Message from "../../components/modals/Message.svelte";
 import type { IMessageHook } from "../../components/modals/IMessageHook";
 import Fitbit from "../../integrations/Fitbit.svelte";
 import { _ } from "svelte-i18n";
+import Strava from "../../integrations/Strava.svelte";
 
 export let fitbit: {
   isCallback: boolean;
@@ -28,6 +29,9 @@ let messageHook: IMessageHook;
           <Col xs="6">
             <h4>{$_("Connect_existing_account")}</h4>
             <div class="mt-1 mb-3">
+              <div class="mb-1">
+                <Strava />
+              </div>
               <div class="mb-1">
                 <Fitbit
                   isCallback="{fitbit.isCallback}"

@@ -131,7 +131,7 @@ let confirmEmail = async () => {
 
 <Message bind:hook="{messageHook}" />
 
-<Button class="btn-share w-100" on:click="{async () => await open()}"
+<Button class="btn-share w-100 disabled" on:click="{async () => await open()}"
   >Fitbit</Button>
 
 {#if registerOpen}
