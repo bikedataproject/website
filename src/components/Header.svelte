@@ -3,6 +3,19 @@
     import Navbar from "./Navbar.svelte";
 </script>
 
+<svelte:head>
+<title>Bike Data Project</title>
+	
+<meta property="og:title" content="Bike Data Project">
+<meta property="og:description"
+    content="Open bike data platform for and by cyclists. We want to make cyclists more visible &amp; cities more liveable with open data">
+<meta property="og:keywords" content="open, data, open data, bike, cycling, community">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bike Data Project">
+<meta property="og:url" content="https://bikedataproject.info/">
+
+</svelte:head>
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <Link class="navbar-brand" to="/">

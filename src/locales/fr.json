@@ -15,6 +15,8 @@
     "Several_ways_to_contribute": "Il existe plusieurs façons de contribuer au Bike Data Project. Pour l'instant, vous pouvez soit connecter votre compte Strava, soit télécharger vos fichiers Garmin. Une fois votre application connectée, vous n'avez plus rien à faire : vos trajets seront automatiquement téléchargés sur la plateforme du Bike Data Project.",
     "You_not_using": "Que faire si vous n'utilisez pas encore l'une des applications répertoriées? Vous pourrez bientôt télécharger et utiliser l'application du Bike Data Project. Nous travaillons aussi sur l'intégration d'autres applications de cyclisme !",
     "Connect_existing_account": "Connectez votre compte",
+    "Connect_account_explain": "Il n'est actuellement pas possible de connecter votre compte, inscrivez-vous à notre newsletter et nous vous informerons dès que c'est possible ou réessayez plus tard.",
+    "Connect_gpx_explain": "Il n'est actuellement pas possible de charger votre fichier GPX, inscrivez-vous à notre newsletter et nous vous informerons dès que c'est possible ou réessayez plus tard.",
     "Download_our_app": "Télécharger notre application (disponible prochainement)",
     "Data_title": "Données collectées dans le monde",
     "Rides_collected": "Déplacements enregistrés",

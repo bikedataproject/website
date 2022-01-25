@@ -38,17 +38,14 @@ let messageHook: IMessageHook;
                   isConfirmEmail="{fitbit.isConfirmEmail}" />
               </div>
             </div>
-            <p>
-              After connecting your account your data will be automatically
-              shared with us. You can revoke our access at any time.
-            </p>
+            <p><strong>{$_("Connect_account_explain")}</strong></p>
           </Col>
           <Col xs="6">
             <h4>Upload your data</h4>
             <div class="mt-1 mb-3">
               <div class="mb-1"><Gpx /></div>
             </div>
-            <p>Have GPX tracks of your cycling trips, upload them here!</p>
+            <p><strong>{$_("Connect_gpx_explain")}</strong></p>
           </Col>
         </Row>
       </Col>
