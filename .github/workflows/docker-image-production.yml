@@ -2,7 +2,7 @@ name: Docker Image - Website (Production)
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
 
@@ -12,6 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: mv .env.production .env
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag bikedataproject/website:prod
     - name: Login to Dock Hub
